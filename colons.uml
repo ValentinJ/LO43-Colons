@@ -3,65 +3,117 @@
   <ID>JAVA</ID>
   <OriginalElement>colons</OriginalElement>
   <nodes>
-    <node x="16.0" y="153.0">colons.Carte</node>
-    <node x="151.0" y="79.0">colons.CaseRempart</node>
-    <node x="376.0" y="215.0">colons.TypeRessource</node>
-    <node x="0.0" y="496.0">colons.Des</node>
-    <node x="0.0" y="79.0">colons.CaseRessource</node>
-    <node x="289.0" y="79.0">colons.CaseCommerce</node>
-    <node x="0.0" y="263.0">colons.Ressource</node>
-    <node x="-166.0" y="334.0">colons.Joueur</node>
-    <node x="249.75" y="0.0">colons.Case</node>
-    <node x="-215.0" y="210.0">colons.Main</node>
-    <node x="440.0" y="79.0">colons.CaseDesert</node>
+    <node x="678.2" y="326.5">colons.CAncien</node>
+    <node x="0.0" y="670.0">colons.Des</node>
+    <node x="137.99999999999997" y="522.0">colons.CaseRessource</node>
+    <node x="23.0" y="184.0">colons.CarteRessource</node>
+    <node x="529.7" y="194.5">colons.CarteDeveloppement</node>
+    <node x="246.5" y="443.0">colons.Case</node>
+    <node x="530.7205623901582" y="438.04745166959583">colons.CPConstructionControleContinu</node>
+    <node x="0.0" y="284.0">colons.PileRessource</node>
+    <node x="349.7" y="52.5">colons.Carte</node>
+    <node x="0.0" y="522.0">colons.CaseRempart</node>
+    <node x="5.75" y="0.0">colons.TypeRessource</node>
+    <node x="289.0" y="522.0">colons.CaseCommerce</node>
+    <node x="937.0755711775043" y="436.7838312829525">colons.CPMonopole</node>
+    <node x="322.0" y="316.0">colons.Joueur</node>
+    <node x="462.2" y="326.5">colons.CPtsVict</node>
+    <node x="567.2" y="326.5">colons.CProgres</node>
+    <node x="796.6115992970122" y="438.04745166959583">colons.CPDecouverte</node>
+    <node x="278.0" y="184.0">colons.Main</node>
+    <node x="440.0" y="522.0">colons.CaseDesert</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="colons.CaseRessource" target="colons.Case">
+    <edge source="colons.CProgres" target="colons.CarteDeveloppement">
       <point x="0.0" y="-14.5" />
-      <point x="65.5" y="49.0" />
-      <point x="257.875" y="49.0" />
-      <point x="-24.375" y="14.5" />
+      <point x="0.0" y="14.5" />
     </edge>
-    <edge source="colons.Joueur" target="colons.Main">
+    <edge source="colons.CarteRessource" target="colons.Carte">
+      <point x="58.75" y="-25.0" />
+      <point x="199.25" y="159.0" />
+      <point x="361.0333333333333" y="159.0" />
+      <point x="-22.666666666666657" y="14.5" />
+    </edge>
+    <edge source="colons.CPDecouverte" target="colons.CProgres">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="colons.CPMonopole" target="colons.CProgres">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="colons.CarteRessource" target="colons.TypeRessource">
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
     <edge source="colons.CaseDesert" target="colons.Case">
       <point x="0.0" y="-14.5" />
-      <point x="493.5" y="49.0" />
-      <point x="306.625" y="49.0" />
+      <point x="493.5" y="492.0" />
+      <point x="303.375" y="492.0" />
       <point x="24.375" y="14.5" />
     </edge>
     <edge source="colons.CaseRempart" target="colons.Case">
       <point x="0.0" y="-14.5" />
-      <point x="210.0" y="59.0" />
-      <point x="274.125" y="59.0" />
-      <point x="-8.125" y="14.5" />
+      <point x="59.0" y="492.0" />
+      <point x="254.625" y="492.0" />
+      <point x="-24.375" y="14.5" />
+    </edge>
+    <edge source="colons.CPConstructionControleContinu" target="colons.CProgres">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
     </edge>
     <edge source="colons.CaseCommerce" target="colons.Case">
       <point x="0.0" y="-14.5" />
-      <point x="354.5" y="59.0" />
-      <point x="290.375" y="59.0" />
+      <point x="354.5" y="502.0" />
+      <point x="287.125" y="502.0" />
       <point x="8.125" y="14.5" />
+    </edge>
+    <edge source="colons.CaseRessource" target="colons.Case">
+      <point x="2.8421709430404007E-14" y="-14.5" />
+      <point x="203.5" y="502.0" />
+      <point x="270.875" y="502.0" />
+      <point x="-8.125" y="14.5" />
+    </edge>
+    <edge source="colons.CPtsVict" target="colons.CarteDeveloppement">
+      <point x="0.0" y="-14.5" />
+      <point x="504.7" y="259.0" />
+      <point x="557.3666666666667" y="259.0" />
+      <point x="-55.33333333333334" y="14.5" />
+    </edge>
+    <edge source="colons.Joueur" target="colons.Main">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="colons.CarteDeveloppement" target="colons.Carte">
+      <point x="0.0" y="-14.5" />
+      <point x="612.7" y="159.0" />
+      <point x="406.3666666666667" y="159.0" />
+      <point x="22.666666666666686" y="14.5" />
     </edge>
     <edge source="colons.Main" target="colons.Carte">
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
-    <edge source="colons.Ressource" target="colons.Carte">
+    <edge source="colons.CAncien" target="colons.CarteDeveloppement">
       <point x="0.0" y="-14.5" />
-      <point x="0.0" y="14.5" />
+      <point x="720.2" y="259.0" />
+      <point x="668.0333333333333" y="259.0" />
+      <point x="55.33333333333334" y="14.5" />
+    </edge>
+    <edge source="colons.PileRessource" target="colons.CarteRessource">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.0" x="274.0" y="248.5" />
+  <settings layout="Hierarchic Group" zoom="0.7913769123783032" x="381.8646748681898" y="509.5" />
   <SelectedNodes />
   <Categories>
-    <Category>Constructors</Category>
-    <Category>Methods</Category>
-    <Category>Properties</Category>
-    <Category>Inner Classes</Category>
     <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+    <Category>Properties</Category>
+    <Category>Constructors</Category>
   </Categories>
   <SCOPE>All</SCOPE>
   <VISIBILITY>private</VISIBILITY>
