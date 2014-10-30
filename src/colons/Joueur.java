@@ -8,6 +8,10 @@ public class Joueur {
     protected int score;
     protected java.util.ArrayList<Uv> ListUv;
     private java.util.ArrayList<ControleContinu> listCC;
+    private Enum<Couleurs> couleur;
+
+    public Joueur() {
+    }
 
     public void CalculerScore() {
     }

@@ -5,4 +5,7 @@ package colons;
  */
 public class Main {
     protected java.util.ArrayList<Carte> cartes;
+
+    public Main() {
+    }
 }

@@ -7,6 +7,9 @@ public class PileRessource {
     protected CarteRessource ressource;
     protected int nombre;
 
+    public PileRessource() {
+    }
+
     public void ajouter() {
     }
 

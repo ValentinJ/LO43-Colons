@@ -5,4 +5,7 @@ package colons;
  */
 public class CarteRessource extends Carte {
     protected Enum<TypeRessource> type;
+
+    public CarteRessource(int indice) {
+    }
 }
