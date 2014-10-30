@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>colons</OriginalElement>
+  <nodes>
+    <node x="16.0" y="153.0">colons.Carte</node>
+    <node x="151.0" y="79.0">colons.CaseRempart</node>
+    <node x="376.0" y="215.0">colons.TypeRessource</node>
+    <node x="0.0" y="496.0">colons.Des</node>
+    <node x="0.0" y="79.0">colons.CaseRessource</node>
+    <node x="289.0" y="79.0">colons.CaseCommerce</node>
+    <node x="0.0" y="263.0">colons.Ressource</node>
+    <node x="-166.0" y="334.0">colons.Joueur</node>
+    <node x="249.75" y="0.0">colons.Case</node>
+    <node x="-215.0" y="210.0">colons.Main</node>
+    <node x="440.0" y="79.0">colons.CaseDesert</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="colons.CaseRessource" target="colons.Case">
+      <point x="0.0" y="-14.5" />
+      <point x="65.5" y="49.0" />
+      <point x="257.875" y="49.0" />
+      <point x="-24.375" y="14.5" />
+    </edge>
+    <edge source="colons.Joueur" target="colons.Main">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="colons.CaseDesert" target="colons.Case">
+      <point x="0.0" y="-14.5" />
+      <point x="493.5" y="49.0" />
+      <point x="306.625" y="49.0" />
+      <point x="24.375" y="14.5" />
+    </edge>
+    <edge source="colons.CaseRempart" target="colons.Case">
+      <point x="0.0" y="-14.5" />
+      <point x="210.0" y="59.0" />
+      <point x="274.125" y="59.0" />
+      <point x="-8.125" y="14.5" />
+    </edge>
+    <edge source="colons.CaseCommerce" target="colons.Case">
+      <point x="0.0" y="-14.5" />
+      <point x="354.5" y="59.0" />
+      <point x="290.375" y="59.0" />
+      <point x="8.125" y="14.5" />
+    </edge>
+    <edge source="colons.Main" target="colons.Carte">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="colons.Ressource" target="colons.Carte">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="274.0" y="248.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
