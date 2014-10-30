@@ -6,4 +6,3 @@ package colons;
 public class Carte {
     public String lienImg;
 }
- 
