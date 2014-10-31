@@ -7,5 +7,6 @@ public class CarteRessource extends Carte {
     protected Enum<TypeRessource> type;
 
     public CarteRessource(int indice) {
+        type = new Enum<TypeRessource>(indice);
     }
 }
