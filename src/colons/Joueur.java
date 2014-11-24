@@ -13,7 +13,10 @@ public class Joueur {
     protected java.util.ArrayList<Uv> ListUv;
     private java.util.ArrayList<ControleContinu> listCC;
     private java.util.ArrayList<CarteDeveloppement> listCD;
-    private Enum<Couleurs> couleur;
+    public Enum<Couleurs> couleur;
+
+    public String nomDuJoueur;                               // important pour la fenetre graphique
+    public int valDes;                                       // important pour le trie Joueur 1 , Joueur 2, ...
 
     public Joueur(int indice) {
         couleur = new Enum<Couleurs>(1);
