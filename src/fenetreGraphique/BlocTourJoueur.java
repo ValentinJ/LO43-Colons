@@ -1,7 +1,5 @@
 package fenetreGraphique;
 
-import colons.Couleurs;
-
 /**
  * Created by Guillaume on 21/11/2014.
  */
