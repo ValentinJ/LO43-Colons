@@ -12,7 +12,10 @@ public class Des {
 
     public Des(){v1=0; v2=0;}
 
-    public ArrayList<String> affichage(int indice){
-        return new (ArrayList<String>()).addAll(v1 ,v2);
+    public ArrayList<Integer> affichage(int indice){
+        ArrayList<Integer> liste = new ArrayList<Integer>();
+        liste.add(v1);
+        liste.add(v2);
+        return liste;
     }
 }
