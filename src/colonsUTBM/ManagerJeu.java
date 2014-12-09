@@ -55,6 +55,7 @@ public class ManagerJeu {
             }
         }
 
+     
         for (int j = 0 ; j < caseProd.size() ; j++){
             joueurRecolt.add(chercheJoueur(caseProd.get(j)));
         }
