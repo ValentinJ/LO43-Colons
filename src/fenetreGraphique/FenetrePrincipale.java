@@ -1,5 +1,7 @@
 package fenetreGraphique;
 
+import colonsUTBM.Joueur;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Vector;
@@ -9,17 +11,15 @@ import java.util.Vector;
  */
 public class FenetrePrincipale extends FenetreDefaut {
 
-    /* * * * * * * * Variables pour fenetre graphique * * * * * * * */
     public BarreMenu Menu;                    // Barre de menu de toute bonne fenetre
 
     public EcranHaut EcranHaut;               // infos sur le joueur de ce tour
-    public JPanel EcranGauche;                // construction et boutons d'interractions
+    public EcranGauche EcranGauche;           // construction et boutons d'interractions
     public Plateau Plateau;                   // plateau du jeu
     public EcranDroit Infos;                  // infos du joueur et recapitulatif
                                               // des ressources en main de chaque joueurs
     public EcranBas EcranBas;                 // reglementation du jeu ou msg du jeu
 
-    /* * * * * * * * Variable pour fonctionnement Jeu * * * * * * * */
     int nbJoueur;
     public Vector<Joueur> Joueurs;
     public int Tour;
@@ -31,7 +31,7 @@ public class FenetrePrincipale extends FenetreDefaut {
         nbJoueur = Joueurs.size();
         Menu = new BarreMenu();
 
-        //permet d'ajouter plusieurs panel sans ecraser les anciens
+        //permet d'ajouter plusieurs JPanel sans ecraser les anciens
         getContentPane().setLayout(new BorderLayout());
 
         // ajout du menu
@@ -39,7 +39,7 @@ public class FenetrePrincipale extends FenetreDefaut {
 
         // creation des JPanel
         EcranHaut = new EcranHaut(Joueurs);
-        String msg_appli = "Application développé par Sara, *Laurent, Valentin, Guillaume";
+        String msg_appli = "Application développée par Sara, Yuanxiang, Valentin, Guillaume";
         EcranBas = new EcranBas(msg_appli);
         // instanciation du JPanel EcranGauche
         EcranGauche.add(new JButton("Echange"));
@@ -63,7 +63,7 @@ public class FenetrePrincipale extends FenetreDefaut {
     public void lancementJeu(){
 
     }
-
+/*
     public void miseAJour(){
         // mise a jour des differents JPanel
 
@@ -73,7 +73,7 @@ public class FenetrePrincipale extends FenetreDefaut {
 
         affichage();
     }
-
+*/
     public void JouerCarteMonopole(){
         // actions
 

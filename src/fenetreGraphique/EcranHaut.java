@@ -1,5 +1,7 @@
 package fenetreGraphique;
 
+import colonsUTBM.Joueur;
+
 import javax.swing.*;
 import java.util.Vector;
 
@@ -12,17 +14,18 @@ public class EcranHaut extends JPanel {
     private Vector<BlocTourJoueur> BlocJoueurs;
 
     public EcranHaut(Vector<Joueur> _J){
-        Joueurs = _J;
+    /*    Joueurs = _J;
 
         // creation de ma liste des joueurs
         for(int i = 0; i < Joueurs.size(); i++){
             // afficher nom Joueur
-            BlocJoueurs.add(new BlocTourJoueur((Joueurs.get(i)).nomDuJoueur, (Joueurs.get(i)).couleur);
+            BlocJoueurs.add(new BlocTourJoueur((Joueurs.get(i)).nomDuJoueur, (Joueurs.get(i)).couleur));
         }
 
-        MiseAJour(0);
+        MiseAJour(0);*/
     }
 
+    /*
     public void MiseAJour(int indiceTour){
         // efface ancienne couleur bloc
         (BlocJoueurs.get( (indiceTour-1) % BlocJoueurs.size() )).desactiveCouleur();
@@ -32,5 +35,5 @@ public class EcranHaut extends JPanel {
 
         // active couleur de la case du joueur actuel
         (BlocJoueurs.get( indiceTour % BlocJoueurs.size() )).activeCouleur();
-    }
+    }*/
 }

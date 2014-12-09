@@ -124,7 +124,7 @@ public class ManagerJeu {
 
     public int calculerScoreFinal(){
         for(int i=0 ; i < joueurs.size(); i++){
-            for (int j = 0; j < ((joueurs.get(i)).mainDeveloppement).size(); j++){
+            for (int j = 0; j < ((joueurs.get(i)).mainDeveloppement).size(); j++) {
                 /*if (((joueurs.get(i)).mainDeveloppement).typeDeveloppement == "POINTVICTOIRE"){
                     (joueurs.get(i)).score += 1;
                 }*/

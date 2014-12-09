@@ -1,14 +1,16 @@
 package fenetreGraphique;
 
+import colonsUTBM.Couleur;
+
 /**
  * Created by Guillaume on 21/11/2014.
  */
 public class BlocTourJoueur {
 
     public String nom;
-    Enum<Couleurs> couleur;
+    Enum<Couleur> couleur;
 
-    public BlocTourJoueur(String _n, Enum<Couleurs> _c){
+    public BlocTourJoueur(String _n, Enum<Couleur> _c){
         nom=_n;
         couleur = _c;
         // creer un bloc graphique
