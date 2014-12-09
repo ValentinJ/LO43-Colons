@@ -47,69 +47,69 @@ node.case{
     /*text-offset: 5px, 0px;*/
 }
 node.caseBiere {
-    fill-mode: image-scaled; fill-image: url('img/caseBiere.png');
+    fill-mode: image-scaled; fill-image: url('../img/caseBiere.png');
 }
 node.caseBiereGlandeur {
-    fill-mode: image-scaled; fill-image: url('img/caseBiereGlandeur.png');
+    fill-mode: image-scaled; fill-image: url('../img/caseBiereGlandeur.png');
 }
 
 node.caseCafe {
-    fill-mode: image-scaled; fill-image: url('img/caseCafe.png');
+    fill-mode: image-scaled; fill-image: url('../img/caseCafe.png');
 }
 node.caseCafeGlandeur {
-    fill-mode: image-scaled; fill-image: url('img/caseCafeGlandeur.png');
+    fill-mode: image-scaled; fill-image: url('../img/caseCafeGlandeur.png');
 }
 
 node.caseCours{
-    fill-mode: image-scaled; fill-image: url('img/caseCours.png');
+    fill-mode: image-scaled; fill-image: url('../img/caseCours.png');
 }
 node.caseCoursGlandeur{
-    fill-mode: image-scaled; fill-image: url('img/caseCoursGlandeur.png');
+    fill-mode: image-scaled; fill-image: url('../img/caseCoursGlandeur.png');
 }
 
 node.caseDesert{
-    fill-mode: image-scaled; fill-image: url('img/caseDesert.png');
+    fill-mode: image-scaled; fill-image: url('../img/caseDesert.png');
 }
 node.caseDesertGlandeur{
-    fill-mode: image-scaled; fill-image: url('img/caseDesertGlandeur.png');
+    fill-mode: image-scaled; fill-image: url('../img/caseDesertGlandeur.png');
 }
 
 node.caseNourriture {
-    fill-mode: image-scaled; fill-image: url('img/caseNourriture.png');
+    fill-mode: image-scaled; fill-image: url('../img/caseNourriture.png');
 }
 node.caseNourritureGlandeur {
-    fill-mode: image-scaled; fill-image: url('img/caseNourritureGlandeur.png');
+    fill-mode: image-scaled; fill-image: url('../img/caseNourritureGlandeur.png');
 }
 
 node.caseSommeil {
-    fill-mode: image-scaled; fill-image: url('img/caseSommeil.png');
+    fill-mode: image-scaled; fill-image: url('../img/caseSommeil.png');
 }
 
 node.caseSommeilGlandeur {
-    fill-mode: image-scaled; fill-image: url('img/caseSommeilGlandeur.png');
+    fill-mode: image-scaled; fill-image: url('../img/caseSommeilGlandeur.png');
 }
 
 node.caseOcean{
-    fill-mode: image-scaled; fill-image: url('img/caseOcean.png');
+    fill-mode: image-scaled; fill-image: url('../img/caseOcean.png');
 }
 
 node.caseCommerceTout {
-    fill-mode: image-scaled; fill-image: url('img/caseCommerceTout.png');
+    fill-mode: image-scaled; fill-image: url('../img/caseCommerceTout.png');
 }
 node.caseCommerceBiere {
-    fill-mode: image-scaled; fill-image: url('img/caseCommerceBiere.png');
+    fill-mode: image-scaled; fill-image: url('../img/caseCommerceBiere.png');
 }
 node.caseCommerceCafe {
-    fill-mode: image-scaled; fill-image: url('img/caseCommerceCafe.png');
+    fill-mode: image-scaled; fill-image: url('../img/caseCommerceCafe.png');
 }
 node.caseCommerceCours {
-    fill-mode: image-scaled; fill-image: url('img/caseCommerceCours.png');
+    fill-mode: image-scaled; fill-image: url('../img/caseCommerceCours.png');
 }
 node.caseCommerceNourriture {
-    fill-mode: image-scaled; fill-image: url('img/caseCommerceNourriture.png');
+    fill-mode: image-scaled; fill-image: url('../img/caseCommerceNourriture.png');
 }
 node.caseCommerceSommeil {
-    fill-mode: image-scaled; fill-image: url('img/caseCommerceSommeil.png');
+    fill-mode: image-scaled; fill-image: url('../img/caseCommerceSommeil.png');
 }
 
 

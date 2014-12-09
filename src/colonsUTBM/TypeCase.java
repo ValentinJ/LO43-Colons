@@ -1,8 +1,8 @@
 package colonsUTBM;
 
 /**
- * Created by Guillaume on 03/12/2014.
+ * Created by val on 04/12/14.
  */
 public enum TypeCase {
-    BIERE, CAFE, COURS, SOMMEIL, NOURRITURE, DESERT
+    BIERE,CAFE,COURS,NOURRITURE,SOMMEIL,SEVENANS,OCEAN,COMMERCETOUT;
 }

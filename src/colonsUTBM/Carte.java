@@ -6,5 +6,5 @@ package colonsUTBM;
 public class Carte {
     protected String description;
     protected String nom;
-    protected com.sun.org.apache.xpath.internal.operations.String img;
+    protected String img;
 }
