@@ -1,7 +1,5 @@
 package fenetreGraphique;
 
-import colons.Joueur;
-
 import javax.swing.*;
 import java.util.Vector;
 
