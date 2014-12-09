@@ -13,12 +13,12 @@ public class ManagerJeu {
 
     protected ArrayList<Integer> valeurDes;
     protected int tour;
-    protected Map terrain;
+    protected GraphMap terrain;
     protected Point positionBinomeGlandeur;                     // deverouille case de l ancienne position puis se met a la nouvelle valeur
 
     public ManagerJeu(){}
 
-    public ManagerJeu(ArrayList<Joueur> j, Map t, Point p){
+    public ManagerJeu(ArrayList<Joueur> j, GraphMap t, Point p){
         joueurs = j;
         terrain = t;
         positionBinomeGlandeur = p;
@@ -33,7 +33,7 @@ public class ManagerJeu {
 
     public void finDeTour(){
         tour += 1;
-        terrain.affichage();
+        terrain.MAJCSS();
     }
 
     public void lancerDesDes(){
@@ -119,7 +119,7 @@ public class ManagerJeu {
                 if
             }
         }*/
-
+        return 0;
     }
 
     public int calculerScoreFinal(){
@@ -130,6 +130,7 @@ public class ManagerJeu {
                 }*/
             }
         }
+        return 0;
     }
 
     /*public void nouvellePartie(){                                                        // manque nombre carte
@@ -165,6 +166,7 @@ public class ManagerJeu {
 
     public int phaseFondation(){
         // aucune idée
+        return 0;
     }
 
 

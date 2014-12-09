@@ -34,7 +34,7 @@ public class GraphMap {
     public void chargerCSS(){
         String path = System.getProperty("user.dir");
         System.out.println(path);
-        g.addAttribute("ui.stylesheet", "url('file:///"+path+"/src/MapCSS.css')");
+        g.addAttribute("ui.stylesheet", "url('file:///"+path+"/MapCSS.css')");
     }
 
     public void initMap(){
