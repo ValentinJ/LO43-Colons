@@ -35,15 +35,17 @@ public class Joueur {
         (this.main).remove(new CarteRessource(indice_ressource));
     }
 
-    public void JouerCarte(int indice_main) throws Exception_event_game{
+
+    /* se fait a partir de la classe jeu. Aucune interraction depuis classe Joueur*/
+    /*public void JouerCarte(int indice_main) throws Exception_event_game{
         Iterator it = (Iterator) main.iterator();
         for (int i =0; i < indice_main; i++){
             if (it.hasNext()){ it.next(); }
             else return;
         };
-        /* envoyer l exception ici, mais je ne sais plus faire */
-        /* je ne suis pas sure que seul comme ça, ça fonctionne */
-    }
+        // envoyer l exception ici, mais je ne sais plus faire
+        // je ne suis pas sure que seul comme ça, ça fonctionne
+    }*/
 
     /* c est dans a classe jeu que l on verifira si l on peut creer l UV pour le joueur */
     public void AjoutUv(Uv uv_quelconque){
