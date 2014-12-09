@@ -39,30 +39,46 @@ public class ManagerJeu {
     public void lancerDesDes(){
         ArrayList<Integer> vD = new ArrayList<Integer>();
 
-        vD.add((int) (Math.random() * 6 ) + 1);
-        vD.add((int) (Math.random() * 6 ) + 1);
+        vD.add((int) (Math.random()*6) + 1);
+        vD.add((int) (Math.random()*6) + 1);
 
         valeurDes = vD;
     }
 
-    public void productionRessource(int valeurDes){
-        ArrayList<CaseRessource> caseProd = new ArrayList<CaseRessource>();
-        ArrayList<Joueur> joueurRecolt = new ArrayList<Joueur>();
+    public void productionRessource(int valeurDes){                 // ne peut le faire sans fonction de valentin
+        /*ArrayList<CaseRessource> caseProd = new ArrayList<CaseRessource>();
+        ArrayList<Integer> joueurRecolt = new ArrayList<Integer>();
 
+        // recupere les case produisant les ressources
         for (int i = 0 ; i < (terrain.getListCase()).size() ; i++){
             if ( ((terrain.getListCase()).get(i)).getValeurNumerique() == valeurDes ){
                 caseProd.add((terrain.getListCase()).get(i));
             }
         }
 
-     
+        // recupere les joueurs ayant une uv sur la / les cases produisant des ressources
         for (int j = 0 ; j < caseProd.size() ; j++){
-            joueurRecolt.add(chercheJoueur(caseProd.get(j)));
-        }
+            joueurRecolt = chercheJoueur(caseProd.get(j));
+            // regarde le type d'uv qu a le joueur sur la case
+            for (int k = 0; k < joueurRecolt.size(); k++){
+                // test UV1
+                int d;
+                for (d = 0; d < ((joueurs.get(k)).getUV1()).size(); d++){
+                    if ( (((joueurs.get(k)).getUV1()).get(d)).getPoint() == (caseProd.get(j)).getPointCase() )
+                        ;
+                }
+
+                // test UV2
+
+            }
+            // engendre les gains
+        }*/
+
     }
 
-    public ArrayList<Joueur> chercheJoueur(Case c){                  // besoin accesseur coord UV : "getPoint()"
-        ArrayList<Integer> jUV;
+    // N A PLUS D UTILITE
+    public ArrayList<Integer> chercheJoueur(Case c){                  // besoin accesseur coord UV : "getPoint()"
+        ArrayList<Integer> jUV = new ArrayList<Integer>();
 
         /*for (int i =0; i < joueurs.size(); i++){
             int j;
@@ -73,10 +89,12 @@ public class ManagerJeu {
             }
 
             for (j = 0; j < ((joueurs.get(i)).UV2).size(); j++){
-                if ( ( (((joueurs.get(i)).UV2).get(j)).getPoint() == c.getPointCase() ) && (jUV.contains(i) == false) ) // fait attention au doublons
+                if ( ( (((joueurs.get(i)).UV2).get(j)).getPoint() == c.getPointCase() ) && (jUV.contains(joueurs.get(i)) == false) ) // fait attention au doublons
                     jUV.add(i); // faire attention au doublons
             }
         }*/
+
+        return jUV;
     }
 
     public int calculerScore(){                                      // besoin accesseur coord UV : "getUV1()" et "getUV2()"
