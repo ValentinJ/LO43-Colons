@@ -147,15 +147,15 @@ public class ManagerJeu {
         pilesDeveloppement = pilesD;
         melangerCarteDeveloppement();
 
-        Pile biere = new Pile(new CarteRessource(), 10);
+        Pile biere = new Pile(new CarteRessource(), 19);
         pilesRessources.add(biere);
-        Pile cafe = new Pile(new CarteRessource(), 10);
+        Pile cafe = new Pile(new CarteRessource(), 19);
         pilesRessources.add(cafe);
-        Pile cours = new Pile(new CarteRessource(), 10);
+        Pile cours = new Pile(new CarteRessource(), 19);
         pilesRessources.add(cours);
-        Pile sommeil = new Pile(new CarteRessource(), 10);
+        Pile sommeil = new Pile(new CarteRessource(), 19);
         pilesRessources.add(sommeil);
-        Pile nourriture = new Pile(new CarteRessource(), 10);
+        Pile nourriture = new Pile(new CarteRessource(), 19);
         pilesRessources.add(nourriture);
 
         while (tour){

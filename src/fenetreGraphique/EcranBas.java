@@ -1,6 +1,7 @@
 package fenetreGraphique;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 /**
@@ -11,14 +12,8 @@ public class EcranBas extends JPanel {
     public String message;
 
     public EcranBas(String msg){
-        message = msg;
-        paintComponent(message);
-    }
-
-    public void paintComponent(String msg){
-        Font font = new Font("Courier", Font.BOLD, 20);
-        g.setFont(font);
-        g.setColor(Color.black);
-        g.drawString(msg, 10, 40);
+        add(new JLabel(msg));
+        setBackground(Color.white);
+        setBorder(new EmptyBorder(5, 5, 0, 5));
     }
 }

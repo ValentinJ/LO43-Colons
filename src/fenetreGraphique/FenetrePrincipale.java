@@ -3,7 +3,10 @@ package fenetreGraphique;
 import colonsUTBM.Joueur;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Vector;
 
 /**
@@ -31,6 +34,8 @@ public class FenetrePrincipale extends FenetreDefaut {
         nbJoueur = Joueurs.size();
         Menu = new BarreMenu();
 
+        //On définit le layout à utiliser sur le content pane
+        this.setLayout(new BorderLayout());
         //permet d'ajouter plusieurs JPanel sans ecraser les anciens
         getContentPane().setLayout(new BorderLayout());
 
@@ -42,16 +47,23 @@ public class FenetrePrincipale extends FenetreDefaut {
         String msg_appli = "Application développée par Sara, Yuanxiang, Valentin, Guillaume";
         EcranBas = new EcranBas(msg_appli);
         // instanciation du JPanel EcranGauche
-        EcranGauche.add(new JButton("Echange"));
-        EcranGauche.add(new JButton("Fin de tour"));
+        EcranGauche = new EcranGauche();
+        Plateau = new Plateau();
+        Infos = new EcranDroit(Joueurs, Tour);
+        System.out.println("il est passé par ici");
         /* * * * lui ajouté aussi le recap des construction * * * * */
 
+        // definit taille des JPanel
+        EcranHaut.setPreferredSize(new Dimension(80, 100));
+        EcranGauche.setPreferredSize(new Dimension(200, 100));
+
         // ajout des parties de JPanel dans la JFrame selon un emplacement précis
-        add("NORTH", EcranHaut);
-        add("WEST",  EcranGauche);
-        add("SOUTH", Plateau);
-        add("EAST",  Infos);
-        add("CENTER",EcranBas);
+        add(EcranHaut,   BorderLayout.NORTH);
+        add(EcranGauche, BorderLayout.WEST);
+        add(Plateau,     BorderLayout.CENTER);
+        add(Infos,       BorderLayout.EAST);
+        add(EcranBas,    BorderLayout.SOUTH);
+        System.out.println("mais peut etre pas par là !");
 
         affichage();
     }
@@ -79,6 +91,11 @@ public class FenetrePrincipale extends FenetreDefaut {
 
         // mise a jour
         Infos.MiseAJour(Joueurs, Tour);
+    }
+
+    public static void main() {
+        Vector<Joueur> j = new Vector<Joueur> ();
+        FenetrePrincipale frame = new FenetrePrincipale("testage", 600, 1200, j);
     }
 
 }

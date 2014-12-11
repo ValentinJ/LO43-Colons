@@ -41,8 +41,8 @@ public class Joueur {
     public void echangeAvecJoueur(Joueur j){
     }
 
-    public void echangeAvecPort(/*TypePort t*/){
-    }
+    //public void echangeAvecPort(TypePort t){
+    //}
 
     public void echangeAvecBanque(){
     }
@@ -54,5 +54,20 @@ public class Joueur {
     }
 
     public void validationCarteDevEnMain(){
+    }
+
+    public String getNom(){
+        return nom;
+    }
+
+    public String getCouleur(){
+        String nomcouleur = "";
+        switch (couleur){
+            case BLEU:  nomcouleur = "BLEU";
+            case VERT:  nomcouleur = "VERT";
+            case JAUNE: nomcouleur = "JAUNE";
+            case ROUGE: nomcouleur = "ROUGE";
+        }
+        return nomcouleur;
     }
 }
