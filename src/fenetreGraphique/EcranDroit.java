@@ -30,11 +30,11 @@ public class EcranDroit extends JPanel{
         JPanel echange = new JPanel();
         //creation des onglets de l interface
         for (int i = 1; i <= Joueurs.size()-1; i++){
-            creationOngletsEchange(echange);
-            interfaceEchange.add((Joueurs.get((Tour+i)%Joueurs.size())).getNom(), echange);
+            //creationOngletsEchange(echange);
+            interfaceEchange.add((Joueurs.get((Tour+i)%Joueurs.size())).getNom(), this.creationOngletsEchange());
         }
-        creationOngletsEchange(echange);
-        interfaceEchange.add("Banque", echange);
+        //echange.creationOngletsEchange();
+        interfaceEchange.add("Banque", this.creationOngletsEchange());
 
 
         interfaceEchange.setOpaque(true);
@@ -49,8 +49,9 @@ public class EcranDroit extends JPanel{
         // des differentes possession : carte / UV* / UV** / Controle Continue / ...
     }
 
-    public void creationOngletsEchange(JPanel tmpFinal){
-        tmpFinal = new JPanel();
+    //public void creationOngletsEchange(JPanel tmpFinal){
+    public JPanel creationOngletsEchange(){
+        JPanel tmpFinal = new JPanel();
         tmpFinal.setLayout(new GridLayout(2, 1));
 
         JPanel tmp = new JPanel();
@@ -147,5 +148,7 @@ public class EcranDroit extends JPanel{
 
         tmpFinal.add(tmp);
         tmpFinal.add(new JButton("Echanger"));
+
+        return tmpFinal;
     }
 }
