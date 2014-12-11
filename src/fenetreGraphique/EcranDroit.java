@@ -37,7 +37,7 @@ public class EcranDroit extends JPanel{
         interfaceEchange.add("Banque", this.creationOngletsEchange());
 
 
-        interfaceEchange.setOpaque(true);
+        interfaceEchange.setOpaque(true); 
         add(interfaceEchange);
     }
 
