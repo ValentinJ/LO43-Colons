@@ -229,14 +229,14 @@ public class GraphMap {
         }
     }
 
-    //todo faire méthode pour retourner une arralist des UV1 UV2 en fonction de la case
+    //todo faire méthode pour retourner une arralist des UV1old UV2old en fonction de la case
     public ArrayList<NoeudConstructible> getVoisinsCase(CaseInterne c){
         ArrayList<NoeudConstructible> voisins = new ArrayList<NoeudConstructible>();
         Iterator<Node> it = g.getNode(c.id).getNeighborNodeIterator();
         while (it.hasNext()) {
             Node n = it.next();
             //n.getId()
-            // parcourir arraylist noeuds et trouver ceux d'instance UV1 ou UV2 et les stocker dans voisins
+            // parcourir arraylist noeuds et trouver ceux d'instance UV1old ou UV2old et les stocker dans voisins
         }
         return voisins;
     }

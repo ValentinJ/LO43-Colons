@@ -61,14 +61,14 @@ public class ManagerJeu {
             joueurRecolt = chercheJoueur(caseProd.get(j));
             // regarde le type d'uv qu a le joueur sur la case
             for (int k = 0; k < joueurRecolt.size(); k++){
-                // test UV1
+                // test UV1old
                 int d;
                 for (d = 0; d < ((joueurs.get(k)).getUV1()).size(); d++){
                     if ( (((joueurs.get(k)).getUV1()).get(d)).getPoint() == (caseProd.get(j)).getPointCase() )
                         ;
                 }
 
-                // test UV2
+                // test UV2old
 
             }
             // engendre les gains
@@ -83,13 +83,13 @@ public class ManagerJeu {
         /*for (int i =0; i < joueurs.size(); i++){
             int j;
 
-            for (j = 0; j < ((joueurs.get(i)).UV1).size(); j++){
-                if ( (((joueurs.get(i)).UV1).get(j)).getPoint() == c.getPointCase() )
+            for (j = 0; j < ((joueurs.get(i)).UV1old).size(); j++){
+                if ( (((joueurs.get(i)).UV1old).get(j)).getPoint() == c.getPointCase() )
                     jUV.add(i);
             }
 
-            for (j = 0; j < ((joueurs.get(i)).UV2).size(); j++){
-                if ( ( (((joueurs.get(i)).UV2).get(j)).getPoint() == c.getPointCase() ) && (jUV.contains(joueurs.get(i)) == false) ) // fait attention au doublons
+            for (j = 0; j < ((joueurs.get(i)).UV2old).size(); j++){
+                if ( ( (((joueurs.get(i)).UV2old).get(j)).getPoint() == c.getPointCase() ) && (jUV.contains(joueurs.get(i)) == false) ) // fait attention au doublons
                     jUV.add(i); // faire attention au doublons
             }
         }*/

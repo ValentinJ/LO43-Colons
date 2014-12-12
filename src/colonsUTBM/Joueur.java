@@ -10,9 +10,9 @@ public class Joueur {
     protected Couleur couleur;
     protected int score;
 
-    protected ArrayList<UV1> UV1;
-    protected ArrayList<colonsUTBM.UV2> UV2;
-    protected ArrayList<ControleContinue> CC;
+    protected ArrayList<UV1old> UV1old;
+    protected ArrayList<UV2old> UV2old;
+    protected ArrayList<ControleContinueold> CC;
 
     protected ArrayList<CarteRessource> mainRessource;
     protected ArrayList<CarteDeveloppement> mainDeveloppement;
