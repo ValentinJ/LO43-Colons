@@ -1,6 +1,5 @@
 package fenetreGraphique;
 
-import colonsUTBM.Couleur;
 import colonsUTBM.Joueur;
 
 import java.util.Vector;

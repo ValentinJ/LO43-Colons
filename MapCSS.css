@@ -21,16 +21,16 @@ node.uv2{
     stroke-mode: plain;
     stroke-color: #646464;
 }
-node.player1{
+node.blue{
     fill-color: #0000ff;
 }
-node.player2{
+node.red{
     fill-color: #ff0000;
 }
-node.player3{
+node.green{
     fill-color: #00ff00;
 }
-node.player4{
+node.yellow{
     fill-color: #ffff00;
 }
 
@@ -132,15 +132,15 @@ edge.edgeCommerce {
 edge.controleContinu{
     shadow-mode: plain; shadow-width: 5px; shadow-offset: 0px;
 }
-edge.player1{
+edge.blue{
     shadow-color: #6464ff;
 }
-edge.player2{
+edge.red{
     shadow-color: #ff7878;
 }
-edge.player3{
+edge.green{
     shadow-color: #78ff78;
 }
-edge.player4{
+edge.yellow{
     shadow-color: #ffff78;
 }

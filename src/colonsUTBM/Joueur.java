@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class Joueur {
     protected String nom;
-    protected Couleur couleur;
+    protected TypeCouleur couleur;
     protected int score;
 
     protected ArrayList<UV1old> UV1old;
@@ -20,7 +20,7 @@ public class Joueur {
     public Joueur(){
     }
 
-    public Joueur(String _nom, Couleur _couleur){
+    public Joueur(String _nom, TypeCouleur _couleur){
         nom = _nom;
         couleur = _couleur;
         score = 0;
@@ -61,13 +61,6 @@ public class Joueur {
     }
 
     public String getCouleur(){
-        String nomcouleur = "";
-        switch (couleur){
-            case BLEU:  nomcouleur = "BLEU";
-            case VERT:  nomcouleur = "VERT";
-            case JAUNE: nomcouleur = "JAUNE";
-            case ROUGE: nomcouleur = "ROUGE";
-        }
-        return nomcouleur;
+        return couleur.toString();
     }
 }

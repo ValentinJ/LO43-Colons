@@ -8,28 +8,24 @@ public class NoeudConstructible extends Noeud{
     protected TypeNoeud tn;
 
     public NoeudConstructible(){
-        this(new Point(),TypeNoeud.VIDE);
+        this(new Point());
     }
-    public NoeudConstructible(Point p, TypeNoeud tn){
+    public NoeudConstructible(Point p){
         this.pts = p;
-        this.tn = tn;
+        this.tn = TypeNoeud.VIDE;
         this.id = p.getStringPointID();
         setTypeCSS();
+    }
+    public NoeudConstructible(NoeudConstructible n){
+        this(n.pts);
     }
 
     public TypeNoeud getTn() {
         return tn;
     }
 
-    public void setTn(TypeNoeud tn) {
-        this.tn = tn;
-        setTypeCSS();
-    }
-
     public void setTypeCSS(){
-        if(tn==TypeNoeud.VIDE) typeCSS = TypeNoeudCSS.VIDE.toString();
-        if(tn==TypeNoeud.UV1) typeCSS=TypeNoeudCSS.UV1.toString();
-        if(tn==TypeNoeud.UV2) typeCSS=TypeNoeudCSS.UV2.toString();
+        typeCSS = tn.toString();
     }
 
     @Override

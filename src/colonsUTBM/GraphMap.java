@@ -163,7 +163,7 @@ public class GraphMap {
             for(Point p : listeNoeuds){
                 if(g.getNode(p.getStringPointID())==null && c instanceof CaseInterne) { // verifier si point n'existe pas
                     g.addNode(p.getStringPointID()); // ajout des points à la map + attributs
-                    noeuds.add(new NoeudConstructible(p,TypeNoeud.VIDE));
+                    noeuds.add(new NoeudConstructible(p));
                     n = g.getNode(p.getStringPointID());
                     n.setAttribute("xy",p.transformerX(), p.transformerY());
                     n.addAttribute("ui.label", p.getStringPointID());

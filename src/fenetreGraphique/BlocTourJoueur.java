@@ -1,7 +1,5 @@
 package fenetreGraphique;
 
-import colonsUTBM.Couleur;
-
 import javax.swing.*;
 import java.awt.Color;
 
