@@ -7,8 +7,8 @@ import java.util.Random;
  * Created by Guillaume on 02/12/2014.
  */
 public class Des {
-    public int v1;
-    public int v2;
+    private int v1;
+    private int v2;
 
     public Des(){v1=1; v2=1;}
 
