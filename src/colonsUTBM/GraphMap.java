@@ -176,7 +176,7 @@ public class GraphMap{
                     n = g.getNode(p.getStringPointID());
                     n.setAttribute("xy",p.transformerX(), p.transformerY());
                     n.addAttribute("ui.label", p.getStringPointID());
-                } //todo stocker les noeuds (point construction UV ou UV**) dans l'arraylist noeuds !
+                }
                 //ajout arête case - noeud
                 if(g.getNode(p.getStringPointID())!=null){
                     if(c instanceof CaseExterne && ((CaseExterne) c).isCommerce()){
@@ -253,14 +253,30 @@ public class GraphMap{
     public void afficherMap(){
         viewer = g.display();
         viewer.disableAutoLayout();
-        /*
-        ViewerPipe fromViewer = viewer.newViewerPipe();
-        fromViewer.addViewerListener(this);
-        fromViewer.addSink(g);
-        */
     }
 
-    public NoeudConstructible ClickConstructionUV1(Joueur j) {
+    public boolean verifierConstructionUV1(String id){
+        boolean b = false;
+        for (NoeudConstructible n : noeuds){
+            if(n.getId().equals(id) && n.tn==TypeNoeud.VIDE) {
+                b = true;
+            }
+        }
+        return b;
+    }
+
+    public boolean verifierConstructionUV2(String id){
+        boolean b = false;
+        for (NoeudConstructible n : noeuds){
+            if(n.getId().equals(id) && n.tn==TypeNoeud.UV1) {
+                b = true;
+            }
+        }
+        return b;
+    }
+
+    public NoeudConstructible ClickConstructionUV1(final Joueur j) {
+        final String[] IDClicked = {""};
         System.out.println("On entre dans le listener UV1");
         ViewerPipe fromViewer = viewer.newViewerPipe();
 
@@ -274,9 +290,13 @@ public class GraphMap{
                 System.out.println("Button pushed on node "+s);
             }
             @Override
-            public void buttonReleased(String s) {
-                System.out.println("Button release on node "+s);
-                loop=false;
+            public void buttonReleased(String id) {
+                System.out.println("Button release on node "+id);
+
+                if(verifierConstructionUV1(id)) {
+                    loop = false;
+                    IDClicked[0] = id;
+                }
             }
         });
 
@@ -292,10 +312,15 @@ public class GraphMap{
             catch(InterruptedException e){
                 System.out.println("Erreur : "+e.getMessage());
             }
-            
+
         }
-
-
+        NoeudConstructible tmp = new NoeudConstructible();
+        for(NoeudConstructible n : noeuds){
+            if(n.getId().equals(IDClicked[0])){
+                tmp = n;
+            }
+        }
+        noeuds.set(noeuds.indexOf(tmp),new UV1(tmp,j));
         System.out.println("On sort du listener UV1 !");
     return null;
     }
@@ -353,6 +378,17 @@ public class GraphMap{
         viewer = new Viewer(g, Viewer.ThreadingModel.GRAPH_IN_ANOTHER_THREAD); //Viewer.ThreadingModel.GRAPH_IN_SWING_THREAD
         view = viewer.addDefaultView(false);   // false indicates "no JFrame".
         return view;
+    }
+
+    public void detailMap(){
+
+        for(NoeudConstructible n : noeuds){
+            System.out.println("----"+n.toString()+"----");
+            System.out.println("ID : "+n.getId());
+            System.out.println("TypeCSS : "+n.getTypeCSS());
+            System.out.println("TypeNoeud : "+n.getTn());
+        }
+
     }
 
 }

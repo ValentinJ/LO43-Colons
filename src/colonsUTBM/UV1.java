@@ -17,6 +17,7 @@ public class UV1 extends NoeudConstructible {
         this.j=j;
         tn=TypeNoeud.UV1;
         ptsVictoire=1;
+        typeCSS = tn.toString()+", "+j.getCouleur();
     }
 
     public UV1(UV1 uv){
@@ -24,13 +25,15 @@ public class UV1 extends NoeudConstructible {
         this.j=uv.getJ();
         tn=TypeNoeud.UV1;
         ptsVictoire=1;
+        typeCSS = tn.toString()+", "+j.getCouleur();
+
     }
     public Joueur getJ(){
         return j;
     }
 
     public void setTypeCSS(){
-        typeCSS=tn.toString()+", "+getJ().getCouleur();
+        typeCSS=tn.toString()+", "+j.getCouleur();
     }
 
     @Override

@@ -14,7 +14,7 @@ public class NoeudConstructible extends Noeud{
         this.pts = p;
         this.tn = TypeNoeud.VIDE;
         this.id = p.getStringPointID();
-        setTypeCSS();
+        this.typeCSS = tn.toString();
     }
     public NoeudConstructible(NoeudConstructible n){
         this(n.pts);

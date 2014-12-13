@@ -1,9 +1,11 @@
 graph {
     fill-color: white;
 }
-
+node{
+    
+}
 /* NoeudConstructible UV vide */
-node {
+node.noeud {
     size: 20px;
     fill-color: #646464;
     z-index:10;
