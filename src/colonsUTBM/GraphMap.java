@@ -6,6 +6,8 @@ import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.SingleGraph;
 import org.graphstream.ui.swingViewer.View;
 import org.graphstream.ui.swingViewer.Viewer;
+import org.graphstream.ui.swingViewer.ViewerListener;
+import org.graphstream.ui.swingViewer.ViewerPipe;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -14,11 +16,17 @@ import java.util.Iterator;
 /**
  * Created by val on 29/11/14.
  */
-public class GraphMap {
+public class GraphMap{
     protected Graph g;
+    protected Viewer viewer;
+    protected View view;
+    protected ViewerPipe fromViewer;
     protected ArrayList<Case> cases;
     protected ArrayList<NoeudConstructible> noeuds;
     protected ArrayList<Arete> aretes;
+
+    //test
+    private boolean loop;
 
     public GraphMap(boolean activerQualite){
         g = new SingleGraph("Map");
@@ -29,6 +37,7 @@ public class GraphMap {
         cases = new ArrayList<Case>();
         noeuds = new ArrayList<NoeudConstructible>();
         aretes = new ArrayList<Arete>();
+        loop=true;
     }
 
     public void chargerCSS(){
@@ -242,13 +251,108 @@ public class GraphMap {
     }
 
     public void afficherMap(){
-        Viewer viewer = g.display();
+        viewer = g.display();
         viewer.disableAutoLayout();
+        /*
+        ViewerPipe fromViewer = viewer.newViewerPipe();
+        fromViewer.addViewerListener(this);
+        fromViewer.addSink(g);
+        */
     }
 
+    public NoeudConstructible ClickConstructionUV1(Joueur j) {
+        System.out.println("On entre dans le listener UV1");
+        ViewerPipe fromViewer = viewer.newViewerPipe();
+
+        fromViewer.addViewerListener(new ViewerListener() {
+            @Override
+            public void viewClosed(String s) {
+                loop = false;
+            }
+            @Override
+            public void buttonPushed(String s) {
+                System.out.println("Button pushed on node "+s);
+            }
+            @Override
+            public void buttonReleased(String s) {
+                System.out.println("Button release on node "+s);
+                loop=false;
+            }
+        });
+
+        fromViewer.addSink(g);
+        loop = true;
+
+        while(loop) {
+            fromViewer.pump();
+            //Le sleep permet d'utiliser moins de ressources CPU
+            try {
+                Thread.sleep(100);
+            }
+            catch(InterruptedException e){
+                System.out.println("Erreur : "+e.getMessage());
+            }
+            
+        }
+
+
+        System.out.println("On sort du listener UV1 !");
+    return null;
+    }
+
+    public NoeudConstructible ClickConstructionUV2() {
+        System.out.println("On entre dans le listener UV2 ");
+        ViewerPipe fromViewer = viewer.newViewerPipe();
+
+        fromViewer.addViewerListener(new ViewerListener() {
+            @Override
+            public void viewClosed(String s) {
+
+            }
+
+            @Override
+            public void buttonPushed(String s) {
+                System.out.println("Button pushed on node "+s);
+            }
+
+            @Override
+            public void buttonReleased(String s) {
+                System.out.println("Button release on node "+s);
+                loop=false;
+            }
+        });
+        fromViewer.addSink(g);
+        loop = true;
+
+        while(loop) {
+            fromViewer.pump();
+            //Le sleep permet d'utiliser moins de ressources CPU
+            try {
+                Thread.sleep(100);
+            }
+            catch(InterruptedException e){
+                System.out.println("Erreur : "+e.getMessage());
+            }
+
+            // here your simulation code.
+
+            // You do not necessarily need to use a loop, this is only an example.
+            // as long as you call pump() before using the graph. pump() is non
+            // blocking.  If you only use the loop to look at event, use blockingPump()
+            // to avoid 100% CPU usage. The blockingPump() method is only available from
+            // the nightly builds.
+        }
+
+
+        System.out.println("On sort du listener UV2 !");
+        return null;
+    }
+
+
     public View getView(){
-        Viewer viewer = new Viewer(g, Viewer.ThreadingModel.GRAPH_IN_ANOTHER_THREAD);
-        View view = viewer.addDefaultView(false);   // false indicates "no JFrame".
+        viewer = new Viewer(g, Viewer.ThreadingModel.GRAPH_IN_ANOTHER_THREAD); //Viewer.ThreadingModel.GRAPH_IN_SWING_THREAD
+        view = viewer.addDefaultView(false);   // false indicates "no JFrame".
         return view;
     }
+
 }

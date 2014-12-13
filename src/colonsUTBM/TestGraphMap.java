@@ -12,6 +12,10 @@ public class TestGraphMap {
         g.afficherMap();
         g.MAJCSS();
         //MaFenetre mf = new MaFenetre(g.getView());
+        Joueur j1 = new Joueur("Val", TypeCouleur.BLEU);
+        Joueur j2 = new Joueur("IA", TypeCouleur.ROUGE);
+        g.ClickConstructionUV1();
+        g.ClickConstructionUV2();
 
     }
 }

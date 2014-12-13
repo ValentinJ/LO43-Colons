@@ -9,9 +9,11 @@ public class Joueur {
     protected String nom;
     protected TypeCouleur couleur;
     protected int score;
+    protected int nb_UV1;
+    protected int nb_UV2;
+    protected int nb_CC;
 
-    protected ArrayList<UV1old> UV1old;
-    protected ArrayList<UV2old> UV2old;
+    protected ArrayList<UV1> uvs;
     protected ArrayList<ControleContinueold> CC;
 
     protected ArrayList<CarteRessource> mainRessource;
@@ -24,12 +26,57 @@ public class Joueur {
         nom = _nom;
         couleur = _couleur;
         score = 0;
+        nb_CC=15;
+        nb_UV1=5;
+        nb_UV2=4;
     }
 
-    public void acheterCarte(){
+    public boolean verifierAchatCarteDev(){
+        //todo verifierAchatCarteDev
+        /**
+         * vérifier mainRessource
+         * permettra d'activer le bouton ou non
+          */
+        return true;
     }
 
-    public void construireUV(){
+    public boolean verifierAchatControleContinu(){
+        //todo verifierAchatControleContinu
+        /**
+         * vérifier nb_CC != 00 && vérifier mainRessource
+         * permettra d'activer le bouton ou non
+         */
+        return true;
+    }
+
+    public boolean verifierAchatUV1(){
+        //todo verifierAchatUV1
+        /**
+         * vérifier nb_UV1!= 00 && vérifier mainRessource
+         * permettra d'activer le bouton ou non
+         */
+        return true;
+    }
+
+    public boolean verifierAchatUV2(){
+        //todo verifierAchatUV2
+        /**
+         * vérifier nb_UV2!= 00 && vérifier mainRessource
+         * permettra d'activer le bouton ou non
+         */
+        return true;
+    }
+
+    public void achatCarteDev(){
+        //todo acheterCarteDev
+        /**
+         * verifierAchatCarteDev
+         * Si VRAI alors retirer ressources
+         * Ajouter carte au joueur
+         */
+    }
+
+    public void construireUV1(GraphMap g){
     }
 
     public void transformerUV2(){
@@ -62,5 +109,14 @@ public class Joueur {
 
     public String getCouleur(){
         return couleur.toString();
+    }
+
+    public int getScore(){
+        return score;
+    }
+    public void MAJScore(){
+        for(UV1 uv : uvs){
+            score+=uv.ptsVictoire;
+        }
     }
 }

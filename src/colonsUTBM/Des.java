@@ -14,8 +14,8 @@ public class Des {
 
     public void lancerDes(){
         Random r = new Random();
-        v1 = 1 + r.nextInt(6);
-        v2 = 1 + r.nextInt(6);
+        v1 = 1 + r.nextInt(5);
+        v2 = 1 + r.nextInt(5);
     }
 
     public int getTotalDes(){
