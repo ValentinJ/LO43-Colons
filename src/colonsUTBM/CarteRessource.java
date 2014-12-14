@@ -5,4 +5,28 @@ package colonsUTBM;
  */
 public class CarteRessource extends Carte{
     protected TypeRessource typeRessource;
+    public CarteRessource () {
+        switch(typeRessource){
+            case BIERE:
+                nom="Biere";
+                //img="Biere";
+                break;
+            case CAFE:
+                nom="Cafè";
+                //img="imgcafè";
+                break;
+            case COURS:
+                nom="Cours";
+                //img="imgcours";
+                break;
+            case SOMMEIL:
+                nom="Sommeil";
+                //img="imgsommeil";
+                break;
+            case NOURRITURE:
+                nom="Norriture";
+                //img="imgnorriture";
+                break;
+        }
+    }
 }
