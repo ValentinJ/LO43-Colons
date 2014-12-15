@@ -19,4 +19,8 @@ public class Arete {
     public String getTypeCSS(){
         return "";
     }
+
+    public String getIdArete(){
+        return id;
+    }
 }

@@ -9,5 +9,6 @@ public class UV2 extends UV1 {
         super(uv);
         tn = TypeNoeud.UV2;
         ptsVictoire=2;
+        typeCSS = tn.toString()+", "+j.getCouleur();
     }
 }

@@ -253,29 +253,30 @@ public class GraphMap{
     public void afficherMap(){
         viewer = g.display();
         viewer.disableAutoLayout();
+        viewer.getDefaultView().getCamera().setViewPercent(1.05);
     }
 
     public boolean verifierConstructionUV1(String id){
         boolean b = false;
         for (NoeudConstructible n : noeuds){
-            if(n.getId().equals(id) && n.tn==TypeNoeud.VIDE) {
+            if(n.getId().equals(id) && n.tn==TypeNoeud.VIDE ) {
                 b = true;
             }
         }
         return b;
     }
 
-    public boolean verifierConstructionUV2(String id){
+    public boolean verifierConstructionUV2(String id, Joueur j){
         boolean b = false;
         for (NoeudConstructible n : noeuds){
-            if(n.getId().equals(id) && n.tn==TypeNoeud.UV1) {
+            if(n.getId().equals(id) && n.tn==TypeNoeud.UV1 && j.equals(((UV1)n).getJ())) {
                 b = true;
             }
         }
         return b;
     }
 
-    public NoeudConstructible ClickConstructionUV1(final Joueur j) {
+    public NoeudConstructible ClickConstructionUV1(Joueur j) {
         final String[] IDClicked = {""};
         System.out.println("On entre dans le listener UV1");
         ViewerPipe fromViewer = viewer.newViewerPipe();
@@ -325,27 +326,33 @@ public class GraphMap{
     return null;
     }
 
-    public NoeudConstructible ClickConstructionUV2() {
-        System.out.println("On entre dans le listener UV2 ");
+    public NoeudConstructible ClickConstructionUV2(final Joueur j) {
+        final String[] IDClicked = {""};
+        System.out.println("On entre dans le listener UV2");
         ViewerPipe fromViewer = viewer.newViewerPipe();
 
         fromViewer.addViewerListener(new ViewerListener() {
             @Override
             public void viewClosed(String s) {
-
+                loop = false;
             }
 
             @Override
             public void buttonPushed(String s) {
-                System.out.println("Button pushed on node "+s);
+                System.out.println("Button pushed on node " + s);
             }
 
             @Override
-            public void buttonReleased(String s) {
-                System.out.println("Button release on node "+s);
-                loop=false;
+            public void buttonReleased(String id) {
+                System.out.println("Button release on node " + id);
+
+                if (verifierConstructionUV2(id,j)) {
+                    loop = false;
+                    IDClicked[0] = id;
+                }
             }
         });
+
         fromViewer.addSink(g);
         loop = true;
 
@@ -359,20 +366,71 @@ public class GraphMap{
                 System.out.println("Erreur : "+e.getMessage());
             }
 
-            // here your simulation code.
-
-            // You do not necessarily need to use a loop, this is only an example.
-            // as long as you call pump() before using the graph. pump() is non
-            // blocking.  If you only use the loop to look at event, use blockingPump()
-            // to avoid 100% CPU usage. The blockingPump() method is only available from
-            // the nightly builds.
         }
-
-
+        UV1 tmp = new UV1();
+        for(NoeudConstructible n : noeuds){
+            if(n.getId().equals(IDClicked[0])){
+                tmp = (UV1)n;
+            }
+        }
+        noeuds.set(noeuds.indexOf(tmp),new UV2(tmp));
         System.out.println("On sort du listener UV2 !");
         return null;
     }
 
+    public ControleContinus ClickConstructionControleContinus(Joueur j){
+        final int i=0;
+        final String[] IDClicked = {"",""};
+        System.out.println("On entre dans le listener ControleContinus");
+        ViewerPipe fromViewer = viewer.newViewerPipe();
+
+        fromViewer.addViewerListener(new ViewerListener() {
+            @Override
+            public void viewClosed(String s) {
+                loop = false;
+            }
+
+            @Override
+            public void buttonPushed(String s) {
+                System.out.println("Button pushed on node " + s);
+            }
+
+            @Override
+            public void buttonReleased(String id) {
+                System.out.println("Button release on node " + id);
+
+                if (true) {
+                    loop = false;
+                    IDClicked[0] = id;
+                }
+            }
+        });
+        fromViewer.addSink(g);
+        loop = true;
+        while(loop) {
+            fromViewer.pump();
+            //Le sleep permet d'utiliser moins de ressources CPU
+            try {
+                Thread.sleep(100);
+            }
+            catch(InterruptedException e){
+                System.out.println("Erreur : "+e.getMessage());
+            }
+
+        }
+
+
+        NoeudConstructible tmp;
+        for(NoeudConstructible n : noeuds){
+            if(n.getId().equals(IDClicked[0])){
+                tmp = n;
+            }
+        }
+        //noeuds.set(noeuds.indexOf(tmp),new UV2(tmp));
+        System.out.println("On sort du listener ControleContinus !");
+
+        return null;
+    }
 
     public View getView(){
         viewer = new Viewer(g, Viewer.ThreadingModel.GRAPH_IN_ANOTHER_THREAD); //Viewer.ThreadingModel.GRAPH_IN_SWING_THREAD
@@ -380,13 +438,23 @@ public class GraphMap{
         return view;
     }
 
-    public void detailMap(){
+    public void detailMapNoeudConstrutible(){
 
         for(NoeudConstructible n : noeuds){
             System.out.println("----"+n.toString()+"----");
             System.out.println("ID : "+n.getId());
             System.out.println("TypeCSS : "+n.getTypeCSS());
             System.out.println("TypeNoeud : "+n.getTn());
+        }
+
+    }
+
+    public void detailMapArete(){
+
+        for(Arete n : aretes){
+            System.out.println("----"+n.toString()+"----");
+            System.out.println("ID : "+n.getIdArete());
+            System.out.println("TypeCSS : "+n.getTypeCSS());
         }
 
     }
