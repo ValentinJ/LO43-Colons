@@ -1,5 +1,6 @@
 package fenetreGraphique;
 
+import colonsUTBM.GraphMap;
 import colonsUTBM.Joueur;
 
 import javax.swing.*;
@@ -27,12 +28,19 @@ public class FenetrePrincipale extends FenetreDefaut {
     public Vector<Joueur> Joueurs;
     public int Tour;
 
+    public GraphMap g;
+
     public FenetrePrincipale(String _nom, int _h, int _l, Vector<Joueur> _J) {
         super(_nom, _h, _l);
 
         Joueurs = _J;
         nbJoueur = Joueurs.size();
         Menu = new BarreMenu();
+
+        g = new GraphMap(true);
+        g.initMap();
+        g.chargerCSS();
+        g.MAJCSS();
 
         //On définit le layout à utiliser sur le content pane
         this.setLayout(new BorderLayout());
@@ -48,7 +56,7 @@ public class FenetrePrincipale extends FenetreDefaut {
         EcranBas = new EcranBas(msg_appli);
         // instanciation du JPanel EcranGauche
         EcranGauche = new EcranGauche();
-        Plateau = new Plateau();
+        Plateau = new Plateau(g);
         Infos = new EcranDroit(Joueurs, Tour);
         System.out.println("il est passé par ici");
         /* * * * lui ajouté aussi le recap des construction * * * * */
