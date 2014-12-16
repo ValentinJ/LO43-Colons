@@ -489,6 +489,8 @@ public class GraphMap{
     public View getView(){
         viewer = new Viewer(g, Viewer.ThreadingModel.GRAPH_IN_ANOTHER_THREAD); //Viewer.ThreadingModel.GRAPH_IN_SWING_THREAD
         view = viewer.addDefaultView(false);   // false indicates "no JFrame".
+        viewer.getDefaultView().getCamera().setViewPercent(1.05);
+
         return view;
     }
 
