@@ -253,7 +253,7 @@ public class GraphMap{
     public void afficherMap(){
         viewer = g.display();
         viewer.disableAutoLayout();
-        viewer.getDefaultView().getCamera().setViewPercent(1.05);
+        //viewer.getDefaultView().getCamera().setViewPercent(1.05);
     }
 
     public boolean verifierConstructionUV1(String id){
@@ -273,6 +273,56 @@ public class GraphMap{
                 b = true;
             }
         }
+        return b;
+    }
+
+    public boolean verifierConstructionControleContinusA(String idA, Joueur j){
+        boolean b = false;
+        for (NoeudConstructible n : noeuds) {
+            if (n.getId().equals(idA) && n.tn != TypeNoeud.VIDE && j.equals(((UV1) n).getJ())) {
+                b = true;
+            } else if (n.getId().equals(idA) && n.tn == TypeNoeud.VIDE && verifierNoeudConstructiblePossedeAreteDuJoueur(n,j)) {
+                b = true;
+            }
+        }
+        return b;
+    }
+
+    public boolean verifierConstructionControleContinusB(String idA, String idB, Joueur j){
+        boolean b = false;
+        for (NoeudConstructible n : noeuds) {
+            if (n.getId().equals(idB) && n.tn != TypeNoeud.VIDE && j.equals(((UV1) n).getJ()) && verifierAreteEstVideOuExiste(idA,idB)) {
+                b = true;
+            } else if (n.getId().equals(idB) && n.tn == TypeNoeud.VIDE && verifierAreteEstVideOuExiste(idA,idB)) {
+                b = true;
+            }
+        }
+        return b;
+    }
+
+    public boolean verifierNoeudConstructiblePossedeAreteDuJoueur(NoeudConstructible n, Joueur j){
+        boolean b = false;
+
+        Iterator<Edge> it = g.getNode(n.id).getEnteringEdgeIterator();
+        while (it.hasNext()) {
+            Edge edge = it.next();
+            System.out.println(edge.getAttribute("ui.class")+"="+"conctroleContinu, "+j.getCouleur());
+            if(edge.getAttribute("ui.class").equals("controleContinu, "+j.getCouleur())){
+                b=true;
+            }
+        }
+
+        return b;
+    }
+
+    public boolean verifierAreteEstVideOuExiste(String idA, String idB){
+        boolean b = false;
+        for( Arete ar : aretes){
+            if(ar.getTypeCSS().equals("") && ( ar.getIdArete().equals(idA+":"+idB) || ar.getIdArete().equals(idB+":"+idA) ) )
+                b=true;
+        }
+
+
         return b;
     }
 
@@ -378,8 +428,7 @@ public class GraphMap{
         return null;
     }
 
-    public ControleContinus ClickConstructionControleContinus(Joueur j){
-        final int i=0;
+    public ControleContinus ClickConstructionControleContinus(final Joueur j){
         final String[] IDClicked = {"",""};
         System.out.println("On entre dans le listener ControleContinus");
         ViewerPipe fromViewer = viewer.newViewerPipe();
@@ -398,11 +447,14 @@ public class GraphMap{
             @Override
             public void buttonReleased(String id) {
                 System.out.println("Button release on node " + id);
-
-                if (true) {
+                if(IDClicked[0]!="" && verifierConstructionControleContinusB(IDClicked[0],id,j)){
                     loop = false;
+                    IDClicked[1]= id;
+                }
+                if (verifierConstructionControleContinusA(id,j) && IDClicked[0]=="") {
                     IDClicked[0] = id;
                 }
+
             }
         });
         fromViewer.addSink(g);
@@ -412,20 +464,21 @@ public class GraphMap{
             //Le sleep permet d'utiliser moins de ressources CPU
             try {
                 Thread.sleep(100);
-            }
-            catch(InterruptedException e){
-                System.out.println("Erreur : "+e.getMessage());
+            } catch (InterruptedException e) {
+                System.out.println("Erreur : " + e.getMessage());
             }
 
         }
 
 
-        NoeudConstructible tmp;
-        for(NoeudConstructible n : noeuds){
-            if(n.getId().equals(IDClicked[0])){
-                tmp = n;
+        Arete tmp = new Arete();
+        for(Arete ar : aretes){
+            if(ar.getIdArete().equals(IDClicked[0]+":"+IDClicked[1]) || ar.getIdArete().equals(IDClicked[1]+":"+IDClicked[0])){
+                tmp = ar;
             }
         }
+        aretes.set(aretes.indexOf(tmp),new ControleContinus(tmp,j));
+
         //noeuds.set(noeuds.indexOf(tmp),new UV2(tmp));
         System.out.println("On sort du listener ControleContinus !");
 
