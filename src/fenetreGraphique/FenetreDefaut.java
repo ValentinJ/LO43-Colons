@@ -1,6 +1,7 @@
 package fenetreGraphique;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 
 /**
@@ -8,8 +9,8 @@ import java.awt.event.*;
  */
 public class FenetreDefaut extends JFrame {
     private String nomFenetre;
-    private int hauteur = 800;
-    private int largeur = 500;
+    private int hauteur = 500;
+    private int largeur = 800;
 
     public FenetreDefaut(String _nom, int _h, int _l) {
         nomFenetre = _nom;
@@ -22,13 +23,14 @@ public class FenetreDefaut extends JFrame {
 
     public void affichage() {
         // initialisa la taille de la fenetre
-        setSize(hauteur,largeur);
+        setSize(largeur,hauteur);
         // positionne la fenetre au centre
         setLocationRelativeTo(null);
         // termine le processus lorsqu'on clique sur la croix rouge
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // empeche le redimmensionnement de la fenetre
-        setResizable(false);  // par la suite faudra permettre ce redimensionnement
+        setMinimumSize(new Dimension(largeur, hauteur));
+        setResizable(true);  // par la suite faudra permettre ce redimensionnement
         // la rend visible
         setVisible(true);
     }

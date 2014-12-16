@@ -51,7 +51,7 @@ public class FenetrePrincipale extends FenetreDefaut {
         setJMenuBar(Menu);
 
         // creation des JPanel
-        EcranHaut = new EcranHaut(Joueurs);
+        //EcranHaut = new EcranHaut(Joueurs);
         String msg_appli = "Application développée par Sara, Yuanxiang, Valentin, Guillaume";
         EcranBas = new EcranBas(msg_appli);
         // instanciation du JPanel EcranGauche
@@ -62,11 +62,11 @@ public class FenetrePrincipale extends FenetreDefaut {
         /* * * * lui ajouté aussi le recap des construction * * * * */
 
         // definit taille des JPanel
-        EcranHaut.setPreferredSize(new Dimension(80, 100));
+        //EcranHaut.setPreferredSize(new Dimension(80, 100));
         EcranGauche.setPreferredSize(new Dimension(200, 100));
 
         // ajout des parties de JPanel dans la JFrame selon un emplacement précis
-        add(EcranHaut,   BorderLayout.NORTH);
+        //add(EcranHaut,   BorderLayout.NORTH);
         add(EcranGauche, BorderLayout.WEST);
         add(Plateau,     BorderLayout.CENTER);
         add(Infos,       BorderLayout.EAST);

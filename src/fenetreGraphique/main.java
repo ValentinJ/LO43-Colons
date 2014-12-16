@@ -12,6 +12,6 @@ public class main {
         Vector<Joueur> j = new Vector<Joueur> ();
         //FenetreDefaut frame = new FenetreDefaut("test", 1600, 850);
         //frame.affichage();
-        FenetrePrincipale frame = new FenetrePrincipale("testage", 1600, 850, j);
+        FenetrePrincipale frame = new FenetrePrincipale("testage", 600, 1200, j);
     }
 }
