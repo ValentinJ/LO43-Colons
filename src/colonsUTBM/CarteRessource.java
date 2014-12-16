@@ -23,6 +23,7 @@ public class CarteRessource extends Carte{
                 nom="Sommeil";
                 //img="imgsommeil";
                 break;
+
             case NOURRITURE:
                 nom="Norriture";
                 //img="imgnorriture";
