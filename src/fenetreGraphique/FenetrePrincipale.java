@@ -56,7 +56,7 @@ public class FenetrePrincipale extends FenetreDefaut {
         EcranBas = new EcranBas(msg_appli);
         // instanciation du JPanel EcranGauche
         EcranGauche = new EcranGauche();
-        Plateau = new Plateau(g);
+        Plateau = new Plateau(g.getView());
         Infos = new EcranDroit(Joueurs, Tour);
         System.out.println("il est passé par ici");
         /* * * * lui ajouté aussi le recap des construction * * * * */

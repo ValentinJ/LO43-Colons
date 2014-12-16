@@ -1,6 +1,7 @@
 package fenetreGraphique;
 
 import colonsUTBM.GraphMap;
+import org.graphstream.ui.swingViewer.View;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,14 +13,15 @@ public class Plateau extends JPanel {
     public GraphMap graph;
 
     // initialisation du plateau de jeu
-    public Plateau(GraphMap g){
-        graph= g;
+    public Plateau(View v){
+        //graph= g;
 
         setLayout(new BorderLayout());
-        graph.chargerCSS();
-        graph.MAJCSS();
+        //graph.chargerCSS();
 
-        add(graph.getView(),BorderLayout.CENTER);
+        add(v,BorderLayout.CENTER);
+        //graph.MAJCSS();
+
         //add(new JLabel("ici devrait etre la map avec le res des dés"));
     }
 

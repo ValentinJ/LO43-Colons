@@ -29,6 +29,7 @@ public class GraphMap{
     private boolean loop;
 
     public GraphMap(boolean activerQualite){
+        System.setProperty("org.graphstream.ui.renderer","org.graphstream.ui.j2dviewer.J2DGraphRenderer");
         g = new SingleGraph("Map");
         if(activerQualite){
             g.addAttribute("ui.antialias");
