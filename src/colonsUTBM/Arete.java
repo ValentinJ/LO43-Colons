@@ -10,13 +10,20 @@ public class Arete {
     protected String typeCSS;
 
 
+    Arete(){}
+
     Arete(NoeudConstructible n, NoeudConstructible m){
         this.n=n;
         this.m=m;
         id=n.id+":"+m.id;
+        typeCSS="";
     }
 
     public String getTypeCSS(){
-        return "";
+        return typeCSS;
+    }
+
+    public String getIdArete(){
+        return id;
     }
 }

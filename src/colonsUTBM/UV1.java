@@ -7,7 +7,7 @@ public class UV1 extends NoeudConstructible {
 
     protected int ptsVictoire;
 
-    private Joueur j;
+    protected Joueur j;
 
     public UV1(){
     }

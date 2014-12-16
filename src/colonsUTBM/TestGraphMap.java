@@ -19,12 +19,25 @@ public class TestGraphMap {
         g.MAJCSS();
         //MaFenetre mf = new MaFenetre(g.getView());
 
+
         g.ClickConstructionUV1(j1);
         g.MAJCSS();
-        g.detailMap();
-        g.ClickConstructionUV1(j2);
+        //g.detailMapNoeudConstrutible();
+        g.ClickConstructionUV1(j1);
         g.MAJCSS();
-        g.detailMap();
+        g.ClickConstructionUV1(j1);
+        g.MAJCSS();
+        g.ClickConstructionUV2(j1);
+        g.MAJCSS();
+        //g.detailMapNoeudConstrutible();
+
+        g.ClickConstructionControleContinus(j1);
+        g.MAJCSS();
+        g.detailMapArete();
+
+        g.ClickConstructionControleContinus(j1);
+        g.MAJCSS();
+        g.detailMapArete();
 
     }
 }

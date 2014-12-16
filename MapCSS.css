@@ -2,24 +2,27 @@ graph {
     fill-color: white;
 }
 node{
-    
+
 }
 /* NoeudConstructible UV vide */
+node{
+    z-index: 10;
+}
+
 node.noeud {
     size: 20px;
     fill-color: #646464;
-    z-index:10;
 }
 node.uv1{
-    size: 20px;
-    shape: rounded-box;
+    size: 25px;
+    shape: triangle;
     stroke-mode: plain;
     stroke-color: #646464;
 }
 node.uv2{
-    size: 20px;
+    size: 25px;
     shape: rounded-box;
-    stroke-width: 4px;
+    stroke-width: 2px;
     stroke-mode: plain;
     stroke-color: #646464;
 }
