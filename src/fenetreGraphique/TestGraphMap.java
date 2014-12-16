@@ -1,7 +1,6 @@
 package fenetreGraphique;
 
 import colonsUTBM.*;
-import fenetreGraphique.MaFenetre;
 
 /**
  * Created by val on 30/11/14.
@@ -18,9 +17,9 @@ public class TestGraphMap {
         GraphMap g = new GraphMap(true);
         g.initMap();
         g.chargerCSS();
-        //g.afficherMap();
+        g.afficherMap();
         g.MAJCSS();
-        MaFenetre mf = new MaFenetre(g.getView());
+        //MaFenetre mf = new MaFenetre(g.getView());
 
 
         g.ClickConstructionUV1(j1);
