@@ -77,14 +77,18 @@ public class Joueur {
     protected ArrayList<UV1> uvs;
     protected ArrayList<ControleContinueold> CC;
 
-    protected ArrayList<CarteRessource> mainRessource;
+    protected ArrayList<Pile> mainRessource;
     protected ArrayList<CarteDeveloppement> mainDeveloppement;
 
-    public Joueur(){
-    }
-
+    public Joueur(){}
 
     public Joueur(String _nom, TypeCouleur _couleur){
+        mainRessource.add(new Pile(new CarteRessource(TypeRessource.BIERE)));
+        mainRessource.add(new Pile(new CarteRessource(TypeRessource.CAFE)));
+        mainRessource.add(new Pile(new CarteRessource(TypeRessource.COURS)));
+        mainRessource.add(new Pile(new CarteRessource(TypeRessource.SOMMEIL)));
+        mainRessource.add(new Pile(new CarteRessource(TypeRessource.NOURRITURE)));
+
         nom = _nom;
         couleur = _couleur;
         score = 0;

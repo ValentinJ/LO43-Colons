@@ -164,9 +164,17 @@ public class ManagerJeu {
         }
     }*/
 
-    public int phaseFondation(){
-        // aucune idée
-        return 0;
+    public void phaseFondation(){
+        for (int i=0; i<joueurs.size();i++){
+            // pose uv
+            // pose cc
+            tour++;
+        }
+        for (int i=joueurs.size(); i>0;i--){
+            // pose uv
+            // pose cc
+            tour++;
+        }
     }
 
 

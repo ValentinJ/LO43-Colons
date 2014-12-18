@@ -1,11 +1,17 @@
 package fenetreGraphique;
 
 import colonsUTBM.Joueur;
+import colonsUTBM.UV;
+import sun.awt.VerticalBagLayout;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Vector;
 
@@ -21,15 +27,94 @@ public class EcranDroit extends JPanel{
     public JPanel EJ1;
     public JPanel EJ2;
     public JPanel EJ3;
+
+    public JPanel recap;
+    public JPanel recapCarteR;
+    public Graphics gImgCarte;
+    public Image imgBierre;
+    public Image imgSommeil;
+    public Image imgCafe;
+    public Image imgCours;
+    public Image imgNourriture;
+
     int Tour;
 
-    public EcranDroit(Vector<Joueur> j, int t){
+    public EcranDroit(Vector<Joueur> j, int t, Graphics g) throws IOException {
+        gImgCarte = g;
         Joueurs = j;
         Tour = t;
+
+        setLayout(new GridLayout(2,1));
+
+        recap = new JPanel();
+        recap.setLayout(new VerticalBagLayout());
+
         // partie le tableau de maniere dynamique
+        recapCarteR = new JPanel(new GridLayout(12,Joueurs.size()+1));
+
+//        imgBierre     = ImageIO.read(new File("/img/caseBiere"));
+//        imgSommeil    = ImageIO.read(new File("/img/caseBiere"));
+//        imgCafe       = ImageIO.read(new File("/img/caseBiere"));
+//        imgCours      = ImageIO.read(new File("/img/caseBiere"));
+//        imgNourriture = ImageIO.read(new File("/img/caseBiere"));
+//        paintComponent(gImgCarte, imgBierre,      0, 5);
+//        paintComponent(gImgCarte, imgSommeil,    20, 5);
+//        paintComponent(gImgCarte, imgCafe,       40, 5);
+//        paintComponent(gImgCarte, imgCours,      60, 5);
+//        paintComponent(gImgCarte, imgNourriture, 80, 5);
+
+        // entete tab
+        for(int i=-1; i< Joueurs.size(); i++) {
+            if (i==-1)
+               recapCarteR.add(new JLabel("   "));
+            else
+                recapCarteR.add(new JLabel((Joueurs.get(i)).getNom()));
+        }
+        // contenue tab ressource
+        for (int i=0; i<5; i++){
+            for (int k = -1; k<Joueurs.size()+1; k++){
+                if (k==-1) {
+                    recapCarteR.add(new JLabel("   "));
+                }
+                else {
+    //                recapCarteR.add(new JLabel((Joueurs.get(k)).getNom()));
+                    //TODO mettre les cartes des joueurs et pas les noms !
+                }
+            }
+        }
+
+        // contenue des score
+        for(int i=-1; i< Joueurs.size(); i++) {
+            recapCarteR.add(new JLabel("   "));
+        }
+        for (int i=0; i<2; i++) {
+            for (int k = -1; k < Joueurs.size() + 1; k++) {
+                //UV1
+                //UV2
+            }
+        }        // contenue des score
+        for(int i=-1; i< Joueurs.size(); i++) {
+            if (i!=-1)
+                recapCarteR.add(new JLabel("   "));
+            else
+                recapCarteR.add(new JLabel("Bonus"));
+        }
+        for (int i=0; i<2; i++) {
+            for (int k = -1; k < Joueurs.size() + 1; k++) {
+                //Ancien
+                //Comm
+            }
+        }
+        // tot
+        for(int i=-1; i< Joueurs.size(); i++) {
+            recapCarteR.add(new JLabel("   "));
+        }
+
         // partie nb ville et colonnie du joueur actu
         // partie bonus (anciens + controle continue)
         // partie score tot nb ville + colonnie + bonus
+
+        recap.add(recapCarteR);
 
         // interface des echanges
         interfaceEchange = new JTabbedPane();
@@ -51,8 +136,9 @@ public class EcranDroit extends JPanel{
         Banque = OngletEchange(5);
         interfaceEchange.add("Banque", Banque);
 
-
         interfaceEchange.setOpaque(true);
+
+        add(recap);
         add(interfaceEchange);
     }
 
@@ -67,7 +153,7 @@ public class EcranDroit extends JPanel{
     public JPanel OngletEchange(int indiceJoueur){ // servira pour verif cartes, boutons, liste derooulantes , ..
         JPanel tmpFinal = new JPanel();
         tmpFinal.setBorder(new EmptyBorder(5, 0, 0, 5));
-        tmpFinal.setLayout(new GridLayout(2,1));
+        tmpFinal.setLayout(new VerticalBagLayout());
 
         JPanel tmp = new JPanel();
         tmp.setLayout(new GridLayout(1, 2));
@@ -168,10 +254,16 @@ public class EcranDroit extends JPanel{
         tmp.add(coinDroit);
 
         JButton comm = new JButton("Echanger");
+        JPanel boutEchg = new JPanel();
+        boutEchg.add(comm);
 
         tmpFinal.add(tmp);
-        tmpFinal.add(comm);
+        tmpFinal.add(boutEchg);
 
         return tmpFinal;
+    }
+
+    public void paintComponent(Graphics g, Image img, int d, int h) {
+        g.drawImage(img, d, h, null);
     }
 }

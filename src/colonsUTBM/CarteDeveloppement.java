@@ -4,10 +4,13 @@ package colonsUTBM;
  * Created by Guillaume on 02/12/2014.
  */
 public class CarteDeveloppement extends Carte{
-    protected boolean attenteValide; /*il dit si la carte peut etre joué*/
-    private TypeDeveloppement typeDeveloppement;
 
-    public CarteDeveloppement(){
+    protected boolean attenteValide; /*il dit si la carte peut etre joué*/
+    protected TypeDeveloppement typeDeveloppement;
+
+    public CarteDeveloppement(TypeDeveloppement t){
+        typeDeveloppement = t;
+        attenteValide = false;
         switch (typeDeveloppement){
             case ANCIEN:
                 nom="Carte Ancien";
@@ -31,4 +34,8 @@ public class CarteDeveloppement extends Carte{
                 break;
         }
     }
+
+    public boolean isAttenteValide() { return attenteValide; }
+    public TypeDeveloppement getTypeDeveloppement() { return typeDeveloppement; }
+    public String getNom() { return nom; }
 }

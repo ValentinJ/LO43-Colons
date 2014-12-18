@@ -2,10 +2,12 @@ package fenetreGraphique;
 
 import colonsUTBM.GraphMap;
 import colonsUTBM.Joueur;
+import org.graphstream.graph.Graph;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Vector;
@@ -29,6 +31,7 @@ public class FenetrePrincipale extends FenetreDefaut {
     public int Tour;
 
     public GraphMap g;
+    public Graphics gImgEntete;
 
     public FenetrePrincipale(String _nom, int _h, int _l, Vector<Joueur> _J) {
         super(_nom, _h, _l);
@@ -52,12 +55,18 @@ public class FenetrePrincipale extends FenetreDefaut {
 
         // creation des JPanel
         //EcranHaut = new EcranHaut(Joueurs);
-        String msg_appli = "Application développée par Sara, Yuanxiang, Valentin, Guillaume";
+        String msg_appli = "MSG INFOS : Application développée par Sara, Yuanxiang, Valentin, Guillaume";
         EcranBas = new EcranBas(msg_appli);
         // instanciation du JPanel EcranGauche
         EcranGauche = new EcranGauche();
         Plateau = new Plateau(g.getView());
-        Infos = new EcranDroit(Joueurs, Tour);
+
+        try {
+            Infos = new EcranDroit(Joueurs, Tour, gImgEntete);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         System.out.println("il est passé par ici");
         /* * * * lui ajouté aussi le recap des construction * * * * */
 
