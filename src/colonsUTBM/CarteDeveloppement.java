@@ -37,5 +37,4 @@ public class CarteDeveloppement extends Carte{
 
     public boolean isAttenteValide() { return attenteValide; }
     public TypeDeveloppement getTypeDeveloppement() { return typeDeveloppement; }
-    public String getNom() { return nom; }
 }

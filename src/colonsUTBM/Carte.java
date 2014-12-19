@@ -7,4 +7,8 @@ public class Carte {
     protected String description;
     protected String nom;
     protected String img;
+
+    public Carte(){}
+
+    public String getNom() { return nom; }
 }

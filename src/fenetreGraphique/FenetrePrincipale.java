@@ -38,7 +38,7 @@ public class FenetrePrincipale extends FenetreDefaut {
 
         Joueurs = _J;
         nbJoueur = Joueurs.size();
-        Menu = new BarreMenu();
+        //Menu = new BarreMenu();
 
         g = new GraphMap(true);
         g.initMap();
@@ -51,7 +51,7 @@ public class FenetrePrincipale extends FenetreDefaut {
         getContentPane().setLayout(new BorderLayout());
 
         // ajout du menu
-        setJMenuBar(Menu);
+        //setJMenuBar(Menu);
 
         // creation des JPanel
         //EcranHaut = new EcranHaut(Joueurs);

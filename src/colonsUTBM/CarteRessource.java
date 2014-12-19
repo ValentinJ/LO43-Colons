@@ -34,5 +34,4 @@ public class CarteRessource extends Carte{
     }
 
     public TypeRessource getTypeRessource() { return typeRessource; }
-    public String getNom() { return nom; }
 }
