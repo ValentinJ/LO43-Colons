@@ -119,7 +119,15 @@ node.caseCommerceSommeil {
 
 
 node:clicked {
-    fill-color: red;
+    fill-color: #00fff5;
+}
+
+node .edgeConstruction {
+    size: 25px;
+    shape: diamond;
+    stroke-mode: plain;
+    stroke-color: black;
+    fill-color: white;
 }
 
 /* arête pour contrôle continus */

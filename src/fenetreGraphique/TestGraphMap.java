@@ -37,7 +37,15 @@ public class TestGraphMap {
         g.MAJCSS();
         g.detailMapArete();
 
+        g.ClickConstructionControleContinus(j2);
+        g.MAJCSS();
+        g.detailMapArete();
+
         g.ClickConstructionControleContinus(j1);
+        g.MAJCSS();
+        g.detailMapArete();
+
+        g.ClickConstructionControleContinus(j2);
         g.MAJCSS();
         g.detailMapArete();
 

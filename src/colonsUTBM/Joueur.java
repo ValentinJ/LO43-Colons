@@ -73,7 +73,7 @@ public class Joueur {
      * récupérer le nombre de carte, pour chaque pile recuperer nb dans la pile et faire la somme
      */
 
-    
+
     protected ArrayList<UV1> uvs;
     protected ArrayList<ControleContinueold> CC;
 
@@ -83,12 +83,13 @@ public class Joueur {
     public Joueur(){}
 
     public Joueur(String _nom, TypeCouleur _couleur){
+/*
         mainRessource.add(new Pile(new CarteRessource(TypeRessource.BIERE)));
         mainRessource.add(new Pile(new CarteRessource(TypeRessource.CAFE)));
         mainRessource.add(new Pile(new CarteRessource(TypeRessource.COURS)));
         mainRessource.add(new Pile(new CarteRessource(TypeRessource.SOMMEIL)));
         mainRessource.add(new Pile(new CarteRessource(TypeRessource.NOURRITURE)));
-
+*/
         nom = _nom;
         couleur = _couleur;
         score = 0;

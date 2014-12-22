@@ -294,7 +294,7 @@ public class GraphMap{
         for (NoeudConstructible n : noeuds) {
             if (n.getId().equals(idB) && n.tn != TypeNoeud.VIDE && j.equals(((UV1) n).getJ()) && verifierAreteEstVideOuExiste(idA,idB)) {
                 b = true;
-            } else if (n.getId().equals(idB) && n.tn == TypeNoeud.VIDE && verifierAreteEstVideOuExiste(idA,idB)) {
+            } else if (n.getId().equals(idB) /*&& n.tn == TypeNoeud.VIDE*/ && verifierAreteEstVideOuExiste(idA,idB)) {
                 b = true;
             }
         }
@@ -448,12 +448,20 @@ public class GraphMap{
             @Override
             public void buttonReleased(String id) {
                 System.out.println("Button release on node " + id);
-                if(IDClicked[0]!="" && verifierConstructionControleContinusB(IDClicked[0],id,j)){
+                if(IDClicked[0]==id){
+                    IDClicked[0]="";
+                    System.out.println("Annulation construction Contrôle continu !");
+                    MAJCSS();
+                }
+
+                else if(IDClicked[0]!="" && verifierConstructionControleContinusB(IDClicked[0],id,j)){
                     loop = false;
                     IDClicked[1]= id;
                 }
-                if (verifierConstructionControleContinusA(id,j) && IDClicked[0]=="") {
+                else if (verifierConstructionControleContinusA(id,j) && IDClicked[0]=="") {
                     IDClicked[0] = id;
+                    g.getNode(id).addAttribute("ui.class", "edgeConstruction");
+                    System.out.println("Ajout du css pour le noeud en cours");
                 }
 
             }

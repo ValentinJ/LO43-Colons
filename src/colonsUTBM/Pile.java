@@ -8,7 +8,7 @@ public class Pile {
     protected int nombre;
     protected CarteRessource ressource;
 
-    public Pile(CarteRessource cr){ ressource = cr; }
+    public Pile(CarteRessource cr){ ressource = cr; nombre=0; }
     public Pile(CarteRessource cr, int nb){ ressource = cr; nombre = nb; }
 
     public void ajouter() { nombre++; }
