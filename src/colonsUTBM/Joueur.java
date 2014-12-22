@@ -103,7 +103,9 @@ public class Joueur {
     public boolean verifierAchatCarteDev(){
         //todo verifierAchatCarteDev
         /**
-         * vérifier mainRessource
+         * if (mainRessource.??.size()>??)
+         * {return true}
+         * vérifier mainRessource (combien de cartes un joueue doit avoir pour acheter une carte?)
          * permettra d'activer le bouton ou non
           */
         return true;
@@ -130,6 +132,7 @@ public class Joueur {
     public boolean verifierAchatUV2(){
         //todo verifierAchatUV2
         /**
+         * if (nb_UV2 !=0 && )
          * vérifier nb_UV2!= 00 && vérifier mainRessource
          * permettra d'activer le bouton ou non
          */
