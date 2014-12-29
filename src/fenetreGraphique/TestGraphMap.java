@@ -18,35 +18,35 @@ public class TestGraphMap {
         g.initMap();
         g.chargerCSS();
         g.afficherMap();
-        g.MAJCSS();
+        g.majCSS();
         //MaFenetre mf = new MaFenetre(g.getView());
 
 
         g.ClickConstructionUV1(j1);
-        g.MAJCSS();
+        g.majCSS();
         //g.detailMapNoeudConstrutible();
         g.ClickConstructionUV1(j1);
-        g.MAJCSS();
+        g.majCSS();
         g.ClickConstructionUV1(j2);
-        g.MAJCSS();
+        g.majCSS();
         g.ClickConstructionUV2(j1);
-        g.MAJCSS();
+        g.majCSS();
         //g.detailMapNoeudConstrutible();
 
         g.ClickConstructionControleContinus(j1);
-        g.MAJCSS();
+        g.majCSS();
         g.detailMapArete();
 
         g.ClickConstructionControleContinus(j2);
-        g.MAJCSS();
+        g.majCSS();
         g.detailMapArete();
 
         g.ClickConstructionControleContinus(j1);
-        g.MAJCSS();
+        g.majCSS();
         g.detailMapArete();
 
         g.ClickConstructionControleContinus(j2);
-        g.MAJCSS();
+        g.majCSS();
         g.detailMapArete();
 
     }

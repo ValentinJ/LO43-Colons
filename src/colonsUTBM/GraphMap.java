@@ -158,7 +158,7 @@ public class GraphMap{
             //Creation case et ajout css
             g.addNode(c.id);
             Node n = g.getNode(c.id);
-            n.addAttribute("layout.frozen"); //todo ne freeze rien du tout !!
+            //n.addAttribute("layout.frozen"); //todo ne freeze rien du tout !!
             n.setAttribute("xy", c.pts.transformerX(), c.pts.transformerY());
             n.addAttribute("ui.class", c.getTypeCSS());
 
@@ -219,13 +219,25 @@ public class GraphMap{
         
     }
 
-    public void MAJCSS(){
+    public void majCSS(){
+        majCasesCSS();
+        majNoeudsCSS();
+        majAretesCSS();
+    }
+
+    public void majCasesCSS(){
         for(Case c : cases){
             g.getNode(c.id).addAttribute("ui.class", c.getTypeCSS());
         }
+    }
+
+    public void majNoeudsCSS(){
         for(NoeudConstructible n : noeuds){
             g.getNode(n.id).addAttribute("ui.class", n.getTypeCSS());
         }
+    }
+
+    public void majAretesCSS(){
         for(Arete a : aretes){
             g.getEdge(a.id).addAttribute("ui.class", a.getTypeCSS());
         }
@@ -451,7 +463,7 @@ public class GraphMap{
                 if(IDClicked[0]==id){
                     IDClicked[0]="";
                     System.out.println("Annulation construction Contrôle continu !");
-                    MAJCSS();
+                    majCSS();
                 }
 
                 else if(IDClicked[0]!="" && verifierConstructionControleContinusB(IDClicked[0],id,j)){

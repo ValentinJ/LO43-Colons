@@ -20,14 +20,14 @@ public class Plateau extends JPanel {
         //graph.chargerCSS();
 
         add(v,BorderLayout.CENTER);
-        //graph.MAJCSS();
+        //graph.majCSS();
 
         //add(new JLabel("ici devrait etre la map avec le res des dés"));
     }
 
     public void MiseAJour(){
         graph.chargerCSS();
-        graph.MAJCSS();
+        graph.majCSS();
     }
 
     // possible interraction

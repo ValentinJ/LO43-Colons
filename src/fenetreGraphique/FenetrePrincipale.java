@@ -2,14 +2,9 @@ package fenetreGraphique;
 
 import colonsUTBM.GraphMap;
 import colonsUTBM.Joueur;
-import org.graphstream.graph.Graph;
 
-import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Vector;
 
 /**
@@ -43,7 +38,7 @@ public class FenetrePrincipale extends FenetreDefaut {
         g = new GraphMap(true);
         g.initMap();
         g.chargerCSS();
-        g.MAJCSS();
+        g.majCSS();
 
         //On définit le layout à utiliser sur le content pane
         this.setLayout(new BorderLayout());

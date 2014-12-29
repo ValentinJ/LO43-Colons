@@ -33,7 +33,7 @@ public class ManagerJeu {
 
     public void finDeTour(){
         tour += 1;
-        terrain.MAJCSS();
+        terrain.majCSS();
     }
 
     public void lancerDesDes(){
