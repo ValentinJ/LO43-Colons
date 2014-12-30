@@ -83,7 +83,7 @@ public class GraphMap{
         tcc.add(TypeCase.NOURRITURE);
         tcc.add(TypeCase.SOMMEIL);
         Collections.shuffle(tcc); //mélande de la liste
-        
+
         //Liste des points formant une case (hexagone)
         ArrayList<Point> pts = new ArrayList<Point>();
         pts.add(new Point(0,0));//Debut ressource indice 0
@@ -185,6 +185,7 @@ public class GraphMap{
                             g.addEdge(c.pts.getStringPointID() + ":" + p.getStringPointID(), c.pts.getStringPointID(), p.getStringPointID());
                             e = g.getEdge(c.pts.getStringPointID() + ":" + p.getStringPointID());
                             e.addAttribute("ui.class", "edgeCommerce"); //à commenter pour voir liaison case - noeud
+                            e.addAttribute("layout.weight", 100);
                         }
                         mm++;
                     }
@@ -192,6 +193,7 @@ public class GraphMap{
                         g.addEdge(c.pts.getStringPointID() + ":" + p.getStringPointID(), c.pts.getStringPointID(), p.getStringPointID());
                         e = g.getEdge(c.pts.getStringPointID() + ":" + p.getStringPointID());
                         e.addAttribute("ui.class", "edgeCase"); //à commenter pour voir liaison case - noeud
+                        e.addAttribute("layout.weight", 100);
                     }
                 }
             }
@@ -203,6 +205,7 @@ public class GraphMap{
                 if (g.getEdge(listeNoeuds.get(i).getStringPointID() + ":" + listeNoeuds.get((i+1)%6).getStringPointID()) == null &&
                         g.getEdge(listeNoeuds.get((i+1)%6).getStringPointID() + ":" + listeNoeuds.get(i).getStringPointID()) == null) {
                     g.addEdge(listeNoeuds.get(i).getStringPointID() + ":" + listeNoeuds.get((i+1)%6).getStringPointID(), listeNoeuds.get(i).getStringPointID(), listeNoeuds.get((i+1)%6).getStringPointID());
+                    g.getEdge(listeNoeuds.get(i).getStringPointID() + ":" + listeNoeuds.get((i+1)%6).getStringPointID()).addAttribute("layout.weight", -1);
                     for(NoeudConstructible x : noeuds){
                         if(x.id.equals(listeNoeuds.get(i).getStringPointID())){
                             for(NoeudConstructible y : noeuds){
@@ -216,7 +219,7 @@ public class GraphMap{
             }
 
         }
-        
+
     }
 
     public void majCSS(){
@@ -243,6 +246,17 @@ public class GraphMap{
         }
     }
 
+    public ArrayList<Case> getCases(){
+        return cases;
+    }
+
+    public NoeudConstructible getNoeudConstructible(String id){
+        for(NoeudConstructible n : noeuds){
+            if(n.id.equals(id)) return n;
+        }
+        return null;
+    }
+
     public void CSSpourConstructionUV1(){
         for(Node n : g.getEachNode()){
             for(NoeudConstructible nc : noeuds){
@@ -251,14 +265,12 @@ public class GraphMap{
         }
     }
 
-    //todo faire méthode pour retourner une arralist des UV1old UV2old en fonction de la case
-    public ArrayList<NoeudConstructible> getVoisinsCase(CaseInterne c){
+    public ArrayList<NoeudConstructible> getVoisinsCase(CaseInterne c) {
         ArrayList<NoeudConstructible> voisins = new ArrayList<NoeudConstructible>();
         Iterator<Node> it = g.getNode(c.id).getNeighborNodeIterator();
         while (it.hasNext()) {
             Node n = it.next();
-            //n.getId()
-            // parcourir arraylist noeuds et trouver ceux d'instance UV1old ou UV2old et les stocker dans voisins
+            if (!n.getAttribute("ui.class").equals("noeud")) voisins.add(getNoeudConstructible(n.getId()));
         }
         return voisins;
     }
@@ -275,6 +287,20 @@ public class GraphMap{
             if(n.getId().equals(id) && n.tn==TypeNoeud.VIDE ) {
                 b = true;
             }
+        }
+        return b;
+    }
+
+    public boolean verifierPasDeVoisinsConstructionUV1(String id){
+        boolean b=false;
+        int i=0;
+        Iterator<Node> it = g.getNode(id).getNeighborNodeIterator();
+        System.out.println("Voisins de "+id+" :");
+        while (it.hasNext()) {
+            Node n = it.next();
+            if(n.getAttribute("ui.class").equals("noeud")) i++;
+            if(i==3) b=true;
+            System.out.println(n.getAttribute("ui.class"));
         }
         return b;
     }
@@ -328,6 +354,21 @@ public class GraphMap{
         return b;
     }
 
+    public boolean verifierNoeudConstructiblePossedeAreteDuJoueur(String id, Joueur j){
+        boolean b = false;
+
+        Iterator<Edge> it = g.getNode(id).getEnteringEdgeIterator();
+        while (it.hasNext()) {
+            Edge edge = it.next();
+            System.out.println(edge.getAttribute("ui.class")+"="+"conctroleContinu, "+j.getCouleur());
+            if(edge.getAttribute("ui.class").equals("controleContinu, "+j.getCouleur())){
+                b=true;
+            }
+        }
+
+        return b;
+    }
+
     public boolean verifierAreteEstVideOuExiste(String idA, String idB){
         boolean b = false;
         for( Arete ar : aretes){
@@ -339,7 +380,7 @@ public class GraphMap{
         return b;
     }
 
-    public NoeudConstructible ClickConstructionUV1(Joueur j) {
+    public NoeudConstructible ClickConstructionUV1(final Joueur j) {
         final String[] IDClicked = {""};
         System.out.println("On entre dans le listener UV1");
         ViewerPipe fromViewer = viewer.newViewerPipe();
@@ -357,7 +398,7 @@ public class GraphMap{
             public void buttonReleased(String id) {
                 System.out.println("Button release on node "+id);
 
-                if(verifierConstructionUV1(id)) {
+                if(verifierConstructionUV1(id) && verifierPasDeVoisinsConstructionUV1(id) && verifierNoeudConstructiblePossedeAreteDuJoueur(id,j) ) {
                     loop = false;
                     IDClicked[0] = id;
                 }
@@ -387,6 +428,56 @@ public class GraphMap{
         noeuds.set(noeuds.indexOf(tmp),new UV1(tmp,j));
         System.out.println("On sort du listener UV1 !");
     return null;
+    }
+
+    public NoeudConstructible InitConstructionUV1(final Joueur j) {
+        final String[] IDClicked = {""};
+        System.out.println("On entre dans le listener UV1");
+        ViewerPipe fromViewer = viewer.newViewerPipe();
+
+        fromViewer.addViewerListener(new ViewerListener() {
+            @Override
+            public void viewClosed(String s) {
+                loop = false;
+            }
+            @Override
+            public void buttonPushed(String s) {
+                System.out.println("Button pushed on node "+s);
+            }
+            @Override
+            public void buttonReleased(String id) {
+                System.out.println("Button release on node "+id);
+
+                if(verifierConstructionUV1(id) && verifierPasDeVoisinsConstructionUV1(id) ) {
+                    loop = false;
+                    IDClicked[0] = id;
+                }
+            }
+        });
+
+        fromViewer.addSink(g);
+        loop = true;
+
+        while(loop) {
+            fromViewer.pump();
+            //Le sleep permet d'utiliser moins de ressources CPU
+            try {
+                Thread.sleep(100);
+            }
+            catch(InterruptedException e){
+                System.out.println("Erreur : "+e.getMessage());
+            }
+
+        }
+        NoeudConstructible tmp = new NoeudConstructible();
+        for(NoeudConstructible n : noeuds){
+            if(n.getId().equals(IDClicked[0])){
+                tmp = n;
+            }
+        }
+        noeuds.set(noeuds.indexOf(tmp),new UV1(tmp,j));
+        System.out.println("On sort du listener UV1 !");
+        return null;
     }
 
     public NoeudConstructible ClickConstructionUV2(final Joueur j) {

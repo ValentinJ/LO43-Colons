@@ -22,24 +22,47 @@ public class TestGraphMap {
         //MaFenetre mf = new MaFenetre(g.getView());
 
 
-        g.ClickConstructionUV1(j1);
-        g.majCSS();
-        //g.detailMapNoeudConstrutible();
-        g.ClickConstructionUV1(j1);
-        g.majCSS();
-        g.ClickConstructionUV1(j2);
-        g.majCSS();
-        g.ClickConstructionUV2(j1);
+        System.out.println("#########\n Init UV1 Joueur 1 \n#########");
+        g.InitConstructionUV1(j1);
         g.majCSS();
         //g.detailMapNoeudConstrutible();
 
+        System.out.println("#########\n CC Joueur 1 \n#########");
         g.ClickConstructionControleContinus(j1);
         g.majCSS();
         g.detailMapArete();
 
+        System.out.println("#########\n Init UV1 Joueur 1 \n#########");
+        g.InitConstructionUV1(j1);
+        g.majCSS();
+
+        System.out.println("#########\n CC Joueur 1 \n#########");
+        g.ClickConstructionControleContinus(j1);
+        g.majCSS();
+        g.detailMapArete();
+
+        System.out.println("#########\n Init UV1 Joueur 2 \n#########");
+        g.InitConstructionUV1(j2);
+        g.majCSS();
+
+        System.out.println("#########\n CC Joueur 2 \n#########");
         g.ClickConstructionControleContinus(j2);
         g.majCSS();
         g.detailMapArete();
+        g.ClickConstructionControleContinus(j2);
+        g.majCSS();
+        //g.detailMapArete();
+
+        System.out.println("#########################################################");
+        for(NoeudConstructible nn :g.getVoisinsCase((CaseInterne)g.getCases().get(0)) ){
+            System.out.println(nn.getTypeCSS());
+        }
+        System.out.println("#########################################################");
+
+
+        System.out.println("#########\nUV1 Joueur 1 \n#########");
+        g.ClickConstructionUV1(j1);
+        g.majCSS();
 
         g.ClickConstructionControleContinus(j1);
         g.majCSS();

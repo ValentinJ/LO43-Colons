@@ -23,6 +23,7 @@ public class Arete {
         return typeCSS;
     }
 
+
     public String getIdArete(){
         return id;
     }
