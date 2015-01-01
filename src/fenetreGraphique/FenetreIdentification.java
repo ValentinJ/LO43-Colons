@@ -6,6 +6,7 @@ import sun.awt.HorizBagLayout;
 import sun.awt.VerticalBagLayout;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Vector;
@@ -14,7 +15,7 @@ import java.util.Vector;
  * Created by Guillaume on 01/01/2015.
  */
 //public class FenetreIdentification extends JFrame implements MouseListener {
-public class FenetreIdentification extends JFrame{
+public class FenetreIdentification extends JFrame implements ActionListener{
 
     public Vector<Joueur> Joueurs;
 
@@ -42,54 +43,76 @@ public class FenetreIdentification extends JFrame{
     public int valider = 0;
 
     private String nomFenetre;
-    private int hauteur = 500;
-    private int largeur = 800;
+    private int hauteur = 300;
+    private int largeur = 450;
 
-    public FenetreIdentification(String _nom, Vector<Joueur> J){
+    public FenetreIdentification(String _nom){
         super(_nom);
+
+        Joueurs = new Vector<Joueur>();
+        nomFenetre = _nom;
 
         //On définit le layout à utiliser sur le content pane
         this.setLayout(new BorderLayout());
         //permet d'ajouter plusieurs JPanel sans ecraser les anciens
         getContentPane().setLayout(new BorderLayout());
 
-        // boutons radio
-        //    3 - 4
         choix = new JPanel();
         choix.setLayout(new GridLayout(2, 3));
+        choix = panelChoix();
+
+        formulaire = new JPanel();
+        formulaire.setLayout(new GridLayout(4,1));
+        formulaire.setBorder(new EmptyBorder(10, 10, 10, 10));
+        formulaire = panelFormulaire(false);
+
+        confirmation = new JPanel();
+        confirmation.setLayout(new GridLayout(1, 2));
+        confirmation = panelConfirmation();
+
+        complet = new JPanel(new BorderLayout());
+        complet = panelComplet(choix, formulaire, confirmation);
+
+        add(complet);
+
+        //demande d ecouter les boutons
+        confirmer.addActionListener(this);
+        annuler.addActionListener(this);
+        radio3.addActionListener(this);
+        radio4.addActionListener(this);
+
+        // affichage
+        affichage();
+    }
+
+    public JPanel panelChoix(){
+        JPanel panelC = new JPanel();
+        panelC.setLayout(new GridLayout(2,2));
         group = new ButtonGroup();
 
         JLabel text1 = new JLabel("Nombre de joueur : ");
         radio3 = new JRadioButton("3");
         radio3.setSelected(true);
-        radio3.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                    t4.setEditable(false);
-                    System.out.println("        Verouiller t4");
-            }
-        });
         radio4 = new JRadioButton("4");
-        radio3.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                    t4.setEditable(true);
-                    System.out.println("        Deverouiller t4");
-            }
-        });
-        JLabel text2 = new JLabel("Remplisser les informations pour les joueurs : ");
+        JLabel text2 = new JLabel("     ");
 
         group.add(radio3);
         group.add(radio4);
 
-        choix.add(text1);
-        choix.add(radio3);
-        choix.add(radio4);
-        choix.add(text2);
+        JPanel panelTampo = new JPanel(new BorderLayout());
+        panelTampo.add(radio3,BorderLayout.WEST);
+        panelTampo.add(radio4,BorderLayout.EAST);
 
-        // JTEXTAREA  + JLABEL Couleur
-        formulaire = new JPanel();
-        choix.setLayout(new GridLayout(4,1));
+        panelC.add(text1);
+        panelC.add(panelTampo);
+        panelC.add(text2);
+
+        return panelC;
+    }
+    public JPanel panelFormulaire(boolean r4){
+        JPanel panelF = new JPanel();
+        panelF.setLayout(new GridLayout(4,1));
+        panelF.setBorder(new EmptyBorder(10, 10, 10, 10));
 
         formulaire1 = new JPanel();
         formulaire1.setLayout(new GridLayout(1,4));
@@ -127,7 +150,6 @@ public class FenetreIdentification extends JFrame{
         formulaire4 = new JPanel();
         formulaire4.setLayout(new GridLayout(1,4));
         t4 = new JTextArea(1,10);
-        t4.setEditable(false); // puisque par defaut il n y a que trois joueurs
         JLabel c4 = new JLabel("    ");
         c4.setOpaque(true);
         c4.setBackground(Color.YELLOW);
@@ -136,37 +158,35 @@ public class FenetreIdentification extends JFrame{
         formulaire4.add(new JLabel(" Couleur associé "));
         formulaire4.add(c4);
 
-        formulaire.add(formulaire1);
-        formulaire.add(formulaire2);
-        formulaire.add(formulaire3);
-        formulaire.add(formulaire4);
+        formulaire4.setVisible(false);
 
+        panelF.add(formulaire1);
+        panelF.add(formulaire2);
+        panelF.add(formulaire3);
+        panelF.add(formulaire4);
 
-        confirmation = new JPanel();
-        confirmation.setLayout(new GridLayout(1, 2));
+        return panelF;
+    }
+    public JPanel panelConfirmation(){
+        JPanel panelConf = new JPanel();
+        panelConf.setLayout(new GridLayout(1, 2));
 
         // bouton lancer le jeu
         confirmer = new JButton("lancer le jeu");
-        confirmer.addActionListener(new ConfirmerListener());
         // fermer le jeu
         annuler = new JButton("Annuler");
-        annuler.addActionListener(new AnnulerListener());
 
-        confirmation.add(confirmer);
-        confirmation.add(annuler);
+        panelConf.add(confirmer);
+        panelConf.add(annuler);
 
-        complet = new JPanel(new BorderLayout());
-
-        complet.add(choix,        BorderLayout.NORTH);
-        complet.add(formulaire, BorderLayout.CENTER);
-        complet.add(confirmation, BorderLayout.SOUTH);
-
-        add(complet);
-
-        // affichage
-        affichage();
-
-        J = Joueurs;
+        return panelConf;
+    }
+    public JPanel panelComplet( JPanel _choix, JPanel _formulaire, JPanel _confirmation){
+        JPanel panelComplet = new JPanel(new BorderLayout());
+        panelComplet.add(_choix,        BorderLayout.NORTH);
+        panelComplet.add(_formulaire, BorderLayout.CENTER);
+        panelComplet.add(_confirmation, BorderLayout.SOUTH);
+        return panelComplet;
     }
 
     public void affichage(){
@@ -183,15 +203,26 @@ public class FenetreIdentification extends JFrame{
         setVisible(true);
     }
 
-    public int getValider(){
-        return valider;
-    }
+    public int getValider(){return valider;}
+
+    public Vector<Joueur> getJoueurs(){return Joueurs;}
+
+    public void actionPerformed(ActionEvent e) {
+        // si c est le bouton de radio3
+        if (e.getSource() == radio3){
+            formulaire4.setVisible(false);
+            validate();
+        }
+
+        // si c est le bouton de radio4
+        if (e.getSource() == radio4){
+            formulaire4.setVisible(true);
+            validate();
+        }
 
 
-    // insertion des classes listener unique pour cette fenetre
-    class ConfirmerListener implements ActionListener {
-        //Redéfinition de la méthode actionPerformed()
-        public void actionPerformed(ActionEvent e1) {
+        // si c est le bouton de confirmation du formulaire
+        if (e.getSource() == confirmer){
             // verifier champs nom vide avant de faire une modif
             if (radio4.isSelected()) {
                 if ((!((t1.getText()).equals(""))) && (!((t2.getText()).equals("")))
@@ -222,17 +253,13 @@ public class FenetreIdentification extends JFrame{
                     System.out.println("Erreur, tous les champs n'ont pas été saisie");
                 }
             }
-
             System.out.println("Fenetre id - ConfirmerListener - valider " + valider);
         }
-    }
-    class AnnulerListener implements ActionListener {
-        //Redéfinition de la méthode actionPerformed()
-        public void actionPerformed(ActionEvent e2) {
+
+        // si c est le bouton annulation de l application
+        if (e.getSource() == annuler){
             valider = 2;
             System.out.println("Fenetre id - AnnulerListener - valider " + valider);
-            //this.dispose();
-            //System.exit(0);
         }
     }
 }
