@@ -9,7 +9,15 @@ import java.util.Vector;
  */
 public class main {
     public static void main(String []arg) {
-        // peut etre afficher un display splash
+        // afficher un display splash
+        FenetreFlash f = new FenetreFlash();
+        // attend 3 secondes
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        f.dispose();
 
         Vector<Joueur> j = new Vector<Joueur> ();
         // ouverture fenetre pour identifier les joueurs
