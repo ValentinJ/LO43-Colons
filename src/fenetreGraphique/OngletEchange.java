@@ -41,7 +41,6 @@ public class OngletEchange extends JPanel {
         coinGauche.setBorder(new EmptyBorder(5, 0, 0, 5));
         coinGauche.setBorder(BorderFactory.createTitledBorder("Sélection"));
 
-        System.out.println("hello 1");
         group = new ButtonGroup();
 
         radio1 = new JRadioButton("Carte 1");
@@ -83,11 +82,11 @@ public class OngletEchange extends JPanel {
         coinDroit.setLayout(new GridLayout(2, 5));
         coinDroit.setBorder(new EmptyBorder(5, 0, 0, 5));
         coinDroit.setBorder(BorderFactory.createTitledBorder("Contre"));
-        JComboBox jComboBox1 = new JComboBox();
-        JComboBox jComboBox2 = new JComboBox();
-        JComboBox jComboBox3 = new JComboBox();
-        JComboBox jComboBox4 = new JComboBox();
-        JComboBox jComboBox5 = new JComboBox();
+        jComboBox1 = new JComboBox();
+        jComboBox2 = new JComboBox();
+        jComboBox3 = new JComboBox();
+        jComboBox4 = new JComboBox();
+        jComboBox5 = new JComboBox();
 
         jComboBox1.addItem("1");
         jComboBox1.addItem("2");

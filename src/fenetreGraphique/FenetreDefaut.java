@@ -16,7 +16,6 @@ public class FenetreDefaut extends JFrame {
         nomFenetre = _nom;
         hauteur = _h;
         largeur = _l;
-
         // Nomme la fenetre
         setTitle(nomFenetre);
     }
@@ -30,8 +29,10 @@ public class FenetreDefaut extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // empeche le redimmensionnement de la fenetre
         setMinimumSize(new Dimension(largeur, hauteur));
-        setResizable(true);  // par la suite faudra permettre ce redimensionnement
+        setResizable(true);
         // la rend visible
         setVisible(true);
     }
+
+
 }

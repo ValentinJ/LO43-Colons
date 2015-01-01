@@ -9,9 +9,23 @@ import java.util.Vector;
  */
 public class main {
     public static void main(String []arg) {
+        // peut etre afficher un display splash
+
         Vector<Joueur> j = new Vector<Joueur> ();
-        //FenetreDefaut frame = new FenetreDefaut("test", 1600, 850);
-        //frame.affichage();
-        FenetrePrincipale frame = new FenetrePrincipale("testage", 720, 1280, j);
+        // ouverture fenetre pour identifier les joueurs
+        FenetreIdentification fId = new FenetreIdentification("Colons de l'UTBohèMe - Projet LO43", j);
+
+        while (fId.getValider()==0){}
+
+        if (fId.getValider()==1){
+            System.out.println("L'application a été lancé");
+
+            // affichage de la fenetre de jeu
+            FenetrePrincipale frame = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, j);
+        }
+        else {
+            System.out.println("L'application a été fermé" + fId.getValider());
+            System.exit(0);
+        }
     }
 }
