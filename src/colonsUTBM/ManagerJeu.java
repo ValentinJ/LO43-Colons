@@ -76,27 +76,6 @@ public class ManagerJeu {
 
     }
 
-    // N A PLUS D UTILITE
-    public ArrayList<Integer> chercheJoueur(Case c){                  // besoin accesseur coord UV : "getPoint()"
-        ArrayList<Integer> jUV = new ArrayList<Integer>();
-
-        /*for (int i =0; i < joueurs.size(); i++){
-            int j;
-
-            for (j = 0; j < ((joueurs.get(i)).UV1old).size(); j++){
-                if ( (((joueurs.get(i)).UV1old).get(j)).getPoint() == c.getPointCase() )
-                    jUV.add(i);
-            }
-
-            for (j = 0; j < ((joueurs.get(i)).UV2old).size(); j++){
-                if ( ( (((joueurs.get(i)).UV2old).get(j)).getPoint() == c.getPointCase() ) && (jUV.contains(joueurs.get(i)) == false) ) // fait attention au doublons
-                    jUV.add(i); // faire attention au doublons
-            }
-        }*/
-
-        return jUV;
-    }
-
     public int calculerScore(){                                      // besoin accesseur coord UV : "getUV1()" et "getUV2()"
         ArrayList<Integer> joueurCC;
 

@@ -68,6 +68,7 @@ public class Joueur {
      */
 
     //Méthode récupérer nombre cartes
+
     /**
      * à partir de la arraylist pile du joueur (n'est pas implémenté, à remplacer à la place de arralylist carteRessource)
      * récupérer le nombre de carte, pour chaque pile recuperer nb dans la pile et faire la somme
@@ -161,10 +162,10 @@ public class Joueur {
     public void echangeAvecBanque(){
     }
 
-    public void jouerCarteDeveloppement(){
+    public void jouerCarteDeveloppement(CarteDeveloppement c){
     }
 
-    public void deplacerBinomeGlandeur(){
+    public void deplacerBinomeGlandeur(Case c){
     }
 
     public void validationCarteDevEnMain(){
@@ -181,9 +182,19 @@ public class Joueur {
     public int getScore(){
         return score;
     }
+
     public void MAJScore(){
         for(UV1 uv : uvs){
             score+=uv.ptsVictoire;
         }
+    }
+
+
+    public ArrayList<UV1> getUvs() {
+        return uvs;
+    }
+
+    public void setUvs(ArrayList<UV1> uvs) {
+        this.uvs = uvs;
     }
 }

@@ -1,22 +1,24 @@
 package fenetreGraphique;
 
 import colonsUTBM.Joueur;
+import colonsUTBM.TypeCouleur;
 import sun.awt.HorizBagLayout;
 import sun.awt.VerticalBagLayout;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.util.Vector;
 
 /**
  * Created by Guillaume on 01/01/2015.
  */
-public class FenetreIdentification extends JFrame implements ActionListener {
+//public class FenetreIdentification extends JFrame implements MouseListener {
+public class FenetreIdentification extends JFrame{
 
     public Vector<Joueur> Joueurs;
 
+    public JPanel complet;
     public JPanel choix;
     public JPanel formulaire;
     public JPanel formulaire1;
@@ -60,7 +62,21 @@ public class FenetreIdentification extends JFrame implements ActionListener {
         JLabel text1 = new JLabel("Nombre de joueur : ");
         radio3 = new JRadioButton("3");
         radio3.setSelected(true);
+        radio3.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                    t4.setEditable(false);
+                    System.out.println("        Verouiller t4");
+            }
+        });
         radio4 = new JRadioButton("4");
+        radio3.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                    t4.setEditable(true);
+                    System.out.println("        Deverouiller t4");
+            }
+        });
         JLabel text2 = new JLabel("Remplisser les informations pour les joueurs : ");
 
         group.add(radio3);
@@ -139,9 +155,13 @@ public class FenetreIdentification extends JFrame implements ActionListener {
         confirmation.add(confirmer);
         confirmation.add(annuler);
 
-        add(choix,        BorderLayout.NORTH);
-        add(formulaire,   BorderLayout.CENTER);
-        add(confirmation, BorderLayout.SOUTH);
+        complet = new JPanel(new BorderLayout());
+
+        complet.add(choix,        BorderLayout.NORTH);
+        complet.add(formulaire, BorderLayout.CENTER);
+        complet.add(confirmation, BorderLayout.SOUTH);
+
+        add(complet);
 
         // affichage
         affichage();
@@ -167,27 +187,43 @@ public class FenetreIdentification extends JFrame implements ActionListener {
         return valider;
     }
 
-    public void actionPerformed(ActionEvent e){
-        if (valider != 0){ this.dispose(); }
-    }
-
-
 
     // insertion des classes listener unique pour cette fenetre
     class ConfirmerListener implements ActionListener {
         //Redéfinition de la méthode actionPerformed()
         public void actionPerformed(ActionEvent e1) {
             // verifier champs nom vide avant de faire une modif
-            if ( (t1.getText() != "") && (t2.getText() != "") && (t3.getText() != "") && (t4.getText()!="") ) {
-                valider = 1;
-                System.out.println("Fenetre id - ConfirmerListener - valider " + valider);
-                //creation des joueurs
+            if (radio4.isSelected()) {
+                if ((!((t1.getText()).equals(""))) && (!((t2.getText()).equals("")))
+                        && (!((t3.getText().equals("")))) && (!((t4.getText().equals(""))))) {
+                    valider = 1;
 
-                //this.dispose();
+                    //creation des joueurs
+                    Joueurs.add(new Joueur(t1.getText(), TypeCouleur.BLEU));
+                    Joueurs.add(new Joueur(t2.getText(), TypeCouleur.VERT));
+                    Joueurs.add(new Joueur(t3.getText(), TypeCouleur.ROUGE));
+                    Joueurs.add(new Joueur(t4.getText(), TypeCouleur.JAUNE));
 
-                // fermeture de la fenetre courante
-                //System.exit(0);
+                } else {
+                    System.out.println("Erreur, tous les champs n'ont pas été saisie");
+                }
             }
+            else{
+                if ((!((t1.getText()).equals(""))) && (!((t2.getText()).equals(""))) && (!((t3.getText().equals("")))) ) {
+                    valider = 1;
+
+                    //creation des joueurs
+                    Joueurs.add(new Joueur(t1.getText(), TypeCouleur.BLEU));
+                    Joueurs.add(new Joueur(t2.getText(), TypeCouleur.VERT));
+                    Joueurs.add(new Joueur(t3.getText(), TypeCouleur.ROUGE));
+
+                }
+                else {
+                    System.out.println("Erreur, tous les champs n'ont pas été saisie");
+                }
+            }
+
+            System.out.println("Fenetre id - ConfirmerListener - valider " + valider);
         }
     }
     class AnnulerListener implements ActionListener {

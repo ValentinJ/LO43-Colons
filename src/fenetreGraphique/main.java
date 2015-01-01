@@ -18,12 +18,14 @@ public class main {
         while (fId.getValider()==0){}
 
         if (fId.getValider()==1){
+            fId.dispose();
             System.out.println("L'application a été lancé");
 
             // affichage de la fenetre de jeu
             FenetrePrincipale frame = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, j);
         }
         else {
+            fId.dispose();
             System.out.println("L'application a été fermé" + fId.getValider());
             System.exit(0);
         }
