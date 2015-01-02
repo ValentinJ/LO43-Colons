@@ -201,8 +201,8 @@ public class FenetreIdentification extends JFrame implements ActionListener{
         // positionne la fenetre au centre
         setLocationRelativeTo(null);
         // termine le processus lorsqu'on clique sur la croix rouge
-        //setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // la rend visible
         setVisible(true);
     }

@@ -10,6 +10,9 @@ import java.util.Vector;
  */
 public class main {
     public static void main(String []arg) {
+
+        FenetrePrincipale frame;
+        /*
         // afficher un display splash
         FenetreFlash f = new FenetreFlash();
         // attend 3 secondes
@@ -19,14 +22,15 @@ public class main {
             e.printStackTrace();
         }
         f.dispose();
-
+        */
         Vector<Joueur> j = new Vector<Joueur> ();
 
         // ouverture fenetre pour identifier les joueurs
         FenetreIdentification fId = new FenetreIdentification("Colons de l'UTBohèMe - Projet LO43");
 
         while (fId.getValider()==0){}
-        fId.dispose();
+        //fId.dispose();
+        fId.setVisible(false);
 
         if (fId.getValider()==1){
             //fId.dispose();
@@ -34,7 +38,7 @@ public class main {
             System.out.println("L'application a été lancé");
 
             // affichage de la fenetre de jeu
-            FenetrePrincipale frame = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, j);
+            frame = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, j);
         }
         else {
             //fId.dispose();
