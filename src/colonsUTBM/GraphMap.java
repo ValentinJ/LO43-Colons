@@ -230,6 +230,7 @@ public class GraphMap{
 
     public void majCasesCSS(){
         for(Case c : cases){
+            c.setTypeCSS();
             g.getNode(c.id).addAttribute("ui.class", c.getTypeCSS());
         }
     }
@@ -377,6 +378,15 @@ public class GraphMap{
         }
 
 
+        return b;
+    }
+
+    public boolean verifierDeplacementBinomeGlandeur(String id){
+        boolean b = false;
+        for( Case ca : cases){
+            if(ca instanceof CaseInterne && ca.getId().equals(id))
+                b=true;
+        }
         return b;
     }
 
@@ -595,6 +605,62 @@ public class GraphMap{
         System.out.println("On sort du listener ControleContinus !");
 
         return null;
+    }
+
+    public void deplacerBinomeGlandeur(){
+        final String[] IDClicked = {""};
+        System.out.println("On entre dans le listener Deplacer binome");
+        ViewerPipe fromViewer = viewer.newViewerPipe();
+
+        fromViewer.addViewerListener(new ViewerListener() {
+            @Override
+            public void viewClosed(String s) {
+                loop = false;
+            }
+            @Override
+            public void buttonPushed(String s) {
+                System.out.println("Button pushed on node "+s);
+            }
+            @Override
+            public void buttonReleased(String id) {
+                System.out.println("Button release on node "+id);
+
+                if(verifierDeplacementBinomeGlandeur(id)) {
+                    loop = false;
+                    IDClicked[0] = id;
+                }
+            }
+        });
+
+        fromViewer.addSink(g);
+        loop = true;
+
+        while(loop) {
+            fromViewer.pump();
+            //Le sleep permet d'utiliser moins de ressources CPU
+            try {
+                Thread.sleep(100);
+            }
+            catch(InterruptedException e){
+                System.out.println("Erreur : "+e.getMessage());
+            }
+
+        }
+
+
+        //todo deplacer binome
+        for(Case ca : cases){
+            if(ca instanceof CaseInterne){
+                ((CaseInterne) ca).binomeGlandeur=false;
+            }
+        }
+        for(Case ca : cases){
+            if(ca.getId().equals(IDClicked[0])){
+                ((CaseInterne) ca).binomeGlandeur=true;
+            }
+        }
+        System.out.println("On sort du listener deplacer binome !");
+
     }
 
     public View getView(){

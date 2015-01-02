@@ -225,7 +225,8 @@ public class Joueur {
     public void jouerCarteDeveloppement(CarteDeveloppement c){
     }
 
-    public void deplacerBinomeGlandeur(Case c){
+    public void deplacerBinomeGlandeur(GraphMap g){
+        g.deplacerBinomeGlandeur();
     }
 
     public void validationCarteDevEnMain(){

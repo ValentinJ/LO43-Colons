@@ -9,4 +9,6 @@ public abstract class Case extends Noeud{
     protected TypeCase tc;
 
     abstract public ArrayList<Point> getPointsCase();
+
+    abstract public void setTypeCSS();
 }

@@ -21,6 +21,8 @@ public class TestGraphMap {
         g.majCSS();
         //MaFenetre mf = new MaFenetre(g.getView());
 
+        g.deplacerBinomeGlandeur();
+        g.majCSS();
 
         System.out.println("#########\n Init UV1 Joueur 1 \n#########");
         g.InitConstructionUV1(j1);
