@@ -1,6 +1,8 @@
 package colonsUTBM;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
 
 /**
  * Created by Guillaume on 03/12/2014.
@@ -9,9 +11,15 @@ public class Joueur {
     protected String nom;
     protected TypeCouleur couleur;
     protected int score;
-    protected int nb_UV1;
-    protected int nb_UV2;
-    protected int nb_CC;
+    protected int nbUv1;
+    protected int nbUv2;
+    protected int nbCc;
+
+    protected List<UV1> uvs;
+    protected List<ControleContinueold> CC;
+
+    protected Hashtable<TypeRessource,Pile> mainRessource;
+    protected List<CarteDeveloppement> mainDeveloppement;
 
     // Méthodes boolean pour construction UV1, Uv2, Controle continu, Achat Carte developpement
     /**
@@ -75,11 +83,6 @@ public class Joueur {
      */
 
 
-    protected ArrayList<UV1> uvs;
-    protected ArrayList<ControleContinueold> CC;
-
-    protected ArrayList<Pile> mainRessource;
-    protected ArrayList<CarteDeveloppement> mainDeveloppement;
 
     public Joueur(){}
 
@@ -87,57 +90,84 @@ public class Joueur {
         nom = _nom;
         couleur = _couleur;
 
-        mainRessource = new ArrayList<Pile>();
-        mainRessource.add(new Pile(new CarteRessource(TypeRessource.BIERE)));
-        mainRessource.add(new Pile(new CarteRessource(TypeRessource.SOMMEIL)));
-        mainRessource.add(new Pile(new CarteRessource(TypeRessource.CAFE)));
-        mainRessource.add(new Pile(new CarteRessource(TypeRessource.COURS)));
-        mainRessource.add(new Pile(new CarteRessource(TypeRessource.NOURRITURE)));
+        mainRessource = new Hashtable<TypeRessource,Pile>();
+        mainRessource.put(TypeRessource.BIERE, new Pile(new CarteRessource(TypeRessource.BIERE)));
+        mainRessource.put(TypeRessource.SOMMEIL, new Pile(new CarteRessource(TypeRessource.SOMMEIL)));
+        mainRessource.put(TypeRessource.CAFE, new Pile(new CarteRessource(TypeRessource.CAFE)));
+        mainRessource.put(TypeRessource.COURS, new Pile(new CarteRessource(TypeRessource.COURS)));
+        mainRessource.put(TypeRessource.NOURRITURE, new Pile(new CarteRessource(TypeRessource.NOURRITURE)));
+
+        uvs = new ArrayList<UV1>();
+        CC = new ArrayList<ControleContinueold>();
+        mainDeveloppement = new ArrayList<CarteDeveloppement>();
 
         score = 0;
-        nb_CC=15;
-        nb_UV1=5;
-        nb_UV2=4;
+        nbCc =15;
+        nbUv1 =5;
+        nbUv2 =4;
     }
 
     public boolean verifierAchatCarteDev(){
-        //todo verifierAchatCarteDev
+        if(mainRessource.get(TypeRessource.COURS).getNombre()>=1
+                && mainRessource.get(TypeRessource.COURS).getNombre()>=1
+                && mainRessource.get(TypeRessource.COURS).getNombre()>=1)
+            return true;
+        return false;
         /**
+         * 1cours
+         * 1 café
+         * 1 sommeil
          * vérifier mainRessource
          * permettra d'activer le bouton ou non
           */
-        return true;
+
     }
 
     public boolean verifierAchatControleContinu(){
-        //todo verifierAchatControleContinu
+        if(nbCc>=1 && mainRessource.get(TypeRessource.BIERE).getNombre()>=1
+                && mainRessource.get(TypeRessource.NOURRITURE).getNombre()>=1)
+            return true;
+        return false;
         /**
-         * vérifier nb_CC != 00 && vérifier mainRessource
+         * 1 biere
+         * 1 nourriture
+         * vérifier nbCc != 00 && vérifier mainRessource
          * permettra d'activer le bouton ou non
          */
-        return true;
     }
 
     public boolean verifierAchatUV1(){
-        //todo verifierAchatUV1
+        if(nbUv1>=1 && mainRessource.get(TypeRessource.BIERE).getNombre()>=1
+                && mainRessource.get(TypeRessource.CAFE).getNombre()>=1
+                && mainRessource.get(TypeRessource.COURS).getNombre()>=1
+                && mainRessource.get(TypeRessource.NOURRITURE).getNombre()>=1)
+            return true;
+        return false;
         /**
-         * vérifier nb_UV1!= 00 && vérifier mainRessource
+         * 1 biere
+         * 1 nourriture
+         * 1 cafe
+         * 1 cours
+         * vérifier nbUv1!= 00 && vérifier mainRessource
          * permettra d'activer le bouton ou non
          */
-        return true;
     }
 
     public boolean verifierAchatUV2(){
-        //todo verifierAchatUV2
+        if(nbUv2>=1 && nbUv1<5 && mainRessource.get(TypeRessource.COURS).getNombre()>=2
+                && mainRessource.get(TypeRessource.SOMMEIL).getNombre()>=3)
+            return true;
+        return false;
         /**
-         * vérifier nb_UV2!= 00 && vérifier mainRessource
+         * 2 cours
+         * 3 sommeil
+         * vérifier nbUv2!= 00 && vérifier mainRessource
          * permettra d'activer le bouton ou non
          */
-        return true;
     }
 
-    public void achatCarteDev(){
-        //todo acheterCarteDev
+    public void achatCarteDev(ArrayList<CarteDeveloppement> cd){
+
         /**
          * verifierAchatCarteDev
          * Si VRAI alors retirer ressources
@@ -184,7 +214,7 @@ public class Joueur {
         return score;
     }
 
-    public ArrayList<Pile> getMainRessource(){ return mainRessource;}
+    public Hashtable<TypeRessource,Pile> getMainRessource(){ return mainRessource;}
     public Pile getMainRessource(int indicePile){ return mainRessource.get(indicePile);}
 
     public void MAJScore(){
@@ -195,14 +225,14 @@ public class Joueur {
 
 
     public ArrayList<UV1> getUvs() {
-        return uvs;
+        return (ArrayList<UV1>)uvs;
     }
 
     public void setUvs(ArrayList<UV1> uvs) {
         this.uvs = uvs;
     }
 
-    public int getUV1(){return nb_UV1;}
+    public int getUV1(){return nbUv1;}
 
-    public int getUV2(){return nb_UV2;}
+    public int getUV2(){return nbUv2;}
 }

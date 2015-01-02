@@ -12,23 +12,28 @@ public class CarteRessource extends Carte{
         switch(typeRessource){
             case BIERE:
                 nom="Biere";
-                //img="Biere";
+                img="CarteBiere.png";
+                description="Une ressource bière qui provient du foyer, BDM, The Place ou Roger's";
                 break;
             case CAFE:
                 nom="Cafè";
-                //img="imgcafè";
+                img="CarteCafe.png";
+                description="Une ressource café qui provient du Leclerc, Monoprix, Cora ou Carrefour";
                 break;
             case COURS:
                 nom="Cours";
-                //img="imgcours";
+                img="CarteCours.png";
+                description="Une ressource cours qui provient de la reprod, amphi, moddle ou d'un ancien élève";
                 break;
             case SOMMEIL:
                 nom="Sommeil";
-                //img="imgsommeil";
+                img="CarteSommeil.png";
+                description="Une ressource sommeil qui provient de Sartres, ME ou l'hotel";
                 break;
             case NOURRITURE:
                 nom="Norriture";
-                //img="imgnorriture";
+                img="CarteNourriture.png";
+                description="Une ressource nourriture qui provient du McDO, Quick ou KFC";
                 break;
         }
     }

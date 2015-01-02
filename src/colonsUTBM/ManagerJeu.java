@@ -16,6 +16,7 @@ public class ManagerJeu {
     protected GraphMap terrain;
     protected Point positionBinomeGlandeur;                     // deverouille case de l ancienne position puis se met a la nouvelle valeur
 
+
     public ManagerJeu(){}
 
     public ManagerJeu(ArrayList<Joueur> j, GraphMap t, Point p){

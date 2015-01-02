@@ -22,7 +22,7 @@ public class FenetrePrincipale extends FenetreDefaut {
     public ArrayList<Joueur> Joueurs;
     public int Tour;
 
-    
+
     public GraphMap g;
 
     public FenetrePrincipale(String _nom, int _h, int _l, ArrayList<Joueur> _J) {
