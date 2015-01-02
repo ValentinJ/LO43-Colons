@@ -152,6 +152,7 @@ public class Joueur {
          * vérifier nbUv1!= 00 && vérifier mainRessource
          * permettra d'activer le bouton ou non
          */
+
     }
 
     public boolean verifierAchatUV2(){
