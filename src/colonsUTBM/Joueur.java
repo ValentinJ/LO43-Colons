@@ -176,12 +176,18 @@ public class Joueur {
     }
 
     public void construireUV1(GraphMap g){
+        if(verifierAchatUV1())
+            g.ClickConstructionUV1(this);
     }
 
-    public void transformerUV2(){
+    public void transformerUV2(GraphMap g){
+        if(verifierAchatUV2())
+            g.ClickConstructionUV2(this);
     }
 
-    public void construireCC(){
+    public void construireCC(GraphMap g){
+        if(verifierAchatControleContinu())
+            g.ClickConstructionControleContinus(this);
     }
 
     public void echangeAvecJoueur(Joueur j){
@@ -196,7 +202,7 @@ public class Joueur {
     public void jouerCarteDeveloppement(CarteDeveloppement c){
     }
 
-    public void deplacerBinomeGlandeur(Case c){
+    public void deplacerBinomeGlandeur(GraphMap g){
     }
 
     public void validationCarteDevEnMain(){
