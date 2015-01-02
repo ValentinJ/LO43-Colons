@@ -281,4 +281,8 @@ public class Joueur {
     }
 
     public ArrayList<CarteDeveloppement> getMainDeveloppement(){return (ArrayList) mainDeveloppement;}
+
+    public void ajoutRessource(TypeRessource r, int nombreRessourceAAjouter){
+        mainRessource.get(r).ajouter(nombreRessourceAAjouter);
+    }
 }

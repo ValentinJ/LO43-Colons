@@ -266,6 +266,13 @@ public class GraphMap{
         }
     }
 
+    //arg valeur des dés
+    // pour chaque caseInterne X
+    //      verifier si X est de valeur des dés
+    //      Arraylist  = new Arralist(getVoisinsCase(X))
+    //      pour chaque elmnt Y de Arralylist
+    //          ajout ressources joueur(joueur j, typeressource, ptsvictoire de Y)
+
     public ArrayList<NoeudConstructible> getVoisinsCase(CaseInterne c) {
         ArrayList<NoeudConstructible> voisins = new ArrayList<NoeudConstructible>();
         Iterator<Node> it = g.getNode(c.id).getNeighborNodeIterator();
