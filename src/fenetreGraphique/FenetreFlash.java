@@ -20,7 +20,7 @@ public class FenetreFlash extends JFrame {
 
         // on recherche image
         try {
-            image = ImageIO.read(new File(System.getProperty("user.dir") +"\\img\\Groupe.png"));
+            image = ImageIO.read(new File(System.getProperty("user.dir")+"/img/Groupe.png")); //+"\\img\\Groupe.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
