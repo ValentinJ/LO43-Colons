@@ -43,8 +43,8 @@ public class FenetreIdentification extends JFrame implements ActionListener{
     public int valider = 0;
 
     private String nomFenetre;
-    private int hauteur = 300;
-    private int largeur = 450;
+    private int hauteur = 400;
+    private int largeur = 600;
 
     public FenetreIdentification(String _nom){
         super(_nom);
