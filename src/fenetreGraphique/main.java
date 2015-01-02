@@ -25,32 +25,30 @@ public class main {
         f.dispose();
         */
         Vector<Joueur> j = new Vector<Joueur> ();
-
+        j.add(new Joueur("Mickael", TypeCouleur.BLEU));
+        j.add(new Joueur("Elodie", TypeCouleur.ROUGE));
+        j.add(new Joueur("Didi", TypeCouleur.VERT));
+/*
         // ouverture fenetre pour identifier les joueurs
         FenetreIdentification fId = new FenetreIdentification("Colons de l'UTBohèMe - Projet LO43");
 
         while (fId.getValider()==0){
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }        }
+            attente = attente +1;
+        }
         System.out.println("FID.valider "+fId.getValider());
         fId.dispose();
 
         if (fId.getValider()==1){
-            //fId.dispose();
-            j = fId.getJoueurs();
+            j = fId.getJoueurs();*/
             System.out.println("L'application a été lancé");
 
             // affichage de la fenetre de jeu
             frame = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, j);
-        }
+        }/*
         else {
-            //fId.dispose();
             System.out.println("L'application a été fermé " + fId.getValider());
             System.exit(0);
-        }
+        }*/
 
         /*
         *

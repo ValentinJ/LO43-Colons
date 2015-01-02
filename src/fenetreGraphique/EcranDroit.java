@@ -100,7 +100,8 @@ public class EcranDroit extends JPanel{
     }
 
     public void enteteVertical(){
-        enteteV = new JPanel(new GridLayout(15,1));
+        //enteteV = new JPanel(new GridLayout(15,1));
+        enteteV = new JPanel(new VerticalBagLayout());
         enteteV.add(new JLabel("  "));
         enteteV.add(new JLabel(new ImageIcon(imgBierre)){{setOpaque(false);} });
         enteteV.add(new JLabel(new ImageIcon(imgSommeil)){{setOpaque(false);} });
@@ -141,7 +142,7 @@ public class EcranDroit extends JPanel{
 
         infosJ2 = new JPanel(new GridLayout(15,1));
         infosJ2.add(new JLabel((Joueurs.get(1)).getNom()));
-        infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getMainRessource(0)).getNombre()) ));
+        infosJ2.add(new JLabel(Integer.toString(((Joueurs.get(1)).getMainRessource(0)).getNombre()) ));
         infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getMainRessource(1)).getNombre()) ));
         infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getMainRessource(2)).getNombre()) ));
         infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getMainRessource(3)).getNombre()) ));
@@ -159,8 +160,8 @@ public class EcranDroit extends JPanel{
 
         infosJ3 = new JPanel(new GridLayout(15,1));
         infosJ3.add(new JLabel((Joueurs.get(2)).getNom()));
-        infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(0)).getNombre()) ));
-        infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(1)).getNombre()) ));
+        infosJ3.add(new JLabel(Integer.toString(((Joueurs.get(2)).getMainRessource(0)).getNombre()) ));
+        infosJ3.add(new JLabel(Integer.toString(((Joueurs.get(2)).getMainRessource(1)).getNombre()) ));
         infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(2)).getNombre()) ));
         infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(3)).getNombre()) ));
         infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(4)).getNombre()) ));
