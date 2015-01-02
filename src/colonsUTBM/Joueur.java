@@ -178,12 +178,15 @@ public class Joueur {
     }
 
     public void construireUV1(GraphMap g){
+        g.ClickConstructionUV2(this);
     }
 
-    public void transformerUV2(){
+    public void transformerUV2(GraphMap g){
+        g.ClickConstructionUV2(this);
     }
 
-    public void construireCC(){
+    public void construireCC(GraphMap g){
+        g.ClickConstructionControleContinus(this);
     }
 
     public void echangeAvecJoueur(Joueur j){
