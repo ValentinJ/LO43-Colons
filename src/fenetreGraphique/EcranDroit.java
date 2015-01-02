@@ -84,17 +84,12 @@ public class EcranDroit extends JPanel{
 
     public void enteteVertical(){
         enteteV = new JPanel(new GridLayout(15,1));
-
-        //JPanel deb = new JPanel(new GridLayout(6,1));
-        //enteteV = new JPanel(new VerticalBagLayout());
         enteteV.add(new JLabel("  "));
-        enteteV.add(new JLabel(new ImageIcon(imgBierre)){{setOpaque(false);} });
+        enteteV.add(new JLabel(new ImageIcon(imgBierre)){{setOpaque(false);}});
         enteteV.add(new JLabel(new ImageIcon(imgSommeil)){{setOpaque(false);} });
         enteteV.add(new JLabel(new ImageIcon(imgCafe)){{setOpaque(false);} });
         enteteV.add(new JLabel(new ImageIcon(imgCours)){{setOpaque(false);} });
         enteteV.add(new JLabel(new ImageIcon(imgNourriture)){{setOpaque(false);} });
-
-        //enteteV.add(deb);
         enteteV.add(new JLabel("  "));
         enteteV.add(new JLabel("UV1"));
         enteteV.add(new JLabel("UV2"));
@@ -110,7 +105,6 @@ public class EcranDroit extends JPanel{
         infosJoueur = new JPanel(new GridLayout(1, Joueurs.size()));
 
         infosJ1 = new JPanel(new GridLayout(15,1));
-
         infosJ1.add(new JLabel((Joueurs.get(0)).getNom()));
         infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(0)).getNombre()) ));
         infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(1)).getNombre()) ));
@@ -183,7 +177,6 @@ public class EcranDroit extends JPanel{
             infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getScore()))));
             infosJoueur.add(infosJ4);
         }
-
     }
 
     public void TableauDechange(){
