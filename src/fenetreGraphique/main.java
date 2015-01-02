@@ -10,7 +10,6 @@ import java.util.Vector;
  */
 public class main {
     public static void main(String []arg) {
-        /*
         // afficher un display splash
         FenetreFlash f = new FenetreFlash();
         // attend 3 secondes
@@ -41,13 +40,13 @@ public class main {
             //fId.dispose();
             System.out.println("L'application a été fermé " + fId.getValider());
             System.exit(0);
-        }*/
+        }
 
         /*
         *
         * Ce qui suit est pour accelerer les tests mais a virer après
         *
-         */
+
 
         Vector<Joueur> j = new Vector<Joueur> ();
 
@@ -57,6 +56,6 @@ public class main {
 
         System.out.println("L'application a été lancé");
         FenetrePrincipale frame = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, j);
-
+*/
     }
 }
