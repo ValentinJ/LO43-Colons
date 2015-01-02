@@ -11,9 +11,9 @@ import java.util.ArrayList;
 public class main {
     public static void main(String []arg) {
 
-        FenetrePrincipale frame;
+        FenetrePrincipale frame;/*
         int attente = 0;
-        /*
+
         // afficher un display splash
         FenetreFlash f = new FenetreFlash();
         // attend 3 secondes
@@ -23,7 +23,7 @@ public class main {
             e.printStackTrace();
         }
         f.dispose();
-        */
+*/
         ArrayList<Joueur> j = new ArrayList<Joueur> ();
         j.add(new Joueur("Mickael", TypeCouleur.BLEU));
         j.add(new Joueur("Elodie", TypeCouleur.ROUGE));
@@ -43,12 +43,12 @@ public class main {
             System.out.println("L'application a été lancé");
 
             // affichage de la fenetre de jeu
-            frame = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, j);
-        /*}
+            frame = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, j);/*
+        }
         else {
             System.out.println("L'application a été fermé " + fId.getValider());
             System.exit(0);
-        }*/
+        }
 
         /*
         *

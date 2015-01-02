@@ -6,6 +6,7 @@ import java.util.Collections;
 /**
  * Created by Guillaume on 03/12/2014.
  */
+
 public class ManagerJeu {
     protected ArrayList<Joueur> joueurs;
     protected ArrayList<Pile> pilesRessources;
@@ -21,10 +22,17 @@ public class ManagerJeu {
 
     public ManagerJeu(ArrayList<Joueur> j, GraphMap t, Point p){
         joueurs = j;
+        melangerOrdreJoueur();
         terrain = t;
+        terrain.initMap();
         positionBinomeGlandeur = p;
         tour = 0;
         lancerDesDes();
+    }
+
+    public void melangerOrdreJoueur(){
+        Collections.shuffle(joueurs);
+        Collections.shuffle(joueurs);
     }
 
     public void melangerCarteDeveloppement(){
@@ -34,20 +42,20 @@ public class ManagerJeu {
 
     public void finDeTour(){
         tour += 1;
+        // vlider carte dev en main
         terrain.majCSS();
     }
 
     public void lancerDesDes(){
         ArrayList<Integer> vD = new ArrayList<Integer>();
-
         vD.add((int) (Math.random()*6) + 1);
         vD.add((int) (Math.random()*6) + 1);
-
         valeurDes = vD;
     }
-
+/*
     public void productionRessource(int valeurDes){                 // ne peut le faire sans fonction de valentin
-        /*ArrayList<CaseRessource> caseProd = new ArrayList<CaseRessource>();
+        getVoisinCase(); // classe de terrain
+        ArrayList<CaseRessource> caseProd = new ArrayList<CaseRessource>();
         ArrayList<Integer> joueurRecolt = new ArrayList<Integer>();
 
         // recupere les case produisant les ressources
@@ -73,33 +81,60 @@ public class ManagerJeu {
 
             }
             // engendre les gains
-        }*/
+        }
 
     }
+    */
 
-    public int calculerScore(){                                      // besoin accesseur coord UV : "getUV1()" et "getUV2()"
-        ArrayList<Integer> joueurCC;
-
+    public void calculerScore(){                                     // besoin accesseur coord UV : "getUV1()" et "getUV2()"
+        ArrayList<Integer> joueurCC = new ArrayList<Integer>();
+        ArrayList<Integer> joueurAncien = new ArrayList<Integer>();
         // calcule en fonction des UVs
-        /*for(int i; i<joueurs.size(); i++){
-            (joueurs.get(i)).score = ((joueurs.get(i)).getUV1()).size() + ((joueurs.get(i)).getUV2()).size() * 2 ;
-            if ( ((joueurs.get(i)).CC).size() > 5){
+        for(int i=0; i<joueurs.size(); i++){
+            (joueurs.get(i)).setScore(((joueurs.get(i)).getUV1()) + ((joueurs.get(i)).getUV2())*2);
+            if ( ((joueurs.get(i)).getCC()) > 4){
                 joueurCC.add(i);
             }
-            if ( ((joueurs.get(i)).CC).size() > 5){
-                joueurCC.add(i);
+            if ( ((joueurs.get(i)).getAncien()) > 2){
+                joueurAncien.add(i);
             }
         }
+
         // ajout des bonus de CC
         if (joueurCC.size() > 0){
             if (joueurCC.size() == 1){
-                (joueurs.get(joueurCC.get(0))).score += 2;
+                (joueurs.get(joueurCC.get(0))).setScore((joueurs.get(joueurCC.get(0))).getScore() + 2);
             }
             else{
-                if
+                int place=0;
+                int val=0;
+                for(int i=0; i<joueurCC.size(); i++){
+                    if (val < (joueurs.get(joueurCC.get(i))).getCC() ){
+                        val = (joueurs.get(joueurCC.get(i))).getCC();
+                        place = i;
+                    }
+                }
+                (joueurs.get(joueurCC.get(place))).setScore((joueurs.get(joueurCC.get(place))).getScore()+2);
             }
-        }*/
-        return 0;
+        }
+
+        // ajout des bonus de Ancien
+        if (joueurAncien.size() > 0){
+            if (joueurAncien.size() == 1){
+                (joueurs.get(joueurAncien.get(0))).setScore((joueurs.get(joueurAncien.get(0))).getScore() + 2);
+            }
+            else{
+                int place=0;
+                int val=0;
+                for(int i=0; i<joueurAncien.size(); i++){
+                    if (val < (joueurs.get(joueurAncien.get(i))).getAncien() ){
+                        val = (joueurs.get(joueurAncien.get(i))).getAncien();
+                        place = i;
+                    }
+                }
+                (joueurs.get(joueurAncien.get(place))).setScore((joueurs.get(joueurAncien.get(place))).getScore()+2);
+            }
+        }
     }
 
     public int calculerScoreFinal(){
@@ -113,37 +148,35 @@ public class ManagerJeu {
         return 0;
     }
 
-    /*public void nouvellePartie(){                                                        // manque nombre carte
-                                                                                         // besoin constructeurPile
-
-        terrain.initialisation();
-
+    public void nouvellePartie(){
+        // 25 au total : 6*Progres : 2*CCC, 2*Decouverte, 2*Monopole + 5*Point de Victoire + 14*Ancien
         ArrayList<CarteDeveloppement> pilesD = new ArrayList<CarteDeveloppement>();
-        pilesD.add();
-        pilesD.add();
-        pilesD.add();
-        pilesD.add();
-        pilesD.add();
+        for (int i=0; i<2; i++) {
+            pilesD.add(new CarteDeveloppement(TypeDeveloppement.CCC));
+        }
+        for (int i=0; i<2; i++) {
+            pilesD.add(new CarteDeveloppement(TypeDeveloppement.DECOUVERTE));
+        }
+        for (int i=0; i<2; i++) {
+            pilesD.add(new CarteDeveloppement(TypeDeveloppement.MONOPOLE));
+        }
+        for (int i=0; i<5; i++) {
+            pilesD.add(new CarteDeveloppement(TypeDeveloppement.POINTVICTOIRE));
+        }
+        for (int i=0; i<14; i++) {
+            pilesD.add(new CarteDeveloppement(TypeDeveloppement.ANCIEN));
+        }
         pilesDeveloppement = pilesD;
         melangerCarteDeveloppement();
 
-        Pile biere = new Pile(new CarteRessource(), 19);
-        pilesRessources.add(biere);
-        Pile cafe = new Pile(new CarteRessource(), 19);
-        pilesRessources.add(cafe);
-        Pile cours = new Pile(new CarteRessource(), 19);
-        pilesRessources.add(cours);
-        Pile sommeil = new Pile(new CarteRessource(), 19);
-        pilesRessources.add(sommeil);
-        Pile nourriture = new Pile(new CarteRessource(), 19);
-        pilesRessources.add(nourriture);
+        pilesRessources.add(new Pile(new CarteRessource(TypeRessource.BIERE), 19));
+        pilesRessources.add(new Pile(new CarteRessource(TypeRessource.CAFE), 19));
+        pilesRessources.add(new Pile(new CarteRessource(TypeRessource.COURS), 19));
+        pilesRessources.add(new Pile(new CarteRessource(TypeRessource.SOMMEIL), 19));
+        pilesRessources.add(new Pile(new CarteRessource(TypeRessource.NOURRITURE), 19));
+    }
 
-        while (tour){
-            // autoriser uniquement joueur[tour] a jouer
-            // en faire des thread ?
-        }
-    }*/
-
+    /* A VIRER CAR PENSE POSER PB POUR AFFICHAGE GRAPHIQUE */
     public void phaseFondation(){
         for (int i=0; i<joueurs.size();i++){
             // pose uv
@@ -156,6 +189,4 @@ public class ManagerJeu {
             tour++;
         }
     }
-
-
 }
