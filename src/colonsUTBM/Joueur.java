@@ -232,6 +232,7 @@ public class Joueur {
         this.uvs = uvs;
     }
 
+    
     public int getUV1(){return nbUv1;}
 
     public int getUV2(){return nbUv2;}
