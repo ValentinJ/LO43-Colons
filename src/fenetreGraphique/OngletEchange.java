@@ -1,5 +1,7 @@
 package fenetreGraphique;
 
+import sun.awt.VerticalBagLayout;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -10,6 +12,7 @@ import java.awt.event.KeyEvent;
 /**
  * Created by Guillaume on 16/12/2014.
  */
+
 public class OngletEchange extends JPanel implements ActionListener{
 
     public JPanel tmpFinal;
@@ -30,16 +33,17 @@ public class OngletEchange extends JPanel implements ActionListener{
     public JRadioButton radio4;
     public JRadioButton radio5;
 
-    public JButton confirmerEchange;
+    public JButton comm;
 
     public OngletEchange(){
         tmpFinal = new JPanel();
-        tmpFinal.setLayout(new GridLayout(2, 1));
+        tmpFinal.setBorder(new EmptyBorder(5, 0, 0, 5));
+        tmpFinal.setLayout(new VerticalBagLayout());
 
         tmp = new JPanel();
         tmp.setLayout(new GridLayout(1, 2));
 
-        // coinGauche contient les voutons ratios pour selectionner la carte que l'on souhaite obtenir
+        // coinGauche contient les boutons ratios pour selectionner la carte que l'on souhaite obtenir
         coinGauche = new JPanel();
         coinGauche.setLayout(new GridLayout(0, 1));
         coinGauche.setBorder(new EmptyBorder(5, 0, 0, 5));
@@ -78,13 +82,11 @@ public class OngletEchange extends JPanel implements ActionListener{
         group.add(radio5);
         coinGauche.add(radio5);
 
-
-        System.out.println("hello 2");
-
         // quelle ressource nous souhaitons donnée pour la carte que nous avons selectionnée dans coinGauche
         coinDroit = new JPanel();
-        coinDroit.setLayout(new GridLayout(2, 5));
+        coinDroit.setLayout(new GridLayout(5, 2));
         coinDroit.setBorder(new EmptyBorder(5, 0, 0, 5));
+
         coinDroit.setBorder(BorderFactory.createTitledBorder("Contre"));
         jComboBox1 = new JComboBox();
         jComboBox2 = new JComboBox();
@@ -92,26 +94,31 @@ public class OngletEchange extends JPanel implements ActionListener{
         jComboBox4 = new JComboBox();
         jComboBox5 = new JComboBox();
 
+        jComboBox1.addItem("0");
         jComboBox1.addItem("1");
         jComboBox1.addItem("2");
         jComboBox1.addItem("3");
         jComboBox1.addItem("4");
 
+        jComboBox2.addItem("0");
         jComboBox2.addItem("1");
         jComboBox2.addItem("2");
         jComboBox2.addItem("3");
         jComboBox2.addItem("4");
 
+        jComboBox3.addItem("0");
         jComboBox3.addItem("1");
         jComboBox3.addItem("2");
         jComboBox3.addItem("3");
         jComboBox3.addItem("4");
 
+        jComboBox4.addItem("0");
         jComboBox4.addItem("1");
         jComboBox4.addItem("2");
         jComboBox4.addItem("3");
         jComboBox4.addItem("4");
 
+        jComboBox5.addItem("0");
         jComboBox5.addItem("1");
         jComboBox5.addItem("2");
         jComboBox5.addItem("3");
@@ -128,25 +135,23 @@ public class OngletEchange extends JPanel implements ActionListener{
         coinDroit.add(jComboBox5);
         coinDroit.add(new JLabel("carte 5"));
 
-        System.out.println("hello 3");
-
         tmp.add(coinGauche);
         tmp.add(coinDroit);
 
+        comm = new JButton("Echanger");
+        comm.addActionListener(this);
+        JPanel boutEchg = new JPanel();
+        boutEchg.add(comm);
+
         tmpFinal.add(tmp);
-        confirmerEchange = new JButton("Echanger");
-        tmpFinal.add(confirmerEchange);
+        tmpFinal.add(boutEchg);
 
-        confirmerEchange.addActionListener(this);
-
-        System.out.println("hello end");
+        add(tmpFinal);
     }
 
     public void actionPerformed(ActionEvent echange1) {
-        System.out.println("un bruit ?");
         // si c est le bouton confirmerEchange
-        if (echange1.getSource() == confirmerEchange) {
-            radio5.setSelected(true);
+        if (echange1.getSource() == comm) {
             System.out.println("le joueur a demander un echange");
 
             group.getSelection(); // pour connaitre le type de carte desirer
