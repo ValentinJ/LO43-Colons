@@ -123,6 +123,7 @@ public class Joueur {
     public boolean verifierAchatUV1(){
         //todo verifierAchatUV1
         /**
+         * if (nb_UV1 != 0 && mainRessource(CarteRessource(BIERE.size))!=0 && mainRessource(CarteRessource(CAFE.size))!=0 && mainRessource(CarteRessource(NORRITURE.size))!=0 && mainRessource(CarteRessource(SOMMEIL.size))!=0 && mainRessource(CarteRessource(COURS.size))!=0)
          * vérifier nb_UV1!= 00 && vérifier mainRessource
          * permettra d'activer le bouton ou non
          */
