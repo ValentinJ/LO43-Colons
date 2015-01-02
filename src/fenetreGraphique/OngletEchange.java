@@ -3,12 +3,14 @@ package fenetreGraphique;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 /**
  * Created by Guillaume on 16/12/2014.
  */
-public class OngletEchange extends JPanel {
+public class OngletEchange extends JPanel implements ActionListener{
 
     public JPanel tmpFinal;
     public JPanel tmp;
@@ -27,6 +29,8 @@ public class OngletEchange extends JPanel {
     public JRadioButton radio3;
     public JRadioButton radio4;
     public JRadioButton radio5;
+
+    public JButton confirmerEchange;
 
     public OngletEchange(){
         tmpFinal = new JPanel();
@@ -124,16 +128,28 @@ public class OngletEchange extends JPanel {
         coinDroit.add(jComboBox5);
         coinDroit.add(new JLabel("carte 5"));
 
-
         System.out.println("hello 3");
 
         tmp.add(coinGauche);
         tmp.add(coinDroit);
 
         tmpFinal.add(tmp);
-        tmpFinal.add(new JButton("Echanger"));
+        confirmerEchange = new JButton("Echanger");
+        tmpFinal.add(confirmerEchange);
 
+        confirmerEchange.addActionListener(this);
 
         System.out.println("hello end");
+    }
+
+    public void actionPerformed(ActionEvent echange1) {
+        System.out.println("un bruit ?");
+        // si c est le bouton confirmerEchange
+        if (echange1.getSource() == confirmerEchange) {
+            radio5.setSelected(true);
+            System.out.println("le joueur a demander un echange");
+
+            group.getSelection(); // pour connaitre le type de carte desirer
+        }
     }
 }

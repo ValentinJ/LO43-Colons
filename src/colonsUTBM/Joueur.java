@@ -84,15 +84,16 @@ public class Joueur {
     public Joueur(){}
 
     public Joueur(String _nom, TypeCouleur _couleur){
-/*
-        mainRessource.add(new Pile(new CarteRessource(TypeRessource.BIERE)));
-        mainRessource.add(new Pile(new CarteRessource(TypeRessource.CAFE)));
-        mainRessource.add(new Pile(new CarteRessource(TypeRessource.COURS)));
-        mainRessource.add(new Pile(new CarteRessource(TypeRessource.SOMMEIL)));
-        mainRessource.add(new Pile(new CarteRessource(TypeRessource.NOURRITURE)));
-*/
         nom = _nom;
         couleur = _couleur;
+
+        mainRessource = new ArrayList<Pile>();
+        mainRessource.add(new Pile(new CarteRessource(TypeRessource.BIERE)));
+        mainRessource.add(new Pile(new CarteRessource(TypeRessource.SOMMEIL)));
+        mainRessource.add(new Pile(new CarteRessource(TypeRessource.CAFE)));
+        mainRessource.add(new Pile(new CarteRessource(TypeRessource.COURS)));
+        mainRessource.add(new Pile(new CarteRessource(TypeRessource.NOURRITURE)));
+
         score = 0;
         nb_CC=15;
         nb_UV1=5;
@@ -182,6 +183,9 @@ public class Joueur {
     public int getScore(){
         return score;
     }
+
+    public ArrayList<Pile> getMainRessource(){ return mainRessource;}
+    public Pile getMainRessource(int indicePile){ return mainRessource.get(indicePile);}
 
     public void MAJScore(){
         for(UV1 uv : uvs){

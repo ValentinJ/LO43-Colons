@@ -30,7 +30,6 @@ public class EcranDroit extends JPanel{
 
     public JPanel recap;
     public JPanel recapCarteR;
-    public Graphics gImgCarte;
     public Image imgBierre;
     public Image imgSommeil;
     public Image imgCafe;
@@ -39,8 +38,7 @@ public class EcranDroit extends JPanel{
 
     int Tour;
 
-    public EcranDroit(Vector<Joueur> j, int t, Graphics g) throws IOException {
-        gImgCarte = g;
+    public EcranDroit(Vector<Joueur> j, int t) throws IOException {
         Joueurs = j;
         Tour = t;
 
@@ -52,18 +50,13 @@ public class EcranDroit extends JPanel{
         // partie le tableau de maniere dynamique
         recapCarteR = new JPanel(new GridLayout(12,Joueurs.size()+1));
 
-//        imgBierre     = ImageIO.read(new File("/img/caseBiere"));
-//        imgSommeil    = ImageIO.read(new File("/img/caseBiere"));
-//        imgCafe       = ImageIO.read(new File("/img/caseBiere"));
-//        imgCours      = ImageIO.read(new File("/img/caseBiere"));
-//        imgNourriture = ImageIO.read(new File("/img/caseBiere"));
-//        paintComponent(gImgCarte, imgBierre,      0, 5);
-//        paintComponent(gImgCarte, imgSommeil,    20, 5);
-//        paintComponent(gImgCarte, imgCafe,       40, 5);
-//        paintComponent(gImgCarte, imgCours,      60, 5);
-//        paintComponent(gImgCarte, imgNourriture, 80, 5);
+        imgBierre     = ImageIO.read(new File(System.getProperty("user.dir") +"\\img\\CarteBiere.png"));
+        imgSommeil    = ImageIO.read(new File(System.getProperty("user.dir") +"\\img\\CarteSommeil.png"));
+        imgCafe       = ImageIO.read(new File(System.getProperty("user.dir") +"\\img\\CarteCafe.png"));
+        imgCours      = ImageIO.read(new File(System.getProperty("user.dir") +"\\img\\CarteCours.png"));
+        imgNourriture = ImageIO.read(new File(System.getProperty("user.dir") +"\\img\\CarteNourriture.png"));
 
-        // entete tab
+        // entete tab avec le nom des joueurs
         for(int i=-1; i< Joueurs.size(); i++) {
             if (i==-1)
                recapCarteR.add(new JLabel("   "));
@@ -72,13 +65,26 @@ public class EcranDroit extends JPanel{
         }
         // contenue tab ressource
         for (int i=0; i<5; i++){
-            for (int k = -1; k<Joueurs.size()+1; k++){
-                if (k==-1) {
-                    recapCarteR.add(new JLabel("   "));
+            System.out.println(Integer.toString(i));
+            for (int k = -1; k<Joueurs.size(); k++){
+                System.out.println(Integer.toString(k));
+                if (k == -1) {
+                    System.out.println("  Passe dans b");
+                    switch (i){
+                        case 0:
+                            recapCarteR.add(new JLabel(new ImageIcon(imgBierre)){{setOpaque(false);} });
+                        case 1:
+                            recapCarteR.add(new JLabel(new ImageIcon(imgSommeil)){{setOpaque(false);} });
+                        case 2:
+                            recapCarteR.add(new JLabel(new ImageIcon(imgCafe)){{setOpaque(false);} });
+                        case 3:
+                            recapCarteR.add(new JLabel(new ImageIcon(imgCours)){{setOpaque(false);} });
+                        case 4:
+                            recapCarteR.add(new JLabel(new ImageIcon(imgNourriture)){{setOpaque(false);} });
+                    }
                 }
                 else {
-    //                recapCarteR.add(new JLabel((Joueurs.get(k)).getNom()));
-                    //TODO mettre les cartes des joueurs et pas les noms !
+                    recapCarteR.add(new JLabel( Integer.toString( ((Joueurs.get(k)).getMainRessource(i)).getNombre()) ));
                 }
             }
         }
@@ -261,9 +267,5 @@ public class EcranDroit extends JPanel{
         tmpFinal.add(boutEchg);
 
         return tmpFinal;
-    }
-
-    public void paintComponent(Graphics g, Image img, int d, int h) {
-        g.drawImage(img, d, h, null);
     }
 }

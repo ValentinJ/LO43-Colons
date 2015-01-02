@@ -1,6 +1,7 @@
 package fenetreGraphique;
 
 import colonsUTBM.Joueur;
+import colonsUTBM.TypeCouleur;
 
 import java.util.Vector;
 
@@ -9,6 +10,7 @@ import java.util.Vector;
  */
 public class main {
     public static void main(String []arg) {
+        /*
         // afficher un display splash
         FenetreFlash f = new FenetreFlash();
         // attend 3 secondes
@@ -20,6 +22,7 @@ public class main {
         f.dispose();
 
         Vector<Joueur> j = new Vector<Joueur> ();
+
         // ouverture fenetre pour identifier les joueurs
         FenetreIdentification fId = new FenetreIdentification("Colons de l'UTBohèMe - Projet LO43");
 
@@ -38,6 +41,32 @@ public class main {
             //fId.dispose();
             System.out.println("L'application a été fermé " + fId.getValider());
             System.exit(0);
+        }*/
+
+        /*
+        *
+        * Pour accelerer les tests mais a virer après
+        *
+         */
+
+        // afficher un display splash
+        FenetreFlash f = new FenetreFlash();
+        // attend 3 secondes
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+        f.dispose();
+
+        Vector<Joueur> j = new Vector<Joueur> ();
+
+        j.add(new Joueur("Mickael", TypeCouleur.BLEU));
+        j.add(new Joueur("Elodie", TypeCouleur.VERT));
+        j.add(new Joueur("Thomas", TypeCouleur.ROUGE));
+
+        System.out.println("L'application a été lancé");
+        FenetrePrincipale frame = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, j);
+
     }
 }

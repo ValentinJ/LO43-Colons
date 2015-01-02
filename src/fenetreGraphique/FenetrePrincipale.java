@@ -26,7 +26,6 @@ public class FenetrePrincipale extends FenetreDefaut {
     public int Tour;
 
     public GraphMap g;
-    public Graphics gImgEntete;
 
     public FenetrePrincipale(String _nom, int _h, int _l, Vector<Joueur> _J) {
         super(_nom, _h, _l);
@@ -45,9 +44,6 @@ public class FenetrePrincipale extends FenetreDefaut {
         //permet d'ajouter plusieurs JPanel sans ecraser les anciens
         getContentPane().setLayout(new BorderLayout());
 
-        // ajout du menu
-        //setJMenuBar(Menu);
-
         // creation des JPanel
         //EcranHaut = new EcranHaut(Joueurs);
         String msg_appli = "MSG INFOS : Application développée par Sara, Yuanxiang, Valentin, Guillaume";
@@ -57,13 +53,10 @@ public class FenetrePrincipale extends FenetreDefaut {
         Plateau = new Plateau(g.getView());
 
         try {
-            Infos = new EcranDroit(Joueurs, Tour, gImgEntete);
+            Infos = new EcranDroit(Joueurs, Tour);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        System.out.println("il est passé par ici");
-        /* * * * lui ajouté aussi le recap des construction * * * * */
 
         // definit taille des JPanel
         //EcranHaut.setPreferredSize(new Dimension(80, 100));
@@ -75,7 +68,6 @@ public class FenetrePrincipale extends FenetreDefaut {
         add(Plateau,     BorderLayout.CENTER);
         add(Infos,       BorderLayout.EAST);
         add(EcranBas,    BorderLayout.SOUTH);
-        System.out.println("mais peut etre pas par là !");
 
         affichage();
     }

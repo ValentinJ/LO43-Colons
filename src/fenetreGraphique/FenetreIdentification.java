@@ -64,7 +64,7 @@ public class FenetreIdentification extends JFrame implements ActionListener{
         formulaire = new JPanel();
         formulaire.setLayout(new GridLayout(4,1));
         formulaire.setBorder(new EmptyBorder(10, 10, 10, 10));
-        formulaire = panelFormulaire(false);
+        formulaire = panelFormulaire();
 
         confirmation = new JPanel();
         confirmation.setLayout(new GridLayout(1, 2));
@@ -109,13 +109,14 @@ public class FenetreIdentification extends JFrame implements ActionListener{
 
         return panelC;
     }
-    public JPanel panelFormulaire(boolean r4){
+    public JPanel panelFormulaire(){
         JPanel panelF = new JPanel();
         panelF.setLayout(new GridLayout(4,1));
         panelF.setBorder(new EmptyBorder(10, 10, 10, 10));
 
         formulaire1 = new JPanel();
         formulaire1.setLayout(new GridLayout(1,4));
+        formulaire1.setBorder(BorderFactory.createTitledBorder(""));
         t1 = new JTextArea(1,10);
         JLabel c1 = new JLabel("    ");
         c1.setOpaque(true);
@@ -127,6 +128,7 @@ public class FenetreIdentification extends JFrame implements ActionListener{
 
         formulaire2 = new JPanel();
         formulaire2.setLayout(new GridLayout(1,4));
+        formulaire2.setBorder(BorderFactory.createTitledBorder(""));
         t2 = new JTextArea(1,10);
         JLabel c2 = new JLabel("    ");
         c2.setOpaque(true);
@@ -138,6 +140,7 @@ public class FenetreIdentification extends JFrame implements ActionListener{
 
         formulaire3 = new JPanel();
         formulaire3.setLayout(new GridLayout(1,4));
+        formulaire3.setBorder(BorderFactory.createTitledBorder(""));
         t3 = new JTextArea(1,10);
         JLabel c3= new JLabel("    ");
         c3.setOpaque(true);
@@ -149,6 +152,7 @@ public class FenetreIdentification extends JFrame implements ActionListener{
 
         formulaire4 = new JPanel();
         formulaire4.setLayout(new GridLayout(1,4));
+        formulaire4.setBorder(BorderFactory.createTitledBorder(""));
         t4 = new JTextArea(1,10);
         JLabel c4 = new JLabel("    ");
         c4.setOpaque(true);
