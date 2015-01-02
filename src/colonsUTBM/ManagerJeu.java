@@ -52,7 +52,8 @@ public class ManagerJeu {
         vD.add((int) (Math.random()*6) + 1);
         valeurDes = vD;
     }
-/*
+
+    /*
     public void productionRessource(int valeurDes){                 // ne peut le faire sans fonction de valentin
         getVoisinCase(); // classe de terrain
         ArrayList<CaseRessource> caseProd = new ArrayList<CaseRessource>();
@@ -139,10 +140,10 @@ public class ManagerJeu {
 
     public int calculerScoreFinal(){
         for(int i=0 ; i < joueurs.size(); i++){
-            for (int j = 0; j < ((joueurs.get(i)).mainDeveloppement).size(); j++) {
-                /*if (((joueurs.get(i)).mainDeveloppement).typeDeveloppement == "POINTVICTOIRE"){
-                    (joueurs.get(i)).score += 1;
-                }*/
+            for (int j = 0; j < ((joueurs.get(i)).getMainDeveloppement()).size(); j++) {
+                if ((((joueurs.get(i)).getMainDeveloppement()).get(j)).getTypeDeveloppement() == TypeDeveloppement.POINTVICTOIRE){
+                    (joueurs.get(i)).setScore((joueurs.get(i)).getScore() + 1);
+                }
             }
         }
         return 0;

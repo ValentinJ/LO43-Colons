@@ -1,5 +1,6 @@
 package colonsUTBM;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
@@ -176,18 +177,12 @@ public class Joueur {
     }
 
     public void construireUV1(GraphMap g){
-        if(verifierAchatUV1())
-            g.ClickConstructionUV1(this);
     }
 
-    public void transformerUV2(GraphMap g){
-        if(verifierAchatUV2())
-            g.ClickConstructionUV2(this);
+    public void transformerUV2(){
     }
 
-    public void construireCC(GraphMap g){
-        if(verifierAchatControleContinu())
-            g.ClickConstructionControleContinus(this);
+    public void construireCC(){
     }
 
     public void echangeAvecJoueur(Joueur j){
@@ -202,7 +197,7 @@ public class Joueur {
     public void jouerCarteDeveloppement(CarteDeveloppement c){
     }
 
-    public void deplacerBinomeGlandeur(GraphMap g){
+    public void deplacerBinomeGlandeur(Case c){
     }
 
     public void validationCarteDevEnMain(){
@@ -238,8 +233,23 @@ public class Joueur {
         this.uvs = uvs;
     }
 
-
     public int getUV1(){return nbUv1;}
 
     public int getUV2(){return nbUv2;}
+
+    public void setScore(int val){score = val;}
+
+    public int getCC(){return CC.size();}
+
+    public int getAncien() {
+        int nb_ancien = 0;
+        for (int i = 0; i<mainDeveloppement.size() ; i++){
+            if ( (mainDeveloppement.get(i)).getTypeDeveloppement() == TypeDeveloppement.ANCIEN ){
+                nb_ancien = nb_ancien + 1;
+            }
+        }
+        return nb_ancien;
+    }
+
+    public ArrayList<CarteDeveloppement> getMainDeveloppement(){return (ArrayList) mainDeveloppement;}
 }
