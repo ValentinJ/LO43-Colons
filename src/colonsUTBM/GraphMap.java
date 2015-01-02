@@ -275,10 +275,12 @@ public class GraphMap{
 
     public ArrayList<NoeudConstructible> getVoisinsCase(CaseInterne c) {
         ArrayList<NoeudConstructible> voisins = new ArrayList<NoeudConstructible>();
-        Iterator<Node> it = g.getNode(c.id).getNeighborNodeIterator();
-        while (it.hasNext()) {
-            Node n = it.next();
-            if (!n.getAttribute("ui.class").equals("noeud")) voisins.add(getNoeudConstructible(n.getId()));
+        if(!c.isBinomeGlandeur()) {
+            Iterator<Node> it = g.getNode(c.id).getNeighborNodeIterator();
+            while (it.hasNext()) {
+                Node n = it.next();
+                if (!n.getAttribute("ui.class").equals("noeud")) voisins.add(getNoeudConstructible(n.getId()));
+            }
         }
         return voisins;
     }
