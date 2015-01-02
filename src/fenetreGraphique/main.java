@@ -3,7 +3,7 @@ package fenetreGraphique;
 import colonsUTBM.Joueur;
 import colonsUTBM.TypeCouleur;
 
-import java.util.Vector;
+import java.util.ArrayList;
 
 /**
  * Created by Guillaume on 09/12/2014.
@@ -24,7 +24,7 @@ public class main {
         }
         f.dispose();
         */
-        Vector<Joueur> j = new Vector<Joueur> ();
+        ArrayList<Joueur> j = new ArrayList<Joueur> ();
         j.add(new Joueur("Mickael", TypeCouleur.BLEU));
         j.add(new Joueur("Elodie", TypeCouleur.ROUGE));
         j.add(new Joueur("Didi", TypeCouleur.VERT));
@@ -56,7 +56,7 @@ public class main {
         *
 
 
-        Vector<Joueur> j = new Vector<Joueur> ();
+        ArrayList<Joueur> j = new ArrayList<Joueur> ();
 
         j.add(new Joueur("Mickael", TypeCouleur.BLEU));
         j.add(new Joueur("Elodie", TypeCouleur.VERT));

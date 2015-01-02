@@ -1,31 +1,22 @@
 package fenetreGraphique;
 
 import colonsUTBM.Joueur;
-import colonsUTBM.UV;
-import sun.awt.HorizBagLayout;
 import sun.awt.VerticalBagLayout;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Vector;
 
 /**
  * Created by Guillaume on 21/11/2014.
  */
 public class EcranDroit extends JPanel{
 
-    public Vector<Joueur> Joueurs;
+    public ArrayList<Joueur> Joueurs;
     public JTabbedPane interfaceEchange;
-    //public ArrayList<OngletEchange> OngletsEchange;
     public OngletEchange Banque;
     public OngletEchange EJ1;
     public OngletEchange EJ2;
@@ -49,18 +40,9 @@ public class EcranDroit extends JPanel{
     public Image imgCours;
     public Image imgNourriture;
 
-    public ButtonGroup group;
-    public JRadioButton radio1;
-    public JRadioButton radio2;
-    public JRadioButton radio3;
-    public JRadioButton radio4;
-    public JRadioButton radio5;
-
-    public JButton comm;
-
     int Tour;
 
-    public EcranDroit(Vector<Joueur> j, int t) throws IOException {
+    public EcranDroit(ArrayList<Joueur> j, int t) throws IOException {
         Joueurs = j;
         Tour = t;
 
@@ -97,14 +79,13 @@ public class EcranDroit extends JPanel{
         TableauDechange();
 
         add(recap);
-        //add(interfaceEchange);
+        add(interfaceEchange);
     }
 
     public void enteteVertical(){
-        //enteteV = new JPanel(new GridLayout(15,1));
-        enteteV = new JPanel(new HorizBagLayout());
+        enteteV = new JPanel(new GridLayout(15,1));
         enteteV.add(new JLabel("  "));
-        enteteV.add(new JLabel(new ImageIcon(imgBierre)){{setOpaque(false);} });
+        enteteV.add(new JLabel(new ImageIcon(imgBierre)){{setOpaque(false);}});
         enteteV.add(new JLabel(new ImageIcon(imgSommeil)){{setOpaque(false);} });
         enteteV.add(new JLabel(new ImageIcon(imgCafe)){{setOpaque(false);} });
         enteteV.add(new JLabel(new ImageIcon(imgCours)){{setOpaque(false);} });
@@ -196,15 +177,6 @@ public class EcranDroit extends JPanel{
             infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getScore()))));
             infosJoueur.add(infosJ4);
         }
-
-    }
-
-    public void infosJ2(){
-
-    }
-
-    public void infosJ3(){
-
     }
 
     public void TableauDechange(){
@@ -226,7 +198,7 @@ public class EcranDroit extends JPanel{
         interfaceEchange.setOpaque(true);
     }
 
-    public void MiseAJour(Vector<Joueur> _j, int _t){
+    public void MiseAJour(ArrayList<Joueur> _j, int _t){
         Joueurs = _j;
         Tour = _t;
 
@@ -236,6 +208,25 @@ public class EcranDroit extends JPanel{
 
         // des differentes possession : carte / UV* / UV** / Controle Continue / ...
 
+
+
         validate();
     }
+    /*
+    public void changementCouleur(){
+        public void activeCouleur(){
+            if (c.equals("VERT")) {
+                setBackground(Color.green);
+            }
+            if (c.equals("BLEU")) {
+                setBackground(Color.blue);
+            }
+            if (c.equals("ROUGE")) {
+                setBackground(Color.red);
+            }
+            if (c.equals("JAUNE")) {
+                setBackground(Color.yellow);
+            }
+        }
+    }*/
 }

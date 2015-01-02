@@ -9,7 +9,7 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Vector;
+import java.util.ArrayList;
 
 /**
  * Created by Guillaume on 01/01/2015.
@@ -17,7 +17,7 @@ import java.util.Vector;
 //public class FenetreIdentification extends JFrame implements MouseListener {
 public class FenetreIdentification extends JFrame implements ActionListener{
 
-    public Vector<Joueur> Joueurs;
+    public ArrayList<Joueur> Joueurs;
 
     public JPanel complet;
     public JPanel choix;
@@ -49,7 +49,7 @@ public class FenetreIdentification extends JFrame implements ActionListener{
     public FenetreIdentification(String _nom){
         super(_nom);
 
-        Joueurs = new Vector<Joueur>();
+        Joueurs = new ArrayList<Joueur>();
         nomFenetre = _nom;
 
         //On définit le layout à utiliser sur le content pane
@@ -209,7 +209,7 @@ public class FenetreIdentification extends JFrame implements ActionListener{
 
     public int getValider(){return valider;}
 
-    public Vector<Joueur> getJoueurs(){return Joueurs;}
+    public ArrayList<Joueur> getJoueurs(){return Joueurs;}
 
     public void actionPerformed(ActionEvent e) {
         // si c est le bouton de radio3
