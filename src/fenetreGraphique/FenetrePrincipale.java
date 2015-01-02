@@ -5,16 +5,13 @@ import colonsUTBM.Joueur;
 
 import java.awt.*;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Vector;
 
 /**
  * Created by Guillaume on 21/11/2014.
  */
 public class FenetrePrincipale extends FenetreDefaut {
-
-    public BarreMenu Menu;                    // Barre de menu de toute bonne fenetre
-
-    public EcranHaut EcranHaut;               // infos sur le joueur de ce tour
     public EcranGauche EcranGauche;           // construction et boutons d'interractions
     public Plateau Plateau;                   // plateau du jeu
     public EcranDroit Infos;                  // infos du joueur et recapitulatif
@@ -22,12 +19,12 @@ public class FenetrePrincipale extends FenetreDefaut {
     public EcranBas EcranBas;                 // reglementation du jeu ou msg du jeu
 
     int nbJoueur;
-    public Vector<Joueur> Joueurs;
+    public ArrayList<Joueur> Joueurs;
     public int Tour;
 
     public GraphMap g;
 
-    public FenetrePrincipale(String _nom, int _h, int _l, Vector<Joueur> _J) {
+    public FenetrePrincipale(String _nom, int _h, int _l, ArrayList<Joueur> _J) {
         super(_nom, _h, _l);
 
         Joueurs = _J;
@@ -45,7 +42,6 @@ public class FenetrePrincipale extends FenetreDefaut {
         getContentPane().setLayout(new BorderLayout());
 
         // creation des JPanel
-        //EcranHaut = new EcranHaut(Joueurs);
         String msg_appli = "MSG INFOS : Application développée par Sara, Yuanxiang, Valentin, Guillaume";
         EcranBas = new EcranBas(msg_appli);
         // instanciation du JPanel EcranGauche
@@ -59,11 +55,9 @@ public class FenetrePrincipale extends FenetreDefaut {
         }
 
         // definit taille des JPanel
-        //EcranHaut.setPreferredSize(new Dimension(80, 100));
         EcranGauche.setPreferredSize(new Dimension(200, 100));
 
         // ajout des parties de JPanel dans la JFrame selon un emplacement précis
-        //add(EcranHaut,   BorderLayout.NORTH);
         add(EcranGauche, BorderLayout.WEST);
         add(Plateau,     BorderLayout.CENTER);
         add(Infos,       BorderLayout.EAST);
@@ -84,7 +78,6 @@ public class FenetrePrincipale extends FenetreDefaut {
         // mise a jour des differents JPanel
 
         Infos.MiseAJour(Joueurs, Tour);
-        EcranHaut.MiseAJour(Tour);
         Plateau.MiseAJour();
 
         affichage();
@@ -98,7 +91,7 @@ public class FenetrePrincipale extends FenetreDefaut {
     }
 
     public static void main() {
-        Vector<Joueur> j = new Vector<Joueur> ();
+        ArrayList<Joueur> j = new ArrayList<Joueur> ();
         FenetrePrincipale frame = new FenetrePrincipale("testage", 600, 1200, j);
     }
 

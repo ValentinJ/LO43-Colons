@@ -8,14 +8,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.util.Vector;
+import java.util.ArrayList;
 
 /**
  * Created by Guillaume on 21/11/2014.
  */
 public class EcranDroit extends JPanel{
 
-    public Vector<Joueur> Joueurs;
+    public ArrayList<Joueur> Joueurs;
     public JTabbedPane interfaceEchange;
     public OngletEchange Banque;
     public OngletEchange EJ1;
@@ -42,7 +42,7 @@ public class EcranDroit extends JPanel{
 
     int Tour;
 
-    public EcranDroit(Vector<Joueur> j, int t) throws IOException {
+    public EcranDroit(ArrayList<Joueur> j, int t) throws IOException {
         Joueurs = j;
         Tour = t;
 
@@ -198,7 +198,7 @@ public class EcranDroit extends JPanel{
         interfaceEchange.setOpaque(true);
     }
 
-    public void MiseAJour(Vector<Joueur> _j, int _t){
+    public void MiseAJour(ArrayList<Joueur> _j, int _t){
         Joueurs = _j;
         Tour = _t;
 
@@ -208,6 +208,25 @@ public class EcranDroit extends JPanel{
 
         // des differentes possession : carte / UV* / UV** / Controle Continue / ...
 
+
+
         validate();
     }
+    /*
+    public void changementCouleur(){
+        public void activeCouleur(){
+            if (c.equals("VERT")) {
+                setBackground(Color.green);
+            }
+            if (c.equals("BLEU")) {
+                setBackground(Color.blue);
+            }
+            if (c.equals("ROUGE")) {
+                setBackground(Color.red);
+            }
+            if (c.equals("JAUNE")) {
+                setBackground(Color.yellow);
+            }
+        }
+    }*/
 }
