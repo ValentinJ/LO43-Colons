@@ -144,41 +144,37 @@ public class EcranDroit extends JPanel{
         EJ2 = new OngletEchange();
         EJ3 = new OngletEchange();
         EJ4 = new OngletEchange();
-        interfaceEchange.add((Joueurs.get((0))).getNom(), EJ1);
-        interfaceEchange.add((Joueurs.get((1))).getNom(), EJ2);
-        interfaceEchange.add((Joueurs.get((2))).getNom(), EJ3);
-        if (Joueurs.size()>3) {
-            interfaceEchange.add((Joueurs.get((3))).getNom(), EJ4);
-        }
-        Banque = new OngletEchange();
-        interfaceEchange.add("Banque", Banque);
-        EJ1.setVisible(false);
-        validate();
 
-        interfaceEchange.setOpaque(true);
+        TableauDechange();
 
         add(recap);
         add(interfaceEchange);
+    }
+
+    public void TableauDechange(){
+        interfaceEchange.removeAll();
+
+        if (Tour%Joueurs.size() != 0)
+            interfaceEchange.add((Joueurs.get((0))).getNom(), EJ1);
+        if (Tour%Joueurs.size() != 1)
+            interfaceEchange.add((Joueurs.get((1))).getNom(), EJ2);
+        if (Tour%Joueurs.size() != 2)
+            interfaceEchange.add((Joueurs.get((2))).getNom(), EJ3);
+        if (Joueurs.size()>3) {
+            if (Tour%Joueurs.size() != 3)
+                interfaceEchange.add((Joueurs.get((3))).getNom(), EJ4);
+        }
+
+        Banque = new OngletEchange();
+        interfaceEchange.add("Banque", Banque);
+        interfaceEchange.setOpaque(true);
     }
 
     public void MiseAJour(Vector<Joueur> _j, int _t){
         Joueurs = _j;
         Tour = _t;
 
-        //deverouille l ancien onglet d echange du joueur precedant
-        switch (Tour-1%Joueurs.size()){
-            case 0: EJ1.setVisible(true);
-            case 1: EJ2.setVisible(true);
-            case 2: EJ3.setVisible(true);
-            case 3: EJ4.setVisible(true);
-        }
-        //verouille le nouveu onglet echange du joueur en cours
-        switch (Tour-1%Joueurs.size()){
-            case 0: EJ1.setVisible(false);
-            case 1: EJ2.setVisible(false);
-            case 2: EJ3.setVisible(false);
-            case 3: EJ4.setVisible(false);
-        }
+        TableauDechange();
 
         // tableau des ressources dans les mains
 

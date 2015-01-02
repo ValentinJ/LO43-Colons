@@ -153,7 +153,6 @@ public class OngletEchange extends JPanel implements ActionListener{
         // si c est le bouton confirmerEchange
         if (echange1.getSource() == comm) {
             System.out.println("le joueur a demander un echange");
-
             group.getSelection(); // pour connaitre le type de carte desirer
         }
     }
