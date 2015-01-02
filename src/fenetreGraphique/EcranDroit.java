@@ -32,8 +32,15 @@ public class EcranDroit extends JPanel{
     public OngletEchange EJ4;
 
     public JPanel recap;
-    public JPanel recapCarteR;
-    public JPanel recapScore;
+    public JPanel recapInfos;
+
+    public JPanel enteteV;
+    public JPanel infosJoueur;
+    public JPanel infosJ1;
+    public JPanel infosJ2;
+    public JPanel infosJ3;
+    public JPanel infosJ4;
+
 
     public Image imgBierre;
     public Image imgSommeil;
@@ -61,7 +68,7 @@ public class EcranDroit extends JPanel{
         recap = new JPanel(new VerticalBagLayout());
 
         // partie le tableau de maniere dynamique
-        recapCarteR = new JPanel(new GridLayout(12,Joueurs.size()+1));
+        recapInfos = new JPanel(new GridLayout(1,2));
 
         imgBierre     = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteBiere.png"));
         imgSommeil    = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteSommeil.png"));
@@ -69,73 +76,14 @@ public class EcranDroit extends JPanel{
         imgCours      = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteCours.png"));
         imgNourriture = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteNourriture.png"));
 
-        // entete tab avec le nom des joueurs
-        for(int i=-1; i< Joueurs.size(); i++) {
-            if (i==-1)
-               recapCarteR.add(new JLabel("   "));
-            else
-                recapCarteR.add(new JLabel((Joueurs.get(i)).getNom()));
-        }
-        // contenue tab ressource
-        for (int i=0; i<5; i++){
-            System.out.println(Integer.toString(i));
-            for (int k = -1; k<Joueurs.size(); k++){
-                System.out.println(Integer.toString(k));
-                if (k == -1) {
-                    System.out.println("  Passe dans b");
-                    switch (i){
-                        case 0:
-                            recapCarteR.add(new JLabel(new ImageIcon(imgBierre)){{setOpaque(false);} });
-                        case 1:
-                            recapCarteR.add(new JLabel(new ImageIcon(imgSommeil)){{setOpaque(false);} });
-                        case 2:
-                            recapCarteR.add(new JLabel(new ImageIcon(imgCafe)){{setOpaque(false);} });
-                        case 3:
-                            recapCarteR.add(new JLabel(new ImageIcon(imgCours)){{setOpaque(false);} });
-                        case 4:
-                            recapCarteR.add(new JLabel(new ImageIcon(imgNourriture)){{setOpaque(false);} });
-                    }
-                }
-                else {
-                    recapCarteR.add(new JLabel( Integer.toString( ((Joueurs.get(k)).getMainRessource(i)).getNombre()) ));
-                }
-            }
-        }
 
-        // contenue des score
-        recapScore = new JPanel(new GridLayout()); //TODO
-        for(int i=-1; i< Joueurs.size(); i++) {
-            recapScore.add(new JLabel("   "));
-        }
-        for (int i=0; i<2; i++) {
-            for (int k = -1; k < Joueurs.size() + 1; k++) {
-                //UV1
-                //UV2
-            }
-        }        // contenue des score
-        for(int i=-1; i< Joueurs.size(); i++) {
-            if (i!=-1)
-                recapScore.add(new JLabel("   "));
-            else
-                recapScore.add(new JLabel("Bonus"));
-        }
-        for (int i=0; i<2; i++) {
-            for (int k = -1; k < Joueurs.size() + 1; k++) {
-                //Ancien
-                //Comm
-            }
-        }
-        // tot
-        for(int i=-1; i< Joueurs.size(); i++) {
-            recapScore.add(new JLabel("   "));
-        }
+        enteteVertical();
+        recapInfosJoueurs();
 
-        // partie nb ville et colonnie du joueur actu
-        // partie bonus (anciens + controle continue)
-        // partie score tot nb ville + colonnie + bonus
+        recapInfos.add(enteteV);
+        recapInfos.add(infosJoueur);
 
-        recap.add(recapCarteR);
-        recap.add(recapScore);
+        recap.add(recapInfos);
 
         // interface des echanges
         interfaceEchange = new JTabbedPane();
@@ -148,7 +96,113 @@ public class EcranDroit extends JPanel{
         TableauDechange();
 
         add(recap);
-        add(interfaceEchange);
+        //add(interfaceEchange);
+    }
+
+    public void enteteVertical(){
+        enteteV = new JPanel(new GridLayout(15,1));
+        enteteV.add(new JLabel("  "));
+        enteteV.add(new JLabel(new ImageIcon(imgBierre)){{setOpaque(false);} });
+        enteteV.add(new JLabel(new ImageIcon(imgSommeil)){{setOpaque(false);} });
+        enteteV.add(new JLabel(new ImageIcon(imgCafe)){{setOpaque(false);} });
+        enteteV.add(new JLabel(new ImageIcon(imgCours)){{setOpaque(false);} });
+        enteteV.add(new JLabel(new ImageIcon(imgNourriture)){{setOpaque(false);} });
+        enteteV.add(new JLabel("  "));
+        enteteV.add(new JLabel("UV1"));
+        enteteV.add(new JLabel("UV2"));
+        enteteV.add(new JLabel("  "));
+        enteteV.add(new JLabel("Bonus"));
+        enteteV.add(new JLabel("Ancien"));
+        enteteV.add(new JLabel("C C"));
+        enteteV.add(new JLabel("  "));
+        enteteV.add(new JLabel("Score"));
+    }
+
+    public void recapInfosJoueurs(){
+        infosJoueur = new JPanel(new GridLayout(1, Joueurs.size()));
+
+        infosJ1 = new JPanel(new GridLayout(15,1));
+        infosJ1.add(new JLabel((Joueurs.get(0)).getNom()));
+        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(0)).getNombre()) ));
+        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(1)).getNombre()) ));
+        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(2)).getNombre()) ));
+        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(3)).getNombre()) ));
+        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(4)).getNombre()) ));
+        infosJ1.add(new JLabel("  "));
+        infosJ1.add(new JLabel(Integer.toString(((Joueurs.get(0)).getUV1()))));
+        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getUV2()))));
+        infosJ1.add(new JLabel("  "));
+        infosJ1.add(new JLabel("  "));
+        infosJ1.add(new JLabel("Ancien"));
+        infosJ1.add(new JLabel("C C"));
+        infosJ1.add(new JLabel("  "));
+        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getScore()))));
+        infosJoueur.add(infosJ1);
+
+        infosJ2 = new JPanel(new GridLayout(15,1));
+        infosJ2.add(new JLabel((Joueurs.get(1)).getNom()));
+        infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getMainRessource(0)).getNombre()) ));
+        infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getMainRessource(1)).getNombre()) ));
+        infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getMainRessource(2)).getNombre()) ));
+        infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getMainRessource(3)).getNombre()) ));
+        infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getMainRessource(4)).getNombre()) ));
+        infosJ2.add(new JLabel("  "));
+        infosJ2.add(new JLabel(Integer.toString(((Joueurs.get(1)).getUV1()))));
+        infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getUV2()))));
+        infosJ2.add(new JLabel("  "));
+        infosJ2.add(new JLabel("  "));
+        infosJ2.add(new JLabel("Ancien"));
+        infosJ2.add(new JLabel("C C"));
+        infosJ2.add(new JLabel("  "));
+        infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getScore()))));
+        infosJoueur.add(infosJ2);
+
+        infosJ3 = new JPanel(new GridLayout(15,1));
+        infosJ3.add(new JLabel((Joueurs.get(2)).getNom()));
+        infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(0)).getNombre()) ));
+        infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(1)).getNombre()) ));
+        infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(2)).getNombre()) ));
+        infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(3)).getNombre()) ));
+        infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(4)).getNombre()) ));
+        infosJ3.add(new JLabel("  "));
+        infosJ3.add(new JLabel(Integer.toString(((Joueurs.get(2)).getUV1()))));
+        infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getUV2()))));
+        infosJ3.add(new JLabel("  "));
+        infosJ3.add(new JLabel("  "));
+        infosJ3.add(new JLabel("Ancien"));
+        infosJ3.add(new JLabel("C C"));
+        infosJ3.add(new JLabel("  "));
+        infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getScore()))));
+        infosJoueur.add(infosJ3);
+
+        if  (Joueurs.size() > 3){
+            infosJ4 = new JPanel(new GridLayout(15,1));
+            infosJ4.add(new JLabel((Joueurs.get(2)).getNom()));
+            infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(0)).getNombre()) ));
+            infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(1)).getNombre()) ));
+            infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(2)).getNombre()) ));
+            infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(3)).getNombre()) ));
+            infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(4)).getNombre()) ));
+            infosJ4.add(new JLabel("  "));
+            infosJ4.add(new JLabel(Integer.toString(((Joueurs.get(2)).getUV1()))));
+            infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getUV2()))));
+            infosJ4.add(new JLabel("  "));
+            infosJ4.add(new JLabel("  "));
+            infosJ4.add(new JLabel("Ancien"));
+            infosJ4.add(new JLabel("C C"));
+            infosJ4.add(new JLabel("  "));
+            infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getScore()))));
+            infosJoueur.add(infosJ4);
+        }
+
+    }
+
+    public void infosJ2(){
+
+    }
+
+    public void infosJ3(){
+
     }
 
     public void TableauDechange(){
