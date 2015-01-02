@@ -23,9 +23,9 @@ public class Des {
     }
 
     public String getImgV1(){
-        return "des"+v1+".png";
+        return "dice"+v1+".png";
     }
     public String getImgV2(){
-        return "des"+v2+".png";
+        return "dice"+v2+".png";
     }
 }

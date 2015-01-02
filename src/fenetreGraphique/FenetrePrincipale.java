@@ -13,7 +13,6 @@ import java.util.Vector;
 public class FenetrePrincipale extends FenetreDefaut {
 
     public BarreMenu Menu;                    // Barre de menu de toute bonne fenetre
-
     public EcranHaut EcranHaut;               // infos sur le joueur de ce tour
     public EcranGauche EcranGauche;           // construction et boutons d'interractions
     public Plateau Plateau;                   // plateau du jeu
@@ -24,7 +23,6 @@ public class FenetrePrincipale extends FenetreDefaut {
     int nbJoueur;
     public Vector<Joueur> Joueurs;
     public int Tour;
-
     public GraphMap g;
 
     public FenetrePrincipale(String _nom, int _h, int _l, Vector<Joueur> _J) {
@@ -32,8 +30,6 @@ public class FenetrePrincipale extends FenetreDefaut {
 
         Joueurs = _J;
         nbJoueur = Joueurs.size();
-        //Menu = new BarreMenu();
-
         g = new GraphMap(true);
         g.initMap();
         g.chargerCSS();
