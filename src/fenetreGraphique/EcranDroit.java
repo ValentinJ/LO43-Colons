@@ -2,6 +2,7 @@ package fenetreGraphique;
 
 import colonsUTBM.Joueur;
 import colonsUTBM.UV;
+import sun.awt.HorizBagLayout;
 import sun.awt.VerticalBagLayout;
 
 import javax.imageio.ImageIO;
@@ -101,7 +102,7 @@ public class EcranDroit extends JPanel{
 
     public void enteteVertical(){
         //enteteV = new JPanel(new GridLayout(15,1));
-        enteteV = new JPanel(new VerticalBagLayout());
+        enteteV = new JPanel(new HorizBagLayout());
         enteteV.add(new JLabel("  "));
         enteteV.add(new JLabel(new ImageIcon(imgBierre)){{setOpaque(false);} });
         enteteV.add(new JLabel(new ImageIcon(imgSommeil)){{setOpaque(false);} });

@@ -44,7 +44,7 @@ public class main {
 
             // affichage de la fenetre de jeu
             frame = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, j);
-        }/*
+        /*}
         else {
             System.out.println("L'application a été fermé " + fId.getValider());
             System.exit(0);
