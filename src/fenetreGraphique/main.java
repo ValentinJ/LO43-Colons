@@ -28,9 +28,11 @@ public class main {
         // ouverture fenetre pour identifier les joueurs
         FenetreIdentification fId = new FenetreIdentification("Colons de l'UTBohèMe - Projet LO43");
 
-        while (fId.getValider()==0){}
-        //fId.dispose();
-        fId.setVisible(false);
+        while (fId.getValider()==0){
+            System.out.println("Je suis while");
+        }
+        System.out.println("FID.valider "+fId.getValider());
+        fId.dispose();
 
         if (fId.getValider()==1){
             //fId.dispose();
