@@ -30,8 +30,11 @@ public class main {
         FenetreIdentification fId = new FenetreIdentification("Colons de l'UTBohèMe - Projet LO43");
 
         while (fId.getValider()==0){
-            attente = attente +1;
-        }
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }        }
         System.out.println("FID.valider "+fId.getValider());
         fId.dispose();
 
