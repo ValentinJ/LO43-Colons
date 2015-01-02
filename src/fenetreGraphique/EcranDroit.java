@@ -1,21 +1,13 @@
 package fenetreGraphique;
 
 import colonsUTBM.Joueur;
-import colonsUTBM.UV;
-import sun.awt.HorizBagLayout;
 import sun.awt.VerticalBagLayout;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Vector;
 
 /**
@@ -25,7 +17,6 @@ public class EcranDroit extends JPanel{
 
     public Vector<Joueur> Joueurs;
     public JTabbedPane interfaceEchange;
-    //public ArrayList<OngletEchange> OngletsEchange;
     public OngletEchange Banque;
     public OngletEchange EJ1;
     public OngletEchange EJ2;
@@ -48,15 +39,6 @@ public class EcranDroit extends JPanel{
     public Image imgCafe;
     public Image imgCours;
     public Image imgNourriture;
-
-    public ButtonGroup group;
-    public JRadioButton radio1;
-    public JRadioButton radio2;
-    public JRadioButton radio3;
-    public JRadioButton radio4;
-    public JRadioButton radio5;
-
-    public JButton comm;
 
     int Tour;
 
@@ -97,18 +79,22 @@ public class EcranDroit extends JPanel{
         TableauDechange();
 
         add(recap);
-        //add(interfaceEchange);
+        add(interfaceEchange);
     }
 
     public void enteteVertical(){
-        //enteteV = new JPanel(new GridLayout(15,1));
-        enteteV = new JPanel(new HorizBagLayout());
+        enteteV = new JPanel(new GridLayout(15,1));
+
+        //JPanel deb = new JPanel(new GridLayout(6,1));
+        //enteteV = new JPanel(new VerticalBagLayout());
         enteteV.add(new JLabel("  "));
         enteteV.add(new JLabel(new ImageIcon(imgBierre)){{setOpaque(false);} });
         enteteV.add(new JLabel(new ImageIcon(imgSommeil)){{setOpaque(false);} });
         enteteV.add(new JLabel(new ImageIcon(imgCafe)){{setOpaque(false);} });
         enteteV.add(new JLabel(new ImageIcon(imgCours)){{setOpaque(false);} });
         enteteV.add(new JLabel(new ImageIcon(imgNourriture)){{setOpaque(false);} });
+
+        //enteteV.add(deb);
         enteteV.add(new JLabel("  "));
         enteteV.add(new JLabel("UV1"));
         enteteV.add(new JLabel("UV2"));
@@ -124,6 +110,7 @@ public class EcranDroit extends JPanel{
         infosJoueur = new JPanel(new GridLayout(1, Joueurs.size()));
 
         infosJ1 = new JPanel(new GridLayout(15,1));
+
         infosJ1.add(new JLabel((Joueurs.get(0)).getNom()));
         infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(0)).getNombre()) ));
         infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(1)).getNombre()) ));
@@ -196,14 +183,6 @@ public class EcranDroit extends JPanel{
             infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getScore()))));
             infosJoueur.add(infosJ4);
         }
-
-    }
-
-    public void infosJ2(){
-
-    }
-
-    public void infosJ3(){
 
     }
 
