@@ -63,11 +63,11 @@ public class EcranDroit extends JPanel{
         // partie le tableau de maniere dynamique
         recapCarteR = new JPanel(new GridLayout(12,Joueurs.size()+1));
 
-        imgBierre     = ImageIO.read(new File(System.getProperty("user.dir") +"\\img\\CarteBiere.png"));
-        imgSommeil    = ImageIO.read(new File(System.getProperty("user.dir") +"\\img\\CarteSommeil.png"));
-        imgCafe       = ImageIO.read(new File(System.getProperty("user.dir") +"\\img\\CarteCafe.png"));
-        imgCours      = ImageIO.read(new File(System.getProperty("user.dir") +"\\img\\CarteCours.png"));
-        imgNourriture = ImageIO.read(new File(System.getProperty("user.dir") +"\\img\\CarteNourriture.png"));
+        imgBierre     = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteBiere.png"));
+        imgSommeil    = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteSommeil.png"));
+        imgCafe       = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteCafe.png"));
+        imgCours      = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteCours.png"));
+        imgNourriture = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteNourriture.png"));
 
         // entete tab avec le nom des joueurs
         for(int i=-1; i< Joueurs.size(); i++) {
