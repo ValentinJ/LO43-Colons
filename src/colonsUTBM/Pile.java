@@ -20,8 +20,8 @@ public class Pile {
 
     public void ajouter() { nombre++; }
     public void retirer() { nombre--; }
-    public void ajouterX(int nbr){ nombre+=nbr;}
-    public void retirerX(int nbr){ nombre-=nbr;}
+    public void ajouter(int nbr){ nombre+=nbr;}
+    public void retirer(int nbr){ nombre-=nbr;}
     public int getNombre() { return nombre; }
     public CarteRessource getRessource() { return ressource; }
 }

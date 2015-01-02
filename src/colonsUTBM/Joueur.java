@@ -178,15 +178,33 @@ public class Joueur {
     }
 
     public void construireUV1(GraphMap g){
-        g.ClickConstructionUV2(this);
+        if(verifierAchatUV1()) {
+            g.ClickConstructionUV1(this);
+            mainRessource.get(TypeRessource.COURS).retirer();
+            mainRessource.get(TypeRessource.BIERE).retirer();
+            mainRessource.get(TypeRessource.CAFE).retirer();;
+            mainRessource.get(TypeRessource.NOURRITURE).retirer();
+            nbUv1--;
+        }
     }
 
     public void transformerUV2(GraphMap g){
-        g.ClickConstructionUV2(this);
+        if(verifierAchatUV2()) {
+            g.ClickConstructionUV2(this);
+            mainRessource.get(TypeRessource.COURS).retirer(2);
+            mainRessource.get(TypeRessource.SOMMEIL).retirer(3);
+            nbUv1++;
+            nbUv2--;
+        }
     }
 
     public void construireCC(GraphMap g){
-        g.ClickConstructionControleContinus(this);
+        if(verifierAchatControleContinu()) {
+            g.ClickConstructionControleContinus(this);
+            getMainRessource().get(TypeRessource.BIERE).retirer();
+            getMainRessource().get(TypeRessource.NOURRITURE).retirer();
+            nbCc--;
+        }
     }
 
     public void echangeAvecJoueur(Joueur j){
