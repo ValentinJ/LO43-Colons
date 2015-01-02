@@ -7,10 +7,12 @@ public class CarteDeveloppement extends Carte{
 
     protected boolean attenteValide; /*il dit si la carte peut etre joué*/
     protected TypeDeveloppement typeDeveloppement;
+    protected boolean dansLaMain;
 
     public CarteDeveloppement(TypeDeveloppement t){
         typeDeveloppement = t;
         attenteValide = false;
+        dansLaMain = true;
         switch (typeDeveloppement){
             case ANCIEN:
                 nom="Carte Ancien";
