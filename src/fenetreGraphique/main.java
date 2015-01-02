@@ -12,6 +12,7 @@ public class main {
     public static void main(String []arg) {
 
         FenetrePrincipale frame;
+        int attente = 0;
         /*
         // afficher un display splash
         FenetreFlash f = new FenetreFlash();
@@ -29,11 +30,8 @@ public class main {
         FenetreIdentification fId = new FenetreIdentification("Colons de l'UTBohèMe - Projet LO43");
 
         while (fId.getValider()==0){
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }        }
+            attente = attente +1;
+        }
         System.out.println("FID.valider "+fId.getValider());
         fId.dispose();
 

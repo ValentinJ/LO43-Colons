@@ -201,4 +201,8 @@ public class Joueur {
     public void setUvs(ArrayList<UV1> uvs) {
         this.uvs = uvs;
     }
+
+    public int getUV1(){return nb_UV1;}
+
+    public int getUV2(){return nb_UV2;}
 }
