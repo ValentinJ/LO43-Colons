@@ -170,6 +170,12 @@ public class Joueur {
 
     public void achatCarteDev(ArrayList<CarteDeveloppement> cd){
 
+        //todo ajout la carte au joueur
+        if(verifierAchatCarteDev()){
+            getMainRessource().get(TypeRessource.COURS).retirer();
+            getMainRessource().get(TypeRessource.CAFE).retirer();
+            getMainRessource().get(TypeRessource.SOMMEIL).retirer();
+        }
         /**
          * verifierAchatCarteDev
          * Si VRAI alors retirer ressources
