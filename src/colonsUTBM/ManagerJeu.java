@@ -82,25 +82,6 @@ public class ManagerJeu {
                     noeudOccuper.getJ(ajoutRessource( ,2));
             }
         }
-
-        // recupere les joueurs ayant une uv sur la / les cases produisant des ressources
-        for (int j = 0 ; j < caseProd.size() ; j++){
-            joueurRecolt = chercheJoueur(caseProd.get(j));
-            // regarde le type d'uv qu a le joueur sur la case
-            for (int k = 0; k < joueurRecolt.size(); k++){
-                // test UV1old
-                int d;
-                for (d = 0; d < ((joueurs.get(k)).getUV1()).size(); d++){
-                    if ( (((joueurs.get(k)).getUV1()).get(d)).getPoint() == (caseProd.get(j)).getPointCase() )
-                        ;
-                }
-
-                // test UV2old
-
-            }
-            // engendre les gains
-        }
-
     }
 
     public void calculerScore(){                                     // besoin accesseur coord UV : "getUV1()" et "getUV2()"
