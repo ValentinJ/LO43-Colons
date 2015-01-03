@@ -71,16 +71,17 @@ public class ManagerJeu {
             }
         }
 
-
         // pour chaque case recup, trouver si un noeud adjacent est occuper   <- ici getVoisinCase();
         for (int i = 0 ; i < caseProd.size() ; i++){
             noeudOccuper = (UV1) (terrain.getVoisinsCase(caseProd.get(i)));
             for (int j = 0 ; j < noeudOccuper.size() ; j++){
                 // pour chaque noeud adjacent occuper, gain ressource du type de la case <-AjoutRessource
-                if (noeudOccuper insteanceof UV1)
-                    noeudOccuper.getJ(ajoutRessource( ,1));
-                else
-                    noeudOccuper.getJ(ajoutRessource( ,2));
+                if (noeudOccuper instanceof UV1){
+                    ((noeudOccuper.get(j)).getJ()).ajoutRessource(((noeudOccuper.get(j)).getJ()),1));
+                }
+                else{
+                    ((noeudOccuper.get(j)).getJ()).ajoutRessource(((noeudOccuper.get(j)).getJ()),2));
+                }
             }
         }
     }
