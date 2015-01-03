@@ -71,6 +71,7 @@ public class ManagerJeu {
             }
         }
 
+
         // pour chaque case recup, trouver si un noeud adjacent est occuper   <- ici getVoisinCase();
         for (int i = 0 ; i < caseProd.size() ; i++){
             noeudOccuper = (UV1) (terrain.getVoisinsCase(caseProd.get(i)));
