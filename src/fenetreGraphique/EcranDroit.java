@@ -129,8 +129,8 @@ public class EcranDroit extends JPanel{
         infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(TypeRessource.COURS)).getNombre()) ));
         infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(TypeRessource.NOURRITURE)).getNombre()) ));
         infosJ1.add(new JLabel("  "));
-        infosJ1.add(new JLabel(Integer.toString(((Joueurs.get(0)).getUV1()))));
-        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getUV2()))));
+        infosJ1.add(new JLabel(Integer.toString((((Joueurs.get(0)).getNbUvs()).get(0)))));
+        infosJ1.add(new JLabel(Integer.toString((((Joueurs.get(0)).getNbUvs()).get(1)))));
         infosJ1.add(new JLabel("  "));
         infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getAncien()))));
         infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getCC()))));
@@ -146,8 +146,8 @@ public class EcranDroit extends JPanel{
         infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getMainRessource(TypeRessource.COURS)).getNombre()) ));
         infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getMainRessource(TypeRessource.NOURRITURE)).getNombre()) ));
         infosJ2.add(new JLabel("  "));
-        infosJ2.add(new JLabel(Integer.toString(((Joueurs.get(1)).getUV1()))));
-        infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getUV2()))));
+        infosJ2.add(new JLabel(Integer.toString((((Joueurs.get(1)).getNbUvs()).get(0)))));
+        infosJ2.add(new JLabel(Integer.toString((((Joueurs.get(1)).getNbUvs()).get(1)))));
         infosJ2.add(new JLabel("  "));
         infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getAncien()))));
         infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getCC()))));
@@ -163,8 +163,8 @@ public class EcranDroit extends JPanel{
         infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(TypeRessource.COURS)).getNombre()) ));
         infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(TypeRessource.NOURRITURE)).getNombre()) ));
         infosJ3.add(new JLabel("  "));
-        infosJ3.add(new JLabel(Integer.toString(((Joueurs.get(2)).getUV1()))));
-        infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getUV2()))));
+        infosJ3.add(new JLabel(Integer.toString((((Joueurs.get(2)).getNbUvs()).get(0)))));
+        infosJ3.add(new JLabel(Integer.toString((((Joueurs.get(2)).getNbUvs()).get(1)))));
         infosJ3.add(new JLabel("  "));
         infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getAncien()))));
         infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getCC()))));
@@ -181,8 +181,8 @@ public class EcranDroit extends JPanel{
             infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(3)).getMainRessource(TypeRessource.COURS)).getNombre()) ));
             infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(3)).getMainRessource(TypeRessource.NOURRITURE)).getNombre()) ));
             infosJ4.add(new JLabel("  "));
-            infosJ4.add(new JLabel(Integer.toString(((Joueurs.get(3)).getUV1()))));
-            infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(3)).getUV2()))));
+            infosJ4.add(new JLabel(Integer.toString((((Joueurs.get(3)).getNbUvs()).get(0)))));
+            infosJ4.add(new JLabel(Integer.toString((((Joueurs.get(3)).getNbUvs()).get(1)))));
             infosJ4.add(new JLabel("  "));
             infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(3)).getAncien()))));
             infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(3)).getCC()))));

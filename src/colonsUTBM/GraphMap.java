@@ -483,7 +483,6 @@ public class GraphMap{
         fromViewer.addSink(g);
         loop = true;
 
-        Thread t = new Thread(public void run(){
             while (loop) {
                 fromViewer.pump();
                 //Le sleep permet d'utiliser moins de ressources CPU
@@ -494,7 +493,6 @@ public class GraphMap{
                 }
 
             }
-        });
 
         NoeudConstructible tmp = new NoeudConstructible();
         for(NoeudConstructible n : noeuds){
