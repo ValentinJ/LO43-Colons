@@ -2,6 +2,7 @@ package fenetreGraphique;
 
 import colonsUTBM.GraphMap;
 import colonsUTBM.Joueur;
+import colonsUTBM.ManagerJeu;
 
 import java.awt.*;
 import java.io.IOException;
@@ -22,19 +23,16 @@ public class FenetrePrincipale extends FenetreDefaut {
     public ArrayList<Joueur> Joueurs;
     public int Tour;
 
-
     public GraphMap g;
 
-    public FenetrePrincipale(String _nom, int _h, int _l, ArrayList<Joueur> _J) {
+    public FenetrePrincipale(String _nom, int _h, int _l, ManagerJeu jeu) {
         super(_nom, _h, _l);
 
-        Joueurs = _J;
+        Joueurs = jeu.getJoueurs();
         nbJoueur = Joueurs.size();
         //Menu = new BarreMenu();
 
-        g = new GraphMap(true);
-        g.initMap();
-        g.chargerCSS();
+        g = jeu.getTerrain();
         g.majCSS();
 
         //On définit le layout à utiliser sur le content pane

@@ -20,6 +20,17 @@ public class ManagerJeu {
 
     public ManagerJeu(){}
 
+    public ManagerJeu(ArrayList<Joueur> j){
+        joueurs = j;
+        melangerOrdreJoueur();
+        terrain = new GraphMap(true);
+        terrain.initMap();
+        terrain.chargerCSS();
+
+        des = new Des();
+        tour = 0;
+    }
+
     public ManagerJeu(ArrayList<Joueur> j, GraphMap t, Point p){
         joueurs = j;
         melangerOrdreJoueur();
@@ -198,5 +209,33 @@ public class ManagerJeu {
             // pose cc
             tour++;
         }
+    }
+
+    public ArrayList<Joueur> getJoueurs() {
+        return joueurs;
+    }
+
+    public ArrayList<Pile> getPilesRessources() {
+        return pilesRessources;
+    }
+
+    public ArrayList<CarteDeveloppement> getPilesDeveloppement() {
+        return pilesDeveloppement;
+    }
+
+    public ArrayList<Integer> getValeurDes() {
+        return valeurDes;
+    }
+
+    public int getTour() {
+        return tour;
+    }
+
+    public GraphMap getTerrain() {
+        return terrain;
+    }
+
+    public Des getDes() {
+        return des;
     }
 }

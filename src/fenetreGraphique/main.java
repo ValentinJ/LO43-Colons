@@ -1,6 +1,7 @@
 package fenetreGraphique;
 
 import colonsUTBM.Joueur;
+import colonsUTBM.ManagerJeu;
 import colonsUTBM.TypeCouleur;
 
 import java.util.ArrayList;
@@ -10,6 +11,8 @@ import java.util.ArrayList;
  */
 public class main {
     public static void main(String []arg) {
+
+        System.setProperty("org.graphstream.ui.renderer","org.graphstream.ui.j2dviewer.J2DGraphRenderer");
 
         FenetrePrincipale frame;
 
@@ -25,17 +28,9 @@ public class main {
         f.dispose();
         */
 
-        //todo : TEST : Création automatique des joueurs
-        ArrayList<Joueur> j = new ArrayList<Joueur> ();
-        j.add(new Joueur("Mick", TypeCouleur.BLEU));
-        j.add(new Joueur("Elodie", TypeCouleur.ROUGE));
-        j.add(new Joueur("Didi", TypeCouleur.VERT));
-        j.add(new Joueur("J4", TypeCouleur.JAUNE));
-        frame = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, j);
-
-
         //todo à décommenter : fenetre identification des joueurs
         /*
+        ArrayList<Joueur> j = new ArrayList<Joueur> ();
         FenetreIdentification fId = new FenetreIdentification("Colons de l'UTBohèMe - Projet LO43");
         while (fId.getValider()==0){
             try {
@@ -56,6 +51,14 @@ public class main {
         }
         */
 
+        //todo : TEST : Création automatique des joueurs
+        ArrayList<Joueur> j = new ArrayList<Joueur> ();
+        j.add(new Joueur("Mick", TypeCouleur.BLEU));
+        j.add(new Joueur("Elodie", TypeCouleur.ROUGE));
+        j.add(new Joueur("Didi", TypeCouleur.VERT));
+        j.add(new Joueur("J4", TypeCouleur.JAUNE));
 
+        ManagerJeu jeu = new ManagerJeu(j);
+        frame = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, jeu);
     }
 }
