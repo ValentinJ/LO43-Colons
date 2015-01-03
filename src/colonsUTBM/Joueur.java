@@ -24,7 +24,7 @@ public class Joueur {
 
     // Méthodes boolean pour construction UV1, Uv2, Controle continu, Achat Carte developpement
     /**
-     * Pour les construction uv1, UV2, Controle continue -> verifier ressource et nb de pions !=0
+     * Pour les construction uv1, uv2, Controle continue -> verifier ressource et nb de pions !=0
      * Construction d'une carte de dev -> verifier ressource
      */
 

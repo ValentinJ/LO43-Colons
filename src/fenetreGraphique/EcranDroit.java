@@ -107,7 +107,7 @@ public class EcranDroit extends JPanel{
         enteteV.add(new JLabel(new ImageIcon(imgNourriture)){{setOpaque(false);} });
         enteteV.add(new JLabel("  "));
         enteteV.add(new JLabel("UV1"));
-        enteteV.add(new JLabel("UV2"));
+        enteteV.add(new JLabel("uv2"));
         enteteV.add(new JLabel("  "));
         enteteV.add(new JLabel("Ancien "));
         enteteV.add(new JLabel("C C"));

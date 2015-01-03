@@ -1,7 +1,7 @@
 package fenetreGraphique;
 
-import colonsUTBM.Joueur;
 import colonsUTBM.ManagerJeu;
+import colonsUTBM.UV2;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -29,7 +29,7 @@ public class EcranGauche extends JPanel implements ActionListener{
     public JPanel construction;
     public JButton UV1;
     public JPanel detailsUV1;
-    public JButton UV2;
+    public JButton uv2;
     public JPanel detailsUV2;
     public JButton CC;
     public JPanel detailsCC;
@@ -89,7 +89,7 @@ public class EcranGauche extends JPanel implements ActionListener{
         detailsUV1.add(new JLabel(new ImageIcon(imgCours)){{setOpaque(false);}});
         detailsUV1.add(new JLabel("+"));
         detailsUV1.add(new JLabel(new ImageIcon(imgNourriture)){{setOpaque(false);}});
-        UV2        = new JButton("UV2");
+        uv2 = new JButton("uv2");
         detailsUV2 = new JPanel(new GridLayout(1,4));
         detailsUV2.add(new JLabel("= 3"));
         detailsUV2.add(new JLabel(new ImageIcon(imgSommeil)){{setOpaque(false);}});
@@ -100,10 +100,12 @@ public class EcranGauche extends JPanel implements ActionListener{
         detailsCC.add(new JLabel("="));
         detailsCC.add(new JLabel(new ImageIcon(imgBierre)){{setOpaque(false);}});
         detailsCC.add(new JLabel("+"));
-        detailsCC.add(new JLabel(new ImageIcon(imgCafe)){{setOpaque(false);}});
+        detailsCC.add(new JLabel(new ImageIcon(imgCafe)) {{
+            setOpaque(false);
+        }});
 
         UV1.addActionListener(this);
-        UV2.addActionListener(this);
+        uv2.addActionListener(this);
         CC.addActionListener(this);
 
         construction = new JPanel();
@@ -112,7 +114,7 @@ public class EcranGauche extends JPanel implements ActionListener{
         construction.setLayout(new GridLayout(3, 2));
         construction.add(UV1);
         construction.add(detailsUV1);
-        construction.add(UV2);
+        construction.add(uv2);
         construction.add(detailsUV2);
         construction.add(CC);
         construction.add(detailsCC);
@@ -157,7 +159,7 @@ public class EcranGauche extends JPanel implements ActionListener{
                 t = new Thread("exemple") {
                     @Override
                     public void run() {
-                        manJeu.getTerrain().InitConstructionUV1(manJeu.getJoueurCourrant());
+                        manJeu.getJoueurCourrant().getUvs().add(manJeu.getTerrain().InitConstructionUV1(manJeu.getJoueurCourrant()));
                         manJeu.getTerrain().majCSS();
                     }
                 };
@@ -166,8 +168,8 @@ public class EcranGauche extends JPanel implements ActionListener{
         }
 
 
-        if (e.getSource() == UV2) {
-            System.out.println("EcranGauche.java : UV2");
+        if (e.getSource() == uv2) {
+            System.out.println("EcranGauche.java : uv2");
             if (t == null || t.getState() == Thread.State.TERMINATED) {
                     t = new Thread("exemple") {
                         @Override
@@ -180,7 +182,7 @@ public class EcranGauche extends JPanel implements ActionListener{
             }
         }
 
-        
+
         if (e.getSource() == CC) {
             System.out.println("EcranGauche.java : CC");
             if (t == null || t.getState() == Thread.State.TERMINATED) {

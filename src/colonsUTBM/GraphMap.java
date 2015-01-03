@@ -455,7 +455,7 @@ public class GraphMap{
     return uvtmp;
     }
 
-    public NoeudConstructible InitConstructionUV1(final Joueur j) {
+    public UV1 InitConstructionUV1(final Joueur j) {
         final String[] IDClicked = {""};
         System.out.println("On entre dans le listener UV1");
         ViewerPipe fromViewer = viewer.newViewerPipe();
@@ -507,7 +507,7 @@ public class GraphMap{
 
     public UV2 ClickConstructionUV2(final Joueur j) {
         final String[] IDClicked = {""};
-        System.out.println("On entre dans le listener UV2");
+        System.out.println("On entre dans le listener uv2");
         ViewerPipe fromViewer = viewer.newViewerPipe();
 
         fromViewer.addViewerListener(new ViewerListener() {
@@ -554,7 +554,7 @@ public class GraphMap{
         }
         UV2 uvtmp = new UV2(tmp);
         noeuds.set(noeuds.indexOf(tmp),uvtmp);
-        System.out.println("On sort du listener UV2 !");
+        System.out.println("On sort du listener uv2 !");
         return uvtmp;
     }
 
@@ -618,7 +618,7 @@ public class GraphMap{
         ControleContinus cctmp = new ControleContinus(tmp,j);
         aretes.set(aretes.indexOf(tmp),cctmp);
 
-        //noeuds.set(noeuds.indexOf(tmp),new UV2(tmp));
+        //noeuds.set(noeuds.indexOf(tmp),new uv2(tmp));
         System.out.println("On sort du listener ControleContinus !");
 
         return cctmp;
