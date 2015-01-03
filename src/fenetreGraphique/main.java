@@ -51,8 +51,8 @@ public class main {
         }
         */
 
-        //todo : TEST : Création automatique des joueurs
         ArrayList<Joueur> j = new ArrayList<Joueur> ();
+        //todo : TEST : Création automatique des joueurs
         j.add(new Joueur("Mick", TypeCouleur.BLEU));
         j.add(new Joueur("Elodie", TypeCouleur.ROUGE));
         j.add(new Joueur("Didi", TypeCouleur.VERT));

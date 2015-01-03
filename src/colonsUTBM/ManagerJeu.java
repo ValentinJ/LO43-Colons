@@ -284,4 +284,8 @@ public class ManagerJeu {
 
         return txt;
     }
+
+    public Joueur getJoueurCourrant(){
+        return joueurs.get(tour%joueurs.size());
+    }
 }
