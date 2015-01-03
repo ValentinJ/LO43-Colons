@@ -399,7 +399,7 @@ public class GraphMap{
         return b;
     }
 
-    public NoeudConstructible ClickConstructionUV1(final Joueur j) {
+    public UV1 ClickConstructionUV1(final Joueur j) {
         final String[] IDClicked = {""};
         System.out.println("On entre dans le listener UV1");
         ViewerPipe fromViewer = viewer.newViewerPipe();
@@ -444,9 +444,10 @@ public class GraphMap{
                 tmp = n;
             }
         }
-        noeuds.set(noeuds.indexOf(tmp),new UV1(tmp,j));
+        UV1 uvtmp = new UV1(tmp,j);
+        noeuds.set(noeuds.indexOf(tmp),uvtmp);
         System.out.println("On sort du listener UV1 !");
-    return null;
+    return uvtmp;
     }
 
     public NoeudConstructible InitConstructionUV1(final Joueur j) {
@@ -499,7 +500,7 @@ public class GraphMap{
         return null;
     }
 
-    public NoeudConstructible ClickConstructionUV2(final Joueur j) {
+    public UV2 ClickConstructionUV2(final Joueur j) {
         final String[] IDClicked = {""};
         System.out.println("On entre dans le listener UV2");
         ViewerPipe fromViewer = viewer.newViewerPipe();
@@ -546,9 +547,10 @@ public class GraphMap{
                 tmp = (UV1)n;
             }
         }
-        noeuds.set(noeuds.indexOf(tmp),new UV2(tmp));
+        UV2 uvtmp = new UV2(tmp);
+        noeuds.set(noeuds.indexOf(tmp),uvtmp);
         System.out.println("On sort du listener UV2 !");
-        return null;
+        return uvtmp;
     }
 
     public ControleContinus ClickConstructionControleContinus(final Joueur j){
@@ -608,12 +610,13 @@ public class GraphMap{
                 tmp = ar;
             }
         }
-        aretes.set(aretes.indexOf(tmp),new ControleContinus(tmp,j));
+        ControleContinus cctmp = new ControleContinus(tmp,j);
+        aretes.set(aretes.indexOf(tmp),cctmp);
 
         //noeuds.set(noeuds.indexOf(tmp),new UV2(tmp));
         System.out.println("On sort du listener ControleContinus !");
 
-        return null;
+        return cctmp;
     }
 
     public void deplacerBinomeGlandeur(){
