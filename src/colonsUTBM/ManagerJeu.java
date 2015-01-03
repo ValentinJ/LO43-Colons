@@ -79,10 +79,10 @@ public class ManagerJeu {
                 productionRessource(des.getTotalDes());
                 tourCourant=tour;
 
-
+                /*
                 terrain.InitConstructionUV1(j);
                 terrain.majCSS();
-
+                */
 
                 while(tour==tourCourant){
                     try {
