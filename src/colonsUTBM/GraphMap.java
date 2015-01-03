@@ -308,10 +308,14 @@ public class GraphMap{
         System.out.println("Voisins de "+id+" :");
         while (it.hasNext()) {
             Node n = it.next();
-            if(n.getAttribute("ui.class").equals("noeud")) i++;
-            if(i==3) b=true;
+            if(n.getAttribute("ui.class").equals("uv1, yellow") || n.getAttribute("ui.class").equals("uv2, yellow") ||
+            n.getAttribute("ui.class").equals("uv1, blue") || n.getAttribute("ui.class").equals("uv2, blue")
+            || n.getAttribute("ui.class").equals("uv1, red") || n.getAttribute("ui.class").equals("uv2, red")
+            || n.getAttribute("ui.class").equals("uv1, green") || n.getAttribute("ui.class").equals("uv2, green"))
+            i++;
             System.out.println(n.getAttribute("ui.class"));
         }
+        if(i==0) b=true;
         return b;
     }
 
