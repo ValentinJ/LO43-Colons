@@ -248,7 +248,24 @@ public class Joueur {
     //public void echangeAvecPort(TypePort t){
     //}
 
+    public TypeRessource VerifierEchangeBanque(){
+        TypeRessource echange=new TypeRessource();
+        if (mainRessource.get(TypeRessource.BIERE).getNombre()>=4)
+            echange=TypeRessource.BIERE;
+        if (mainRessource.get(TypeRessource.SOMMEIL).getNombre()>=4)
+            echange=TypeRessource.SOMMEIL;
+        if (mainRessource.get(TypeRessource.COURS).getNombre()>=4)
+            echange=TypeRessource.COURS;
+        if (mainRessource.get(TypeRessource.CAFE).getNombre()>=4)
+            echange=TypeRessource.CAFE;
+        if (mainRessource.get(TypeRessource.NOURRITURE).getNombre()>=4)
+            echange=TypeRessource.NOURRITURE;
+        return echange;
+    }
+
     public void echangeAvecBanque(){
+        //mainRessource.get(TypeRessource.echange).retirer(4);
+
     }
 
     public void jouerCarteDeveloppement(CarteDeveloppement c){
