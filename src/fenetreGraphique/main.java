@@ -56,7 +56,7 @@ public class main {
         j.add(new Joueur("Mick", TypeCouleur.BLEU));
         j.add(new Joueur("Elodie", TypeCouleur.ROUGE));
         j.add(new Joueur("Didi", TypeCouleur.VERT));
-        j.add(new Joueur("J4", TypeCouleur.JAUNE));
+        j.add(new Joueur("Théoline", TypeCouleur.JAUNE));
 
         ManagerJeu jeu = new ManagerJeu(j);
         frame = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, jeu);
