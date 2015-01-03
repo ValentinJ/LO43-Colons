@@ -28,11 +28,11 @@ public class EcranGauche extends JPanel implements ActionListener{
     // rappel construction
     public JPanel construction;
     public JButton UV1;
-    public JLabel detailsUV1;
+    public JPanel detailsUV1;
     public JButton UV2;
-    public JLabel detailsUV2;
+    public JPanel detailsUV2;
     public JButton CC;
-    public JLabel detailsCC;
+    public JPanel detailsCC;
 
     // jouer carte dev (*4)
     public JPanel jouerCarte;
@@ -75,14 +75,28 @@ public class EcranGauche extends JPanel implements ActionListener{
 
         UV1        = new JButton("UV1");
         //detailsUV1 = new JLabel("details ressources necessaire");
-        detailsUV1 = new JLabel(" = 1 " + new ImageIcon(imgBierre){{setOpaque(false);}}
-                                + " 1 " + new ImageIcon(imgCafe){{setOpaque(false);}}
-                                + " 1 " + new ImageIcon(imgCours){{setOpaque(false);}}
-                                + " 1 " + new ImageIcon(imgNourriture){{setOpaque(false);}} ) ;
+        detailsUV1 = new JPanel(new GridLayout(1,8));
+        detailsUV1.add(new JLabel("="));
+        detailsUV1.add(new JLabel(new ImageIcon(imgBierre)){{setOpaque(false);}});
+        detailsUV1.add(new JLabel("+"));
+        detailsUV1.add(new JLabel(new ImageIcon(imgCafe)){{setOpaque(false);}});
+        detailsUV1.add(new JLabel("+"));
+        detailsUV1.add(new JLabel(new ImageIcon(imgCours)){{setOpaque(false);}});
+        detailsUV1.add(new JLabel("+"));
+        detailsUV1.add(new JLabel(new ImageIcon(imgNourriture)){{setOpaque(false);}});
         UV2        = new JButton("UV2");
-        detailsUV2 = new JLabel("details ressources necessaire");
+        detailsUV2 = new JPanel(new GridLayout(1,4));
+        detailsUV2.add(new JLabel("= 3"));
+        detailsUV2.add(new JLabel(new ImageIcon(imgSommeil)){{setOpaque(false);}});
+        detailsUV2.add(new JLabel("+ 2"));
+        detailsUV2.add(new JLabel(new ImageIcon(imgCours)){{setOpaque(false);}});
         CC         = new JButton("CC");
-        detailsCC  = new JLabel("details ressources necessaire");
+        detailsCC  = new JPanel(new GridLayout(1,4));
+        detailsCC.add(new JLabel("="));
+        detailsCC.add(new JLabel(new ImageIcon(imgBierre)){{setOpaque(false);}});
+        detailsCC.add(new JLabel("+"));
+        detailsCC.add(new JLabel(new ImageIcon(imgCafe)){{setOpaque(false);}});
+
         UV1.addActionListener(this);
         UV2.addActionListener(this);
         CC.addActionListener(this);
