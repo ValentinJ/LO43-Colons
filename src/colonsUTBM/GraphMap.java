@@ -29,6 +29,8 @@ public class GraphMap{
     private boolean loop;
 
     public GraphMap(boolean activerQualite){
+        String path = System.getProperty("user.dir");
+        System.out.println(path);
         System.setProperty("org.graphstream.ui.renderer","org.graphstream.ui.j2dviewer.J2DGraphRenderer");
         g = new SingleGraph("Map");
         if(activerQualite){
@@ -43,7 +45,6 @@ public class GraphMap{
 
     public void chargerCSS(){
         String path = System.getProperty("user.dir");
-        System.out.println(path);
         g.addAttribute("ui.stylesheet", "url('file:///"+path+"/MapCSS.css')");
     }
 
