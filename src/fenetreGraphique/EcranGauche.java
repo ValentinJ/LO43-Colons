@@ -179,8 +179,20 @@ public class EcranGauche extends JPanel implements ActionListener{
                     t.start();
             }
         }
+
+        
         if (e.getSource() == CC) {
             System.out.println("EcranGauche.java : CC");
+            if (t == null || t.getState() == Thread.State.TERMINATED) {
+                t = new Thread("exemple") {
+                    @Override
+                    public void run() {
+                        manJeu.getTerrain().ClickConstructionControleContinus(manJeu.getJoueurCourrant());
+                        manJeu.getTerrain().majCSS();
+                    }
+                };
+                t.start();
+            }
         }
         if (e.getSource() == Ancien) {
             System.out.println("EcranGauche.java : Ancien");
