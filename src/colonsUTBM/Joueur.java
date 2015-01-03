@@ -276,6 +276,7 @@ public class Joueur {
     }
 
     public void validationCarteDevEnMain(){
+        
     }
 
     public String getNom(){
