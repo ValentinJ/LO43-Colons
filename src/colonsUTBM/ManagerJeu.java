@@ -71,10 +71,10 @@ public class ManagerJeu {
 
         System.out.println("FIN : PHASES FONDATION DES UV et CC");
 
-        System.out.println("DEBUT : TOUR 0");
+        System.out.println("DEBUT : TOUR "+tour);
         while(terminer){
-            tourCourant=tour;
             for(Joueur j : joueurs){
+                tourCourant=tour;
                 while(tour==tourCourant){
                 }
                 System.out.println("Fin de tour pour le joueur "+j.getNom());
