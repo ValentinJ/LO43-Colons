@@ -25,7 +25,7 @@ public class main {
         f.dispose();
 */
         ArrayList<Joueur> j = new ArrayList<Joueur> ();
-        j.add(new Joueur("Mickael", TypeCouleur.BLEU));
+        j.add(new Joueur("Mick", TypeCouleur.BLEU));
         j.add(new Joueur("Elodie", TypeCouleur.ROUGE));
         j.add(new Joueur("Didi", TypeCouleur.VERT));
 /*
