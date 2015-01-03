@@ -3,6 +3,7 @@ package colonsUTBM;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Guillaume on 03/12/2014.
@@ -194,6 +195,34 @@ public class Joueur {
         }
     }
 
+    public int nombreCarteRessource(){
+        int i=0;
+        for(TypeRessource p : mainRessource.keySet())
+            i+=mainRessource.get(p).getNombre();
+        return i;
+    }
+
+    public void eneleverMoitiecarte(){
+        Random r = new Random();
+        int valeur;
+        int nbcarteajeter = 0;
+        int cmptr=0;
+
+        if(nombreCarteRessource() > 7){
+            nbcarteajeter= (int)Math.floor((double)(nombreCarteRessource()/2));
+
+            for(int i = 0 ; i<nbcarteajeter ; i++){
+                valeur = 0 + r.nextInt(nombreCarteRessource());
+
+                for(TypeRessource p : mainRessource.keySet()) {
+                    i += mainRessource.get(p).getNombre();
+                }
+
+                i++;
+            }
+        }
+    }
+
     public void transformerUV2(GraphMap g){
         if(verifierAchatUV2()) {
             g.ClickConstructionUV2(this);
@@ -279,7 +308,7 @@ public class Joueur {
         }
         return nb_ancien;
     }
-    
+
 
     public ArrayList<CarteDeveloppement> getMainDeveloppement(){return (ArrayList) mainDeveloppement;}
 
