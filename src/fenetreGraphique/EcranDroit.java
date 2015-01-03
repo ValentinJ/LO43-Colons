@@ -44,7 +44,7 @@ public class EcranDroit extends JPanel{
 
     int Tour;
 
-    public EcranDroit(ArrayList<Joueur> j, int t) throws IOException {
+    public EcranDroit(ArrayList<Joueur> j, int t) {
         Joueurs = j;
         Tour = t;
 
@@ -57,11 +57,21 @@ public class EcranDroit extends JPanel{
         // partie le tableau de maniere dynamique
         recapInfos = new JPanel(new GridLayout(1,2));
 
-        imgBierre     = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteBiere.png"));
-        imgSommeil    = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteSommeil.png"));
-        imgCafe       = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteCafe.png"));
-        imgCours      = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteCours.png"));
-        imgNourriture = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteNourriture.png"));
+        try {
+            imgBierre     = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteBiere.png"));
+        } catch (IOException e) {e.printStackTrace();}
+        try {
+            imgSommeil    = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteSommeil.png"));
+        } catch (IOException e) {e.printStackTrace();}
+        try {
+            imgCafe       = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteCafe.png"));
+        } catch (IOException e) {e.printStackTrace();}
+        try {
+            imgCours      = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteCours.png"));
+        } catch (IOException e) {e.printStackTrace();}
+        try {
+            imgNourriture = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteNourriture.png"));
+        } catch (IOException e) {e.printStackTrace();}
 
         recapInfosJoueurs();
 

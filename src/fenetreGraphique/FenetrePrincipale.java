@@ -48,12 +48,7 @@ public class FenetrePrincipale extends FenetreDefaut {
         // instanciation du JPanel EcranGauche
         EcranGauche = new EcranGauche();
         Plateau = new Plateau(g.getView());
-
-        try {
-            Infos = new EcranDroit(Joueurs, Tour);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Infos = new EcranDroit(Joueurs, Tour);
 
         // definit taille des JPanel
         EcranGauche.setPreferredSize(new Dimension(200, 100));

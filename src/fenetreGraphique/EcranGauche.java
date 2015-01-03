@@ -1,10 +1,13 @@
 package fenetreGraphique;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by Guillaume on 09/12/2014.
@@ -32,7 +35,13 @@ public class EcranGauche extends JPanel implements ActionListener{
     public JButton Decouverte;
     public JButton Monopole;
 
-    public EcranGauche(){
+    public Image imgBierre;
+    public Image imgSommeil;
+    public Image imgCafe;
+    public Image imgCours;
+    public Image imgNourriture;
+
+    public EcranGauche() {
         setLayout(new GridLayout(4, 1));
         achatCarteDev = new JButton("Achat carte dév");
         finDeTour = new JButton("Fin de tour");
@@ -40,9 +49,28 @@ public class EcranGauche extends JPanel implements ActionListener{
         finDeTour.addActionListener(this);
 
         //TODO mettre les images
+        try {
+            imgBierre     = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteBiere.png"));
+        } catch (IOException e) {e.printStackTrace();}
+        try {
+            imgSommeil    = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteSommeil.png"));
+        } catch (IOException e) {e.printStackTrace();}
+        try {
+            imgCafe       = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteCafe.png"));
+        } catch (IOException e) {e.printStackTrace();}
+        try {
+            imgCours      = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteCours.png"));
+        } catch (IOException e) {e.printStackTrace();}
+        try {
+            imgNourriture = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteNourriture.png"));
+        } catch (IOException e) {e.printStackTrace();}
 
         UV1        = new JButton("UV1");
-        detailsUV1 = new JLabel("details ressources necessaire");
+        //detailsUV1 = new JLabel("details ressources necessaire");
+        detailsUV1 = new JLabel(" = 1 " + new ImageIcon(imgBierre){{setOpaque(false);}}
+                                + " 1 " + new ImageIcon(imgCafe){{setOpaque(false);}}
+                                + " 1 " + new ImageIcon(imgCours){{setOpaque(false);}}
+                                + " 1 " + new ImageIcon(imgNourriture){{setOpaque(false);}} ) ;
         UV2        = new JButton("UV2");
         detailsUV2 = new JLabel("details ressources necessaire");
         CC         = new JButton("CC");
