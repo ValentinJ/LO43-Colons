@@ -77,6 +77,7 @@ public class ManagerJeu {
                 tourCourant=tour;
                 while(tour==tourCourant){
                     terrain.InitConstructionUV1(j);
+                    terrain.majCSS();
                 }
                 System.out.println("Fin de tour pour le joueur "+j.getNom());
             }

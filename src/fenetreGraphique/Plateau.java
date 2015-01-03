@@ -20,7 +20,7 @@ public class Plateau extends JPanel {
         //graph= g;
         manJeu = _manJeu;
         frame = _frame;
-
+        graph = manJeu.getTerrain();
         setLayout(new BorderLayout());
         //graph.chargerCSS();
 
