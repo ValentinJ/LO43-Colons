@@ -1,6 +1,7 @@
 package fenetreGraphique;
 
 import colonsUTBM.GraphMap;
+import colonsUTBM.ManagerJeu;
 import org.graphstream.ui.swingViewer.View;
 
 import javax.swing.*;
@@ -10,11 +11,15 @@ import java.awt.*;
  * Created by Guillaume on 21/11/2014.
  */
 public class Plateau extends JPanel {
+    public FenetrePrincipale frame;
+    public ManagerJeu manJeu;
     public GraphMap graph;
 
     // initialisation du plateau de jeu
-    public Plateau(View v){
+    public Plateau(View v, ManagerJeu _manJeu, FenetrePrincipale _frame){
         //graph= g;
+        manJeu = _manJeu;
+        frame = _frame;
 
         setLayout(new BorderLayout());
         //graph.chargerCSS();

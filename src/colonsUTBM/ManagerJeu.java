@@ -78,8 +78,6 @@ public class ManagerJeu {
             }
         }
         System.out.println("La partie se termine...");
-
-
     }
 
     public void finDeTour() {
@@ -173,6 +171,7 @@ public class ManagerJeu {
 
     public int calculerScoreFinal(){
         for(int i=0 ; i < joueurs.size(); i++){
+            calculerScore();
             for (int j = 0; j < ((joueurs.get(i)).getMainDeveloppement()).size(); j++) {
                 if ((((joueurs.get(i)).getMainDeveloppement()).get(j)).getTypeDeveloppement() == TypeDeveloppement.POINTVICTOIRE){
                     (joueurs.get(i)).setScore((joueurs.get(i)).getScore() + 1);

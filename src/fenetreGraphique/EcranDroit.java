@@ -1,6 +1,7 @@
 package fenetreGraphique;
 
 import colonsUTBM.Joueur;
+import colonsUTBM.ManagerJeu;
 import colonsUTBM.TypeCouleur;
 import colonsUTBM.TypeRessource;
 import sun.awt.VerticalBagLayout;
@@ -16,6 +17,9 @@ import java.util.ArrayList;
  * Created by Guillaume on 21/11/2014.
  */
 public class EcranDroit extends JPanel{
+    public FenetrePrincipale frame;
+    public ManagerJeu manJeu;
+
 
     public ArrayList<Joueur> Joueurs;
     public JTabbedPane interfaceEchange;
@@ -44,9 +48,11 @@ public class EcranDroit extends JPanel{
 
     int Tour;
 
-    public EcranDroit(ArrayList<Joueur> j, int t) {
+    public EcranDroit(ArrayList<Joueur> j, int t, ManagerJeu _manJeu, FenetrePrincipale _frame) {
         Joueurs = j;
         Tour = t;
+        manJeu = _manJeu;
+        frame = _frame;
 
         //setLayout(new GridLayout(2, 1));
         setLayout(new GridBagLayout());
@@ -279,4 +285,5 @@ public class EcranDroit extends JPanel{
             }
         }
     }
+
 }

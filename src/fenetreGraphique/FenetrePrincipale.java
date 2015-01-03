@@ -21,6 +21,7 @@ public class FenetrePrincipale extends FenetreDefaut {
 
     int nbJoueur;
     public ArrayList<Joueur> Joueurs;
+    public ManagerJeu manJeu;
     public int Tour;
 
     public GraphMap g;
@@ -28,9 +29,9 @@ public class FenetrePrincipale extends FenetreDefaut {
     public FenetrePrincipale(String _nom, int _h, int _l, ManagerJeu jeu) {
         super(_nom, _h, _l);
 
+        manJeu = jeu;
         Joueurs = jeu.getJoueurs();
         nbJoueur = Joueurs.size();
-        //Menu = new BarreMenu();
 
         g = jeu.getTerrain();
         g.majCSS();
@@ -44,9 +45,9 @@ public class FenetrePrincipale extends FenetreDefaut {
         String msg_appli = "MSG INFOS : Application développée par Sara, Yuanxiang, Valentin, Guillaume";
         EcranBas = new EcranBas(msg_appli);
         // instanciation du JPanel EcranGauche
-        EcranGauche = new EcranGauche();
-        Plateau = new Plateau(g.getView());
-        Infos = new EcranDroit(Joueurs, Tour);
+        EcranGauche = new EcranGauche(manJeu, this);
+        Plateau = new Plateau(g.getView(), manJeu, this);
+        Infos = new EcranDroit(Joueurs, Tour, manJeu, this);
 
         // definit taille des JPanel
         EcranGauche.setPreferredSize(new Dimension(200, 100));
@@ -67,21 +68,22 @@ public class FenetrePrincipale extends FenetreDefaut {
     public void lancementJeu(){
 
     }
-/*
+
     public void miseAJour(){
         // mise a jour des differents JPanel
 
+        EcranGauche.miseAJour();
         Infos.MiseAJour(Joueurs, Tour);
         Plateau.MiseAJour();
 
         affichage();
     }
-*/
+
     public void JouerCarteMonopole(){
         // actions
 
         // mise a jour
-        Infos.MiseAJour(Joueurs, Tour);
+        miseAJour();
     }
 
 }

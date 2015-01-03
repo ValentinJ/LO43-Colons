@@ -1,5 +1,8 @@
 package fenetreGraphique;
 
+import colonsUTBM.Joueur;
+import colonsUTBM.ManagerJeu;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -13,6 +16,9 @@ import java.io.IOException;
  * Created by Guillaume on 09/12/2014.
  */
 public class EcranGauche extends JPanel implements ActionListener{
+    public FenetrePrincipale frame; // pointeur sur ma fenetre appelant cette classe
+    public ManagerJeu manJeu;
+
     // bouton acheter carte dev
     public JButton achatCarteDev;
 
@@ -41,7 +47,9 @@ public class EcranGauche extends JPanel implements ActionListener{
     public Image imgCours;
     public Image imgNourriture;
 
-    public EcranGauche() {
+    public EcranGauche(ManagerJeu _manJeu, FenetrePrincipale _frame) {
+        frame = _frame;
+        manJeu = _manJeu;
         setLayout(new GridLayout(4, 1));
         achatCarteDev = new JButton("Achat carte dév");
         finDeTour = new JButton("Fin de tour");
@@ -124,6 +132,8 @@ public class EcranGauche extends JPanel implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == UV1) {
             System.out.println("EcranGauche.java : UV1");
+            manJeu.finDeTour();
+            frame.miseAJour();
         }
         if (e.getSource() == UV2) {
             System.out.println("EcranGauche.java : UV2");
@@ -149,5 +159,10 @@ public class EcranGauche extends JPanel implements ActionListener{
         if (e.getSource() == finDeTour) {
             System.out.println("EcranGauche.java : finDeTour");
         }
+    }
+
+    // TODO a instancier
+    public void miseAJour(){
+
     }
 }
