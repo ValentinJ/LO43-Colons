@@ -86,9 +86,4 @@ public class FenetrePrincipale extends FenetreDefaut {
         Infos.MiseAJour(Joueurs, Tour);
     }
 
-    public static void main() {
-        ArrayList<Joueur> j = new ArrayList<Joueur> ();
-        FenetrePrincipale frame = new FenetrePrincipale("testage", 600, 1200, j);
-    }
-
 }

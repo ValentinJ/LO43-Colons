@@ -90,7 +90,7 @@ public class FenetreIdentification extends JFrame implements ActionListener{
         panelC.setLayout(new GridLayout(2,2));
         group = new ButtonGroup();
 
-        JLabel text1 = new JLabel("Nombre de joueur : ");
+        JLabel text1 = new JLabel("Nombre de joueurs : ");
         radio3 = new JRadioButton("3");
         radio3.setSelected(true);
         radio4 = new JRadioButton("4");
@@ -123,7 +123,7 @@ public class FenetreIdentification extends JFrame implements ActionListener{
         c1.setBackground(Color.BLUE);
         formulaire1.add(new JLabel("Nom du joueur "));
         formulaire1.add(t1);
-        formulaire1.add(new JLabel(" Couleur associé "));
+        formulaire1.add(new JLabel("Couleur associée "));
         formulaire1.add(c1);
 
         formulaire2 = new JPanel();
@@ -135,7 +135,7 @@ public class FenetreIdentification extends JFrame implements ActionListener{
         c2.setBackground(Color.GREEN);
         formulaire2.add(new JLabel("Nom du joueur "));
         formulaire2.add(t2);
-        formulaire2.add(new JLabel(" Couleur associé "));
+        formulaire2.add(new JLabel("Couleur associée "));
         formulaire2.add(c2);
 
         formulaire3 = new JPanel();
@@ -147,7 +147,7 @@ public class FenetreIdentification extends JFrame implements ActionListener{
         c3.setBackground(Color.RED);
         formulaire3.add(new JLabel("Nom du joueur "));
         formulaire3.add(t3);
-        formulaire3.add(new JLabel(" Couleur associé "));
+        formulaire3.add(new JLabel("Couleur associée "));
         formulaire3.add(c3);
 
         formulaire4 = new JPanel();
@@ -159,7 +159,7 @@ public class FenetreIdentification extends JFrame implements ActionListener{
         c4.setBackground(Color.YELLOW);
         formulaire4.add(new JLabel("Nom du joueur "));
         formulaire4.add(t4);
-        formulaire4.add(new JLabel(" Couleur associé "));
+        formulaire4.add(new JLabel("Couleur associée "));
         formulaire4.add(c4);
 
         formulaire4.setVisible(false);
@@ -176,7 +176,7 @@ public class FenetreIdentification extends JFrame implements ActionListener{
         panelConf.setLayout(new GridLayout(1, 2));
 
         // bouton lancer le jeu
-        confirmer = new JButton("lancer le jeu");
+        confirmer = new JButton("Lancer le jeu");
         // fermer le jeu
         annuler = new JButton("Annuler");
 
@@ -240,7 +240,7 @@ public class FenetreIdentification extends JFrame implements ActionListener{
                     Joueurs.add(new Joueur(t4.getText(), TypeCouleur.JAUNE));
 
                 } else {
-                    System.out.println("Erreur, tous les champs n'ont pas été saisie");
+                    System.out.println("Erreur : tous les champs n'ont pas été saisis !");
                 }
             }
             else{
@@ -254,16 +254,16 @@ public class FenetreIdentification extends JFrame implements ActionListener{
 
                 }
                 else {
-                    System.out.println("Erreur, tous les champs n'ont pas été saisie");
+                    System.out.println("Erreur : tous les champs n'ont pas été saisis !");
                 }
             }
-            System.out.println("Fenetre id - ConfirmerListener - valider " + valider);
+            System.out.println("Fenètre id - ConfirmerListener - valider " + valider);
         }
 
         // si c est le bouton annulation de l application
         if (e.getSource() == annuler){
             valider = 2;
-            System.out.println("Fenetre id - AnnulerListener - valider " + valider);
+            System.out.println("Fenètre id - AnnulerListener - valider " + valider);
             //this.setVisible(false);
         }
     }

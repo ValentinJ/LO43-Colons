@@ -8,6 +8,7 @@ import java.util.Collections;
  */
 
 public class ManagerJeu {
+
     protected ArrayList<Joueur> joueurs;
     protected ArrayList<Pile> pilesRessources;
     protected ArrayList<CarteDeveloppement> pilesDeveloppement;
@@ -15,8 +16,7 @@ public class ManagerJeu {
     protected ArrayList<Integer> valeurDes;
     protected int tour;
     protected GraphMap terrain;
-    protected Point positionBinomeGlandeur;                     // deverouille case de l ancienne position puis se met a la nouvelle valeur
-
+    protected Des des;
 
     public ManagerJeu(){}
 
@@ -25,16 +25,25 @@ public class ManagerJeu {
         melangerOrdreJoueur();
         terrain = t;
         terrain.initMap();
-        positionBinomeGlandeur = p;
+
+        des = new Des();
+
+        /*
+        System.setProperty("org.graphstream.ui.renderer","org.graphstream.ui.j2dviewer.J2DGraphRenderer");
+        GraphMap g = new GraphMap(true);
+        g.initMap();
+        g.chargerCSS();
+        g.afficherMap();
+        g.majCSS();
+        */
         tour = 0;
-        lancerDesDes();
+
     }
 
     public void melangerOrdreJoueur(){
         Collections.shuffle(joueurs);
         Collections.shuffle(joueurs);
     }
-
     public void melangerCarteDeveloppement(){
         Collections.shuffle(pilesDeveloppement);
         Collections.shuffle(pilesDeveloppement);
@@ -148,6 +157,7 @@ public class ManagerJeu {
     }
 
     public void nouvellePartie(){
+        // Ajout des cartes developpement dans l'arralylist et mélange
         // 25 au total : 6*Progres : 2*CCC, 2*Decouverte, 2*Monopole + 5*Point de Victoire + 14*Ancien
         ArrayList<CarteDeveloppement> pilesD = new ArrayList<CarteDeveloppement>();
         for (int i=0; i<2; i++) {
@@ -168,6 +178,7 @@ public class ManagerJeu {
         pilesDeveloppement = pilesD;
         melangerCarteDeveloppement();
 
+        // Ajout des piles ressources dans l'arraylist
         pilesRessources.add(new Pile(new CarteRessource(TypeRessource.BIERE), 19));
         pilesRessources.add(new Pile(new CarteRessource(TypeRessource.CAFE), 19));
         pilesRessources.add(new Pile(new CarteRessource(TypeRessource.COURS), 19));
