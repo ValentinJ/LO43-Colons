@@ -1,6 +1,7 @@
 package fenetreGraphique;
 
 import colonsUTBM.Joueur;
+import colonsUTBM.TypeRessource;
 import sun.awt.VerticalBagLayout;
 
 import javax.imageio.ImageIO;
@@ -83,7 +84,7 @@ public class EcranDroit extends JPanel{
     }
 
     public void enteteVertical(){
-        enteteV = new JPanel(new GridLayout(15,1));
+        enteteV = new JPanel(new GridLayout(14,1));
         enteteV.add(new JLabel("  "));
         enteteV.add(new JLabel(new ImageIcon(imgBierre)){{setOpaque(false);}});
         enteteV.add(new JLabel(new ImageIcon(imgSommeil)){{setOpaque(false);} });
@@ -94,7 +95,6 @@ public class EcranDroit extends JPanel{
         enteteV.add(new JLabel("UV1"));
         enteteV.add(new JLabel("UV2"));
         enteteV.add(new JLabel("  "));
-        enteteV.add(new JLabel("Bonus"));
         enteteV.add(new JLabel("Ancien"));
         enteteV.add(new JLabel("C C"));
         enteteV.add(new JLabel("  "));
@@ -104,77 +104,73 @@ public class EcranDroit extends JPanel{
     public void recapInfosJoueurs(){
         infosJoueur = new JPanel(new GridLayout(1, Joueurs.size()));
 
-        infosJ1 = new JPanel(new GridLayout(15,1));
+        infosJ1 = new JPanel(new GridLayout(14,1));
         infosJ1.add(new JLabel((Joueurs.get(0)).getNom()));
-        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(0)).getNombre()) ));
-        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(1)).getNombre()) ));
-        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(2)).getNombre()) ));
-        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(3)).getNombre()) ));
-        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(4)).getNombre()) ));
+        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(TypeRessource.BIERE)).getNombre()) ));
+        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(TypeRessource.SOMMEIL)).getNombre()) ));
+        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(TypeRessource.CAFE)).getNombre()) ));
+        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(TypeRessource.COURS)).getNombre()) ));
+        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(TypeRessource.NOURRITURE)).getNombre()) ));
         infosJ1.add(new JLabel("  "));
         infosJ1.add(new JLabel(Integer.toString(((Joueurs.get(0)).getUV1()))));
         infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getUV2()))));
         infosJ1.add(new JLabel("  "));
-        infosJ1.add(new JLabel("  "));
-        infosJ1.add(new JLabel("Ancien"));
-        infosJ1.add(new JLabel("C C"));
+        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getAncien()))));
+        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getCC()))));
         infosJ1.add(new JLabel("  "));
         infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getScore()))));
         infosJoueur.add(infosJ1);
 
-        infosJ2 = new JPanel(new GridLayout(15,1));
+        infosJ2 = new JPanel(new GridLayout(14,1));
         infosJ2.add(new JLabel((Joueurs.get(1)).getNom()));
-        infosJ2.add(new JLabel(Integer.toString(((Joueurs.get(1)).getMainRessource(0)).getNombre()) ));
-        infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getMainRessource(1)).getNombre()) ));
-        infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getMainRessource(2)).getNombre()) ));
-        infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getMainRessource(3)).getNombre()) ));
-        infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getMainRessource(4)).getNombre()) ));
+        infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getMainRessource(TypeRessource.BIERE)).getNombre()) ));
+        infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getMainRessource(TypeRessource.SOMMEIL)).getNombre()) ));
+        infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getMainRessource(TypeRessource.CAFE)).getNombre()) ));
+        infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getMainRessource(TypeRessource.COURS)).getNombre()) ));
+        infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getMainRessource(TypeRessource.NOURRITURE)).getNombre()) ));
         infosJ2.add(new JLabel("  "));
         infosJ2.add(new JLabel(Integer.toString(((Joueurs.get(1)).getUV1()))));
         infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getUV2()))));
         infosJ2.add(new JLabel("  "));
-        infosJ2.add(new JLabel("  "));
-        infosJ2.add(new JLabel("Ancien"));
-        infosJ2.add(new JLabel("C C"));
+        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getAncien()))));
+        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getCC()))));
         infosJ2.add(new JLabel("  "));
         infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getScore()))));
         infosJoueur.add(infosJ2);
 
-        infosJ3 = new JPanel(new GridLayout(15,1));
+        infosJ3 = new JPanel(new GridLayout(14,1));
         infosJ3.add(new JLabel((Joueurs.get(2)).getNom()));
-        infosJ3.add(new JLabel(Integer.toString(((Joueurs.get(2)).getMainRessource(0)).getNombre()) ));
-        infosJ3.add(new JLabel(Integer.toString(((Joueurs.get(2)).getMainRessource(1)).getNombre()) ));
-        infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(2)).getNombre()) ));
-        infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(3)).getNombre()) ));
-        infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(4)).getNombre()) ));
+        infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(TypeRessource.BIERE)).getNombre()) ));
+        infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(TypeRessource.SOMMEIL)).getNombre()) ));
+        infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(TypeRessource.CAFE)).getNombre()) ));
+        infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(TypeRessource.COURS)).getNombre()) ));
+        infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(TypeRessource.NOURRITURE)).getNombre()) ));
         infosJ3.add(new JLabel("  "));
         infosJ3.add(new JLabel(Integer.toString(((Joueurs.get(2)).getUV1()))));
         infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getUV2()))));
         infosJ3.add(new JLabel("  "));
-        infosJ3.add(new JLabel("  "));
-        infosJ3.add(new JLabel("Ancien"));
-        infosJ3.add(new JLabel("C C"));
+        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getAncien()))));
+        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getCC()))));
         infosJ3.add(new JLabel("  "));
         infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getScore()))));
         infosJoueur.add(infosJ3);
 
         if  (Joueurs.size() > 3){
-            infosJ4 = new JPanel(new GridLayout(15,1));
-            infosJ4.add(new JLabel((Joueurs.get(2)).getNom()));
-            infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(0)).getNombre()) ));
-            infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(1)).getNombre()) ));
-            infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(2)).getNombre()) ));
-            infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(3)).getNombre()) ));
-            infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(4)).getNombre()) ));
+            infosJ4 = new JPanel(new GridLayout(14,1));
+            infosJ4.add(new JLabel((Joueurs.get(3)).getNom()));
+            infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(3)).getMainRessource(TypeRessource.BIERE)).getNombre()) ));
+            infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(3)).getMainRessource(TypeRessource.SOMMEIL)).getNombre()) ));
+            infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(3)).getMainRessource(TypeRessource.CAFE)).getNombre()) ));
+            infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(3)).getMainRessource(TypeRessource.COURS)).getNombre()) ));
+            infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(3)).getMainRessource(TypeRessource.NOURRITURE)).getNombre()) ));
             infosJ4.add(new JLabel("  "));
-            infosJ4.add(new JLabel(Integer.toString(((Joueurs.get(2)).getUV1()))));
-            infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getUV2()))));
+            infosJ4.add(new JLabel(Integer.toString(((Joueurs.get(3)).getUV1()))));
+            infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(3)).getUV2()))));
             infosJ4.add(new JLabel("  "));
+            infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(3)).getAncien()))));
+            infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(3)).getCC()))));
             infosJ4.add(new JLabel("  "));
-            infosJ4.add(new JLabel("Ancien"));
-            infosJ4.add(new JLabel("C C"));
-            infosJ4.add(new JLabel("  "));
-            infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getScore()))));
+            infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(3)).getScore()))));
             infosJoueur.add(infosJ4);
         }
     }
