@@ -157,12 +157,14 @@ public class EcranGauche extends JPanel implements ActionListener{
         if (e.getSource() == finDeTour) {
             System.out.println("EcranGauche.java : finDeTour");
             manJeu.finDeTour();
-            frame.miseAJour(); // appel mise a jour de frame principale
+            frame.miseAJour();  // appel mise a jour de frame principale
         }
     }
 
     // TODO a instancier
     public void miseAJour(){
+        // parcours carte dispo du joueur en cour
 
+        // bloque les boutons
     }
 }

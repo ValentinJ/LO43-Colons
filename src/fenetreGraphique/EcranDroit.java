@@ -48,9 +48,9 @@ public class EcranDroit extends JPanel{
 
     int Tour;
 
-    public EcranDroit(ArrayList<Joueur> j, int t, ManagerJeu _manJeu, FenetrePrincipale _frame) {
-        Joueurs = j;
-        Tour = t;
+    public EcranDroit(ManagerJeu _manJeu, FenetrePrincipale _frame) {
+        Joueurs = _manJeu.getJoueurs();
+        Tour = _manJeu.getTour();
         manJeu = _manJeu;
         frame = _frame;
 
@@ -215,14 +215,32 @@ public class EcranDroit extends JPanel{
         interfaceEchange.setOpaque(true);
     }
 
-    public void MiseAJour(ArrayList<Joueur> _j, int _t){
-        Joueurs = _j;
-        Tour = _t;
+    public void MiseAJour(ManagerJeu _manJeu){
+
+        System.out.println("EcranDroit.java : met a jour");
+
+        manJeu = _manJeu;
+        Joueurs = _manJeu.getJoueurs();
+        Tour = _manJeu.getTour();
+
+        infosJoueur.removeAll();
+        remove(recap);
+        remove(interfaceEchange);
+
+        recapInfosJoueurs();
+        recap.add(infosJoueur);
+
+        // interface des echanges
+        interfaceEchange = new JTabbedPane();
+        //creation des onglets de l interface
+        EJ1 = new OngletEchange();
+        EJ2 = new OngletEchange();
+        EJ3 = new OngletEchange();
+        EJ4 = new OngletEchange();
 
         TableauDechange();
-        recapInfosJoueurs();
-
-        validate();
+        add(recap, new GridBagConstraints(0, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
+        add(interfaceEchange, new GridBagConstraints(0,1, 1, 1, 0, 0, GridBagConstraints.CENTER,GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
     }
 
     public void changementCouleur(int t){

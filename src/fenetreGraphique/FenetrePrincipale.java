@@ -47,7 +47,7 @@ public class FenetrePrincipale extends FenetreDefaut {
         // instanciation du JPanel EcranGauche
         EcranGauche = new EcranGauche(manJeu, this);
         Plateau = new Plateau(g.getView(), manJeu, this);
-        Infos = new EcranDroit(Joueurs, Tour, manJeu, this);
+        Infos = new EcranDroit(manJeu, this);
 
         // definit taille des JPanel
         EcranGauche.setPreferredSize(new Dimension(200, 100));
@@ -74,7 +74,7 @@ public class FenetrePrincipale extends FenetreDefaut {
         System.out.println("Mise a jour de la fenetre principal de jeu");
 
         EcranGauche.miseAJour();
-        Infos.MiseAJour(Joueurs, Tour);
+        Infos.MiseAJour(manJeu);
         Plateau.MiseAJour();
 
         validate();
