@@ -47,6 +47,11 @@ public class EcranGauche extends JPanel implements ActionListener{
     public Image imgCours;
     public Image imgNourriture;
 
+    //todo test thread
+    Thread t;
+
+
+
     public EcranGauche(ManagerJeu _manJeu, FenetrePrincipale _frame) {
         frame = _frame;
         manJeu = _manJeu;
@@ -130,12 +135,35 @@ public class EcranGauche extends JPanel implements ActionListener{
 
     //TODO fonctionnalité des boutons
     public void actionPerformed(ActionEvent e) {
+
+
         if (e.getSource() == UV1) {
             System.out.println("EcranGauche.java : UV1");
-            manJeu.getTerrain().InitConstructionUV1(manJeu.getJoueurCourrant());
+            if(t == null || t.getState()== Thread.State.TERMINATED) {
+                t = new Thread("exemple") {
+                    @Override
+                    public void run() {
+                        manJeu.getTerrain().InitConstructionUV1(manJeu.getJoueurCourrant());
+                        manJeu.getTerrain().majCSS();
+                    }
+                };
+                t.start();
+            }
         }
+
+
         if (e.getSource() == UV2) {
             System.out.println("EcranGauche.java : UV2");
+            if (t == null || t.getState() == Thread.State.TERMINATED) {
+                    t = new Thread("exemple") {
+                        @Override
+                        public void run() {
+                            manJeu.getTerrain().ClickConstructionUV2(manJeu.getJoueurCourrant());
+                            manJeu.getTerrain().majCSS();
+                        }
+                    };
+                    t.start();
+            }
         }
         if (e.getSource() == CC) {
             System.out.println("EcranGauche.java : CC");
@@ -156,9 +184,11 @@ public class EcranGauche extends JPanel implements ActionListener{
             System.out.println("EcranGauche.java : achatCarteDev");
         }
         if (e.getSource() == finDeTour) {
-            System.out.println("EcranGauche.java : finDeTour");
-            manJeu.finDeTour();
-            frame.miseAJour();  // appel mise a jour de frame principale
+            if(t == null || t.getState()== Thread.State.TERMINATED) {
+                System.out.println("EcranGauche.java : finDeTour");
+                manJeu.finDeTour();
+                frame.miseAJour();  // appel mise a jour de frame principale
+            }
         }
     }
 
