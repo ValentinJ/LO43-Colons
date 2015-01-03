@@ -279,6 +279,7 @@ public class Joueur {
         }
         return nb_ancien;
     }
+    
 
     public ArrayList<CarteDeveloppement> getMainDeveloppement(){return (ArrayList) mainDeveloppement;}
 
