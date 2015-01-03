@@ -249,7 +249,7 @@ public class Joueur {
     //}
 
     public TypeRessource VerifierEchangeBanque(){
-        TypeRessource echange=new TypeRessource();
+        TypeRessource echange=null;
         if (mainRessource.get(TypeRessource.BIERE).getNombre()>=4)
             echange=TypeRessource.BIERE;
         if (mainRessource.get(TypeRessource.SOMMEIL).getNombre()>=4)
