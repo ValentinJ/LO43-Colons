@@ -224,6 +224,7 @@ public class EcranDroit extends JPanel{
         Tour = _manJeu.getTour();
 
         infosJoueur.removeAll();
+        recap.removeAll();
         remove(recap);
         remove(interfaceEchange);
 
