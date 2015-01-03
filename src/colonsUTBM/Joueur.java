@@ -267,6 +267,7 @@ public class Joueur {
         //mainRessource.get(TypeRessource.echange).retirer(4);
     }
 
+    
 
     public void jouerCarteDeveloppement(CarteDeveloppement c){
     }
