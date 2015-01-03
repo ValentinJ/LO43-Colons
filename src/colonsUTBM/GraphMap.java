@@ -483,17 +483,19 @@ public class GraphMap{
         fromViewer.addSink(g);
         loop = true;
 
-        while(loop) {
-            fromViewer.pump();
-            //Le sleep permet d'utiliser moins de ressources CPU
-            try {
-                Thread.sleep(100);
-            }
-            catch(InterruptedException e){
-                System.out.println("Erreur : "+e.getMessage());
-            }
+        Thread t = new Thread(public void run(){
+            while (loop) {
+                fromViewer.pump();
+                //Le sleep permet d'utiliser moins de ressources CPU
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    System.out.println("Erreur : " + e.getMessage());
+                }
 
-        }
+            }
+        });
+
         NoeudConstructible tmp = new NoeudConstructible();
         for(NoeudConstructible n : noeuds){
             if(n.getId().equals(IDClicked[0])){
