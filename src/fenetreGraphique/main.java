@@ -60,7 +60,7 @@ public class main {
 
         ManagerJeu jeu = new ManagerJeu(j);
         frame = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, jeu);
-        System.out.println(jeu.toString());
+        //System.out.println(jeu.toString());
 
         /*
         jeu.getTerrain().majCSS();
