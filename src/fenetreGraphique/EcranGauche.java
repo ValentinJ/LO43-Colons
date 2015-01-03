@@ -3,11 +3,13 @@ package fenetreGraphique;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by Guillaume on 09/12/2014.
  */
-public class EcranGauche extends JPanel {
+public class EcranGauche extends JPanel implements ActionListener{
     // bouton acheter carte dev
     public JButton achatCarteDev;
 
@@ -34,6 +36,8 @@ public class EcranGauche extends JPanel {
         setLayout(new GridLayout(4, 1));
         achatCarteDev = new JButton("Achat carte dév");
         finDeTour = new JButton("Fin de tour");
+        achatCarteDev.addActionListener(this);
+        finDeTour.addActionListener(this);
 
         //TODO mettre les images
 
@@ -43,9 +47,13 @@ public class EcranGauche extends JPanel {
         detailsUV2 = new JLabel("details ressources necessaire");
         CC         = new JButton("CC");
         detailsCC  = new JLabel("details ressources necessaire");
+        UV1.addActionListener(this);
+        UV2.addActionListener(this);
+        CC.addActionListener(this);
 
         construction = new JPanel();
         construction.setBorder(new EmptyBorder(5, 0, 0, 5));
+        construction.setBorder(BorderFactory.createTitledBorder("Constructions"));
         construction.setLayout(new GridLayout(3, 2));
         construction.add(UV1);
         construction.add(detailsUV1);
@@ -59,11 +67,15 @@ public class EcranGauche extends JPanel {
         Monopole   = new JButton("Monopole");
         Ancien     = new JButton("Ancien");
         CCC        = new JButton("CCC");
+        Decouverte.addActionListener(this);
+        Monopole.addActionListener(this);
+        Ancien.addActionListener(this);
+        CCC.addActionListener(this);
 
         jouerCarte = new JPanel();
         jouerCarte.setBorder(new EmptyBorder(5, 0, 0, 5));
         jouerCarte.setBorder(BorderFactory.createTitledBorder("Jouer carte"));
-        jouerCarte.setLayout(new GridLayout(1, 4));
+        jouerCarte.setLayout(new GridLayout(4, 1));
         jouerCarte.add(Decouverte);
         jouerCarte.add(Monopole);
         jouerCarte.add(Ancien);
@@ -79,4 +91,35 @@ public class EcranGauche extends JPanel {
 
     //TODO visibilité des boutons
 
+
+    //TODO fonctionnalité des boutons
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == UV1) {
+            System.out.println("EcranGauche.java : UV1");
+        }
+        if (e.getSource() == UV2) {
+            System.out.println("EcranGauche.java : UV2");
+        }
+        if (e.getSource() == CC) {
+            System.out.println("EcranGauche.java : CC");
+        }
+        if (e.getSource() == Ancien) {
+            System.out.println("EcranGauche.java : Ancien");
+        }
+        if (e.getSource() == Decouverte) {
+            System.out.println("EcranGauche.java : Decouverte");
+        }
+        if (e.getSource() == CCC) {
+            System.out.println("EcranGauche.java : CCC");
+        }
+        if (e.getSource() == Monopole) {
+            System.out.println("EcranGauche.java : Monopole");
+        }
+        if (e.getSource() == achatCarteDev) {
+            System.out.println("EcranGauche.java : achatCarteDev");
+        }
+        if (e.getSource() == finDeTour) {
+            System.out.println("EcranGauche.java : finDeTour");
+        }
+    }
 }
