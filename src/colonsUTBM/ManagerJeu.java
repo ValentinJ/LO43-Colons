@@ -2,6 +2,7 @@ package colonsUTBM;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Hashtable;
 
 /**
  * Created by Guillaume on 03/12/2014.
@@ -10,7 +11,7 @@ import java.util.Collections;
 public class ManagerJeu {
 
     protected ArrayList<Joueur> joueurs;
-    protected ArrayList<Pile> pilesRessources;
+    protected Hashtable<TypeRessource,Pile> pilesRessources;
     protected ArrayList<CarteDeveloppement> pilesDeveloppement;
 
     protected ArrayList<Integer> valeurDes;
@@ -29,6 +30,10 @@ public class ManagerJeu {
 
         des = new Des();
         tour = 0;
+
+        pilesDeveloppement = new ArrayList<CarteDeveloppement>();
+        pilesRessources = new Hashtable<TypeRessource, Pile>();
+        nouvellePartie();
     }
 
     public ManagerJeu(ArrayList<Joueur> j, GraphMap t, Point p){
@@ -36,7 +41,6 @@ public class ManagerJeu {
         melangerOrdreJoueur();
         terrain = t;
         terrain.initMap();
-
         des = new Des();
 
         /*
@@ -189,12 +193,12 @@ public class ManagerJeu {
         pilesDeveloppement = pilesD;
         melangerCarteDeveloppement();
 
-        // Ajout des piles ressources dans l'arraylist
-        pilesRessources.add(new Pile(new CarteRessource(TypeRessource.BIERE), 19));
-        pilesRessources.add(new Pile(new CarteRessource(TypeRessource.CAFE), 19));
-        pilesRessources.add(new Pile(new CarteRessource(TypeRessource.COURS), 19));
-        pilesRessources.add(new Pile(new CarteRessource(TypeRessource.SOMMEIL), 19));
-        pilesRessources.add(new Pile(new CarteRessource(TypeRessource.NOURRITURE), 19));
+        // Ajout des piles ressources dans le Hashtable
+        pilesRessources.put(TypeRessource.BIERE, new Pile(new CarteRessource(TypeRessource.BIERE),19));
+        pilesRessources.put(TypeRessource.SOMMEIL, new Pile(new CarteRessource(TypeRessource.SOMMEIL), 19));
+        pilesRessources.put(TypeRessource.CAFE, new Pile(new CarteRessource(TypeRessource.CAFE),19));
+        pilesRessources.put(TypeRessource.COURS, new Pile(new CarteRessource(TypeRessource.COURS),19));
+        pilesRessources.put(TypeRessource.NOURRITURE, new Pile(new CarteRessource(TypeRessource.NOURRITURE),19));
     }
 
     /* A VIRER CAR PENSE POSER PB POUR AFFICHAGE GRAPHIQUE */
@@ -215,7 +219,7 @@ public class ManagerJeu {
         return joueurs;
     }
 
-    public ArrayList<Pile> getPilesRessources() {
+    public Hashtable<TypeRessource,Pile> getPilesRessources() {
         return pilesRessources;
     }
 
@@ -237,5 +241,20 @@ public class ManagerJeu {
 
     public Des getDes() {
         return des;
+    }
+
+    public String toString(){
+        String txt = "";
+
+        txt = "TOUR n°"+tour+"\n"+
+                "\tNombre de ressources BIERE..... : \t"+ pilesRessources.get(TypeRessource.BIERE).getNombre()+"\n"+
+                "\tNombre de ressources CAFE...... : \t"+ pilesRessources.get(TypeRessource.CAFE).getNombre()+"\n"+
+                "\tNombre de ressources COURS..... : \t"+ pilesRessources.get(TypeRessource.COURS).getNombre()+"\n"+
+                "\tNombre de ressources NOURRITURE : \t"+ pilesRessources.get(TypeRessource.NOURRITURE).getNombre()+"\n"+
+                "\tNombre de ressources SOMMEIL... : \t"+ pilesRessources.get(TypeRessource.SOMMEIL).getNombre()+"\n"+
+                "\tNombre cartes DEVELOPPEMENT.... : \t"+ pilesDeveloppement.size();
+
+
+        return txt;
     }
 }
