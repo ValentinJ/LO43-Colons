@@ -1,6 +1,5 @@
 package colonsUTBM;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
@@ -17,7 +16,7 @@ public class Joueur {
     protected int nbCc;
 
     protected List<UV1> uvs;
-    protected List<ControleContinueold> CC;
+    protected List<ControleContinus> CC;
 
     protected Hashtable<TypeRessource,Pile> mainRessource;
     protected List<CarteDeveloppement> mainDeveloppement;
@@ -99,7 +98,7 @@ public class Joueur {
         mainRessource.put(TypeRessource.NOURRITURE, new Pile(new CarteRessource(TypeRessource.NOURRITURE)));
 
         uvs = new ArrayList<UV1>();
-        CC = new ArrayList<ControleContinueold>();
+        CC = new ArrayList<ControleContinus>();
         mainDeveloppement = new ArrayList<CarteDeveloppement>();
 
         score = 0;
@@ -185,12 +184,13 @@ public class Joueur {
 
     public void construireUV1(GraphMap g){
         if(verifierAchatUV1()) {
-            g.ClickConstructionUV1(this);
+            uvs.add(g.ClickConstructionUV1(this));
             mainRessource.get(TypeRessource.COURS).retirer();
             mainRessource.get(TypeRessource.BIERE).retirer();
             mainRessource.get(TypeRessource.CAFE).retirer();;
             mainRessource.get(TypeRessource.NOURRITURE).retirer();
             nbUv1--;
+
         }
     }
 
@@ -206,7 +206,7 @@ public class Joueur {
 
     public void construireCC(GraphMap g){
         if(verifierAchatControleContinu()) {
-            g.ClickConstructionControleContinus(this);
+            CC.add(g.ClickConstructionControleContinus(this));
             getMainRessource().get(TypeRessource.BIERE).retirer();
             getMainRessource().get(TypeRessource.NOURRITURE).retirer();
             nbCc--;
