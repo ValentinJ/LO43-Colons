@@ -94,7 +94,7 @@ public class EcranDroit extends JPanel{
         TableauDechange();
 
         add(recap, new GridBagConstraints(0, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
-        add(interfaceEchange, new GridBagConstraints(0,1, 1, 1, 0, 0, GridBagConstraints.CENTER,GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
+        add(interfaceEchange, new GridBagConstraints(0, 1, 1, 1, 0, 0, GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
     }
 
     public void enteteVertical(){
@@ -238,7 +238,7 @@ public class EcranDroit extends JPanel{
 
         TableauDechange();
         add(recap, new GridBagConstraints(0, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
-        add(interfaceEchange, new GridBagConstraints(0,1, 1, 1, 0, 0, GridBagConstraints.CENTER,GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
+        add(interfaceEchange, new GridBagConstraints(0,1, 1, 1, 0, 0, GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
     }
 
     public void changementCouleur(int t){
