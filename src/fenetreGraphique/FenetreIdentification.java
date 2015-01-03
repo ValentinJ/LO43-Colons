@@ -36,6 +36,7 @@ public class FenetreIdentification extends JFrame implements ActionListener{
     public JTextArea t2;
     public JTextArea t3;
     public JTextArea t4;
+    public JLabel msg_error;
 
     public JButton confirmer;
     public JButton annuler;
@@ -48,6 +49,11 @@ public class FenetreIdentification extends JFrame implements ActionListener{
 
     public FenetreIdentification(String _nom){
         super(_nom);
+
+        msg_error = new JLabel("Erreur : tous les champs n'ont pas été saisis !");
+        msg_error.setHorizontalAlignment(JLabel.CENTER);
+        msg_error.setForeground(Color.RED);
+        msg_error.setVisible(false);
 
         Joueurs = new ArrayList<Joueur>();
         nomFenetre = _nom;
@@ -67,8 +73,9 @@ public class FenetreIdentification extends JFrame implements ActionListener{
         formulaire = panelFormulaire();
 
         confirmation = new JPanel();
-        confirmation.setLayout(new GridLayout(1, 2));
-        confirmation = panelConfirmation();
+        confirmation.setLayout(new GridLayout(2,1));
+        confirmation.add(msg_error);
+        confirmation.add(panelConfirmation());
 
         complet = new JPanel(new BorderLayout());
         complet = panelComplet(choix, formulaire, confirmation);
@@ -240,6 +247,7 @@ public class FenetreIdentification extends JFrame implements ActionListener{
                     Joueurs.add(new Joueur(t4.getText(), TypeCouleur.JAUNE));
 
                 } else {
+                    msg_error.setVisible(true);
                     System.out.println("Erreur : tous les champs n'ont pas été saisis !");
                 }
             }
@@ -254,6 +262,7 @@ public class FenetreIdentification extends JFrame implements ActionListener{
 
                 }
                 else {
+                    msg_error.setVisible(true);
                     System.out.println("Erreur : tous les champs n'ont pas été saisis !");
                 }
             }

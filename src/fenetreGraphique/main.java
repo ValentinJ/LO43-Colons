@@ -29,7 +29,7 @@ public class main {
         */
 
         //todo à décommenter : fenetre identification des joueurs
-        /*
+/*
         ArrayList<Joueur> j = new ArrayList<Joueur> ();
         FenetreIdentification fId = new FenetreIdentification("Colons de l'UTBohèMe - Projet LO43");
         while (fId.getValider()==0){
@@ -40,17 +40,19 @@ public class main {
             }
         }
         fId.dispose();
+
+
         if (fId.getValider()==1){
             j = fId.getJoueurs();
+            ManagerJeu jeu = new ManagerJeu(j);
             System.out.println("Affichage du jeu...");
-            frame = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, j);
+            frame = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, jeu);
         }
         else {
             System.out.println("L'application a été fermé :" + fId.getValider());
             System.exit(0);
         }
-        */
-
+*/
         ArrayList<Joueur> j = new ArrayList<Joueur> ();
         //todo : TEST : Création automatique des joueurs
         j.add(new Joueur("Mick", TypeCouleur.BLEU));
@@ -62,13 +64,13 @@ public class main {
         frame = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, jeu);
         //System.out.println(jeu.toString());
 
-        /*
+
         jeu.getTerrain().majCSS();
         jeu.getTerrain().InitConstructionUV1(j.get(0));
         jeu.getTerrain().majCSS();
         jeu.getTerrain().ClickConstructionControleContinus(j.get(0));
         jeu.getTerrain().majCSS();
-        */
+
         jeu.jouer();
     }
 }
