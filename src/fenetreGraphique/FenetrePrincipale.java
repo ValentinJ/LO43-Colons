@@ -71,8 +71,6 @@ public class FenetrePrincipale extends FenetreDefaut {
 
     public void miseAJour(){
         // mise a jour des differents JPanel
-        System.out.println("Mise a jour de la fenetre principal de jeu");
-
         EcranGauche.miseAJour();
         Infos.MiseAJour(manJeu);
         Plateau.MiseAJour();

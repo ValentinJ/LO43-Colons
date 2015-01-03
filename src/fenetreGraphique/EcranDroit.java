@@ -216,9 +216,6 @@ public class EcranDroit extends JPanel{
     }
 
     public void MiseAJour(ManagerJeu _manJeu){
-
-        System.out.println("EcranDroit.java : met a jour");
-
         manJeu = _manJeu;
         Joueurs = _manJeu.getJoueurs();
         Tour = _manJeu.getTour();
@@ -261,7 +258,6 @@ public class EcranDroit extends JPanel{
             }
         }
         if (rang == 1) {
-            System.out.println(rang);
             if (((Joueurs.get(rang)).getCouleur()).equals("blue")) {
                 infosJ2.setBackground(Color.BLUE);
             }

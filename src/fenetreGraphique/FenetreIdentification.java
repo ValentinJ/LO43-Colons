@@ -257,13 +257,11 @@ public class FenetreIdentification extends JFrame implements ActionListener{
                     System.out.println("Erreur : tous les champs n'ont pas été saisis !");
                 }
             }
-            System.out.println("Fenètre id - ConfirmerListener - valider " + valider);
         }
 
         // si c est le bouton annulation de l application
         if (e.getSource() == annuler){
             valider = 2;
-            System.out.println("Fenètre id - AnnulerListener - valider " + valider);
             //this.setVisible(false);
         }
     }
