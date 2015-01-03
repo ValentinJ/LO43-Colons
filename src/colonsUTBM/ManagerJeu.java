@@ -72,10 +72,11 @@ public class ManagerJeu {
         System.out.println("FIN : PHASES FONDATION DES UV et CC");
 
         System.out.println("DEBUT : TOUR "+tour);
-        while(terminer){
+        while(!terminer){
             for(Joueur j : joueurs){
                 tourCourant=tour;
                 while(tour==tourCourant){
+                    terrain.InitConstructionUV1(j);
                 }
                 System.out.println("Fin de tour pour le joueur "+j.getNom());
             }
