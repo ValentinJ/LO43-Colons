@@ -2,12 +2,15 @@ package fenetreGraphique;
 
 import sun.awt.VerticalBagLayout;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by Guillaume on 16/12/2014.
@@ -33,6 +36,12 @@ public class OngletEchange extends JPanel implements ActionListener{
     public JRadioButton radio4;
     public JRadioButton radio5;
 
+    public Image imgBierre;
+    public Image imgSommeil;
+    public Image imgCafe;
+    public Image imgCours;
+    public Image imgNourriture;
+
     public JButton comm;
 
     public OngletEchange(){
@@ -43,44 +52,65 @@ public class OngletEchange extends JPanel implements ActionListener{
         tmp = new JPanel();
         tmp.setLayout(new GridLayout(1, 2));
 
+        try {
+            imgBierre     = ImageIO.read(new File(System.getProperty("user.dir") + "/img/CarteBiere.png"));
+        } catch (IOException e) {e.printStackTrace();}
+        try {
+            imgSommeil    = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteSommeil.png"));
+        } catch (IOException e) {e.printStackTrace();}
+        try {
+            imgCafe       = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteCafe.png"));
+        } catch (IOException e) {e.printStackTrace();}
+        try {
+            imgCours      = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteCours.png"));
+        } catch (IOException e) {e.printStackTrace();}
+        try {
+            imgNourriture = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteNourriture.png"));
+        } catch (IOException e) {e.printStackTrace();}
+
         // coinGauche contient les boutons ratios pour selectionner la carte que l'on souhaite obtenir
         coinGauche = new JPanel();
-        coinGauche.setLayout(new GridLayout(0, 1));
+        coinGauche.setLayout(new GridLayout(5, 2));
         coinGauche.setBorder(new EmptyBorder(5, 0, 0, 5));
         coinGauche.setBorder(BorderFactory.createTitledBorder("Sélection"));
 
         group = new ButtonGroup();
 
-        radio1 = new JRadioButton("Carte 1");
+        radio1 = new JRadioButton();
         radio1.setMnemonic(KeyEvent.VK_1);
         radio1.setActionCommand("Carte_1");
         radio1.setSelected(true);
         group.add(radio1);
         coinGauche.add(radio1);
+        coinGauche.add(new JLabel(new ImageIcon(imgBierre)){{setOpaque(false);}});
 
-        radio2 = new JRadioButton("Carte 2");
+        radio2 = new JRadioButton();
         radio2.setMnemonic(KeyEvent.VK_2);
         radio2.setActionCommand("Carte_2");
         group.add(radio2);
         coinGauche.add(radio2);
+        coinGauche.add(new JLabel(new ImageIcon(imgSommeil)){{setOpaque(false);} });
 
-        radio3 = new JRadioButton("Carte 3");
+        radio3 = new JRadioButton();
         radio3.setMnemonic(KeyEvent.VK_3);
         radio3.setActionCommand("Carte_3");
         group.add(radio3);
         coinGauche.add(radio3);
+        coinGauche.add(new JLabel(new ImageIcon(imgCafe)){{setOpaque(false);} });
 
-        radio4 = new JRadioButton("Carte 4");
+        radio4 = new JRadioButton();
         radio4.setMnemonic(KeyEvent.VK_4);
         radio4.setActionCommand("Carte_4");
         group.add(radio4);
         coinGauche.add(radio4);
+        coinGauche.add(new JLabel(new ImageIcon(imgCours)){{setOpaque(false);} });
 
-        radio5 = new JRadioButton("Carte 5");
+        radio5 = new JRadioButton();
         radio5.setMnemonic(KeyEvent.VK_5);
         radio5.setActionCommand("Carte_5");
         group.add(radio5);
         coinGauche.add(radio5);
+        coinGauche.add(new JLabel(new ImageIcon(imgNourriture)){{setOpaque(false);} });
 
         // quelle ressource nous souhaitons donnée pour la carte que nous avons selectionnée dans coinGauche
         coinDroit = new JPanel();
@@ -125,15 +155,15 @@ public class OngletEchange extends JPanel implements ActionListener{
         jComboBox5.addItem("4");
 
         coinDroit.add(jComboBox1);
-        coinDroit.add(new JLabel("carte 1"));
+        coinDroit.add(new JLabel(new ImageIcon(imgBierre)){{setOpaque(false);}});
         coinDroit.add(jComboBox2);
-        coinDroit.add(new JLabel("carte 2"));
+        coinDroit.add(new JLabel(new ImageIcon(imgSommeil)){{setOpaque(false);} });
         coinDroit.add(jComboBox3);
-        coinDroit.add(new JLabel("carte 3"));
+        coinDroit.add(new JLabel(new ImageIcon(imgCafe)){{setOpaque(false);} });
         coinDroit.add(jComboBox4);
-        coinDroit.add(new JLabel("carte 4"));
+        coinDroit.add(new JLabel(new ImageIcon(imgCours)){{setOpaque(false);} });
         coinDroit.add(jComboBox5);
-        coinDroit.add(new JLabel("carte 5"));
+        coinDroit.add(new JLabel(new ImageIcon(imgNourriture)){{setOpaque(false);} });
 
         tmp.add(coinGauche);
         tmp.add(coinDroit);

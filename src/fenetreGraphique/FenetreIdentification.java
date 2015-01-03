@@ -236,8 +236,7 @@ public class FenetreIdentification extends JFrame implements ActionListener{
         if (e.getSource() == confirmer){
             // verifier champs nom vide avant de faire une modif
             if (radio4.isSelected()) {
-                if ((!((t1.getText()).equals(""))) && (!((t2.getText()).equals("")))
-                        && (!((t3.getText().equals("")))) && (!((t4.getText().equals(""))))) {
+                if ( (champSaisit(t1.getText())) && (champSaisit(t2.getText())) && (champSaisit(t3.getText())) && (champSaisit(t4.getText())) ){
                     valider = 1;
 
                     //creation des joueurs
@@ -252,7 +251,7 @@ public class FenetreIdentification extends JFrame implements ActionListener{
                 }
             }
             else{
-                if ((!((t1.getText()).equals(""))) && (!((t2.getText()).equals(""))) && (!((t3.getText().equals("")))) ) {
+                if ( (champSaisit(t1.getText())) && (champSaisit(t2.getText())) && (champSaisit(t3.getText())) ){
                     valider = 1;
 
                     //creation des joueurs
@@ -273,5 +272,17 @@ public class FenetreIdentification extends JFrame implements ActionListener{
             valider = 2;
             //this.setVisible(false);
         }
+    }
+
+    public boolean champSaisit(String n){
+        if ((n.contains("a")) || n.contains("b") || n.contains("c") || n.contains("d") || n.contains("e") || n.contains("f")
+                || n.contains("g") || n.contains("h") || n.contains("i") || n.contains("j") || n.contains("k") || n.contains("l")
+                || n.contains("m") || n.contains("n") || n.contains("o") || n.contains("p") || n.contains("q") || n.contains("r")
+                || n.contains("s") || n.contains("t") || n.contains("u") || n.contains("v") || n.contains("w") || n.contains("x")
+                || n.contains("y") || n.contains("z") || n.contains("0") || n.contains("1") || n.contains("2") || n.contains("3")
+                || n.contains("4") || n.contains("5") || n.contains("6") || n.contains("7") || n.contains("8") || n.contains("9") ){
+            return true;
+        }
+        return false;
     }
 }
