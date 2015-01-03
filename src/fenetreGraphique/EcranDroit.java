@@ -205,9 +205,21 @@ public class EcranDroit extends JPanel{
 
 
         validate();
-    }
-    /*
-    public void changementCouleur(){
+    }/*
+
+    //TODO faire la coloration
+    public void changementCouleur(int t){
+        int rang = t%Joueurs.size();
+
+        recapInfosJoueurs();
+
+        switch (rang){
+            case 0: E
+            case 1:
+            case 2:
+            case 3:
+        }
+
         public void activeCouleur(){
             if (c.equals("VERT")) {
                 setBackground(Color.green);

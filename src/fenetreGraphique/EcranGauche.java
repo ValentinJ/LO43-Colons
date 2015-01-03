@@ -35,9 +35,11 @@ public class EcranGauche extends JPanel {
         achatCarteDev = new JButton("Achat carte dév");
         finDeTour = new JButton("Fin de tour");
 
-        UV1        = new JButton("UV1old");
+        //TODO mettre les images
+
+        UV1        = new JButton("UV1");
         detailsUV1 = new JLabel("details ressources necessaire");
-        UV2        = new JButton("UV2old");
+        UV2        = new JButton("UV2");
         detailsUV2 = new JLabel("details ressources necessaire");
         CC         = new JButton("CC");
         detailsCC  = new JLabel("details ressources necessaire");
@@ -74,5 +76,7 @@ public class EcranGauche extends JPanel {
         add(jouerCarte);
         add(construction);
     }
+
+    //TODO visibilité des boutons
 
 }
