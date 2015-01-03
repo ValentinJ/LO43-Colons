@@ -334,4 +334,21 @@ public class Joueur {
     public void ajoutRessource(TypeRessource r, int nombreRessourceAAjouter){
         mainRessource.get(r).ajouter(nombreRessourceAAjouter);
     }
+
+    public ArrayList<Integer> getNbUvs(){
+        ArrayList<Integer> NbUVS = new ArrayList<Integer>();
+
+        int _UV1=0;
+        int _UV2=0;
+        for (int i=0; i<uvs.size(); i++){
+            if (uvs.get(i) instanceof UV2){
+                _UV2 += 1;
+            }
+        }
+        _UV1 = uvs.size() - _UV2;
+        NbUVS.add(_UV1);
+        NbUVS.add(_UV2);
+
+        return NbUVS;
+    }
 }
