@@ -265,9 +265,8 @@ public class Joueur {
 
     public void echangeAvecBanque(){
         //mainRessource.get(TypeRessource.echange).retirer(4);
-
     }
-    
+
 
     public void jouerCarteDeveloppement(CarteDeveloppement c){
     }
