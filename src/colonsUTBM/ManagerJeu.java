@@ -66,15 +66,18 @@ public class ManagerJeu {
 
     public void jouer(){
         boolean terminer = false;
-
+        int tourCourant;
         System.out.println("DEBUT : PHASES FONDATION DES UV et CC");
 
         System.out.println("FIN : PHASES FONDATION DES UV et CC");
 
-        System.out.println("DEBUT : TOUR 0");
+        System.out.println("DEBUT : TOUR "+tour);
         while(terminer){
             for(Joueur j : joueurs){
-
+                tourCourant=tour;
+                while(tour==tourCourant){
+                }
+                System.out.println("Fin de tour pour le joueur "+j.getNom());
             }
         }
         System.out.println("La partie se termine...");
@@ -87,10 +90,10 @@ public class ManagerJeu {
     }
 
 
-    public void productionRessource(int valeurDes){                 // ne peut le faire sans fonction de valentin
-        //getVoisinCase(); // classe de terrain
-
-        // avec valeur des, recup toutes les cases ayant cette valeur
+    public void productionRessource(int valeurDes){
+    // ne peut le faire sans fonction de valentin
+    //getVoisinCase(); // classe de terrain
+    // avec valeur des, recup toutes les cases ayant cette valeur
 
         ArrayList<CaseInterne> caseProd = new ArrayList<CaseInterne>();
         ArrayList<NoeudConstructible> noeudOccuper = new ArrayList<NoeudConstructible>();
