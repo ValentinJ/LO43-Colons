@@ -71,13 +71,24 @@ public class ManagerJeu {
 
         System.out.println("FIN : PHASES FONDATION DES UV et CC");
 
-        System.out.println("DEBUT : TOUR "+tour);
         while(!terminer){
             for(Joueur j : joueurs){
+                des.lancerDes();
+                System.out.println("Lancé des dés : "+des.getTotalDes());
+                System.out.println("DEBUT : TOUR n°"+tour+" pour le joueur "+j.getNom());
                 tourCourant=tour;
+
+
+                terrain.InitConstructionUV1(j);
+                terrain.majCSS();
+
+
                 while(tour==tourCourant){
-                    terrain.InitConstructionUV1(j);
-                    terrain.majCSS();
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
                 System.out.println("Fin de tour pour le joueur "+j.getNom());
             }
