@@ -132,6 +132,7 @@ public class EcranGauche extends JPanel implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == UV1) {
             System.out.println("EcranGauche.java : UV1");
+            //manJeu.getTerrain().InitConstructionUV1()
         }
         if (e.getSource() == UV2) {
             System.out.println("EcranGauche.java : UV2");
