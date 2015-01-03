@@ -133,7 +133,7 @@ public class EcranGauche extends JPanel implements ActionListener{
         if (e.getSource() == UV1) {
             System.out.println("EcranGauche.java : UV1");
             manJeu.finDeTour();
-            frame.miseAJour();
+            frame.miseAJour(); // appel mise a jour de frame principale
         }
         if (e.getSource() == UV2) {
             System.out.println("EcranGauche.java : UV2");

@@ -77,7 +77,7 @@ public class FenetrePrincipale extends FenetreDefaut {
         Infos.MiseAJour(Joueurs, Tour);
         Plateau.MiseAJour();
 
-        affichage();
+        validate();
     }
 
     public void JouerCarteMonopole(){
