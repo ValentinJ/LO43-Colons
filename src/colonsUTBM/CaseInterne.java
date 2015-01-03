@@ -73,4 +73,6 @@ public class CaseInterne extends Case{
     public String getTypeCSS() {
         return typeCSS;
     }
+
+    public int getValeurDes(){ return valeurDes;}
 }

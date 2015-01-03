@@ -53,16 +53,33 @@ public class ManagerJeu {
         valeurDes = vD;
     }
 
-    /*
+
     public void productionRessource(int valeurDes){                 // ne peut le faire sans fonction de valentin
-        getVoisinCase(); // classe de terrain
-        ArrayList<CaseRessource> caseProd = new ArrayList<CaseRessource>();
-        ArrayList<Integer> joueurRecolt = new ArrayList<Integer>();
+        //getVoisinCase(); // classe de terrain
+
+        // avec valeur des, recup toutes les cases ayant cette valeur
+
+        ArrayList<CaseInterne> caseProd = new ArrayList<CaseInterne>();
+        ArrayList<UV1> noeudOccuper = new ArrayList<UV1>();
 
         // recupere les case produisant les ressources
-        for (int i = 0 ; i < (terrain.getListCase()).size() ; i++){
-            if ( ((terrain.getListCase()).get(i)).getValeurNumerique() == valeurDes ){
-                caseProd.add((terrain.getListCase()).get(i));
+        for (int i = 0 ; i < (terrain.getCases()).size() ; i++){
+            if ( ((terrain.getCases()).get(i)) instanceof CaseInterne){
+                if ( ((CaseInterne) ((terrain.getCases()).get(i))).getValeurDes() == valeurDes ){
+                    caseProd.add((CaseInterne) ((terrain.getCases()).get(i)));
+                }
+            }
+        }
+
+        // pour chaque case recup, trouver si un noeud adjacent est occuper   <- ici getVoisinCase();
+        for (int i = 0 ; i < caseProd.size() ; i++){
+            noeudOccuper = (UV1) (terrain.getVoisinsCase(caseProd.get(i)));
+            for (int j = 0 ; j < noeudOccuper.size() ; j++){
+                // pour chaque noeud adjacent occuper, gain ressource du type de la case <-AjoutRessource
+                if (noeudOccuper insteanceof UV1)
+                    noeudOccuper.getJ(ajoutRessource( ,1));
+                else
+                    noeudOccuper.getJ(ajoutRessource( ,2));
             }
         }
 
@@ -85,7 +102,6 @@ public class ManagerJeu {
         }
 
     }
-    */
 
     public void calculerScore(){                                     // besoin accesseur coord UV : "getUV1()" et "getUV2()"
         ArrayList<Integer> joueurCC = new ArrayList<Integer>();
