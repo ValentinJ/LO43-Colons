@@ -33,7 +33,7 @@ public class ManagerJeu {
 
         pilesDeveloppement = new ArrayList<CarteDeveloppement>();
         pilesRessources = new Hashtable<TypeRessource, Pile>();
-        nouvellePartie();
+        InitVariables();
     }
 
     public ManagerJeu(ArrayList<Joueur> j, GraphMap t, Point p){
@@ -64,17 +64,28 @@ public class ManagerJeu {
         Collections.shuffle(pilesDeveloppement);
     }
 
-    public void finDeTour(){
+    public void jouer(){
+        boolean terminer = false;
+
+        System.out.println("DEBUT : PHASES FONDATION DES UV et CC");
+
+        System.out.println("FIN : PHASES FONDATION DES UV et CC");
+
+        System.out.println("DEBUT : TOUR 0");
+        while(terminer){
+            for(Joueur j : joueurs){
+
+            }
+        }
+        System.out.println("La partie se termine...");
+
+
+    }
+
+    public void finDeTour() {
         tour += 1;
         // vlider carte dev en main
         terrain.majCSS();
-    }
-
-    public void lancerDesDes(){
-        ArrayList<Integer> vD = new ArrayList<Integer>();
-        vD.add((int) (Math.random()*6) + 1);
-        vD.add((int) (Math.random()*6) + 1);
-        valeurDes = vD;
     }
 
 
@@ -171,7 +182,7 @@ public class ManagerJeu {
         return 0;
     }
 
-    public void nouvellePartie(){
+    public void InitVariables(){
         // Ajout des cartes developpement dans l'arralylist et mélange
         // 25 au total : 6*Progres : 2*CCC, 2*Decouverte, 2*Monopole + 5*Point de Victoire + 14*Ancien
         ArrayList<CarteDeveloppement> pilesD = new ArrayList<CarteDeveloppement>();
