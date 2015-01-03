@@ -60,7 +60,7 @@ public class ManagerJeu {
         // avec valeur des, recup toutes les cases ayant cette valeur
 
         ArrayList<CaseInterne> caseProd = new ArrayList<CaseInterne>();
-        ArrayList<UV1> noeudOccuper = new ArrayList<UV1>();
+        ArrayList<NoeudConstructible> noeudOccuper = new ArrayList<NoeudConstructible>();
 
         // recupere les case produisant les ressources
         for (int i = 0 ; i < (terrain.getCases()).size() ; i++){
@@ -74,13 +74,13 @@ public class ManagerJeu {
 
         // pour chaque case recup, trouver si un noeud adjacent est occuper   <- ici getVoisinCase();
         for (int i = 0 ; i < caseProd.size() ; i++){
-            noeudOccuper = (UV1) (terrain.getVoisinsCase(caseProd.get(i)));
+            noeudOccuper = terrain.getVoisinsCase(caseProd.get(i));
             for (int j = 0 ; j < noeudOccuper.size() ; j++){
                 // pour chaque noeud adjacent occuper, gain ressource du type de la case <-AjoutRessource
-                if (noeudOccuper insteanceof UV1)
-                    noeudOccuper.getJ(ajoutRessource( ,1));
+                if (noeudOccuper.get(j) instanceof UV1)
+                    ((UV1)noeudOccuper.get(j)).getJ().ajoutRessource(caseProd.get(i).getTr(),1);
                 else
-                    noeudOccuper.getJ(ajoutRessource( ,2));
+                    ((UV2)noeudOccuper.get(j)).getJ().ajoutRessource(caseProd.get(i).getTr(), 2);
             }
         }
     }

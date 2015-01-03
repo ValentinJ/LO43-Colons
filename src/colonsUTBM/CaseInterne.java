@@ -9,6 +9,7 @@ public class CaseInterne extends Case{
 
     protected int valeurDes;
     protected boolean binomeGlandeur;
+    protected TypeRessource tr;
 
     public CaseInterne() {
         this(0,0,TypeCase.BIERE,0);
@@ -24,6 +25,29 @@ public class CaseInterne extends Case{
         }
         tc = r;
         setTypeCSS();
+        setTypeRessource();
+    }
+
+    public void setTypeRessource(){
+        switch(tc){
+            case BIERE:
+                tr = TypeRessource.BIERE;
+                break;
+            case CAFE:
+                tr = TypeRessource.CAFE;
+                break;
+            case COURS:
+                tr = TypeRessource.COURS;
+                break;
+            case SOMMEIL:
+                tr = TypeRessource.SOMMEIL;
+                break;
+            case NOURRITURE:
+                tr = TypeRessource.NOURRITURE;
+                break;
+            default:
+                tr = TypeRessource.BIERE;
+        }
     }
 
     public CaseInterne(double x, double y, TypeCase r, int valeurDes) {
@@ -75,4 +99,6 @@ public class CaseInterne extends Case{
     }
 
     public int getValeurDes(){ return valeurDes;}
+
+    public TypeRessource getTr(){ return tr; }
 }

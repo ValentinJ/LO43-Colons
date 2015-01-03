@@ -245,7 +245,7 @@ public class Joueur {
     }
 
     public Hashtable<TypeRessource,Pile> getMainRessource(){ return mainRessource;}
-    public Pile getMainRessource(int indicePile){ return mainRessource.get(indicePile);}
+    public Pile getMainRessource(TypeRessource r){ return mainRessource.get(r);}
 
     public void MAJScore(){
         for(UV1 uv : uvs){

@@ -8,6 +8,10 @@ import java.util.ArrayList;
 public abstract class Case extends Noeud{
     protected TypeCase tc;
 
+    public TypeCase getTc() {
+        return tc;
+    }
+
     abstract public ArrayList<Point> getPointsCase();
 
     abstract public void setTypeCSS();
