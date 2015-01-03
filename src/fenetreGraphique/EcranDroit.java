@@ -1,6 +1,7 @@
 package fenetreGraphique;
 
 import colonsUTBM.Joueur;
+import colonsUTBM.TypeCouleur;
 import colonsUTBM.TypeRessource;
 import sun.awt.VerticalBagLayout;
 
@@ -47,7 +48,9 @@ public class EcranDroit extends JPanel{
         Joueurs = j;
         Tour = t;
 
-        setLayout(new GridLayout(2,1));
+        //setLayout(new GridLayout(2, 1));
+        setLayout(new GridBagLayout());
+
 
         recap = new JPanel(new VerticalBagLayout());
 
@@ -60,7 +63,6 @@ public class EcranDroit extends JPanel{
         imgCours      = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteCours.png"));
         imgNourriture = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteNourriture.png"));
 
-        enteteVertical();
         recapInfosJoueurs();
 
         recap.add(infosJoueur);
@@ -75,8 +77,8 @@ public class EcranDroit extends JPanel{
 
         TableauDechange();
 
-        add(recap);
-        add(interfaceEchange);
+        add(recap, new GridBagConstraints(0, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
+        add(interfaceEchange, new GridBagConstraints(0,1, 1, 1, 0, 0, GridBagConstraints.CENTER,GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
     }
 
     public void enteteVertical(){
@@ -91,7 +93,7 @@ public class EcranDroit extends JPanel{
         enteteV.add(new JLabel("UV1"));
         enteteV.add(new JLabel("UV2"));
         enteteV.add(new JLabel("  "));
-        enteteV.add(new JLabel("Ancien"));
+        enteteV.add(new JLabel("Ancien "));
         enteteV.add(new JLabel("C C"));
         enteteV.add(new JLabel("  "));
         enteteV.add(new JLabel("Score"));
@@ -100,6 +102,7 @@ public class EcranDroit extends JPanel{
     public void recapInfosJoueurs(){
         infosJoueur = new JPanel(new GridLayout(1, Joueurs.size()+1));
 
+        enteteVertical();
         infosJoueur.add(enteteV);
 
         infosJ1 = new JPanel(new GridLayout(14,1));
@@ -153,8 +156,8 @@ public class EcranDroit extends JPanel{
         infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getScore()))));
         infosJoueur.add(infosJ3);
 
+        infosJ4 = new JPanel(new GridLayout(14,1));
         if  (Joueurs.size() > 3){
-            infosJ4 = new JPanel(new GridLayout(14,1));
             infosJ4.add(new JLabel((Joueurs.get(3)).getNom()));
             infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(3)).getMainRessource(TypeRessource.BIERE)).getNombre()) ));
             infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(3)).getMainRessource(TypeRessource.SOMMEIL)).getNombre()) ));
@@ -171,6 +174,10 @@ public class EcranDroit extends JPanel{
             infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(3)).getScore()))));
             infosJoueur.add(infosJ4);
         }
+
+        changementCouleur(0);
+
+        infosJoueur.setBorder(BorderFactory.createTitledBorder("Renseignement"));
     }
 
     public void TableauDechange(){
@@ -197,42 +204,69 @@ public class EcranDroit extends JPanel{
         Tour = _t;
 
         TableauDechange();
-
-        // tableau des ressources dans les mains
-
-        // des differentes possession : carte / UV* / UV** / Controle Continue / ...
-
-
-
-        validate();
-    }/*
-
-    //TODO faire la coloration
-    public void changementCouleur(int t){
-        int rang = t%Joueurs.size();
-
         recapInfosJoueurs();
 
-        switch (rang){
-            case 0: E
-            case 1:
-            case 2:
-            case 3:
-        }
+        validate();
+    }
 
-        public void activeCouleur(){
-            if (c.equals("VERT")) {
-                setBackground(Color.green);
+    public void changementCouleur(int t){
+        int rang = Tour%Joueurs.size();
+        if (rang == 0) {
+            if (((Joueurs.get(rang)).getCouleur()).equals("blue")) {
+                infosJ1.setBackground(Color.BLUE);
             }
-            if (c.equals("BLEU")) {
-                setBackground(Color.blue);
+            if (((Joueurs.get(rang)).getCouleur()).equals("red")) {
+                infosJ1.setBackground(Color.RED);
             }
-            if (c.equals("ROUGE")) {
-                setBackground(Color.red);
+            if (((Joueurs.get(rang)).getCouleur()).equals("green")) {
+                infosJ1.setBackground(Color.GREEN);
             }
-            if (c.equals("JAUNE")) {
-                setBackground(Color.yellow);
+            if (((Joueurs.get(rang)).getCouleur()).equals("yellow")) {
+                infosJ1.setBackground(Color.YELLOW);
             }
         }
-    }*/
+        if (rang == 1) {
+            System.out.println(rang);
+            if (((Joueurs.get(rang)).getCouleur()).equals("blue")) {
+                infosJ2.setBackground(Color.BLUE);
+            }
+            if (((Joueurs.get(rang)).getCouleur()).equals("red")) {
+                infosJ2.setBackground(Color.RED);
+            }
+            if (((Joueurs.get(rang)).getCouleur()).equals("green")) {
+                infosJ2.setBackground(Color.GREEN);
+            }
+            if (((Joueurs.get(rang)).getCouleur()).equals("yellow")) {
+                infosJ2.setBackground(Color.YELLOW);
+            }
+        }
+        if (rang == 2) {
+            if (((Joueurs.get(rang)).getCouleur()).equals("blue")) {
+                infosJ3.setBackground(Color.BLUE);
+            }
+            if (((Joueurs.get(rang)).getCouleur()).equals("red")) {
+                infosJ3.setBackground(Color.RED);
+            }
+            if (((Joueurs.get(rang)).getCouleur()).equals("green")) {
+                infosJ3.setBackground(Color.GREEN);
+            }
+            if (((Joueurs.get(rang)).getCouleur()).equals("yellow")) {
+                infosJ3.setBackground(Color.YELLOW);
+            }
+        }
+        if (rang == 3) {
+            if (((Joueurs.get(rang)).getCouleur()).equals("blue")) {
+                infosJ4.setBackground(Color.BLUE);
+            }
+            if (((Joueurs.get(rang)).getCouleur()).equals("red")) {
+                infosJ4.setBackground(Color.RED);
+            }
+            if (((Joueurs.get(rang)).getCouleur()).equals("green")) {
+                infosJ4.setBackground(Color.GREEN);
+            }
+            if (((Joueurs.get(rang)).getCouleur()).equals("yellow")) {
+                infosJ4.setBackground(Color.YELLOW);
+            }
+        }
+    }
 }
