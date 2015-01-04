@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
@@ -186,6 +187,15 @@ public class EcranGauche extends JPanel implements ActionListener{
         // bloque les boutons
     }
 
+    public static Image scaleImage(Image source, int width, int height) {
+        BufferedImage img = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g = (Graphics2D) img.getGraphics();
+        g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g.drawImage(source, 0, 0, width, height, null);
+        g.dispose();
+        return img;
+    }
+
     public void affichageDes(){
         faceDesDes = new JPanel(new GridLayout(1,2));
         try {
@@ -196,7 +206,8 @@ public class EcranGauche extends JPanel implements ActionListener{
         } catch (IOException e) {e.printStackTrace();}
 
         System.out.println("des 1 :" + manJeu.getDes().getImgV1() + " des2 : " + manJeu.getDes().getImgV2() );
-
+        imgDes1 = scaleImage(imgDes1,50,50);
+        imgDes2 = scaleImage(imgDes2,50,50);
         ImageIcon imgIcon1 = new ImageIcon(imgDes1){{setOpaque(false);}};
         ImageIcon imgIcon2 = new ImageIcon(imgDes2){{setOpaque(false);}};
 
