@@ -74,7 +74,6 @@ public class CaseInterne extends Case{
         return pts;
     }
 
-
     public void setTypeCSS(){
         if(binomeGlandeur) {
             if(tc==TypeCase.BIERE) typeCSS=TypeCaseCSS.BIEREGLANDEUR.toString();

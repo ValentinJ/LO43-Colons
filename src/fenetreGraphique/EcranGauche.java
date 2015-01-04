@@ -241,7 +241,6 @@ public class EcranGauche extends JPanel implements ActionListener{
 
     public void affichageDes(){
         faceDesDes = new JPanel(new GridLayout(1,2));
-
         try {
             imgDes1 = ImageIO.read(new File(System.getProperty("user.dir") +"/img/" + manJeu.getDes().getImgV1()));
         } catch (IOException e) {e.printStackTrace();}
