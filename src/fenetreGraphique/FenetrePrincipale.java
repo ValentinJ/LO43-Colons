@@ -48,7 +48,7 @@ public class FenetrePrincipale extends FenetreDefaut {
         String msg_appli = "Lancement de la partie. Le joueur " + manJeu.getJoueurCourrant().getNom() + " commence" ;
         EcranBas = new EcranBas(msg_appli, this);
         scroller = new JScrollPane(EcranBas, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        scroller.setPreferredSize(new Dimension(300,100));
+        scroller.setPreferredSize(new Dimension(300,50));
         // instanciation du JPanel EcranGauche
         EcranGauche = new EcranGauche(manJeu, this, EcranBas);
         Plateau = new Plateau(g.getView(), manJeu, this);
