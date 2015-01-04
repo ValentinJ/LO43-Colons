@@ -221,8 +221,8 @@ public class EcranGauche extends JPanel implements ActionListener{
         } catch (IOException e) {e.printStackTrace();}
 
         System.out.println("des 1 :" + manJeu.getDes().getImgV1() + " des2 : " + manJeu.getDes().getImgV2() );
-        imgDes1 = scaleImage(imgDes1,50,50);
-        imgDes2 = scaleImage(imgDes2,50,50);
+        imgDes1 = scaleImage(imgDes1,75,75);
+        imgDes2 = scaleImage(imgDes2,75,75);
         ImageIcon imgIcon1 = new ImageIcon(imgDes1){{setOpaque(false);}};
         ImageIcon imgIcon2 = new ImageIcon(imgDes2){{setOpaque(false);}};
 
