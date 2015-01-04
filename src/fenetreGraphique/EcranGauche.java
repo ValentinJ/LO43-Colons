@@ -252,7 +252,10 @@ public class EcranGauche extends JPanel implements ActionListener{
 
         System.out.println("des 1 :" + manJeu.getDes().getImgV1() + " des2 : " + manJeu.getDes().getImgV2() );
 
-        faceDesDes.add(new JLabel(new ImageIcon(imgDes1)){{setOpaque(false);}});
-        faceDesDes.add(new JLabel(new ImageIcon(imgDes2)){{setOpaque(false);}});
+        ImageIcon imgIcon1 = new ImageIcon(imgDes1){{setOpaque(false);}};
+
+        ImageIcon imgIcon2 = new ImageIcon(imgDes2){{setOpaque(false);}};
+        faceDesDes.add(new JLabel( (imgIcon1.getImage()).getScaledInstance(20, 20, Image.SCALE_DEFAULT) ) ) );
+        faceDesDes.add(new JLabel( (imgIcon2.getImage()).getScaledInstance(20, 20, Image.SCALE_DEFAULT) ) ) );
     }
 }
