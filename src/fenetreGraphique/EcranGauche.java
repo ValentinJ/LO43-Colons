@@ -51,19 +51,14 @@ public class EcranGauche extends JPanel implements ActionListener{
     public JPanel faceDesDes;
     public Image imgDes1;
     public Image imgDes2;
-    public JLabel labelImgDes1;
-    public JLabel labelImgDes2;
-
-    public EcranBas eB;
 
     //todo test thread
     Thread t;
 
 
 
-    public EcranGauche(ManagerJeu _manJeu, FenetrePrincipale _frame, EcranBas _eB) {
+    public EcranGauche(ManagerJeu _manJeu, FenetrePrincipale _frame) {
         frame = _frame;
-        eB = _eB;
         manJeu = _manJeu;
         setLayout(new GridLayout(5, 1));
         achatCarteDev = new JButton("Achat carte dév");
@@ -93,14 +88,7 @@ public class EcranGauche extends JPanel implements ActionListener{
         affichageDes();
         add(achatCarteDev);
 
-        setBorder(new EmptyBorder(5, 5, 0, 5));
-        add(achatCarteDev);
-        add(finDeTour);
-        add(faceDesDes);
-        add(jouerCarte);
-        add(construction);
-
-        System.out.println("Constructeur terminer");
+        miseAJour(manJeu);
     }
 
     //TODO visibilité des boutons
@@ -108,6 +96,8 @@ public class EcranGauche extends JPanel implements ActionListener{
 
     //TODO fonctionnalité des boutons
     public void actionPerformed(ActionEvent e) {
+
+
         if (e.getSource() == UV1) {
             System.out.println("EcranGauche.java : UV1");
             if(t == null || t.getState()== Thread.State.TERMINATED) {
@@ -181,9 +171,16 @@ public class EcranGauche extends JPanel implements ActionListener{
     public void miseAJour(ManagerJeu _manJeu){
         manJeu = _manJeu;
 
-        setAffichageFaceDes(_manJeu);
+        removeAll();
+        faceDesDes.removeAll();
+        affichageDes();
 
-        System.out.println("MAJ Ecran Gauche terminer");
+        setBorder(new EmptyBorder(5, 5, 0, 5));
+        add(achatCarteDev);
+        add(finDeTour);
+        add(faceDesDes);
+        add(jouerCarte);
+        add(construction);
 
         // parcours carte dispo du joueur en cour
 
@@ -209,17 +206,13 @@ public class EcranGauche extends JPanel implements ActionListener{
         } catch (IOException e) {e.printStackTrace();}
 
         System.out.println("des 1 :" + manJeu.getDes().getImgV1() + " des2 : " + manJeu.getDes().getImgV2() );
-
         imgDes1 = scaleImage(imgDes1,50,50);
         imgDes2 = scaleImage(imgDes2,50,50);
-
         ImageIcon imgIcon1 = new ImageIcon(imgDes1){{setOpaque(false);}};
         ImageIcon imgIcon2 = new ImageIcon(imgDes2){{setOpaque(false);}};
-        labelImgDes1 = new JLabel(imgIcon1);
-        labelImgDes2 = new JLabel(imgIcon2);
 
-        faceDesDes.add(labelImgDes1);
-        faceDesDes.add(labelImgDes2);
+        faceDesDes.add(new JLabel(imgIcon1));
+        faceDesDes.add(new JLabel(imgIcon2));
     }
 
     public void affichageConstruction(){
@@ -285,46 +278,5 @@ public class EcranGauche extends JPanel implements ActionListener{
         jouerCarte.add(CCC);
     }
 
-    public void setAffichageFaceDes(ManagerJeu _manJeu){
-        //remove(achatCarteDev);
-        //remove(finDeTour);
-        //remove(faceDesDes);
-        //remove(jouerCarte);
-        //remove(construction);
-
-        //faceDesDes.removeAll();
-        //affichageDes();
-
-        //setBorder(new EmptyBorder(5, 5, 0, 5));
-        //add(achatCarteDev);
-        //add(finDeTour);
-        //add(faceDesDes);
-        //add(jouerCarte);
-        //add(construction);
-
-        System.out.println("des 1 :" + _manJeu.getDes().getImgV1() + " des2 : " + _manJeu.getDes().getImgV2() );
-
-        try {
-            imgDes1 = ImageIO.read(new File(System.getProperty("user.dir") +"/img/" + _manJeu.getDes().getImgV1()));
-        } catch (IOException e) {e.printStackTrace();}
-        try {
-            imgDes2 = ImageIO.read(new File(System.getProperty("user.dir") +"/img/" + _manJeu.getDes().getImgV2()));
-        } catch (IOException e) {e.printStackTrace();}
-
-        System.out.println("des 1 :" + _manJeu.getDes().getImgV1() + " des2 : " + _manJeu.getDes().getImgV2() );
-
-        imgDes1 = scaleImage(imgDes1,50,50);
-        imgDes2 = scaleImage(imgDes2,50,50);
-
-        ImageIcon imgIcon1 = new ImageIcon(imgDes1){{setOpaque(false);}};
-        ImageIcon imgIcon2 = new ImageIcon(imgDes2){{setOpaque(false);}};
-        labelImgDes1.setIcon(imgIcon1);
-        labelImgDes1.setIcon(imgIcon2);
-
-        faceDesDes.remove(labelImgDes1);
-        faceDesDes.remove(labelImgDes2);
-        faceDesDes.add(labelImgDes1);
-        faceDesDes.add(labelImgDes2);
-    }
 
 }

@@ -406,7 +406,7 @@ public class GraphMap{
 
     public UV1 ClickConstructionUV1(final Joueur j) {
         final String[] IDClicked = {""};
-        System.out.println("On entre dans le listener UV1");
+        System.out.println("###Viewer Listener IN : Construction UV1");
         ViewerPipe fromViewer = viewer.newViewerPipe();
 
         fromViewer.addViewerListener(new ViewerListener() {
@@ -451,13 +451,13 @@ public class GraphMap{
         }
         UV1 uvtmp = new UV1(tmp,j);
         noeuds.set(noeuds.indexOf(tmp),uvtmp);
-        System.out.println("On sort du listener UV1 !");
+        System.out.println("###Viewer Listener OUT : Construction UV1");
     return uvtmp;
     }
 
     public UV1 InitConstructionUV1(final Joueur j) {
         final String[] IDClicked = {""};
-        System.out.println("On entre dans le listener UV1");
+        System.out.println("###Viewer Listener IN : Construction UV1");
         ViewerPipe fromViewer = viewer.newViewerPipe();
 
         fromViewer.addViewerListener(new ViewerListener() {
@@ -500,14 +500,15 @@ public class GraphMap{
                 tmp = n;
             }
         }
-        noeuds.set(noeuds.indexOf(tmp),new UV1(tmp,j));
-        System.out.println("On sort du listener UV1 !");
-        return null;
+        UV1 uv1tmp = new UV1(tmp,j);
+        noeuds.set(noeuds.indexOf(tmp),uv1tmp);
+        System.out.println("###Viewer Listener OUT : Construction UV1");
+        return uv1tmp;
     }
 
     public UV2 ClickConstructionUV2(final Joueur j) {
         final String[] IDClicked = {""};
-        System.out.println("On entre dans le listener uv2");
+        System.out.println("###Viewer Listener IN : Construction UV2");
         ViewerPipe fromViewer = viewer.newViewerPipe();
 
         fromViewer.addViewerListener(new ViewerListener() {
@@ -554,7 +555,7 @@ public class GraphMap{
         }
         UV2 uvtmp = new UV2(tmp);
         noeuds.set(noeuds.indexOf(tmp),uvtmp);
-        System.out.println("On sort du listener uv2 !");
+        System.out.println("###Viewer Listener OUT : Construction UV2");
         return uvtmp;
     }
 
