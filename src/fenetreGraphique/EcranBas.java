@@ -38,6 +38,7 @@ public class EcranBas extends JPanel {
     public void delete(){
         removeAll();
         setLayout(new GridBagLayout());
+
     }
 
 }
