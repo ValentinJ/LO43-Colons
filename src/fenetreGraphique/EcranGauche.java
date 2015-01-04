@@ -230,7 +230,8 @@ public class EcranGauche extends JPanel implements ActionListener{
     }
 
     // TODO a instancier
-    public void miseAJour(){
+    public void miseAJour(ManagerJeu _manJeu){
+        manJeu = _manJeu;
         affichageDes();
 
         // parcours carte dispo du joueur en cour
@@ -239,6 +240,7 @@ public class EcranGauche extends JPanel implements ActionListener{
     }
 
     public void affichageDes(){
+
         faceDesDes = new JPanel(new GridLayout(1,2));
 
         try {
