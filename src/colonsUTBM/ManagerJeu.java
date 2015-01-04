@@ -68,7 +68,7 @@ public class ManagerJeu {
         boolean terminer = false;
         int tourCourant;
         System.out.println("DEBUT : PHASES FONDATION DES UV et CC");
-
+        phaseFondation();
         System.out.println("FIN : PHASES FONDATION DES UV et CC");
 
         while(!terminer){
@@ -230,16 +230,41 @@ public class ManagerJeu {
 
     /* A VIRER CAR PENSE POSER PB POUR AFFICHAGE GRAPHIQUE */
     public void phaseFondation(){
+        int tourCourant;
         for (int i=0; i<joueurs.size();i++){
-            // pose uv
-            // pose cc
-            tour++;
+            tour=i;
+            tourCourant=tour;
+
+            terrain.InitConstructionUV1(joueurs.get(i));
+            terrain.majCSS();
+
+            while(tour==tourCourant){
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            System.out.print(tour);
         }
-        for (int i=joueurs.size(); i>0;i--){
-            // pose uv
-            // pose cc
-            tour++;
+        for (int i=joueurs.size()-1; i>=0;i--){
+            tour=i;
+            tourCourant=tour;
+
+            terrain.InitConstructionUV1(joueurs.get(i));
+            terrain.majCSS();
+
+            while(tour==tourCourant){
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            System.out.print(tour);
+
         }
+        tour=0;
     }
 
     public ArrayList<Joueur> getJoueurs() {
