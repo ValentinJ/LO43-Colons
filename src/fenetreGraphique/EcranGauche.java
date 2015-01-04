@@ -47,6 +47,10 @@ public class EcranGauche extends JPanel implements ActionListener{
     public Image imgCours;
     public Image imgNourriture;
 
+    public JPanel faceDesDes;
+    public Image imgDes1;
+    public Image imgDes2;
+
     //todo test thread
     Thread t;
 
@@ -55,7 +59,7 @@ public class EcranGauche extends JPanel implements ActionListener{
     public EcranGauche(ManagerJeu _manJeu, FenetrePrincipale _frame) {
         frame = _frame;
         manJeu = _manJeu;
-        setLayout(new GridLayout(4, 1));
+        setLayout(new GridLayout(5, 1));
         achatCarteDev = new JButton("Achat carte dév");
         finDeTour = new JButton("Fin de tour");
         achatCarteDev.addActionListener(this);
@@ -77,6 +81,8 @@ public class EcranGauche extends JPanel implements ActionListener{
         try {
             imgNourriture = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteNourriture.png"));
         } catch (IOException e) {e.printStackTrace();}
+
+        affichageDes();
 
         UV1        = new JButton("UV1");
         //detailsUV1 = new JLabel("details ressources necessaire");
@@ -142,6 +148,7 @@ public class EcranGauche extends JPanel implements ActionListener{
         setBorder(new EmptyBorder(5, 5, 0, 5));
         add(achatCarteDev);
         add(finDeTour);
+        add(faceDesDes);
         add(jouerCarte);
         add(construction);
     }
@@ -218,12 +225,32 @@ public class EcranGauche extends JPanel implements ActionListener{
                 frame.miseAJour();  // appel mise a jour de frame principale
             }
         }
+
+        frame.miseAJour();
     }
 
     // TODO a instancier
     public void miseAJour(){
+        affichageDes();
+
         // parcours carte dispo du joueur en cour
 
         // bloque les boutons
+    }
+
+    public void affichageDes(){
+        faceDesDes = new JPanel(new GridLayout(1,2));
+
+        try {
+            imgDes1 = ImageIO.read(new File(System.getProperty("user.dir") +"/img/" + manJeu.getDes().getImgV1()));
+        } catch (IOException e) {e.printStackTrace();}
+        try {
+            imgDes2 = ImageIO.read(new File(System.getProperty("user.dir") +"/img/" + manJeu.getDes().getImgV2()));
+        } catch (IOException e) {e.printStackTrace();}
+
+        System.out.println("des 1 :" + manJeu.getDes().getImgV1() + " des2 : " + manJeu.getDes().getImgV2() );
+
+        faceDesDes.add(new JLabel(new ImageIcon(imgDes1)){{setOpaque(false);}});
+        faceDesDes.add(new JLabel(new ImageIcon(imgDes2)){{setOpaque(false);}});
     }
 }
