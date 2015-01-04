@@ -79,10 +79,8 @@ public class ManagerJeu {
                 productionRessource(des.getTotalDes());
                 tourCourant=tour;
 
-                /*
-                terrain.InitConstructionUV1(j);
-                terrain.majCSS();
-                */
+                if(des.getTotalDes()==7)
+                    terrain.deplacerBinomeGlandeur();
 
                 while(tour==tourCourant){
                     try {
@@ -237,6 +235,8 @@ public class ManagerJeu {
 
             terrain.InitConstructionUV1(joueurs.get(i));
             terrain.majCSS();
+            terrain.ClickConstructionControleContinus(joueurs.get(i));
+            terrain.majCSS();
 
             while(tour==tourCourant){
                 try {
@@ -252,6 +252,8 @@ public class ManagerJeu {
             tourCourant=tour;
 
             terrain.InitConstructionUV1(joueurs.get(i));
+            terrain.majCSS();
+            terrain.ClickConstructionControleContinus(joueurs.get(i));
             terrain.majCSS();
 
             while(tour==tourCourant){

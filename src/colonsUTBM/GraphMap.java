@@ -627,7 +627,7 @@ public class GraphMap{
 
     public void deplacerBinomeGlandeur(){
         final String[] IDClicked = {""};
-        System.out.println("On entre dans le listener Deplacer binome");
+        System.out.println("###Viewer Listener IN : Déplacement binome glandeur");
         ViewerPipe fromViewer = viewer.newViewerPipe();
 
         fromViewer.addViewerListener(new ViewerListener() {
@@ -677,8 +677,8 @@ public class GraphMap{
                 ((CaseInterne) ca).binomeGlandeur=true;
             }
         }
-        System.out.println("On sort du listener deplacer binome !");
-
+        System.out.println("###Viewer Listener OUT : Déplacement binome glandeur");
+        majCSS();
     }
 
     public View getView(){
