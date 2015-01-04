@@ -4,6 +4,7 @@ import colonsUTBM.GraphMap;
 import colonsUTBM.Joueur;
 import colonsUTBM.ManagerJeu;
 
+import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,6 +27,8 @@ public class FenetrePrincipale extends FenetreDefaut {
 
     public GraphMap g;
 
+    public JScrollPane scroller;
+
     public FenetrePrincipale(String _nom, int _h, int _l, ManagerJeu jeu) {
         super(_nom, _h, _l);
 
@@ -42,12 +45,14 @@ public class FenetrePrincipale extends FenetreDefaut {
         getContentPane().setLayout(new BorderLayout());
 
         // creation des JPanel
-        String msg_appli = "MSG INFOS : Application développée par Sara, Yuanxiang, Valentin, Guillaume";
-        EcranBas = new EcranBas(msg_appli);
+        String msg_appli = "Lancement de la partie. Le joueur " + manJeu.getJoueurCourrant().getNom() + " commence" ;
+        EcranBas = new EcranBas(msg_appli, this);
+        scroller = new JScrollPane(EcranBas, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scroller.setPreferredSize(new Dimension(300,100));
         // instanciation du JPanel EcranGauche
-        EcranGauche = new EcranGauche(manJeu, this);
+        EcranGauche = new EcranGauche(manJeu, this, EcranBas);
         Plateau = new Plateau(g.getView(), manJeu, this);
-        Infos = new EcranDroit(manJeu, this);
+        Infos = new EcranDroit(manJeu, this, EcranBas);
 
         // definit taille des JPanel
         EcranGauche.setPreferredSize(new Dimension(200, 100));
@@ -56,7 +61,7 @@ public class FenetrePrincipale extends FenetreDefaut {
         add(EcranGauche, BorderLayout.WEST);
         add(Plateau,     BorderLayout.CENTER);
         add(Infos,       BorderLayout.EAST);
-        add(EcranBas,    BorderLayout.SOUTH);
+        add(scroller,    BorderLayout.SOUTH);
 
         affichage();
     }

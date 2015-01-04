@@ -23,9 +23,9 @@ public class Des {
     }
 
     public String getImgV1(){
-        return "dice"+v1+".png";
+        return "dice"+Integer.toString(v1)+".png";
     }
     public String getImgV2(){
-        return "dice"+v2+".png";
+        return "dice"+Integer.toString(v2)+".png";
     }
 }

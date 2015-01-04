@@ -1,5 +1,6 @@
 package fenetreGraphique;
 
+import colonsUTBM.ManagerJeu;
 import sun.awt.VerticalBagLayout;
 
 import javax.imageio.ImageIO;
@@ -44,7 +45,13 @@ public class OngletEchange extends JPanel implements ActionListener{
 
     public JButton comm;
 
-    public OngletEchange(){
+    public EcranBas eB;
+    public ManagerJeu manJeu;
+
+    public OngletEchange(EcranBas _eB, ManagerJeu _manJeu){
+        eB = _eB;
+        manJeu = _manJeu;
+
         tmpFinal = new JPanel();
         tmpFinal.setBorder(new EmptyBorder(5, 0, 0, 5));
         tmpFinal.setLayout(new VerticalBagLayout());
@@ -182,7 +189,7 @@ public class OngletEchange extends JPanel implements ActionListener{
     public void actionPerformed(ActionEvent echange1) {
         // si c est le bouton confirmerEchange
         if (echange1.getSource() == comm) {
-            System.out.println("le joueur a demander un echange");
+            eB.setMessage("le joueur " + (manJeu.getJoueurCourrant()).getNom() + "a demander un echange");
             group.getSelection(); // pour connaitre le type de carte desirer
         }
     }

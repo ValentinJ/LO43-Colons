@@ -39,20 +39,22 @@ public class EcranDroit extends JPanel{
     public JPanel infosJ3;
     public JPanel infosJ4;
 
-
     public Image imgBierre;
     public Image imgSommeil;
     public Image imgCafe;
     public Image imgCours;
     public Image imgNourriture;
 
+    public EcranBas eB;
+
     int Tour;
 
-    public EcranDroit(ManagerJeu _manJeu, FenetrePrincipale _frame) {
+    public EcranDroit(ManagerJeu _manJeu, FenetrePrincipale _frame, EcranBas _eB) {
         Joueurs = _manJeu.getJoueurs();
         Tour = _manJeu.getTour();
         manJeu = _manJeu;
         frame = _frame;
+        eB = _eB;
 
         //setLayout(new GridLayout(2, 1));
         setLayout(new GridBagLayout());
@@ -86,10 +88,10 @@ public class EcranDroit extends JPanel{
         // interface des echanges
         interfaceEchange = new JTabbedPane();
         //creation des onglets de l interface
-        EJ1 = new OngletEchange();
-        EJ2 = new OngletEchange();
-        EJ3 = new OngletEchange();
-        EJ4 = new OngletEchange();
+        EJ1 = new OngletEchange(eB, manJeu);
+        EJ2 = new OngletEchange(eB, manJeu);
+        EJ3 = new OngletEchange(eB, manJeu);
+        EJ4 = new OngletEchange(eB, manJeu);
 
         TableauDechange();
 
@@ -210,7 +212,7 @@ public class EcranDroit extends JPanel{
                 interfaceEchange.add((Joueurs.get((3))).getNom(), EJ4);
         }
 
-        Banque = new OngletEchange();
+        Banque = new OngletEchange(eB, manJeu);
         interfaceEchange.add("Banque", Banque);
         interfaceEchange.setOpaque(true);
     }
@@ -231,10 +233,10 @@ public class EcranDroit extends JPanel{
         // interface des echanges
         interfaceEchange = new JTabbedPane();
         //creation des onglets de l interface
-        EJ1 = new OngletEchange();
-        EJ2 = new OngletEchange();
-        EJ3 = new OngletEchange();
-        EJ4 = new OngletEchange();
+        EJ1 = new OngletEchange(eB, manJeu);
+        EJ2 = new OngletEchange(eB, manJeu);
+        EJ3 = new OngletEchange(eB, manJeu);
+        EJ4 = new OngletEchange(eB, manJeu);
 
         TableauDechange();
         add(recap, new GridBagConstraints(0, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
