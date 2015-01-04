@@ -267,7 +267,7 @@ public class Joueur {
         TypeRessource ajout = null;
         TypeRessource echange = VerifierEchangeBanque();
         if (echange!=null) {
-            mainRessource.get(TypeRessource.echange).retirer(4); //erreur!
+            mainRessource.get(echange).retirer(4); //erreur!
             Random r = new Random();
             int k = r.nextInt(4);
             switch (k) {
