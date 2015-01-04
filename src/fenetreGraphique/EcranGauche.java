@@ -52,13 +52,16 @@ public class EcranGauche extends JPanel implements ActionListener{
     public Image imgDes1;
     public Image imgDes2;
 
+    public EcranBas eB;
+
     //todo test thread
     Thread t;
 
 
 
-    public EcranGauche(ManagerJeu _manJeu, FenetrePrincipale _frame) {
+    public EcranGauche(ManagerJeu _manJeu, FenetrePrincipale _frame, EcranBas _eB) {
         frame = _frame;
+        eB = _eB;
         manJeu = _manJeu;
         setLayout(new GridLayout(5, 1));
         achatCarteDev = new JButton("Achat carte dév");
