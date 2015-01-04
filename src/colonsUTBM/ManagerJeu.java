@@ -315,4 +315,41 @@ public class ManagerJeu {
     public Joueur getJoueurCourrant(){
         return joueurs.get(tour%joueurs.size());
     }
+
+    public String msgGenerationR(){
+        String msg = "";
+        ArrayList<CaseInterne> caseProd = new ArrayList<CaseInterne>();
+        ArrayList<NoeudConstructible> noeudOccuper = new ArrayList<NoeudConstructible>();
+
+        // recupere les case ayant produit les ressources
+        for (int i = 0 ; i < (terrain.getCases()).size() ; i++){
+            if ( ((terrain.getCases()).get(i)) instanceof CaseInterne){
+                if ( ((CaseInterne) ((terrain.getCases()).get(i))).getValeurDes() == this.getDes().getTotalDes() ){
+                    caseProd.add((CaseInterne) ((terrain.getCases()).get(i)));
+                }
+            }
+        }
+
+        // pour chaque case recuperer, trouver si un noeud adjacent est occuper
+        for (int i = 0 ; i < caseProd.size() ; i++){
+            noeudOccuper = terrain.getVoisinsCase(caseProd.get(i));
+            for (int j = 0 ; j < noeudOccuper.size() ; j++){
+                msg = msg + "<html>Le joueur " + (((UV1) noeudOccuper.get(j)).getJ()).getNom() + " a obtenu ";
+                // pour chaque noeud adjacent occuper, gain ressource du type de la case
+                if (noeudOccuper.get(j) instanceof UV1)
+                    msg = msg + "1 carte de type " + caseProd.get(i).getTr().toString() + ".</br>";
+                else
+                    msg = msg + "2 cartes de type " + caseProd.get(i).getTr().toString() + ".</br>";
+            }
+        }
+
+        if (msg.equals("")){
+            msg = "Aucune production de ressource pour ce tour";
+        }
+        else{
+            msg = msg + "</html>";
+        }
+
+        return msg;
+    }
 }

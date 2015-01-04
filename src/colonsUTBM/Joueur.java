@@ -181,6 +181,10 @@ public class Joueur {
          * Si VRAI alors retirer ressources
          * Ajouter carte au joueur
          */
+        Random r = new Random();
+        CarteDeveloppement c = new CarteDeveloppement(cd.get(1+r.nextInt(cd.size())).getTypeDeveloppement());
+        mainDeveloppement.add(c);
+        cd.remove(c);
     }
 
     public void construireUV1(GraphMap g){

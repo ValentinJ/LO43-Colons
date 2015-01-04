@@ -102,7 +102,7 @@ public class EcranGauche extends JPanel implements ActionListener{
 
 
         if (e.getSource() == UV1) {
-            System.out.println("EcranGauche.java : UV1");
+            eB.setMessage("Selectionner un noeud n'ayant aucun voisin pour construire une UV1.");
             if(t == null || t.getState()== Thread.State.TERMINATED) {
                 t = new Thread("exemple") {
                     @Override
@@ -117,7 +117,7 @@ public class EcranGauche extends JPanel implements ActionListener{
 
 
         if (e.getSource() == uv2) {
-            System.out.println("EcranGauche.java : uv2");
+            eB.setMessage("Selectionner une UV1 que vous souhaitez transformer en UV2.");
             if (t == null || t.getState() == Thread.State.TERMINATED) {
                     t = new Thread("exemple") {
                         @Override
@@ -132,7 +132,7 @@ public class EcranGauche extends JPanel implements ActionListener{
 
 
         if (e.getSource() == CC) {
-            System.out.println("EcranGauche.java : CC");
+            eB.setMessage("Selectionner un noeud vous appartenant puis un second noeud voisin de celui.");
             if (t == null || t.getState() == Thread.State.TERMINATED) {
                 t = new Thread("exemple") {
                     @Override
@@ -145,25 +145,37 @@ public class EcranGauche extends JPanel implements ActionListener{
             }
         }
         if (e.getSource() == Ancien) {
-            System.out.println("EcranGauche.java : Ancien");
+            eB.setMessage("Selectionner une tuile où placer le binome glandeur");
         }
+        //TODO ici
         if (e.getSource() == Decouverte) {
             System.out.println("EcranGauche.java : Decouverte");
         }
         if (e.getSource() == CCC) {
-            System.out.println("EcranGauche.java : CCC");
+            eB.setMessage("Selectionner un noeud vous appartenant puis un second noeud voisin de celui.");
+            eB.setMessage("Repetez l'opération une seconde fois.");
         }
+        //TODO ici aussi
         if (e.getSource() == Monopole) {
             System.out.println("EcranGauche.java : Monopole");
         }
         if (e.getSource() == achatCarteDev) {
-            System.out.println("EcranGauche.java : achatCarteDev");
+            manJeu.getJoueurCourrant().achatCarteDev(manJeu.getPilesDeveloppement());
+            // TODO pb ici carte dev du manager vide !
+            eB.setMessage("Vous avez obtenu une carte " + manJeu.getJoueurCourrant().getMainDeveloppement().get(manJeu.getJoueurCourrant().getMainDeveloppement().size()).getNom());
         }
         if (e.getSource() == finDeTour) {
             if(t == null || t.getState()== Thread.State.TERMINATED) {
-                System.out.println("EcranGauche.java : finDeTour");
+                eB.delete();
+                eB.removeAll();
                 manJeu.finDeTour();
                 frame.miseAJour();  // appel mise a jour de frame principale
+                eB.setMessage("Fin du tour de " + manJeu.getJoueurs().get((manJeu.getTour()-1)%manJeu.getJoueurs().size()).getNom()
+                              + " et début du tour de " + manJeu.getJoueurCourrant().getNom());
+                eB.setMessage(manJeu.msgGenerationR());
+            }
+            else{
+                eB.setMessage("Vous ne pouvez finir votre tour, vous n'avez pas terminer l'action précédemment déclanchée");
             }
         }
 
