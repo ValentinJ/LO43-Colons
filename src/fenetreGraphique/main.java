@@ -42,12 +42,6 @@ public class main {
             System.out.println("Affichage du jeu...");
             frame = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, jeu);
 
-            jeu.getTerrain().majCSS();
-            jeu.getTerrain().InitConstructionUV1(j.get(0));
-            jeu.getTerrain().majCSS();
-            jeu.getTerrain().ClickConstructionControleContinus(j.get(0));
-            jeu.getTerrain().majCSS();
-
             jeu.jouer();
         }
         else {
@@ -68,13 +62,6 @@ public class main {
         ManagerJeu jeu = new ManagerJeu(j);
         frame = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, jeu);
         //System.out.println(jeu.toString());
-
-
-        jeu.getTerrain().majCSS();
-        jeu.getTerrain().InitConstructionUV1(j.get(0));
-        jeu.getTerrain().majCSS();
-        jeu.getTerrain().ClickConstructionControleContinus(j.get(0));
-        jeu.getTerrain().majCSS();
 
         jeu.jouer();
     }
