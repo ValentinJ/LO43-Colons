@@ -110,8 +110,8 @@ public class Joueur {
 
     public boolean verifierAchatCarteDev(){
         if(mainRessource.get(TypeRessource.COURS).getNombre()>=1
-                && mainRessource.get(TypeRessource.COURS).getNombre()>=1
-                && mainRessource.get(TypeRessource.COURS).getNombre()>=1)
+                && mainRessource.get(TypeRessource.CAFE).getNombre()>=1
+                && mainRessource.get(TypeRessource.SOMMEIL).getNombre()>=1)
             return true;
         return false;
         /**
@@ -264,13 +264,33 @@ public class Joueur {
     }
 
     public void echangeAvecBanque(){
+        TypeRessource ajout = null;
         TypeRessource echange = VerifierEchangeBanque();
-        if (echange!=null)
-        //mainRessource.get(TypeRessource.echange).retirer(4);
-        
-
-
+        if (echange!=null) {
+            mainRessource.get(TypeRessource.echange).retirer(4); //erreur!
+            Random r = new Random();
+            int k = r.nextInt(4);
+            switch (k) {
+                case 0:
+                    ajout = TypeRessource.BIERE;
+                    break;
+                case 1:
+                    ajout = TypeRessource.SOMMEIL;
+                    break;
+                case 2:
+                    ajout = TypeRessource.CAFE;
+                    break;
+                case 3:
+                    ajout = TypeRessource.COURS;
+                    break;
+                case 4:
+                    ajout = TypeRessource.NOURRITURE;
+                    break;
+            }
+            ajoutRessource(ajout, 1);
+        }
     }
+
 
 
     public void jouerCarteDeveloppement(CarteDeveloppement c){
