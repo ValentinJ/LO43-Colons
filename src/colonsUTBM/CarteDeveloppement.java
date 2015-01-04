@@ -39,4 +39,7 @@ public class CarteDeveloppement extends Carte{
 
     public boolean isAttenteValide() { return attenteValide; }
     public TypeDeveloppement getTypeDeveloppement() { return typeDeveloppement; }
+    public boolean isDansLaMain() { return dansLaMain;}
+    public void setAttenteValide(boolean b) { attenteValide = b;}
+    public void setDansLaMain(boolean b) {dansLaMain = b;}
 }
