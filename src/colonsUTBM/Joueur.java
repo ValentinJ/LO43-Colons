@@ -264,7 +264,12 @@ public class Joueur {
     }
 
     public void echangeAvecBanque(){
+        TypeRessource echange = VerifierEchangeBanque();
+        if (echange!=null)
         //mainRessource.get(TypeRessource.echange).retirer(4);
+        
+
+
     }
 
 
