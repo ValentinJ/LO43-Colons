@@ -82,75 +82,12 @@ public class EcranGauche extends JPanel implements ActionListener{
             imgNourriture = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteNourriture.png"));
         } catch (IOException e) {e.printStackTrace();}
 
+        affichageConstruction();
+        affichageJouerCarte();
         affichageDes();
-
-        UV1        = new JButton("UV1");
-        //detailsUV1 = new JLabel("details ressources necessaire");
-        detailsUV1 = new JPanel(new GridLayout(1,8));
-        detailsUV1.add(new JLabel("="));
-        detailsUV1.add(new JLabel(new ImageIcon(imgBierre)){{setOpaque(false);}});
-        detailsUV1.add(new JLabel("+"));
-        detailsUV1.add(new JLabel(new ImageIcon(imgCafe)){{setOpaque(false);}});
-        detailsUV1.add(new JLabel("+"));
-        detailsUV1.add(new JLabel(new ImageIcon(imgCours)){{setOpaque(false);}});
-        detailsUV1.add(new JLabel("+"));
-        detailsUV1.add(new JLabel(new ImageIcon(imgNourriture)){{setOpaque(false);}});
-        uv2 = new JButton("uv2");
-        detailsUV2 = new JPanel(new GridLayout(1,4));
-        detailsUV2.add(new JLabel("= 3"));
-        detailsUV2.add(new JLabel(new ImageIcon(imgSommeil)){{setOpaque(false);}});
-        detailsUV2.add(new JLabel("+ 2"));
-        detailsUV2.add(new JLabel(new ImageIcon(imgCours)){{setOpaque(false);}});
-        CC         = new JButton("CC");
-        detailsCC  = new JPanel(new GridLayout(1,4));
-        detailsCC.add(new JLabel("="));
-        detailsCC.add(new JLabel(new ImageIcon(imgBierre)){{setOpaque(false);}});
-        detailsCC.add(new JLabel("+"));
-        detailsCC.add(new JLabel(new ImageIcon(imgCafe)) {{
-            setOpaque(false);
-        }});
-
-        UV1.addActionListener(this);
-        uv2.addActionListener(this);
-        CC.addActionListener(this);
-
-        construction = new JPanel();
-        construction.setBorder(new EmptyBorder(5, 0, 0, 5));
-        construction.setBorder(BorderFactory.createTitledBorder("Constructions"));
-        construction.setLayout(new GridLayout(3, 2));
-        construction.add(UV1);
-        construction.add(detailsUV1);
-        construction.add(uv2);
-        construction.add(detailsUV2);
-        construction.add(CC);
-        construction.add(detailsCC);
-
-
-        Decouverte = new JButton("Decouverte");
-        Monopole   = new JButton("Monopole");
-        Ancien     = new JButton("Ancien");
-        CCC        = new JButton("CCC");
-        Decouverte.addActionListener(this);
-        Monopole.addActionListener(this);
-        Ancien.addActionListener(this);
-        CCC.addActionListener(this);
-
-        jouerCarte = new JPanel();
-        jouerCarte.setBorder(new EmptyBorder(5, 0, 0, 5));
-        jouerCarte.setBorder(BorderFactory.createTitledBorder("Jouer carte"));
-        jouerCarte.setLayout(new GridLayout(4, 1));
-        jouerCarte.add(Decouverte);
-        jouerCarte.add(Monopole);
-        jouerCarte.add(Ancien);
-        jouerCarte.add(CCC);
-
-
-        setBorder(new EmptyBorder(5, 5, 0, 5));
         add(achatCarteDev);
-        add(finDeTour);
-        add(faceDesDes);
-        add(jouerCarte);
-        add(construction);
+
+        miseAJour(manJeu);
     }
 
     //TODO visibilité des boutons
@@ -232,7 +169,17 @@ public class EcranGauche extends JPanel implements ActionListener{
     // TODO a instancier
     public void miseAJour(ManagerJeu _manJeu){
         manJeu = _manJeu;
+
+        removeAll();
+        faceDesDes.removeAll();
         affichageDes();
+
+        setBorder(new EmptyBorder(5, 5, 0, 5));
+        add(achatCarteDev);
+        add(finDeTour);
+        add(faceDesDes);
+        add(jouerCarte);
+        add(construction);
 
         // parcours carte dispo du joueur en cour
 
@@ -255,8 +202,70 @@ public class EcranGauche extends JPanel implements ActionListener{
 
         faceDesDes.add(new JLabel(imgIcon1));
         faceDesDes.add(new JLabel(imgIcon2));
-
-        //faceDesDes.add(new JLabel( (imgIcon1.getImage()).getScaledInstance(20, 20, Image.SCALE_DEFAULT) ) ) );
-        //faceDesDes.add(new JLabel( (imgIcon2.getImage()).getScaledInstance(20, 20, Image.SCALE_DEFAULT) ) ) );
     }
+
+    public void affichageConstruction(){
+        UV1        = new JButton("UV1");
+        //detailsUV1 = new JLabel("details ressources necessaire");
+        detailsUV1 = new JPanel(new GridLayout(1,8));
+        detailsUV1.add(new JLabel("="));
+        detailsUV1.add(new JLabel(new ImageIcon(imgBierre)){{setOpaque(false);}});
+        detailsUV1.add(new JLabel("+"));
+        detailsUV1.add(new JLabel(new ImageIcon(imgCafe)){{setOpaque(false);}});
+        detailsUV1.add(new JLabel("+"));
+        detailsUV1.add(new JLabel(new ImageIcon(imgCours)){{setOpaque(false);}});
+        detailsUV1.add(new JLabel("+"));
+        detailsUV1.add(new JLabel(new ImageIcon(imgNourriture)){{setOpaque(false);}});
+        uv2 = new JButton("uv2");
+        detailsUV2 = new JPanel(new GridLayout(1,4));
+        detailsUV2.add(new JLabel("= 3"));
+        detailsUV2.add(new JLabel(new ImageIcon(imgSommeil)){{setOpaque(false);}});
+        detailsUV2.add(new JLabel("+ 2"));
+        detailsUV2.add(new JLabel(new ImageIcon(imgCours)){{setOpaque(false);}});
+        CC         = new JButton("CC");
+        detailsCC  = new JPanel(new GridLayout(1,4));
+        detailsCC.add(new JLabel("="));
+        detailsCC.add(new JLabel(new ImageIcon(imgBierre)){{setOpaque(false);}});
+        detailsCC.add(new JLabel("+"));
+        detailsCC.add(new JLabel(new ImageIcon(imgCafe)) {{
+            setOpaque(false);
+        }});
+
+        UV1.addActionListener(this);
+        uv2.addActionListener(this);
+        CC.addActionListener(this);
+
+        construction = new JPanel();
+        construction.setBorder(new EmptyBorder(5, 0, 0, 5));
+        construction.setBorder(BorderFactory.createTitledBorder("Constructions"));
+        construction.setLayout(new GridLayout(3, 2));
+        construction.add(UV1);
+        construction.add(detailsUV1);
+        construction.add(uv2);
+        construction.add(detailsUV2);
+        construction.add(CC);
+        construction.add(detailsCC);
+    }
+
+    public void affichageJouerCarte(){
+        Decouverte = new JButton("Decouverte");
+        Monopole   = new JButton("Monopole");
+        Ancien     = new JButton("Ancien");
+        CCC        = new JButton("CCC");
+        Decouverte.addActionListener(this);
+        Monopole.addActionListener(this);
+        Ancien.addActionListener(this);
+        CCC.addActionListener(this);
+
+        jouerCarte = new JPanel();
+        jouerCarte.setBorder(new EmptyBorder(5, 0, 0, 5));
+        jouerCarte.setBorder(BorderFactory.createTitledBorder("Jouer carte"));
+        jouerCarte.setLayout(new GridLayout(4, 1));
+        jouerCarte.add(Decouverte);
+        jouerCarte.add(Monopole);
+        jouerCarte.add(Ancien);
+        jouerCarte.add(CCC);
+    }
+
+
 }
