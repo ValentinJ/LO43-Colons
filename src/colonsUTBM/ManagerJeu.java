@@ -74,7 +74,7 @@ public class ManagerJeu {
         boolean terminer = false;
         int tourCourant;
 
-
+/*
         System.out.println("DEBUT : PHASES FONDATION DES UV et CC");
         phaseFondation();
         System.out.println("Ajout des ressources adjacentes à la 2ième UV");
@@ -84,7 +84,7 @@ public class ManagerJeu {
             }
         }
         System.out.println("FIN : PHASES FONDATION DES UV et CC");
-
+*/
 
 
         while(!terminer){

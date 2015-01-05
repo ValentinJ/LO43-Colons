@@ -224,13 +224,27 @@ public class Joueur {
                         nbrCarteRessourcesDifferentes++;
                     }
                 }
-                valeur = 0 + r.nextInt(nbrCarteRessourcesDifferentes);
+                valeur = 0 + r.nextInt(4);
 
                 cmptr=0;
                 for(TypeRessource p : mainRessource.keySet()) {
                     if(cmptr==valeur) {
-                        System.out.println("On retire une carte de type "+p.toString());
-                        mainRessource.get(p).retirer();
+                        if(mainRessource.get(p).getNombre()!=0) {
+                            System.out.println("On retire une carte de type " + p.toString());
+                            mainRessource.get(p).retirer();
+                        }
+                        else{
+                            if(mainRessource.get(TypeRessource.BIERE).getNombre()!=0)
+                                mainRessource.get(TypeRessource.BIERE).retirer();
+                            else if(mainRessource.get(TypeRessource.SOMMEIL).getNombre()!=0)
+                                mainRessource.get(TypeRessource.SOMMEIL).retirer();
+                            else if(mainRessource.get(TypeRessource.CAFE).getNombre()!=0)
+                                mainRessource.get(TypeRessource.CAFE).retirer();
+                            else if(mainRessource.get(TypeRessource.COURS).getNombre()!=0)
+                                mainRessource.get(TypeRessource.COURS).retirer();
+                            else
+                                mainRessource.get(TypeRessource.NOURRITURE).retirer();
+                        }
                     }
                     cmptr++;
                 }
