@@ -80,6 +80,7 @@ public class FenetrePrincipale extends FenetreDefaut {
         EcranGauche.miseAJour(manJeu);
         Infos.MiseAJour(manJeu);
         Plateau.MiseAJour();
+        repaint();
         validate();
     }
 
