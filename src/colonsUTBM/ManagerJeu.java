@@ -116,6 +116,12 @@ public class ManagerJeu {
                         e.printStackTrace();
                     }
                 }
+                //todo test calcul score
+                calculerScore();
+                for(Joueur jjj : joueurs){
+                    System.out.println(jjj.getNom()+" : "+jjj.getScore());
+                }
+
                 System.out.println("Fin de tour pour le joueur "+j.getNom());
             }
         }
@@ -165,7 +171,14 @@ public class ManagerJeu {
         }
     }
 
-    public void calculerScore(){                                     // besoin accesseur coord UV : "getUV1()" et "getUV2()"
+    public void calculerScore(){
+        ArrayList<Integer> t;
+        for(Joueur jou : joueurs){
+            t = jou.getNbUvs();
+            jou.setScore(t.get(0)+t.get(1));
+        }
+        /*
+        // besoin accesseur coord UV : "getUV1()" et "getUV2()"
         ArrayList<Integer> joueurCC = new ArrayList<Integer>();
         ArrayList<Integer> joueurAncien = new ArrayList<Integer>();
         // calcule en fonction des UVs
@@ -214,6 +227,7 @@ public class ManagerJeu {
                 (joueurs.get(joueurAncien.get(place))).setScore((joueurs.get(joueurAncien.get(place))).getScore()+2);
             }
         }
+        */
     }
 
     public int calculerScoreFinal(){

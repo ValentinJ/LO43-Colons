@@ -2,7 +2,6 @@ package fenetreGraphique;
 
 import colonsUTBM.Joueur;
 import colonsUTBM.ManagerJeu;
-import colonsUTBM.UV;
 import colonsUTBM.UV2;
 
 import javax.imageio.ImageIO;
