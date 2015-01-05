@@ -73,7 +73,7 @@ public class ManagerJeu {
     public void jouer(){
         boolean terminer = false;
         int tourCourant;
-
+/*
         System.out.println("DEBUT : PHASES FONDATION DES UV et CC");
         phaseFondation();
         System.out.println("Ajout des ressources adjacentes à la 2ième UV");
@@ -83,7 +83,7 @@ public class ManagerJeu {
             }
         }
         System.out.println("FIN : PHASES FONDATION DES UV et CC");
-
+*/
 
 
         while(!terminer){
@@ -92,6 +92,7 @@ public class ManagerJeu {
                 System.out.println("Lancé des dés : " + des.getTotalDes());
                 System.out.println("DEBUT : TOUR n°"+tour+" pour le joueur "+j.getNom());
                 productionRessource(des.getTotalDes());
+                f.miseAJour();
                 tourCourant=tour;
 
                 if(des.getTotalDes()==7) {
