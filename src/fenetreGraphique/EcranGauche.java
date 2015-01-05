@@ -162,7 +162,7 @@ public class EcranGauche extends JPanel implements ActionListener{
         if (e.getSource() == achatCarteDev) {
             manJeu.getJoueurCourrant().achatCarteDev(manJeu.getPilesDeveloppement());
             // TODO pb ici carte dev du manager vide !
-            eB.setMessage("Vous avez obtenu une carte " + manJeu.getJoueurCourrant().getMainDeveloppement().get(manJeu.getJoueurCourrant().getMainDeveloppement().size()).getNom());
+            eB.setMessage("Vous avez obtenu une carte " + manJeu.getJoueurCourrant().getMainDeveloppement().get(manJeu.getJoueurCourrant().getMainDeveloppement().size()-1).getNom());
         }
         if (e.getSource() == finDeTour) {
             if(t == null || t.getState()== Thread.State.TERMINATED) {
@@ -170,7 +170,7 @@ public class EcranGauche extends JPanel implements ActionListener{
                 eB.removeAll();
                 manJeu.finDeTour();
                 frame.miseAJour();  // appel mise a jour de frame principale
-                eB.setMessage("Fin du tour de " + manJeu.getJoueurs().get((manJeu.getTour()-1)%manJeu.getJoueurs().size()).getNom()
+                eB.setMessage("Fin du tour de " + manJeu.getJoueurs().get((manJeu.getTour()-1)%(manJeu.getJoueurs().size()-1)).getNom()
                               + " et début du tour de " + manJeu.getJoueurCourrant().getNom());
                 eB.setMessage(manJeu.msgGenerationR());
             }
