@@ -24,8 +24,6 @@ public class GraphMap{
     protected ArrayList<Case> cases;
     protected ArrayList<NoeudConstructible> noeuds;
     protected ArrayList<Arete> aretes;
-
-    //test
     private boolean loop;
 
     public GraphMap(boolean activerQualite){
