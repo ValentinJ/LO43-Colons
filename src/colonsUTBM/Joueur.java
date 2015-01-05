@@ -228,7 +228,12 @@ public class Joueur {
 
     public void transformerUV2(GraphMap g){
         if(verifierAchatUV2()) {
-            g.ClickConstructionUV2(this);
+            uvs.add(g.ClickConstructionUV2(this));
+            /*
+            for(NoeudConstructible n : uvs){
+                if(n.getId().equals())
+            }
+            */
             mainRessource.get(TypeRessource.COURS).retirer(2);
             mainRessource.get(TypeRessource.SOMMEIL).retirer(3);
             nbUv1++;

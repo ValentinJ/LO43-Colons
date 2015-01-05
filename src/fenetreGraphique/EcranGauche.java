@@ -143,11 +143,11 @@ public class EcranGauche extends JPanel implements ActionListener{
                     public void run() {
                         manJeu.getJoueurCourrant().construireUV1(manJeu.getTerrain());
                         manJeu.getF().miseAJour();
+                        eB.setMessage("L'UV1 a été placée avec succès !");
                     }
                 };
                 t.start();
             }
-            eB.setMessage("L'UV1 a été placée avec succès !");
         }
 
 
@@ -159,10 +159,10 @@ public class EcranGauche extends JPanel implements ActionListener{
                         public void run() {
                             manJeu.getJoueurCourrant().transformerUV2(manJeu.getTerrain());
                             manJeu.getF().miseAJour();
+                            eB.setMessage("L'UV1 a été modifiée en UV2 avec succès !");
                         }
                     };
                     t.start();
-                eB.setMessage("L'UV1 a été modifiée en UV2 avec succès !");
             }
         }
 
@@ -175,10 +175,10 @@ public class EcranGauche extends JPanel implements ActionListener{
                     public void run() {
                         manJeu.getJoueurCourrant().construireCC(manJeu.getTerrain());
                         manJeu.getF().miseAJour();
+                        eB.setMessage("Controle continus placé avec succès !");
                     }
                 };
                 t.start();
-                eB.setMessage("Controle continus placé avec succès !");
             }
         }
         if (e.getSource() == Ancien) {
@@ -216,7 +216,7 @@ public class EcranGauche extends JPanel implements ActionListener{
             }
         }
 
-        frame.miseAJour();
+        //frame.miseAJour();
     }
 
     // TODO a instancier
