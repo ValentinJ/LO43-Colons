@@ -135,7 +135,7 @@ public class EcranDroit extends JPanel{
         infosJoueur.add(enteteV);
         recapInfosJoueurs();
 
-        recap.add(infosJoueur);
+        //recap.add(infosJoueur);
 
         // interface des echanges
         interfaceEchange = new JTabbedPane();
@@ -147,7 +147,7 @@ public class EcranDroit extends JPanel{
 
         TableauDechange();
 
-        add(recap, new GridBagConstraints(0, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
+        add(infosJoueur, new GridBagConstraints(0, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
         add(interfaceEchange, new GridBagConstraints(0, 1, 1, 1, 0, 0, GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
     }
 
@@ -231,7 +231,6 @@ public class EcranDroit extends JPanel{
         blanc = new JLabel("  ");
 
         MAJinfoJ1();
-
         infosJ1 = new JPanel(new GridLayout(14,1));
         infosJ1.add(nomJ1);
         infosJ1.add(bierreJ1);
@@ -250,7 +249,6 @@ public class EcranDroit extends JPanel{
         infosJoueur.add(infosJ1);
 
         MAJinfoJ2();
-
         infosJ2 = new JPanel(new GridLayout(14,1));
         infosJ2.add(nomJ2);
         infosJ2.add(bierreJ2);
@@ -269,7 +267,6 @@ public class EcranDroit extends JPanel{
         infosJoueur.add(infosJ2);
 
         MAJinfoJ3();
-
         infosJ3 = new JPanel(new GridLayout(14,1));
         infosJ3.add(nomJ3);
         infosJ3.add(bierreJ3);
@@ -288,7 +285,6 @@ public class EcranDroit extends JPanel{
         infosJoueur.add(infosJ3);
 
         MAJinfoJ4();
-
         infosJ4 = new JPanel(new GridLayout(14,1));
         if  (Joueurs.size() > 3) {
             infosJ4.add(nomJ4);
