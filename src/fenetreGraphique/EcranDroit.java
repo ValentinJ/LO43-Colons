@@ -59,7 +59,6 @@ public class EcranDroit extends JPanel{
         //setLayout(new GridLayout(2, 1));
         setLayout(new GridBagLayout());
 
-
         recap = new JPanel(new VerticalBagLayout());
 
         // partie le tableau de maniere dynamique
@@ -211,8 +210,6 @@ public class EcranDroit extends JPanel{
             if (Tour%Joueurs.size() != 3)
                 interfaceEchange.add((Joueurs.get((3))).getNom(), EJ4);
         }
-
-        Banque = new OngletEchange(eB, manJeu);
         interfaceEchange.add("Banque", Banque);
         interfaceEchange.setOpaque(true);
     }
@@ -222,21 +219,27 @@ public class EcranDroit extends JPanel{
         Joueurs = _manJeu.getJoueurs();
         Tour = _manJeu.getTour();
 
+        removeAll();
+        repaint();
+
         infosJoueur.removeAll();
+        infosJoueur.repaint();
         recap.removeAll();
-        remove(recap);
-        remove(interfaceEchange);
+        recap.repaint();
 
         recapInfosJoueurs();
         recap.add(infosJoueur);
 
         // interface des echanges
+        interfaceEchange.removeAll();
+        interfaceEchange.repaint();
         interfaceEchange = new JTabbedPane();
         //creation des onglets de l interface
         EJ1 = new OngletEchange(eB, manJeu);
         EJ2 = new OngletEchange(eB, manJeu);
         EJ3 = new OngletEchange(eB, manJeu);
         EJ4 = new OngletEchange(eB, manJeu);
+        Banque = new OngletEchange(eB, manJeu);
 
         TableauDechange();
         add(recap, new GridBagConstraints(0, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));

@@ -58,8 +58,6 @@ public class EcranGauche extends JPanel implements ActionListener{
 
     Thread t;
 
-
-
     public EcranGauche(ManagerJeu _manJeu, FenetrePrincipale _frame, EcranBas _eB) {
         frame = _frame;
         eB = _eB;
@@ -222,16 +220,18 @@ public class EcranGauche extends JPanel implements ActionListener{
     public void miseAJour(ManagerJeu _manJeu){
         manJeu = _manJeu;
 
-        removeAll();
+        //removeAll();
+        //repaint();
         faceDesDes.removeAll();
+        faceDesDes.repaint();
         affichageDes();
         majBouton();
         setBorder(new EmptyBorder(5, 5, 0, 5));
-        add(achatCarteDev);
-        add(finDeTour);
-        add(faceDesDes);
-        add(jouerCarte);
-        add(construction);
+        //add(achatCarteDev);
+        //add(finDeTour);
+        //add(faceDesDes);
+        //add(jouerCarte);
+        //add(construction);
 
         // parcours carte dispo du joueur en cour
 
