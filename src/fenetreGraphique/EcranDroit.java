@@ -355,8 +355,6 @@ public class EcranDroit extends JPanel{
 
     public void MAJinterfaceEchange(){
         int n = ( (manJeu.getTour())%((manJeu.getJoueurs()).size()) );
-        interfaceEchange.removeAll();
-        interfaceEchange.repaint();
 
         for (int i = 0; i < interfaceEchange.getComponentCount(); i++){
             if (i == ((manJeu.getTour())%((manJeu.getJoueurs()).size())) ){
