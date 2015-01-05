@@ -144,6 +144,7 @@ public class EcranDroit extends JPanel{
         EJ2 = new OngletEchange(eB, manJeu);
         EJ3 = new OngletEchange(eB, manJeu);
         EJ4 = new OngletEchange(eB, manJeu);
+        Banque = new OngletEchange(eB, manJeu);
 
         TableauDechange();
 
@@ -235,28 +236,28 @@ public class EcranDroit extends JPanel{
         scoreJ1.setText(Integer.toString( ((Joueurs.get(0)).getScore())));
 
         nomJ2.setText((Joueurs.get(1)).getNom());
-        bierreJ2.setText(Integer.toString( ((Joueurs.get(1)).getMainRessource(TypeRessource.BIERE)).getNombre()) );
-        sommeilJ2.setText(Integer.toString( ((Joueurs.get(1)).getMainRessource(TypeRessource.SOMMEIL)).getNombre()) );
-        cafeJ2.setText(Integer.toString( ((Joueurs.get(1)).getMainRessource(TypeRessource.CAFE)).getNombre()) );
-        coursJ2.setText(Integer.toString( ((Joueurs.get(1)).getMainRessource(TypeRessource.COURS)).getNombre()) );
-        nourritureJ2.setText(Integer.toString( ((Joueurs.get(1)).getMainRessource(TypeRessource.NOURRITURE)).getNombre()) );
+        bierreJ2.setText(Integer.toString(((Joueurs.get(1)).getMainRessource(TypeRessource.BIERE)).getNombre()));
+        sommeilJ2.setText(Integer.toString(((Joueurs.get(1)).getMainRessource(TypeRessource.SOMMEIL)).getNombre()));
+        cafeJ2.setText(Integer.toString(((Joueurs.get(1)).getMainRessource(TypeRessource.CAFE)).getNombre()));
+        coursJ2.setText(Integer.toString(((Joueurs.get(1)).getMainRessource(TypeRessource.COURS)).getNombre()));
+        nourritureJ2.setText(Integer.toString(((Joueurs.get(1)).getMainRessource(TypeRessource.NOURRITURE)).getNombre()));
         nbUV1J2.setText(Integer.toString((((Joueurs.get(1)).getNbUvs()).get(0))));
         nbUV2J2.setText(Integer.toString((((Joueurs.get(1)).getNbUvs()).get(1))));
-        nbAncienJ2.setText(Integer.toString( ((Joueurs.get(1)).getAncien())));
-        nbCCJ2.setText(Integer.toString( ((Joueurs.get(1)).getCCsize())));
-        scoreJ2.setText(Integer.toString( ((Joueurs.get(1)).getScore())));
+        nbAncienJ2.setText(Integer.toString(((Joueurs.get(1)).getAncien())));
+        nbCCJ2.setText(Integer.toString(((Joueurs.get(1)).getCCsize())));
+        scoreJ2.setText(Integer.toString(((Joueurs.get(1)).getScore())));
 
         nomJ3.setText((Joueurs.get(2)).getNom());
-        bierreJ3.setText(Integer.toString( ((Joueurs.get(2)).getMainRessource(TypeRessource.BIERE)).getNombre()) );
-        sommeilJ3.setText(Integer.toString( ((Joueurs.get(2)).getMainRessource(TypeRessource.SOMMEIL)).getNombre()) );
-        cafeJ3.setText(Integer.toString( ((Joueurs.get(2)).getMainRessource(TypeRessource.CAFE)).getNombre()) );
-        coursJ3.setText(Integer.toString( ((Joueurs.get(2)).getMainRessource(TypeRessource.COURS)).getNombre()) );
-        nourritureJ3.setText(Integer.toString( ((Joueurs.get(2)).getMainRessource(TypeRessource.NOURRITURE)).getNombre()) );
+        bierreJ3.setText(Integer.toString(((Joueurs.get(2)).getMainRessource(TypeRessource.BIERE)).getNombre()));
+        sommeilJ3.setText(Integer.toString(((Joueurs.get(2)).getMainRessource(TypeRessource.SOMMEIL)).getNombre()));
+        cafeJ3.setText(Integer.toString(((Joueurs.get(2)).getMainRessource(TypeRessource.CAFE)).getNombre()));
+        coursJ3.setText(Integer.toString(((Joueurs.get(2)).getMainRessource(TypeRessource.COURS)).getNombre()));
+        nourritureJ3.setText(Integer.toString(((Joueurs.get(2)).getMainRessource(TypeRessource.NOURRITURE)).getNombre()));
         nbUV1J3.setText(Integer.toString((((Joueurs.get(2)).getNbUvs()).get(0))));
         nbUV2J3.setText(Integer.toString((((Joueurs.get(2)).getNbUvs()).get(1))));
-        nbAncienJ3.setText(Integer.toString( ((Joueurs.get(2)).getAncien())));
-        nbCCJ3.setText(Integer.toString( ((Joueurs.get(2)).getCCsize())));
-        scoreJ3.setText(Integer.toString( ((Joueurs.get(2)).getScore())));
+        nbAncienJ3.setText(Integer.toString(((Joueurs.get(2)).getAncien())));
+        nbCCJ3.setText(Integer.toString(((Joueurs.get(2)).getCCsize())));
+        scoreJ3.setText(Integer.toString(((Joueurs.get(2)).getScore())));
 
         if  (Joueurs.size() > 3) {
             nomJ4.setText((Joueurs.get(3)).getNom());
@@ -352,23 +353,30 @@ public class EcranDroit extends JPanel{
         infosJoueur.setBorder(BorderFactory.createTitledBorder("Renseignement"));
     }
 
+    public void MAJinterfaceEchange(ManagerJeu _manJeu){
+        for (int i = 0; i < interfaceEchange.getComponentCount(); i++){
+            if (i == ((_manJeu.getTour())%((_manJeu.getJoueurs()).size())) ){
+                interfaceEchange.getComponent(i).setVisible(false);
+            }
+            else{
+                interfaceEchange.getComponent(i).setVisible(true);
+            }
+        }
+    }
+
     public void TableauDechange(){
         interfaceEchange.removeAll();
 
-        if (Tour%Joueurs.size() != 0)
-            interfaceEchange.add((Joueurs.get((0))).getNom(), EJ1);
-        if (Tour%Joueurs.size() != 1)
-            interfaceEchange.add((Joueurs.get((1))).getNom(), EJ2);
-        if (Tour%Joueurs.size() != 2)
-            interfaceEchange.add((Joueurs.get((2))).getNom(), EJ3);
-        if (Joueurs.size()>3) {
-            if (Tour%Joueurs.size() != 3)
-                interfaceEchange.add((Joueurs.get((3))).getNom(), EJ4);
+        interfaceEchange.add((Joueurs.get((0))).getNom(), EJ1);
+        interfaceEchange.add((Joueurs.get((1))).getNom(), EJ2);
+        interfaceEchange.add((Joueurs.get((2))).getNom(), EJ3);
+        if (Tour%Joueurs.size() != 3) {
+            interfaceEchange.add((Joueurs.get((3))).getNom(), EJ4);
         }
-
-        Banque = new OngletEchange(eB, manJeu);
         interfaceEchange.add("Banque", Banque);
         interfaceEchange.setOpaque(true);
+
+        MAJinterfaceEchange(manJeu);
     }
 
     public void MiseAJour(ManagerJeu _manJeu){
@@ -383,17 +391,8 @@ public class EcranDroit extends JPanel{
         }
         MAJinstanciationVariableJoueurs();
 
-        // interface des echanges
-        interfaceEchange = new JTabbedPane();
-        //creation des onglets de l interface
-        EJ1 = new OngletEchange(eB, manJeu);
-        EJ2 = new OngletEchange(eB, manJeu);
-        EJ3 = new OngletEchange(eB, manJeu);
-        EJ4 = new OngletEchange(eB, manJeu);
+        MAJinterfaceEchange(manJeu);
 
-        TableauDechange();
-        add(recap, new GridBagConstraints(0, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
-        add(interfaceEchange, new GridBagConstraints(0,1, 1, 1, 0, 0, GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
     }
 
     public void changementCouleur(){
