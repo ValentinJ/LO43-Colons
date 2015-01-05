@@ -376,16 +376,11 @@ public class EcranDroit extends JPanel{
         Joueurs = _manJeu.getJoueurs();
         Tour = _manJeu.getTour();
 
-        remove(interfaceEchange);
-        repaint();
         try {
             Thread.sleep(50);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        //recapInfosJoueurs();
-        //recap.add(infosJoueur);
-
         MAJinstanciationVariableJoueurs();
 
         // interface des echanges
