@@ -49,6 +49,7 @@ public class FenetrePrincipale extends FenetreDefaut {
         EcranBas = new EcranBas(msg_appli, this);
         scroller = new JScrollPane(EcranBas, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scroller.setPreferredSize(new Dimension(300,50));
+        scroller.getVerticalScrollBar().setValue(scroller.getVerticalScrollBar().getMaximum());
         // instanciation du JPanel EcranGauche
         EcranGauche = new EcranGauche(manJeu, this, EcranBas);
         Plateau = new Plateau(g.getView(), manJeu, this);
@@ -79,7 +80,6 @@ public class FenetrePrincipale extends FenetreDefaut {
         EcranGauche.miseAJour(manJeu);
         Infos.MiseAJour(manJeu);
         Plateau.MiseAJour();
-
         validate();
     }
 

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class main {
     public static void main(String []arg) {
         // TODO decommenter ce paragraphe fait fonctionner prog
-        /*
+/*
         System.setProperty("org.graphstream.ui.renderer","org.graphstream.ui.j2dviewer.J2DGraphRenderer");
 
         FenetrePrincipale frame;
@@ -49,7 +49,7 @@ public class main {
             System.out.println("L'application a été fermé :" + fId.getValider());
             System.exit(0);
         }
-        */
+*/
         //TODO supprimer ce qui suit uen fois le projet terminé
         FenetrePrincipale frame;
         Joueur jtest = new Joueur("Mick",TypeCouleur.BLEU);
@@ -72,5 +72,7 @@ public class main {
 
 
         jeu.jouer();
+
+
     }
 }

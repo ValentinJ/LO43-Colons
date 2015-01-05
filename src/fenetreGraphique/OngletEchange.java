@@ -47,6 +47,7 @@ public class OngletEchange extends JPanel implements ActionListener{
 
     public EcranBas eB;
     public ManagerJeu manJeu;
+    public JFrame frame;
 
     public OngletEchange(EcranBas _eB, ManagerJeu _manJeu){
         eB = _eB;
