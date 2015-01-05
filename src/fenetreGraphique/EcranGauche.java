@@ -87,11 +87,12 @@ public class EcranGauche extends JPanel implements ActionListener{
         affichageConstruction();
         affichageJouerCarte();
         affichageDes();
-        add(achatCarteDev);
-        add(finDeTour);
-        add(faceDesDes);
-        add(jouerCarte);
-        add(construction);
+        //add(achatCarteDev);
+        //add(finDeTour);
+        //add(faceDesDes);
+        //add(jouerCarte);
+        //add(construction);
+        miseAJour(manJeu);
     }
 
     //TODO visibilité des boutons
@@ -222,18 +223,18 @@ public class EcranGauche extends JPanel implements ActionListener{
     public void miseAJour(ManagerJeu _manJeu){
         manJeu = _manJeu;
 
-        //removeAll();
-        //repaint();
+        removeAll();
+        repaint();
         faceDesDes.removeAll();
         faceDesDes.repaint();
         affichageDes();
         majBouton();
         setBorder(new EmptyBorder(5, 5, 0, 5));
-        //add(achatCarteDev);
-        //add(finDeTour);
-        //add(faceDesDes);
-        //add(jouerCarte);
-        //add(construction);
+        add(achatCarteDev);
+        add(finDeTour);
+        add(faceDesDes);
+        add(jouerCarte);
+        add(construction);
 
         // parcours carte dispo du joueur en cour
 

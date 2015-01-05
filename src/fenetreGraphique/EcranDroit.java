@@ -98,7 +98,10 @@ public class EcranDroit extends JPanel{
         add(interfaceEchange, new GridBagConstraints(0, 1, 1, 1, 0, 0, GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
     }
 
-    public void enteteVertical(){
+    public void recapInfosJoueurs(){
+        infosJoueur = new JPanel(new GridLayout(1, Joueurs.size()+1));
+
+
         enteteV = new JPanel(new GridLayout(14,1));
         enteteV.add(new JLabel("  "));
         enteteV.add(new JLabel(new ImageIcon(imgBierre)){{setOpaque(false);}});
@@ -114,12 +117,6 @@ public class EcranDroit extends JPanel{
         enteteV.add(new JLabel("C C"));
         enteteV.add(new JLabel("  "));
         enteteV.add(new JLabel("Score"));
-    }
-
-    public void recapInfosJoueurs(){
-        infosJoueur = new JPanel(new GridLayout(1, Joueurs.size()+1));
-
-        enteteVertical();
         infosJoueur.add(enteteV);
 
         infosJ1 = new JPanel(new GridLayout(14,1));
