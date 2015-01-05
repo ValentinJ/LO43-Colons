@@ -259,20 +259,30 @@ public class GraphMap{
         return null;
     }
 
-    public void CSSpourConstructionUV1(){
-        for(Node n : g.getEachNode()){
-            for(NoeudConstructible nc : noeuds){
-
-            }
-        }
-    }
-
     //arg valeur des dés
     // pour chaque caseInterne X
     //      verifier si X est de valeur des dés
     //      Arraylist  = new Arralist(getVoisinsCase(X))
     //      pour chaque elmnt Y de Arralylist
     //          ajout ressources joueur(joueur j, typeressource, ptsvictoire de Y)
+
+    public ArrayList<TypeRessource> getVoisinsRessources(UV1 uv){
+        ArrayList<TypeRessource> tr = new ArrayList<TypeRessource>();
+
+        ArrayList<CaseInterne> voisins = new ArrayList<CaseInterne>();
+        Iterator<Node> it = g.getNode(uv.getId()).getNeighborNodeIterator();
+        while (it.hasNext()) {
+            Node n = it.next();
+            if (!n.getAttribute("ui.class").equals("noeud")){
+                for(Case c : cases){
+                    if(c instanceof CaseInterne && c.getId().equals(n.getId()))
+                        tr.add(((CaseInterne) c).getTr());
+                }
+            }
+        }
+
+        return tr;
+    }
 
     public ArrayList<NoeudConstructible> getVoisinsCase(CaseInterne c) {
         ArrayList<NoeudConstructible> voisins = new ArrayList<NoeudConstructible>();

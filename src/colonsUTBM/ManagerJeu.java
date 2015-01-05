@@ -75,7 +75,15 @@ public class ManagerJeu {
         int tourCourant;
         System.out.println("DEBUT : PHASES FONDATION DES UV et CC");
         phaseFondation();
+        System.out.println("Ajout des ressources adjacentes à la 2ième UV");
+        for(Joueur j : joueurs){
+            for(TypeRessource r : terrain.getVoisinsRessources(j.getUvs().get(1)) ){
+                j.ajoutRessource(r,1);
+            }
+        }
         System.out.println("FIN : PHASES FONDATION DES UV et CC");
+
+
 
         while(!terminer){
             for(Joueur j : joueurs){
