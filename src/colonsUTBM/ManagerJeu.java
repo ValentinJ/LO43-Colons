@@ -249,7 +249,6 @@ public class ManagerJeu {
         pilesRessources.put(TypeRessource.NOURRITURE, new Pile(new CarteRessource(TypeRessource.NOURRITURE),19));
     }
 
-    /* A VIRER CAR PENSE POSER PB POUR AFFICHAGE GRAPHIQUE */
     public void phaseFondation(){
         int tourCourant;
         for (int i=0; i<joueurs.size();i++){
@@ -262,6 +261,8 @@ public class ManagerJeu {
             terrain.majCSS();
             joueurs.get(i).getCC().add(terrain.ClickConstructionControleContinus(joueurs.get(i)));
             terrain.majCSS();
+            joueurs.get(i).nbUv1--;
+            joueurs.get(i).nbCc--;
 
             actionEnCours=false;
             f.miseAJour();
@@ -288,6 +289,8 @@ public class ManagerJeu {
             terrain.majCSS();
             joueurs.get(i).getCC().add(terrain.ClickConstructionControleContinus(joueurs.get(i)));
             terrain.majCSS();
+            joueurs.get(i).nbUv1--;
+            joueurs.get(i).nbCc--;
 
             actionEnCours=false;
             f.miseAJour();
@@ -392,5 +395,9 @@ public class ManagerJeu {
 
     public boolean isActionEnCours() {
         return actionEnCours;
+    }
+
+    public FenetrePrincipale getF() {
+        return f;
     }
 }

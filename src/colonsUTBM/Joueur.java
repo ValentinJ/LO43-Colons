@@ -175,27 +175,25 @@ public class Joueur {
             getMainRessource().get(TypeRessource.COURS).retirer();
             getMainRessource().get(TypeRessource.CAFE).retirer();
             getMainRessource().get(TypeRessource.SOMMEIL).retirer();
+            mainDeveloppement.add(cd.get(0));
+            cd.remove(0);
         }
         /**
          * verifierAchatCarteDev
          * Si VRAI alors retirer ressources
          * Ajouter carte au joueur
          */
-        Random r = new Random();
-        CarteDeveloppement c = new CarteDeveloppement(cd.get(1+r.nextInt(cd.size())).getTypeDeveloppement());
-        mainDeveloppement.add(c);
-        cd.remove(c);
     }
 
     public void construireUV1(GraphMap g){
         if(verifierAchatUV1()) {
             uvs.add(g.ClickConstructionUV1(this));
+            g.majCSS();
             mainRessource.get(TypeRessource.COURS).retirer();
             mainRessource.get(TypeRessource.BIERE).retirer();
             mainRessource.get(TypeRessource.CAFE).retirer();;
             mainRessource.get(TypeRessource.NOURRITURE).retirer();
             nbUv1--;
-
         }
     }
 
@@ -235,6 +233,7 @@ public class Joueur {
             mainRessource.get(TypeRessource.SOMMEIL).retirer(3);
             nbUv1++;
             nbUv2--;
+            g.majCSS();
         }
     }
 

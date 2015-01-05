@@ -140,12 +140,13 @@ public class EcranGauche extends JPanel implements ActionListener{
                 t = new Thread("exemple") {
                     @Override
                     public void run() {
-                        manJeu.getJoueurCourrant().getUvs().add(manJeu.getTerrain().ClickConstructionUV1(manJeu.getJoueurCourrant()));
-                        manJeu.getTerrain().majCSS();
+                        manJeu.getJoueurCourrant().construireUV1(manJeu.getTerrain());
+                        manJeu.getF().miseAJour();
                     }
                 };
                 t.start();
             }
+            eB.setMessage("L'UV1 a été placée avec succès !");
         }
 
 
@@ -155,11 +156,12 @@ public class EcranGauche extends JPanel implements ActionListener{
                     t = new Thread("exemple") {
                         @Override
                         public void run() {
-                            manJeu.getTerrain().ClickConstructionUV2(manJeu.getJoueurCourrant());
-                            manJeu.getTerrain().majCSS();
+                            manJeu.getJoueurCourrant().transformerUV2(manJeu.getTerrain());
+                            manJeu.getF().miseAJour();
                         }
                     };
                     t.start();
+                eB.setMessage("L'UV1 a été modifiée en UV2 avec succès !");
             }
         }
 
@@ -170,11 +172,12 @@ public class EcranGauche extends JPanel implements ActionListener{
                 t = new Thread("exemple") {
                     @Override
                     public void run() {
-                        manJeu.getTerrain().ClickConstructionControleContinus(manJeu.getJoueurCourrant());
-                        manJeu.getTerrain().majCSS();
+                        manJeu.getJoueurCourrant().construireCC(manJeu.getTerrain());
+                        manJeu.getF().miseAJour();
                     }
                 };
                 t.start();
+                eB.setMessage("Controle continus placé avec succès !");
             }
         }
         if (e.getSource() == Ancien) {
