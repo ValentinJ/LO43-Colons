@@ -139,7 +139,7 @@ public class ManagerJeu {
         // calcule en fonction des UVs
         for(int i=0; i<joueurs.size(); i++){
             (joueurs.get(i)).setScore(((joueurs.get(i)).getUV1()) + ((joueurs.get(i)).getUV2())*2);
-            if ( ((joueurs.get(i)).getCC()) > 4){
+            if ( ((joueurs.get(i)).getCCsize()) > 4){
                 joueurCC.add(i);
             }
             if ( ((joueurs.get(i)).getAncien()) > 2){
@@ -156,8 +156,8 @@ public class ManagerJeu {
                 int place=0;
                 int val=0;
                 for(int i=0; i<joueurCC.size(); i++){
-                    if (val < (joueurs.get(joueurCC.get(i))).getCC() ){
-                        val = (joueurs.get(joueurCC.get(i))).getCC();
+                    if (val < (joueurs.get(joueurCC.get(i))).getCCsize() ){
+                        val = (joueurs.get(joueurCC.get(i))).getCCsize();
                         place = i;
                     }
                 }
@@ -233,9 +233,9 @@ public class ManagerJeu {
             tour=i;
             tourCourant=tour;
 
-            terrain.InitConstructionUV1(joueurs.get(i));
+            joueurs.get(i).getUvs().add(terrain.InitConstructionUV1(joueurs.get(i)));
             terrain.majCSS();
-            terrain.ClickConstructionControleContinus(joueurs.get(i));
+            joueurs.get(i).getCC().add(terrain.ClickConstructionControleContinus(joueurs.get(i)));
             terrain.majCSS();
 
             while(tour==tourCourant){
@@ -251,7 +251,7 @@ public class ManagerJeu {
             tour=i;
             tourCourant=tour;
 
-            terrain.InitConstructionUV1(joueurs.get(i));
+            joueurs.get(i).getUvs().add(terrain.InitConstructionUV1(joueurs.get(i)));
             terrain.majCSS();
             terrain.ClickConstructionControleContinus(joueurs.get(i));
             terrain.majCSS();

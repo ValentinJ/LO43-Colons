@@ -17,7 +17,7 @@ public class Joueur {
     protected int nbCc;
 
     protected List<UV1> uvs;
-    protected List<ControleContinus> CC;
+    protected List<Arete> CC;
 
     protected Hashtable<TypeRessource,Pile> mainRessource;
     protected List<CarteDeveloppement> mainDeveloppement;
@@ -99,7 +99,7 @@ public class Joueur {
         mainRessource.put(TypeRessource.NOURRITURE, new Pile(new CarteRessource(TypeRessource.NOURRITURE)));
 
         uvs = new ArrayList<UV1>();
-        CC = new ArrayList<ControleContinus>();
+        CC = new ArrayList<Arete>();
         mainDeveloppement = new ArrayList<CarteDeveloppement>();
 
         score = 0;
@@ -345,7 +345,9 @@ public class Joueur {
 
     public void setScore(int val){score = val;}
 
-    public int getCC(){return CC.size();}
+    public int getCCsize(){return CC.size();}
+
+    public ArrayList<Arete> getCC(){ return (ArrayList<Arete>) CC;}
 
     public int getAncien() {
         int nb_ancien = 0;

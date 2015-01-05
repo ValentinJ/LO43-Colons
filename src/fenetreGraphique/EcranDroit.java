@@ -135,7 +135,7 @@ public class EcranDroit extends JPanel{
         infosJ1.add(new JLabel(Integer.toString((((Joueurs.get(0)).getNbUvs()).get(1)))));
         infosJ1.add(new JLabel("  "));
         infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getAncien()))));
-        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getCC()))));
+        infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getCCsize()))));
         infosJ1.add(new JLabel("  "));
         infosJ1.add(new JLabel(Integer.toString( ((Joueurs.get(0)).getScore()))));
         infosJoueur.add(infosJ1);
@@ -152,7 +152,7 @@ public class EcranDroit extends JPanel{
         infosJ2.add(new JLabel(Integer.toString((((Joueurs.get(1)).getNbUvs()).get(1)))));
         infosJ2.add(new JLabel("  "));
         infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getAncien()))));
-        infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getCC()))));
+        infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getCCsize()))));
         infosJ2.add(new JLabel("  "));
         infosJ2.add(new JLabel(Integer.toString( ((Joueurs.get(1)).getScore()))));
         infosJoueur.add(infosJ2);
@@ -169,7 +169,7 @@ public class EcranDroit extends JPanel{
         infosJ3.add(new JLabel(Integer.toString((((Joueurs.get(2)).getNbUvs()).get(1)))));
         infosJ3.add(new JLabel("  "));
         infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getAncien()))));
-        infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getCC()))));
+        infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getCCsize()))));
         infosJ3.add(new JLabel("  "));
         infosJ3.add(new JLabel(Integer.toString( ((Joueurs.get(2)).getScore()))));
         infosJoueur.add(infosJ3);
@@ -187,7 +187,7 @@ public class EcranDroit extends JPanel{
             infosJ4.add(new JLabel(Integer.toString((((Joueurs.get(3)).getNbUvs()).get(1)))));
             infosJ4.add(new JLabel("  "));
             infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(3)).getAncien()))));
-            infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(3)).getCC()))));
+            infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(3)).getCCsize()))));
             infosJ4.add(new JLabel("  "));
             infosJ4.add(new JLabel(Integer.toString( ((Joueurs.get(3)).getScore()))));
             infosJoueur.add(infosJ4);

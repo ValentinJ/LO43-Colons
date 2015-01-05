@@ -1,6 +1,8 @@
 package fenetreGraphique;
 
+import colonsUTBM.Joueur;
 import colonsUTBM.ManagerJeu;
+import colonsUTBM.UV;
 import colonsUTBM.UV2;
 
 import javax.imageio.ImageIO;
@@ -95,7 +97,33 @@ public class EcranGauche extends JPanel implements ActionListener{
     }
 
     //TODO visibilité des boutons
+    public void majBouton(){
+        Joueur jCourant = manJeu.getJoueurCourrant();
+        if(jCourant.verifierAchatCarteDev()){
+            achatCarteDev.setEnabled(true);
+        }
+        else
+            achatCarteDev.setEnabled(false);
 
+        if(jCourant.verifierAchatControleContinu()){
+            CC.setEnabled(true);
+        }
+        else
+            CC.setEnabled(false);
+
+        if(jCourant.verifierAchatUV2()){
+            uv2.setEnabled(true);
+        }
+        else
+            uv2.setEnabled(false);
+
+        if(jCourant.verifierAchatUV1()){
+            UV1.setEnabled(true);
+        }
+        else
+            UV1.setEnabled(false);
+
+    }
 
     //TODO fonctionnalité des boutons
     public void actionPerformed(ActionEvent e) {
@@ -162,7 +190,7 @@ public class EcranGauche extends JPanel implements ActionListener{
         if (e.getSource() == achatCarteDev) {
             manJeu.getJoueurCourrant().achatCarteDev(manJeu.getPilesDeveloppement());
             // TODO pb ici carte dev du manager vide !
-            eB.setMessage("Vous avez obtenu une carte " + manJeu.getJoueurCourrant().getMainDeveloppement().get(manJeu.getJoueurCourrant().getMainDeveloppement().size()-1).getNom());
+            eB.setMessage("Vous avez obtenu une carte " + manJeu.getJoueurCourrant().getMainDeveloppement().get(manJeu.getJoueurCourrant().getMainDeveloppement().size() - 1).getNom());
         }
         if (e.getSource() == finDeTour) {
             if(t == null || t.getState()== Thread.State.TERMINATED) {
@@ -170,7 +198,7 @@ public class EcranGauche extends JPanel implements ActionListener{
                 eB.removeAll();
                 manJeu.finDeTour();
                 frame.miseAJour();  // appel mise a jour de frame principale
-                eB.setMessage("Fin du tour de " + manJeu.getJoueurs().get((manJeu.getTour()-1)%(manJeu.getJoueurs().size()-1)).getNom()
+                eB.setMessage("Fin du tour de " + manJeu.getJoueurs().get((manJeu.getTour())%(manJeu.getJoueurs().size()-1)).getNom()
                               + " et début du tour de " + manJeu.getJoueurCourrant().getNom());
                 eB.setMessage(manJeu.msgGenerationR());
             }
@@ -189,7 +217,7 @@ public class EcranGauche extends JPanel implements ActionListener{
         removeAll();
         faceDesDes.removeAll();
         affichageDes();
-
+        majBouton();
         setBorder(new EmptyBorder(5, 5, 0, 5));
         add(achatCarteDev);
         add(finDeTour);
