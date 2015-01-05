@@ -228,7 +228,6 @@ public class EcranDroit extends JPanel{
     }
 
     public void recapInfosJoueurs(){
-        blanc = new JLabel("  ");
 
         MAJinfoJ1();
         infosJ1 = new JPanel(new GridLayout(14,1));
@@ -238,13 +237,13 @@ public class EcranDroit extends JPanel{
         infosJ1.add(cafeJ1);
         infosJ1.add(coursJ1);
         infosJ1.add(nourritureJ1);
-        infosJ1.add(blanc);
+        infosJ1.add(new JLabel("  "));
         infosJ1.add(nbUV1J1);
         infosJ1.add(nbUV2J1);
-        infosJ1.add(blanc);
+        infosJ1.add(new JLabel("  "));
         infosJ1.add(nbAncienJ1);
         infosJ1.add(nbCCJ1);
-        infosJ1.add(blanc);
+        infosJ1.add(new JLabel("  "));
         infosJ1.add(scoreJ1);
         infosJoueur.add(infosJ1);
 
@@ -256,13 +255,13 @@ public class EcranDroit extends JPanel{
         infosJ2.add(cafeJ2);
         infosJ2.add(coursJ2);
         infosJ2.add(nourritureJ2);
-        infosJ2.add(blanc);
+        infosJ2.add(new JLabel("  "));
         infosJ2.add(nbUV1J2);
         infosJ2.add(nbUV2J2);
-        infosJ2.add(blanc);
+        infosJ2.add(new JLabel("  "));
         infosJ2.add(nbAncienJ2);
         infosJ2.add(nbCCJ2);
-        infosJ2.add(blanc);
+        infosJ2.add(new JLabel("  "));
         infosJ2.add(scoreJ2);
         infosJoueur.add(infosJ2);
 
@@ -274,13 +273,13 @@ public class EcranDroit extends JPanel{
         infosJ3.add(cafeJ3);
         infosJ3.add(coursJ3);
         infosJ3.add(nourritureJ3);
-        infosJ3.add(blanc);
+        infosJ3.add(new JLabel("  "));
         infosJ3.add(nbUV1J3);
         infosJ3.add(nbUV2J3);
-        infosJ3.add(blanc);
+        infosJ3.add(new JLabel("  "));
         infosJ3.add(nbAncienJ3);
         infosJ3.add(nbCCJ3);
-        infosJ3.add(blanc);
+        infosJ3.add(new JLabel("  "));
         infosJ3.add(scoreJ3);
         infosJoueur.add(infosJ3);
 
@@ -293,13 +292,13 @@ public class EcranDroit extends JPanel{
             infosJ4.add(cafeJ4);
             infosJ4.add(coursJ4);
             infosJ4.add(nourritureJ4);
-            infosJ4.add(blanc);
+            infosJ4.add(new JLabel("  "));
             infosJ4.add(nbUV1J4);
             infosJ4.add(nbUV2J4);
-            infosJ4.add(blanc);
+            infosJ4.add(new JLabel("  "));
             infosJ4.add(nbAncienJ4);
             infosJ4.add(nbCCJ4);
-            infosJ4.add(blanc);
+            infosJ4.add(new JLabel("  "));
             infosJ4.add(scoreJ4);
             infosJoueur.add(infosJ4);
         }
