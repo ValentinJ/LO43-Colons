@@ -130,6 +130,7 @@ public class EcranDroit extends JPanel{
             imgNourriture = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteNourriture.png"));
         } catch (IOException e) {e.printStackTrace();}
 
+        infosJoueur = new JPanel(new GridLayout(1, Joueurs.size()+1));
         enteteVertical();
         infosJoueur.add(enteteV);
         recapInfosJoueurs();
@@ -227,7 +228,6 @@ public class EcranDroit extends JPanel{
     }
 
     public void recapInfosJoueurs(){
-        infosJoueur = new JPanel(new GridLayout(1, Joueurs.size()+1));
         blanc = new JLabel("  ");
 
         MAJinfoJ1();
