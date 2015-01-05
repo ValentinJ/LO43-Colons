@@ -56,7 +56,6 @@ public class EcranGauche extends JPanel implements ActionListener{
 
     public EcranBas eB;
 
-    //todo test thread
     Thread t;
 
 
@@ -71,7 +70,6 @@ public class EcranGauche extends JPanel implements ActionListener{
         achatCarteDev.addActionListener(this);
         finDeTour.addActionListener(this);
 
-        //TODO mettre les images
         try {
             imgBierre     = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteBiere.png"));
         } catch (IOException e) {e.printStackTrace();}
@@ -123,6 +121,13 @@ public class EcranGauche extends JPanel implements ActionListener{
         else
             UV1.setEnabled(false);
 
+        if(!manJeu.isActionEnCours()){
+            finDeTour.setEnabled(true);
+        }
+        else
+            finDeTour.setEnabled(false);
+
+
     }
 
     //TODO fonctionnalité des boutons
@@ -135,7 +140,7 @@ public class EcranGauche extends JPanel implements ActionListener{
                 t = new Thread("exemple") {
                     @Override
                     public void run() {
-                        manJeu.getJoueurCourrant().getUvs().add(manJeu.getTerrain().InitConstructionUV1(manJeu.getJoueurCourrant()));
+                        manJeu.getJoueurCourrant().getUvs().add(manJeu.getTerrain().ClickConstructionUV1(manJeu.getJoueurCourrant()));
                         manJeu.getTerrain().majCSS();
                     }
                 };

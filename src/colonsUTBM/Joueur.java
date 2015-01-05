@@ -214,6 +214,7 @@ public class Joueur {
 
         if(nombreCarteRessource() > 7){
             nbcarteajeter= (int)Math.floor((double)(nombreCarteRessource()/2));
+            System.out.println("Nombre de cartes à jeter : "+nbcarteajeter);
 
             for(int i = 0 ; i<nbcarteajeter ; i++){
                 valeur = 0 + r.nextInt(nombreCarteRessource());

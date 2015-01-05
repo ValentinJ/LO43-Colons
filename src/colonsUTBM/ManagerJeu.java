@@ -1,5 +1,7 @@
 package colonsUTBM;
 
+import fenetreGraphique.FenetrePrincipale;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Hashtable;
@@ -19,6 +21,9 @@ public class ManagerJeu {
     protected GraphMap terrain;
     protected Des des;
 
+    protected FenetrePrincipale f;
+    protected boolean actionEnCours;
+
     public ManagerJeu(){}
 
     public ManagerJeu(ArrayList<Joueur> j){
@@ -30,10 +35,11 @@ public class ManagerJeu {
 
         des = new Des();
         tour = 0;
-
         pilesDeveloppement = new ArrayList<CarteDeveloppement>();
         pilesRessources = new Hashtable<TypeRessource, Pile>();
         InitVariables();
+        f = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, this);
+        actionEnCours=false;
     }
 
     public ManagerJeu(ArrayList<Joueur> j, GraphMap t, Point p){
@@ -74,13 +80,22 @@ public class ManagerJeu {
         while(!terminer){
             for(Joueur j : joueurs){
                 des.lancerDes();
-                System.out.println("Lancé des dés : "+des.getTotalDes());
+                System.out.println("Lancé des dés : " + des.getTotalDes());
                 System.out.println("DEBUT : TOUR n°"+tour+" pour le joueur "+j.getNom());
                 productionRessource(des.getTotalDes());
                 tourCourant=tour;
 
-                if(des.getTotalDes()==7)
+                if(des.getTotalDes()==7) {
+                    actionEnCours=true;
+                    f.miseAJour();
                     terrain.deplacerBinomeGlandeur();
+                    for (Joueur j1 : joueurs){
+                        j1.eneleverMoitiecarte();
+                    }
+                    actionEnCours=false;
+                    f.miseAJour();
+                }
+
 
                 while(tour==tourCourant){
                     try {
@@ -233,11 +248,16 @@ public class ManagerJeu {
             tour=i;
             tourCourant=tour;
 
+            actionEnCours=true;
+            f.miseAJour();
             joueurs.get(i).getUvs().add(terrain.InitConstructionUV1(joueurs.get(i)));
             terrain.majCSS();
             joueurs.get(i).getCC().add(terrain.ClickConstructionControleContinus(joueurs.get(i)));
             terrain.majCSS();
 
+            actionEnCours=false;
+            f.miseAJour();
+
             while(tour==tourCourant){
                 try {
                     Thread.sleep(100);
@@ -246,15 +266,23 @@ public class ManagerJeu {
                 }
             }
             System.out.print(tour);
+
+
         }
         for (int i=joueurs.size()-1; i>=0;i--){
             tour=i;
             tourCourant=tour;
 
+            actionEnCours=true;
+            f.miseAJour();
+
             joueurs.get(i).getUvs().add(terrain.InitConstructionUV1(joueurs.get(i)));
             terrain.majCSS();
-            terrain.ClickConstructionControleContinus(joueurs.get(i));
+            joueurs.get(i).getCC().add(terrain.ClickConstructionControleContinus(joueurs.get(i)));
             terrain.majCSS();
+
+            actionEnCours=false;
+            f.miseAJour();
 
             while(tour==tourCourant){
                 try {
@@ -264,6 +292,7 @@ public class ManagerJeu {
                 }
             }
             System.out.print(tour);
+
 
         }
         tour=0;
@@ -351,5 +380,9 @@ public class ManagerJeu {
         }
 
         return msg;
+    }
+
+    public boolean isActionEnCours() {
+        return actionEnCours;
     }
 }

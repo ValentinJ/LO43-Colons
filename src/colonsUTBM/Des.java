@@ -10,7 +10,7 @@ public class Des {
     private int v1;
     private int v2;
 
-    public Des(){v1=1; v2=1;}
+    public Des(){v1=0; v2=0;}
 
     public void lancerDes(){
         Random r = new Random();

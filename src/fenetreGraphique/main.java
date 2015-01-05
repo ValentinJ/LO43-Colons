@@ -3,6 +3,7 @@ package fenetreGraphique;
 import colonsUTBM.Joueur;
 import colonsUTBM.ManagerJeu;
 import colonsUTBM.TypeCouleur;
+import colonsUTBM.TypeRessource;
 
 import java.util.ArrayList;
 
@@ -51,17 +52,24 @@ public class main {
         */
         //TODO supprimer ce qui suit uen fois le projet terminé
         FenetrePrincipale frame;
+        Joueur jtest = new Joueur("Mick",TypeCouleur.BLEU);
+        jtest.getMainRessource(TypeRessource.BIERE).ajouter(10);
+        jtest.getMainRessource(TypeRessource.CAFE).ajouter(10);
+        jtest.getMainRessource(TypeRessource.COURS).ajouter(10);
+        jtest.getMainRessource(TypeRessource.NOURRITURE).ajouter(10);
+        jtest.getMainRessource(TypeRessource.SOMMEIL).ajouter(10);
 
-        ArrayList<Joueur> j = new ArrayList<Joueur> ();
+        ArrayList<Joueur> jlist = new ArrayList<Joueur> ();
         //todo : TEST : Création automatique des joueurs
-        j.add(new Joueur("Mick ", TypeCouleur.BLEU));
-        j.add(new Joueur("Elodie ", TypeCouleur.ROUGE));
-        j.add(new Joueur("David ", TypeCouleur.VERT));
-        j.add(new Joueur("Théoline ", TypeCouleur.JAUNE));
+        jlist.add(jtest);
+        jlist.add(new Joueur("Elodie ", TypeCouleur.ROUGE));
+        jlist.add(new Joueur("David ", TypeCouleur.VERT));
+        jlist.add(new Joueur("Théoline ", TypeCouleur.JAUNE));
 
-        ManagerJeu jeu = new ManagerJeu(j);
-        frame = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, jeu);
+        ManagerJeu jeu = new ManagerJeu(jlist);
+        //frame = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, jeu);
         //System.out.println(jeu.toString());
+
 
         jeu.jouer();
     }
