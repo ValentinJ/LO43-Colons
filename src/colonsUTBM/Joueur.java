@@ -290,6 +290,7 @@ public class Joueur {
     }
 
     //public void echangeAvecPort(TypePort t){
+
     //}
 
     public TypeRessource VerifierEchangeBanque(){
@@ -311,7 +312,7 @@ public class Joueur {
         TypeRessource ajout = null;
         TypeRessource echange = VerifierEchangeBanque();
         if (echange!=null) {
-            mainRessource.get(echange).retirer(4); //erreur!
+            mainRessource.get(echange).retirer(4);
             Random r = new Random();
             int k = r.nextInt(4);
             switch (k) {
@@ -335,7 +336,25 @@ public class Joueur {
         }
     }
 
+    public boolean valCC(){
+        int constrCC=0;
+        for (int i = 0; i<mainDeveloppement.size() ; i++) {
+            if ((mainDeveloppement.get(i)).getTypeDeveloppement() == TypeDeveloppement.CCC) {
+                constrCC = constrCC + 1;
+            }
+        }
+        if (constrCC >=1  && nbCc >=2 )
+        return true;
+    return false;
+    }
 
+    public void joueurCarteCC(GraphMap g){
+        if(valCC()){
+        CC.add(g.ClickConstructionControleContinus(this));
+        CC.add(g.ClickConstructionControleContinus(this));
+        nbCc=nbCc-2;
+        }
+    }
 
     public void jouerCarteDeveloppement(CarteDeveloppement c){
     }
