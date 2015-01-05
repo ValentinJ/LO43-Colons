@@ -209,26 +209,47 @@ public class Joueur {
         int valeur;
         int nbcarteajeter = 0;
         int cmptr=0;
+        int nbrCarteRessourcesDifferentes;
 
         if(nombreCarteRessource() > 7){
+            System.out.println("Le joueur "+this.getNom()+" a plus de 7 cartes !");
             nbcarteajeter= (int)Math.floor((double)(nombreCarteRessource()/2));
             System.out.println("Nombre de cartes à jeter : "+nbcarteajeter);
 
             for(int i = 0 ; i<nbcarteajeter ; i++){
-                valeur = 0 + r.nextInt(nombreCarteRessource());
-
-                for(TypeRessource p : mainRessource.keySet()) {
-                    i += mainRessource.get(p).getNombre();
+                System.out.println("Carte "+i);
+                nbrCarteRessourcesDifferentes=0;
+                for(Pile p : mainRessource.values()){
+                    if(p.getNombre()!=0){
+                        nbrCarteRessourcesDifferentes++;
+                    }
                 }
+                valeur = 0 + r.nextInt(nbrCarteRessourcesDifferentes);
 
-                i++;
+                cmptr=0;
+                for(TypeRessource p : mainRessource.keySet()) {
+                    if(cmptr==valeur) {
+                        System.out.println("On retire une carte de type "+p.toString());
+                        mainRessource.get(p).retirer();
+                    }
+                    cmptr++;
+                }
             }
         }
     }
 
     public void transformerUV2(GraphMap g){
         if(verifierAchatUV2()) {
-            uvs.add(g.ClickConstructionUV2(this));
+            UV2 uvtmp= new UV2();
+            uvtmp = g.ClickConstructionUV2(this);
+            UV1 uv1tmp = new UV1();
+            for(UV1 uv : uvs){
+                if(uv.getId().equals(uvtmp.getId())){
+                    uv1tmp=uv;
+                }
+            }
+            uvs.remove(uv1tmp);
+            uvs.add(uvtmp);
             /*
             for(NoeudConstructible n : uvs){
                 if(n.getId().equals())
