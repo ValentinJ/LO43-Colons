@@ -227,6 +227,11 @@ public class EcranGauche extends JPanel implements ActionListener{
         repaint();
         faceDesDes.removeAll();
         faceDesDes.repaint();
+        try {
+            Thread.sleep(50);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         affichageDes();
         majBouton();
         setBorder(new EmptyBorder(5, 5, 0, 5));

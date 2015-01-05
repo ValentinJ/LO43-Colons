@@ -227,6 +227,11 @@ public class EcranDroit extends JPanel{
         remove(recap);
         remove(interfaceEchange);
         repaint();
+        try {
+            Thread.sleep(50);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         recapInfosJoueurs();
         recap.add(infosJoueur);
 
