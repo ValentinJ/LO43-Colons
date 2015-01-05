@@ -222,8 +222,7 @@ public class EcranGauche extends JPanel implements ActionListener{
                 eB.removeAll();
                 manJeu.finDeTour();
                 frame.miseAJour();  // appel mise a jour de frame principale
-                eB.setMessage("Fin du tour de " + manJeu.getJoueurs().get((manJeu.getTour())%(manJeu.getJoueurs().size()-1)).getNom()
-                              + " et début du tour de " + manJeu.getJoueurCourrant().getNom());
+                eB.setMessage("Début du tour de " + manJeu.getJoueurCourrant().getNom());
                 eB.setMessage(manJeu.msgGenerationR());
             }
             else{
