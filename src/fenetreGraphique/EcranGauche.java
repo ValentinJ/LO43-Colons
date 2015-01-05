@@ -88,8 +88,10 @@ public class EcranGauche extends JPanel implements ActionListener{
         affichageJouerCarte();
         affichageDes();
         add(achatCarteDev);
-
-        miseAJour(manJeu);
+        add(finDeTour);
+        add(faceDesDes);
+        add(jouerCarte);
+        add(construction);
     }
 
     //TODO visibilité des boutons
