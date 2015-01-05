@@ -176,6 +176,7 @@ public class ManagerJeu {
         for(Joueur jou : joueurs){
             t = jou.getNbUvs();
             jou.setScore(t.get(0)+t.get(1));
+            
         }
         /*
         // besoin accesseur coord UV : "getUV1()" et "getUV2()"
