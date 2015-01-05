@@ -2,6 +2,7 @@ package fenetreGraphique;
 
 import colonsUTBM.Joueur;
 import colonsUTBM.ManagerJeu;
+import colonsUTBM.UV1;
 import colonsUTBM.UV2;
 
 import javax.imageio.ImageIO;
@@ -39,9 +40,13 @@ public class EcranGauche extends JPanel implements ActionListener{
     // jouer carte dev (*4)
     public JPanel jouerCarte;
     public JButton Ancien;
+    public JLabel nbAncien;
     public JButton CCC;
+    public JLabel nbCCC;
     public JButton Decouverte;
+    public JLabel nbDecouverte;
     public JButton Monopole;
+    public JLabel nbMonopole;
 
     public Image imgBierre;
     public Image imgSommeil;
@@ -340,14 +345,23 @@ public class EcranGauche extends JPanel implements ActionListener{
         Ancien.addActionListener(this);
         CCC.addActionListener(this);
 
-        jouerCarte = new JPanel();
+        // TODO faire mise a jour de ça aussi
+        nbAncien = new JLabel(" ici ");
+        nbDecouverte = new JLabel(" ici ");
+        nbMonopole = new JLabel(" ici ");
+        nbCCC = new JLabel(" ici ");
+
+        jouerCarte = new JPanel(new GridLayout(4, 2));
         jouerCarte.setBorder(new EmptyBorder(5, 0, 0, 5));
         jouerCarte.setBorder(BorderFactory.createTitledBorder("Jouer carte"));
-        jouerCarte.setLayout(new GridLayout(4, 1));
         jouerCarte.add(Decouverte);
+        jouerCarte.add(nbDecouverte);
         jouerCarte.add(Monopole);
+        jouerCarte.add(nbMonopole);
         jouerCarte.add(Ancien);
+        jouerCarte.add(nbAncien);
         jouerCarte.add(CCC);
+        jouerCarte.add(nbCCC);
     }
 
 
