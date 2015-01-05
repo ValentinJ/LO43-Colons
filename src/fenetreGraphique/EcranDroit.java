@@ -353,13 +353,17 @@ public class EcranDroit extends JPanel{
         infosJoueur.setBorder(BorderFactory.createTitledBorder("Renseignement"));
     }
 
-    public void MAJinterfaceEchange(ManagerJeu _manJeu){
+    public void MAJinterfaceEchange(){
+        int n = ( (manJeu.getTour())%((manJeu.getJoueurs()).size()) );
+        interfaceEchange.removeAll();
+        interfaceEchange.repaint();
+
         for (int i = 0; i < interfaceEchange.getComponentCount(); i++){
-            if (i == ((_manJeu.getTour())%((_manJeu.getJoueurs()).size())) ){
-                interfaceEchange.getComponent(i).setVisible(false);
+            if (i == ((manJeu.getTour())%((manJeu.getJoueurs()).size())) ){
+                (interfaceEchange.getComponent(i)).setVisible(false);
             }
             else{
-                interfaceEchange.getComponent(i).setVisible(true);
+                (interfaceEchange.getComponent(i)).setVisible(true);
             }
         }
     }
@@ -376,7 +380,7 @@ public class EcranDroit extends JPanel{
         interfaceEchange.add("Banque", Banque);
         interfaceEchange.setOpaque(true);
 
-        MAJinterfaceEchange(manJeu);
+        MAJinterfaceEchange();
     }
 
     public void MiseAJour(ManagerJeu _manJeu){
@@ -391,7 +395,7 @@ public class EcranDroit extends JPanel{
         }
         MAJinstanciationVariableJoueurs();
 
-        MAJinterfaceEchange(manJeu);
+        MAJinterfaceEchange();
 
     }
 
