@@ -53,6 +53,10 @@ public class EcranGauche extends JPanel implements ActionListener{
     public JPanel faceDesDes;
     public Image imgDes1;
     public Image imgDes2;
+    protected JLabel des1;
+    protected JLabel des2;
+    protected GridLayout gridLayoutDes;
+
 
     public EcranBas eB;
 
@@ -86,13 +90,24 @@ public class EcranGauche extends JPanel implements ActionListener{
 
         affichageConstruction();
         affichageJouerCarte();
+
+        gridLayoutDes = new GridLayout(1,2);
+        faceDesDes = new JPanel(gridLayoutDes);
+        des1 = new JLabel();
+        des2 = new JLabel();
+        faceDesDes.add(des1);
+        faceDesDes.add(des2);
         affichageDes();
-        //add(achatCarteDev);
-        //add(finDeTour);
-        //add(faceDesDes);
-        //add(jouerCarte);
-        //add(construction);
+
+
+        add(achatCarteDev);
+        add(finDeTour);
+        add(faceDesDes);
+        add(jouerCarte);
+        add(construction);
+
         miseAJour(manJeu);
+        validate();
     }
 
     //TODO visibilité des boutons
@@ -223,10 +238,9 @@ public class EcranGauche extends JPanel implements ActionListener{
     public void miseAJour(ManagerJeu _manJeu){
         manJeu = _manJeu;
 
-        removeAll();
-        repaint();
-        faceDesDes.removeAll();
-        faceDesDes.repaint();
+        //removeAll();
+        //repaint();
+
         try {
             Thread.sleep(50);
         } catch (InterruptedException e) {
@@ -234,13 +248,14 @@ public class EcranGauche extends JPanel implements ActionListener{
         }
         affichageDes();
         majBouton();
+        /*
         setBorder(new EmptyBorder(5, 5, 0, 5));
         add(achatCarteDev);
         add(finDeTour);
         add(faceDesDes);
         add(jouerCarte);
         add(construction);
-
+        */
         // parcours carte dispo du joueur en cour
 
         // bloque les boutons
@@ -255,8 +270,9 @@ public class EcranGauche extends JPanel implements ActionListener{
         return img;
     }
 
+
+
     public void affichageDes(){
-        faceDesDes = new JPanel(new GridLayout(1,2));
         try {
             imgDes1 = ImageIO.read(new File(System.getProperty("user.dir") +"/img/" + manJeu.getDes().getImgV1()));
         } catch (IOException e) {e.printStackTrace();}
@@ -269,9 +285,8 @@ public class EcranGauche extends JPanel implements ActionListener{
         imgDes2 = scaleImage(imgDes2,75,75);
         ImageIcon imgIcon1 = new ImageIcon(imgDes1){{setOpaque(false);}};
         ImageIcon imgIcon2 = new ImageIcon(imgDes2){{setOpaque(false);}};
-
-        faceDesDes.add(new JLabel(imgIcon1));
-        faceDesDes.add(new JLabel(imgIcon2));
+        des1.setIcon(imgIcon1);
+        des2.setIcon(imgIcon2);
     }
 
     public void affichageConstruction(){

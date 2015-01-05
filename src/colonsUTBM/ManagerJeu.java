@@ -92,6 +92,7 @@ public class ManagerJeu {
                 System.out.println("Lancé des dés : " + des.getTotalDes());
                 System.out.println("DEBUT : TOUR n°"+tour+" pour le joueur "+j.getNom());
                 productionRessource(des.getTotalDes());
+                f.miseAJour();
                 tourCourant=tour;
 
                 if(des.getTotalDes()==7) {
