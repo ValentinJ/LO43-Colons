@@ -169,7 +169,7 @@ public class EcranDroit extends JPanel{
         enteteV.add(new JLabel("Score"));
     }
 
-    public void MAJinfoJ1(){
+    public void instanciationVariableJoueurs(){
         nomJ1 = new JLabel((Joueurs.get(0)).getNom());
         bierreJ1 = new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(TypeRessource.BIERE)).getNombre()) );
         sommeilJ1 = new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(TypeRessource.SOMMEIL)).getNombre()) );
@@ -181,9 +181,7 @@ public class EcranDroit extends JPanel{
         nbAncienJ1 = new JLabel(Integer.toString( ((Joueurs.get(0)).getAncien())));
         nbCCJ1 = new JLabel(Integer.toString( ((Joueurs.get(0)).getCCsize())));
         scoreJ1 = new JLabel(Integer.toString( ((Joueurs.get(0)).getScore())));
-    }
 
-    public void MAJinfoJ2(){
         nomJ2 = new JLabel((Joueurs.get(1)).getNom());
         bierreJ2 = new JLabel(Integer.toString( ((Joueurs.get(1)).getMainRessource(TypeRessource.BIERE)).getNombre()) );
         sommeilJ2 = new JLabel(Integer.toString( ((Joueurs.get(1)).getMainRessource(TypeRessource.SOMMEIL)).getNombre()) );
@@ -195,9 +193,7 @@ public class EcranDroit extends JPanel{
         nbAncienJ2 = new JLabel(Integer.toString( ((Joueurs.get(1)).getAncien())));
         nbCCJ2 = new JLabel(Integer.toString( ((Joueurs.get(1)).getCCsize())));
         scoreJ2 = new JLabel(Integer.toString( ((Joueurs.get(1)).getScore())));
-    }
 
-    public void MAJinfoJ3(){
         nomJ3 = new JLabel((Joueurs.get(2)).getNom());
         bierreJ3 = new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(TypeRessource.BIERE)).getNombre()) );
         sommeilJ3 = new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(TypeRessource.SOMMEIL)).getNombre()) );
@@ -209,9 +205,7 @@ public class EcranDroit extends JPanel{
         nbAncienJ3 = new JLabel(Integer.toString( ((Joueurs.get(2)).getAncien())));
         nbCCJ3 = new JLabel(Integer.toString( ((Joueurs.get(2)).getCCsize())));
         scoreJ3 = new JLabel(Integer.toString( ((Joueurs.get(2)).getScore())));
-    }
 
-    public void MAJinfoJ4(){
         if  (Joueurs.size() > 3) {
             nomJ4 = new JLabel((Joueurs.get(3)).getNom());
             bierreJ4 = new JLabel(Integer.toString(((Joueurs.get(3)).getMainRessource(TypeRessource.BIERE)).getNombre()));
@@ -227,9 +221,63 @@ public class EcranDroit extends JPanel{
         }
     }
 
+    public void MAJinstanciationVariableJoueurs(){
+        nomJ1.setText((Joueurs.get(0)).getNom());
+        bierreJ1.setText(Integer.toString( ((Joueurs.get(0)).getMainRessource(TypeRessource.BIERE)).getNombre()) );
+        sommeilJ1.setText(Integer.toString( ((Joueurs.get(0)).getMainRessource(TypeRessource.SOMMEIL)).getNombre()) );
+        cafeJ1.setText(Integer.toString( ((Joueurs.get(0)).getMainRessource(TypeRessource.CAFE)).getNombre()) );
+        coursJ1.setText(Integer.toString( ((Joueurs.get(0)).getMainRessource(TypeRessource.COURS)).getNombre()) );
+        nourritureJ1.setText(Integer.toString( ((Joueurs.get(0)).getMainRessource(TypeRessource.NOURRITURE)).getNombre()) );
+        nbUV1J1.setText(Integer.toString((((Joueurs.get(0)).getNbUvs()).get(0))));
+        nbUV2J1.setText(Integer.toString((((Joueurs.get(0)).getNbUvs()).get(1))));
+        nbAncienJ1.setText(Integer.toString( ((Joueurs.get(0)).getAncien())));
+        nbCCJ1.setText(Integer.toString( ((Joueurs.get(0)).getCCsize())));
+        scoreJ1.setText(Integer.toString( ((Joueurs.get(0)).getScore())));
+
+        nomJ2.setText((Joueurs.get(1)).getNom());
+        bierreJ2.setText(Integer.toString( ((Joueurs.get(1)).getMainRessource(TypeRessource.BIERE)).getNombre()) );
+        sommeilJ2.setText(Integer.toString( ((Joueurs.get(1)).getMainRessource(TypeRessource.SOMMEIL)).getNombre()) );
+        cafeJ2.setText(Integer.toString( ((Joueurs.get(1)).getMainRessource(TypeRessource.CAFE)).getNombre()) );
+        coursJ2.setText(Integer.toString( ((Joueurs.get(1)).getMainRessource(TypeRessource.COURS)).getNombre()) );
+        nourritureJ2.setText(Integer.toString( ((Joueurs.get(1)).getMainRessource(TypeRessource.NOURRITURE)).getNombre()) );
+        nbUV1J2.setText(Integer.toString((((Joueurs.get(1)).getNbUvs()).get(0))));
+        nbUV2J2.setText(Integer.toString((((Joueurs.get(1)).getNbUvs()).get(1))));
+        nbAncienJ2.setText(Integer.toString( ((Joueurs.get(1)).getAncien())));
+        nbCCJ2.setText(Integer.toString( ((Joueurs.get(1)).getCCsize())));
+        scoreJ2.setText(Integer.toString( ((Joueurs.get(1)).getScore())));
+
+        nomJ3.setText((Joueurs.get(2)).getNom());
+        bierreJ3.setText(Integer.toString( ((Joueurs.get(2)).getMainRessource(TypeRessource.BIERE)).getNombre()) );
+        sommeilJ3.setText(Integer.toString( ((Joueurs.get(2)).getMainRessource(TypeRessource.SOMMEIL)).getNombre()) );
+        cafeJ3.setText(Integer.toString( ((Joueurs.get(2)).getMainRessource(TypeRessource.CAFE)).getNombre()) );
+        coursJ3.setText(Integer.toString( ((Joueurs.get(2)).getMainRessource(TypeRessource.COURS)).getNombre()) );
+        nourritureJ3.setText(Integer.toString( ((Joueurs.get(2)).getMainRessource(TypeRessource.NOURRITURE)).getNombre()) );
+        nbUV1J3.setText(Integer.toString((((Joueurs.get(2)).getNbUvs()).get(0))));
+        nbUV2J3.setText(Integer.toString((((Joueurs.get(2)).getNbUvs()).get(1))));
+        nbAncienJ3.setText(Integer.toString( ((Joueurs.get(2)).getAncien())));
+        nbCCJ3.setText(Integer.toString( ((Joueurs.get(2)).getCCsize())));
+        scoreJ3.setText(Integer.toString( ((Joueurs.get(2)).getScore())));
+
+        if  (Joueurs.size() > 3) {
+            nomJ4.setText((Joueurs.get(3)).getNom());
+            bierreJ4.setText(Integer.toString(((Joueurs.get(3)).getMainRessource(TypeRessource.BIERE)).getNombre()));
+            sommeilJ4.setText(Integer.toString(((Joueurs.get(3)).getMainRessource(TypeRessource.SOMMEIL)).getNombre()));
+            cafeJ4.setText(Integer.toString(((Joueurs.get(3)).getMainRessource(TypeRessource.CAFE)).getNombre()));
+            coursJ4.setText(Integer.toString(((Joueurs.get(3)).getMainRessource(TypeRessource.COURS)).getNombre()));
+            nourritureJ4.setText(Integer.toString(((Joueurs.get(3)).getMainRessource(TypeRessource.NOURRITURE)).getNombre()));
+            nbUV1J4.setText(Integer.toString((((Joueurs.get(3)).getNbUvs()).get(0))));
+            nbUV2J4.setText(Integer.toString((((Joueurs.get(3)).getNbUvs()).get(1))));
+            nbAncienJ4.setText(Integer.toString(((Joueurs.get(3)).getAncien())));
+            nbCCJ4.setText(Integer.toString(((Joueurs.get(3)).getCCsize())));
+            scoreJ4.setText(Integer.toString(((Joueurs.get(3)).getScore())));
+        }
+
+        changementCouleur();
+    }
+
     public void recapInfosJoueurs(){
 
-        MAJinfoJ1();
+        instanciationVariableJoueurs();
         infosJ1 = new JPanel(new GridLayout(14,1));
         infosJ1.add(nomJ1);
         infosJ1.add(bierreJ1);
@@ -247,7 +295,6 @@ public class EcranDroit extends JPanel{
         infosJ1.add(scoreJ1);
         infosJoueur.add(infosJ1);
 
-        MAJinfoJ2();
         infosJ2 = new JPanel(new GridLayout(14,1));
         infosJ2.add(nomJ2);
         infosJ2.add(bierreJ2);
@@ -265,7 +312,6 @@ public class EcranDroit extends JPanel{
         infosJ2.add(scoreJ2);
         infosJoueur.add(infosJ2);
 
-        MAJinfoJ3();
         infosJ3 = new JPanel(new GridLayout(14,1));
         infosJ3.add(nomJ3);
         infosJ3.add(bierreJ3);
@@ -283,7 +329,6 @@ public class EcranDroit extends JPanel{
         infosJ3.add(scoreJ3);
         infosJoueur.add(infosJ3);
 
-        MAJinfoJ4();
         infosJ4 = new JPanel(new GridLayout(14,1));
         if  (Joueurs.size() > 3) {
             infosJ4.add(nomJ4);
@@ -303,7 +348,7 @@ public class EcranDroit extends JPanel{
             infosJoueur.add(infosJ4);
         }
 
-        changementCouleur(0);
+        changementCouleur();
         infosJoueur.setBorder(BorderFactory.createTitledBorder("Renseignement"));
     }
 
@@ -331,9 +376,6 @@ public class EcranDroit extends JPanel{
         Joueurs = _manJeu.getJoueurs();
         Tour = _manJeu.getTour();
 
-        //infosJoueur.removeAll();
-        recap.removeAll();
-        remove(recap);
         remove(interfaceEchange);
         repaint();
         try {
@@ -343,10 +385,8 @@ public class EcranDroit extends JPanel{
         }
         //recapInfosJoueurs();
         //recap.add(infosJoueur);
-        MAJinfoJ1();
-        MAJinfoJ2();
-        MAJinfoJ3();
-        MAJinfoJ4();
+
+        MAJinstanciationVariableJoueurs();
 
         // interface des echanges
         interfaceEchange = new JTabbedPane();
@@ -361,8 +401,13 @@ public class EcranDroit extends JPanel{
         add(interfaceEchange, new GridBagConstraints(0,1, 1, 1, 0, 0, GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
     }
 
-    public void changementCouleur(int t){
+    public void changementCouleur(){
         int rang = Tour%Joueurs.size();
+
+        infosJ1.setBackground(Color.WHITE);
+        infosJ2.setBackground(Color.WHITE);
+        infosJ3.setBackground(Color.WHITE);
+        infosJ4.setBackground(Color.WHITE);
         if (rang == 0) {
             if (((Joueurs.get(rang)).getCouleur()).equals("blue")) {
                 infosJ1.setBackground(Color.BLUE);
