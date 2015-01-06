@@ -19,6 +19,9 @@ public class Joueur {
     protected List<UV1> uvs;
     protected List<Arete> CC;
 
+    protected boolean plusAncien;
+    protected boolean plusCC;
+
     protected Hashtable<TypeRessource,Pile> mainRessource;
     protected List<CarteDeveloppement> mainDeveloppement;
 
@@ -101,7 +104,8 @@ public class Joueur {
         uvs = new ArrayList<UV1>();
         CC = new ArrayList<Arete>();
         mainDeveloppement = new ArrayList<CarteDeveloppement>();
-
+        plusAncien=false;
+        plusCC=false;
         score = 0;
         nbCc =15;
         nbUv1 =5;
@@ -604,5 +608,21 @@ public class Joueur {
             carton = carton + 2;
         }
         this.setScore(pointUV + pointPTSV + carton);
+    }
+
+    public boolean isPlusAncien() {
+        return plusAncien;
+    }
+
+    public void setPlusAncien(boolean plusAncien) {
+        this.plusAncien = plusAncien;
+    }
+
+    public boolean isPlusCC() {
+        return plusCC;
+    }
+
+    public void setPlusCC(boolean plusCC) {
+        this.plusCC = plusCC;
     }
 }

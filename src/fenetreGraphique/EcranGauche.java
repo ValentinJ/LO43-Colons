@@ -335,7 +335,7 @@ public class EcranGauche extends JPanel implements ActionListener{
         } catch (IOException e) {e.printStackTrace();}
         try {
             //imgDes2 = ImageIO.read(new File(System.getProperty("user.dir") +"/img/" + manJeu.getDes().getImgV2()));
-            imgDes2 = ImageIO.read(getClass().getResource("img/"+manJeu.getDes().getImgV1()));
+            imgDes2 = ImageIO.read(getClass().getResource("img/"+manJeu.getDes().getImgV2()));
         } catch (IOException e) {e.printStackTrace();}
 
         System.out.println("des 1 :" + manJeu.getDes().getImgV1() + " des2 : " + manJeu.getDes().getImgV2() );

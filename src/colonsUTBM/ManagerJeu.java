@@ -153,65 +153,67 @@ public class ManagerJeu {
         }
     }
 
+    public void determinerPlusCC(){
+        Joueur tmp = null;
+        int nbCC;
+        for(Joueur j : joueurs){
+            nbCC = j.getCCsize();
+            if(nbCC>=5){
+                tmp = j;
+                if(j.getCCsize()>tmp.getCCsize()){
+                    tmp=j;
+                }
+            }
+
+        }
+        if(tmp!=null) {
+            for (Joueur j : joueurs) {
+                j.setPlusCC(false);
+                if (tmp.equals(j))
+                    j.setPlusCC(true);
+            }
+        }
+    }
+
+    public void determinerPlusAncien(){
+        Joueur tmp = null;
+        int tab[];
+        int tabtmp[];
+        for(Joueur j : joueurs){
+            tab = j.getAncien();
+            if(tab[2]>=3){
+                tmp = j;
+                tabtmp = tmp.getAncien();
+                if(tab[2]>tabtmp[2]){
+                    tmp=j;
+                }
+            }
+
+        }
+        if(tmp!=null) {
+            for (Joueur j : joueurs) {
+                j.setPlusAncien(false);
+                if (tmp.equals(j))
+                    j.setPlusAncien(true);
+            }
+        }
+    }
+
     //todo calcul des score à finir !!!!
     public void calculerScore(){
         ArrayList<Integer> t;
+        determinerPlusAncien();
+        determinerPlusCC();
         for(Joueur jou : joueurs){
             t = jou.getNbUvs();
             jou.setScore(t.get(0)+t.get(1));
-
-        }
-        /*
-        // besoin accesseur coord UV : "getUV1()" et "getUV2()"
-        ArrayList<Integer> joueurCC = new ArrayList<Integer>();
-        ArrayList<Integer> joueurAncien = new ArrayList<Integer>();
-        // calcule en fonction des UVs
-        for(int i=0; i<joueurs.size(); i++){
-            (joueurs.get(i)).setScore(((joueurs.get(i)).getUV1()) + ((joueurs.get(i)).getUV2())*2);
-            if ( ((joueurs.get(i)).getCCsize()) > 4){
-                joueurCC.add(i);
-            }
-            if ( ((joueurs.get(i)).getAncien()) > 2){
-                joueurAncien.add(i);
-            }
+            if(jou.isPlusAncien())
+                jou.setScore(jou.getScore()+2);
+            if(jou.isPlusCC())
+                jou.setScore(jou.getScore()+2);
         }
 
-        // ajout des bonus de CC
-        if (joueurCC.size() > 0){
-            if (joueurCC.size() == 1){
-                (joueurs.get(joueurCC.get(0))).setScore((joueurs.get(joueurCC.get(0))).getScore() + 2);
-            }
-            else{
-                int place=0;
-                int val=0;
-                for(int i=0; i<joueurCC.size(); i++){
-                    if (val < (joueurs.get(joueurCC.get(i))).getCCsize() ){
-                        val = (joueurs.get(joueurCC.get(i))).getCCsize();
-                        place = i;
-                    }
-                }
-                (joueurs.get(joueurCC.get(place))).setScore((joueurs.get(joueurCC.get(place))).getScore()+2);
-            }
-        }
 
-        // ajout des bonus de Ancien
-        if (joueurAncien.size() > 0){
-            if (joueurAncien.size() == 1){
-                (joueurs.get(joueurAncien.get(0))).setScore((joueurs.get(joueurAncien.get(0))).getScore() + 2);
-            }
-            else{
-                int place=0;
-                int val=0;
-                for(int i=0; i<joueurAncien.size(); i++){
-                    if (val < (joueurs.get(joueurAncien.get(i))).getAncien() ){
-                        val = (joueurs.get(joueurAncien.get(i))).getAncien();
-                        place = i;
-                    }
-                }
-                (joueurs.get(joueurAncien.get(place))).setScore((joueurs.get(joueurAncien.get(place))).getScore()+2);
-            }
-        }
-        */
     }
 
     public int calculerScoreFinal(){
