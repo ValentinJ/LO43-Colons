@@ -55,16 +55,23 @@ public class main {
         //TODO supprimer ce qui suit uen fois le projet terminé
         FenetrePrincipale frame;
         Joueur jtest = new Joueur("Mick",TypeCouleur.BLEU);
-        jtest.getMainRessource(TypeRessource.BIERE).ajouter(10);
-        jtest.getMainRessource(TypeRessource.CAFE).ajouter(10);
-        jtest.getMainRessource(TypeRessource.COURS).ajouter(10);
-        jtest.getMainRessource(TypeRessource.NOURRITURE).ajouter(10);
-        jtest.getMainRessource(TypeRessource.SOMMEIL).ajouter(10);
+        jtest.getMainRessource(TypeRessource.BIERE).ajouter(1000);
+        jtest.getMainRessource(TypeRessource.CAFE).ajouter(1000);
+        jtest.getMainRessource(TypeRessource.COURS).ajouter(1000);
+        jtest.getMainRessource(TypeRessource.NOURRITURE).ajouter(1000);
+        jtest.getMainRessource(TypeRessource.SOMMEIL).ajouter(1000);
+
+        Joueur jtest2 = new Joueur("Elodie",TypeCouleur.ROUGE);
+        jtest2.getMainRessource(TypeRessource.BIERE).ajouter(1000);
+        jtest2.getMainRessource(TypeRessource.CAFE).ajouter(1000);
+        jtest2.getMainRessource(TypeRessource.COURS).ajouter(1000);
+        jtest2.getMainRessource(TypeRessource.NOURRITURE).ajouter(1000);
+        jtest2.getMainRessource(TypeRessource.SOMMEIL).ajouter(1000);
 
         ArrayList<Joueur> jlist = new ArrayList<Joueur> ();
         //todo : TEST : Création automatique des joueurs
         jlist.add(jtest);
-        jlist.add(new Joueur("Elodie ", TypeCouleur.ROUGE));
+        jlist.add(jtest2);
         jlist.add(new Joueur("David ", TypeCouleur.VERT));
         jlist.add(new Joueur("Théoline ", TypeCouleur.JAUNE));
 

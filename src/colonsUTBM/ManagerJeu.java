@@ -159,10 +159,7 @@ public class ManagerJeu {
         for(Joueur j : joueurs){
             nbCC = j.getCCsize();
             if(nbCC>=5){
-                tmp = j;
-                if(j.getCCsize()>tmp.getCCsize()){
-                    tmp=j;
-                }
+                j.setPlusCC(true);
             }
 
         }
