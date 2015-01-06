@@ -20,6 +20,17 @@ public class EcranDroit extends JPanel{
     public FenetrePrincipale frame;
     public ManagerJeu manJeu;
 
+    public JPanel infoBanque;
+    public JPanel recapInfos;
+    public JPanel enteteV;
+    public JPanel infosJoueur;
+
+    public JLabel nbBierreB;
+    public JLabel nbNourritureB;
+    public JLabel nbSommeilB;
+    public JLabel nbCafe;
+    public JLabel nbCoursB;
+    public JLabel nbDevB;
 
     public ArrayList<Joueur> Joueurs;
     public JTabbedPane interfaceEchange;
@@ -29,12 +40,6 @@ public class EcranDroit extends JPanel{
     public OngletEchange EJ3;
     public OngletEchange EJ4;
 
-    public JPanel recap;
-    public JPanel recapInfos;
-
-    public JPanel enteteV;
-    public JPanel infosJoueur;
-
     public JPanel infosJ1;
     public JLabel nomJ1;
     public JLabel bierreJ1;
@@ -42,7 +47,6 @@ public class EcranDroit extends JPanel{
     public JLabel cafeJ1;
     public JLabel coursJ1;
     public JLabel nourritureJ1;
-    public JLabel blanc;
     public JLabel nbUV1J1;
     public JLabel nbUV2J1;
     public JLabel nbAncienJ1;
@@ -108,9 +112,6 @@ public class EcranDroit extends JPanel{
         //setLayout(new GridLayout(2, 1));
         setLayout(new GridBagLayout());
 
-
-        recap = new JPanel(new VerticalBagLayout());
-
         // partie le tableau de maniere dynamique
         recapInfos = new JPanel(new GridLayout(1,2));
 
@@ -147,9 +148,67 @@ public class EcranDroit extends JPanel{
         Banque = new OngletEchange(eB, manJeu);
 
         TableauDechange();
+        RecapInfoBanque();
 
-        add(infosJoueur, new GridBagConstraints(0, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
-        add(interfaceEchange, new GridBagConstraints(0, 1, 1, 1, 0, 0, GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+        add(infoBanque, new GridBagConstraints(0, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
+        add(infosJoueur, new GridBagConstraints(0, 1, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
+        add(interfaceEchange, new GridBagConstraints(0, 2, 1, 1, 0, 0, GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+    }
+
+    public void RecapInfoBanque(){
+        infoBanque = new JPanel(new GridBagLayout());
+        infoBanque.setBorder(BorderFactory.createTitledBorder("Banque"));
+
+        nbBierreB = new JLabel(Integer.toString( (((manJeu.getPilesRessources()).get(TypeRessource.BIERE)).getNombre()) ));
+        nbNourritureB = new JLabel(Integer.toString( (((manJeu.getPilesRessources()).get(TypeRessource.NOURRITURE)).getNombre()) ));
+        nbCafe = new JLabel(Integer.toString( (((manJeu.getPilesRessources()).get(TypeRessource.CAFE)).getNombre()) ));
+        nbCoursB = new JLabel(Integer.toString( (((manJeu.getPilesRessources()).get(TypeRessource.COURS)).getNombre()) ));
+        nbSommeilB = new JLabel(Integer.toString( (((manJeu.getPilesRessources()).get(TypeRessource.SOMMEIL)).getNombre()) ));
+        nbDevB = new JLabel(Integer.toString( (manJeu.getPilesDeveloppement()).size() ));
+
+        infoBanque.add(nbBierreB,
+                new GridBagConstraints(1, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
+        infoBanque.add(new JLabel(new ImageIcon(imgBierre)){{setOpaque(false);}},
+                new GridBagConstraints(2, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
+        infoBanque.add(new JLabel("  "),
+                new GridBagConstraints(3, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
+        infoBanque.add(nbSommeilB,
+                new GridBagConstraints(4, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
+        infoBanque.add(new JLabel(new ImageIcon(imgSommeil)){{setOpaque(false);} },
+                new GridBagConstraints(5, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
+        infoBanque.add(new JLabel("  "),
+                new GridBagConstraints(6, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
+        infoBanque.add(nbCafe,
+                new GridBagConstraints(7, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
+        infoBanque.add(new JLabel(new ImageIcon(imgCafe)){{setOpaque(false);} },
+                new GridBagConstraints(8, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
+        infoBanque.add(new JLabel("  "),
+                new GridBagConstraints(9, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
+        infoBanque.add(nbCoursB,
+                new GridBagConstraints(10, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
+        infoBanque.add(new JLabel(new ImageIcon(imgCours)){{setOpaque(false);} },
+                new GridBagConstraints(11, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
+        infoBanque.add(new JLabel("  "),
+                new GridBagConstraints(12, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
+        infoBanque.add(nbNourritureB,
+                new GridBagConstraints(13, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
+        infoBanque.add(new JLabel(new ImageIcon(imgNourriture)){{setOpaque(false);} },
+                new GridBagConstraints(14, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
+        infoBanque.add(new JLabel("  "),
+                new GridBagConstraints(15, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
+        infoBanque.add(nbDevB,
+                new GridBagConstraints(16, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
+        infoBanque.add(new JLabel(" carte dev"),
+                new GridBagConstraints(17, 0, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
+    }
+
+    public void MAJInfoBanque(){
+        nbBierreB.setText(Integer.toString( (((manJeu.getPilesRessources()).get(TypeRessource.BIERE)).getNombre()) ));
+        nbNourritureB.setText(Integer.toString( (((manJeu.getPilesRessources()).get(TypeRessource.NOURRITURE)).getNombre()) ));
+        nbCafe.setText(Integer.toString( (((manJeu.getPilesRessources()).get(TypeRessource.CAFE)).getNombre()) ));
+        nbCoursB.setText(Integer.toString( (((manJeu.getPilesRessources()).get(TypeRessource.COURS)).getNombre()) ));
+        nbSommeilB.setText(Integer.toString( (((manJeu.getPilesRessources()).get(TypeRessource.SOMMEIL)).getNombre()) ));
+        nbDevB.setText(Integer.toString( (manJeu.getPilesDeveloppement()).size() ));
     }
 
     public void enteteVertical(){
@@ -395,6 +454,7 @@ public class EcranDroit extends JPanel{
 
         MAJinterfaceEchange();
 
+        MAJInfoBanque();
     }
 
     public void changementCouleur(){
