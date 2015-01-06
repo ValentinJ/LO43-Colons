@@ -188,6 +188,13 @@ public class Joueur {
          */
     }
 
+    public void validerCartesEnAttente(){
+        for(CarteDeveloppement c : mainDeveloppement){
+            if(!c.isAttenteValide())
+                c.attenteValide=true;
+        }
+    }
+
     public void construireUV1(GraphMap g, Hashtable<TypeRessource,Pile> h){
         if(verifierAchatUV1()) {
             uvs.add(g.ClickConstructionUV1(this));
@@ -297,11 +304,13 @@ public class Joueur {
         }
     }
 
-    public void construireCC(GraphMap g){
+    public void construireCC(GraphMap g, Hashtable<TypeRessource, Pile> h ){
         if(verifierAchatControleContinu()) {
             CC.add(g.ClickConstructionControleContinus(this));
             getMainRessource().get(TypeRessource.BIERE).retirer();
+            h.get(TypeRessource.BIERE).ajouter();
             getMainRessource().get(TypeRessource.NOURRITURE).retirer();
+            h.get(TypeRessource.NOURRITURE).ajouter();
             nbCc--;
         }
     }

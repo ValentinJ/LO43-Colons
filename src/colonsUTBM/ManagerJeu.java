@@ -116,6 +116,7 @@ public class ManagerJeu {
                         e.printStackTrace();
                     }
                 }
+                j.validerCartesEnAttente();
                 //todo test calcul score
                 calculerScore();
                 for(Joueur jjj : joueurs){

@@ -192,7 +192,7 @@ public class EcranGauche extends JPanel implements ActionListener{
                 t = new Thread("exemple") {
                     @Override
                     public void run() {
-                        manJeu.getJoueurCourrant().construireCC(manJeu.getTerrain());
+                        manJeu.getJoueurCourrant().construireCC(manJeu.getTerrain(), manJeu.getPilesRessources());
                         manJeu.getF().miseAJour();
                         eB.setMessage("Controle continus placé avec succès !");
                     }
