@@ -224,11 +224,11 @@ public class EcranGauche extends JPanel implements ActionListener{
         if (e.getSource() == finDeTour) {
             if(t == null || t.getState()== Thread.State.TERMINATED) {
                 eB.delete();
-                eB.removeAll();
+                //eB.removeAll();
                 manJeu.finDeTour();
                 frame.miseAJour();  // appel mise a jour de frame principale
-                eB.setMessage("Début du tour de " + manJeu.getJoueurCourrant().getNom());
                 eB.setMessage(manJeu.msgGenerationR());
+                eB.setMessage("Début du tour de " + manJeu.getJoueurCourrant().getNom());
             }
             else{
                 eB.setMessage("Vous ne pouvez finir votre tour, vous n'avez pas terminer l'action précédemment déclanchée");
