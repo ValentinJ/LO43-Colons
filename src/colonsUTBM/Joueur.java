@@ -444,51 +444,82 @@ public class Joueur {
 
     public ArrayList<Arete> getCC(){ return (ArrayList<Arete>) CC;}
 
-    public int getAncien() {
-        int nb_ancien = 0;
+    public int[] getAncien() {
+        int nb[] = {0,0,0};
         for (int i = 0; i<mainDeveloppement.size() ; i++){
             if ( (mainDeveloppement.get(i)).getTypeDeveloppement() == TypeDeveloppement.ANCIEN ){
-                nb_ancien = nb_ancien + 1;
+                if(mainDeveloppement.get(i).isDansLaMain())
+                    nb[0] = nb[0] + 1;
+                else
+                    nb[2] +=1;
+                if(!mainDeveloppement.get(i).isAttenteValide())
+                    nb[1]+=1;
             }
         }
-        return nb_ancien;
+        return nb;
     }
 
-    public int getCCC() {
-        int nb = 0;
+    /**
+     * indice 0 : nbr total cartes du type CCC dans la main
+     * indice 1 : nbr total cartes du type CCC dans la main et non valide
+     * indice 2 : nbr total cartes du type CCC jouées
+     * @return
+     */
+    public int[] getCCC() {
+        int nb[] = {0,0,0};
         for (int i = 0; i<mainDeveloppement.size() ; i++){
             if ( (mainDeveloppement.get(i)).getTypeDeveloppement() == TypeDeveloppement.CCC ){
-                nb = nb + 1;
+                if(mainDeveloppement.get(i).isDansLaMain())
+                nb[0] = nb[0] + 1;
+                else
+                nb[2] +=1;
+                if(!mainDeveloppement.get(i).isAttenteValide())
+                    nb[1]+=1;
             }
         }
         return nb;
     }
 
-    public int getDecouverte() {
-        int nb = 0;
+    public int[] getDecouverte() {
+        int nb[] = {0,0,0};
         for (int i = 0; i<mainDeveloppement.size() ; i++){
             if ( (mainDeveloppement.get(i)).getTypeDeveloppement() == TypeDeveloppement.DECOUVERTE ){
-                nb = nb + 1;
+                if(mainDeveloppement.get(i).isDansLaMain())
+                    nb[0] = nb[0] + 1;
+                else
+                    nb[2] +=1;
+                if(!mainDeveloppement.get(i).isAttenteValide())
+                    nb[1]+=1;
             }
         }
         return nb;
     }
 
-    public int getMonopole() {
-        int nb = 0;
+    public int[] getMonopole() {
+        int nb[] = {0,0,0};
         for (int i = 0; i<mainDeveloppement.size() ; i++){
             if ( (mainDeveloppement.get(i)).getTypeDeveloppement() == TypeDeveloppement.MONOPOLE ){
-                nb = nb + 1;
+                if(mainDeveloppement.get(i).isDansLaMain())
+                    nb[0] = nb[0] + 1;
+                else
+                    nb[2] +=1;
+                if(!mainDeveloppement.get(i).isAttenteValide())
+                    nb[1]+=1;
             }
         }
         return nb;
     }
 
-    public int getPointVictoire() {
-        int nb = 0;
+    public int[] getPointVictoire() {
+        int nb[] = {0,0,0};
         for (int i = 0; i<mainDeveloppement.size() ; i++){
             if ( (mainDeveloppement.get(i)).getTypeDeveloppement() == TypeDeveloppement.POINTVICTOIRE ){
-                nb = nb + 1;
+                if(mainDeveloppement.get(i).isDansLaMain())
+                    nb[0] = nb[0] + 1;
+                else
+                    nb[2] +=1;
+                if(!mainDeveloppement.get(i).isAttenteValide())
+                    nb[1]+=1;
             }
         }
         return nb;

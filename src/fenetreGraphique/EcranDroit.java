@@ -230,6 +230,7 @@ public class EcranDroit extends JPanel{
     }
 
     public void instanciationVariableJoueurs(){
+        int tab[];
         nomJ1 = new JLabel((Joueurs.get(0)).getNom());
         bierreJ1 = new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(TypeRessource.BIERE)).getNombre()) );
         sommeilJ1 = new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(TypeRessource.SOMMEIL)).getNombre()) );
@@ -238,7 +239,8 @@ public class EcranDroit extends JPanel{
         nourritureJ1 = new JLabel(Integer.toString( ((Joueurs.get(0)).getMainRessource(TypeRessource.NOURRITURE)).getNombre()) );
         nbUV1J1 = new JLabel(Integer.toString((((Joueurs.get(0)).getNbUvs()).get(0))));
         nbUV2J1 = new JLabel(Integer.toString((((Joueurs.get(0)).getNbUvs()).get(1))));
-        nbAncienJ1 = new JLabel(Integer.toString( ((Joueurs.get(0)).getAncien())));
+        tab = ((Joueurs.get(0)).getAncien());
+        nbAncienJ1 = new JLabel(Integer.toString( tab[2]));
         nbCCJ1 = new JLabel(Integer.toString( ((Joueurs.get(0)).getCCsize())));
         scoreJ1 = new JLabel(Integer.toString( ((Joueurs.get(0)).getScore())));
 
@@ -250,7 +252,8 @@ public class EcranDroit extends JPanel{
         nourritureJ2 = new JLabel(Integer.toString( ((Joueurs.get(1)).getMainRessource(TypeRessource.NOURRITURE)).getNombre()) );
         nbUV1J2 = new JLabel(Integer.toString((((Joueurs.get(1)).getNbUvs()).get(0))));
         nbUV2J2 = new JLabel(Integer.toString((((Joueurs.get(1)).getNbUvs()).get(1))));
-        nbAncienJ2 = new JLabel(Integer.toString( ((Joueurs.get(1)).getAncien())));
+        tab = ((Joueurs.get(1)).getAncien());
+        nbAncienJ2 = new JLabel( Integer.toString( tab[2]) );
         nbCCJ2 = new JLabel(Integer.toString( ((Joueurs.get(1)).getCCsize())));
         scoreJ2 = new JLabel(Integer.toString( ((Joueurs.get(1)).getScore())));
 
@@ -262,7 +265,8 @@ public class EcranDroit extends JPanel{
         nourritureJ3 = new JLabel(Integer.toString( ((Joueurs.get(2)).getMainRessource(TypeRessource.NOURRITURE)).getNombre()) );
         nbUV1J3 = new JLabel(Integer.toString((((Joueurs.get(2)).getNbUvs()).get(0))));
         nbUV2J3 = new JLabel(Integer.toString((((Joueurs.get(2)).getNbUvs()).get(1))));
-        nbAncienJ3 = new JLabel(Integer.toString( ((Joueurs.get(2)).getAncien())));
+        tab = ((Joueurs.get(2)).getAncien());
+        nbAncienJ3 = new JLabel(Integer.toString( tab[2]));
         nbCCJ3 = new JLabel(Integer.toString( ((Joueurs.get(2)).getCCsize())));
         scoreJ3 = new JLabel(Integer.toString( ((Joueurs.get(2)).getScore())));
 
@@ -275,13 +279,15 @@ public class EcranDroit extends JPanel{
             nourritureJ4 = new JLabel(Integer.toString(((Joueurs.get(3)).getMainRessource(TypeRessource.NOURRITURE)).getNombre()));
             nbUV1J4 = new JLabel(Integer.toString((((Joueurs.get(3)).getNbUvs()).get(0))));
             nbUV2J4 = new JLabel(Integer.toString((((Joueurs.get(3)).getNbUvs()).get(1))));
-            nbAncienJ4 = new JLabel(Integer.toString(((Joueurs.get(3)).getAncien())));
+            tab = ((Joueurs.get(3)).getAncien());
+            nbAncienJ4 = new JLabel( Integer.toString( tab[2]) );
             nbCCJ4 = new JLabel(Integer.toString(((Joueurs.get(3)).getCCsize())));
             scoreJ4 = new JLabel(Integer.toString(((Joueurs.get(3)).getScore())));
         }
     }
 
     public void MAJinstanciationVariableJoueurs(){
+        int tab[];
         nomJ1.setText((Joueurs.get(0)).getNom());
         bierreJ1.setText(Integer.toString( ((Joueurs.get(0)).getMainRessource(TypeRessource.BIERE)).getNombre()) );
         sommeilJ1.setText(Integer.toString( ((Joueurs.get(0)).getMainRessource(TypeRessource.SOMMEIL)).getNombre()) );
@@ -290,7 +296,8 @@ public class EcranDroit extends JPanel{
         nourritureJ1.setText(Integer.toString( ((Joueurs.get(0)).getMainRessource(TypeRessource.NOURRITURE)).getNombre()) );
         nbUV1J1.setText(Integer.toString((((Joueurs.get(0)).getNbUvs()).get(0))));
         nbUV2J1.setText(Integer.toString((((Joueurs.get(0)).getNbUvs()).get(1))));
-        nbAncienJ1.setText(Integer.toString( ((Joueurs.get(0)).getAncien())));
+        tab = ((Joueurs.get(0)).getAncien());
+        nbAncienJ1.setText( Integer.toString( tab[2]) );
         nbCCJ1.setText(Integer.toString( ((Joueurs.get(0)).getCCsize())));
         scoreJ1.setText(Integer.toString( ((Joueurs.get(0)).getScore())));
 
@@ -302,7 +309,8 @@ public class EcranDroit extends JPanel{
         nourritureJ2.setText(Integer.toString(((Joueurs.get(1)).getMainRessource(TypeRessource.NOURRITURE)).getNombre()));
         nbUV1J2.setText(Integer.toString((((Joueurs.get(1)).getNbUvs()).get(0))));
         nbUV2J2.setText(Integer.toString((((Joueurs.get(1)).getNbUvs()).get(1))));
-        nbAncienJ2.setText(Integer.toString(((Joueurs.get(1)).getAncien())));
+        tab = ((Joueurs.get(1)).getAncien());
+        nbAncienJ2.setText( Integer.toString( tab[2]) );
         nbCCJ2.setText(Integer.toString(((Joueurs.get(1)).getCCsize())));
         scoreJ2.setText(Integer.toString(((Joueurs.get(1)).getScore())));
 
@@ -314,7 +322,8 @@ public class EcranDroit extends JPanel{
         nourritureJ3.setText(Integer.toString(((Joueurs.get(2)).getMainRessource(TypeRessource.NOURRITURE)).getNombre()));
         nbUV1J3.setText(Integer.toString((((Joueurs.get(2)).getNbUvs()).get(0))));
         nbUV2J3.setText(Integer.toString((((Joueurs.get(2)).getNbUvs()).get(1))));
-        nbAncienJ3.setText(Integer.toString(((Joueurs.get(2)).getAncien())));
+        tab = ((Joueurs.get(2)).getAncien());
+        nbAncienJ3.setText( Integer.toString( tab[2]) );
         nbCCJ3.setText(Integer.toString(((Joueurs.get(2)).getCCsize())));
         scoreJ3.setText(Integer.toString(((Joueurs.get(2)).getScore())));
 
@@ -327,7 +336,8 @@ public class EcranDroit extends JPanel{
             nourritureJ4.setText(Integer.toString(((Joueurs.get(3)).getMainRessource(TypeRessource.NOURRITURE)).getNombre()));
             nbUV1J4.setText(Integer.toString((((Joueurs.get(3)).getNbUvs()).get(0))));
             nbUV2J4.setText(Integer.toString((((Joueurs.get(3)).getNbUvs()).get(1))));
-            nbAncienJ4.setText(Integer.toString(((Joueurs.get(3)).getAncien())));
+            tab = ((Joueurs.get(3)).getAncien());
+            nbAncienJ4.setText( Integer.toString( tab[2]) );
             nbCCJ4.setText(Integer.toString(((Joueurs.get(3)).getCCsize())));
             scoreJ4.setText(Integer.toString(((Joueurs.get(3)).getScore())));
         }

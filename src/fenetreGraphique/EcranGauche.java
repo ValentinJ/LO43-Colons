@@ -345,6 +345,7 @@ public class EcranGauche extends JPanel implements ActionListener{
     }
 
     public void affichageJouerCarte(){
+        int tab[];
         Decouverte = new JButton("Decouverte");
         Monopole   = new JButton("Monopole");
         Ancien     = new JButton("Ancien");
@@ -354,11 +355,16 @@ public class EcranGauche extends JPanel implements ActionListener{
         Ancien.addActionListener(this);
         CCC.addActionListener(this);
 
-        nbAncien = new JLabel(Integer.toString(manJeu.getJoueurCourrant().getAncien()));
-        nbDecouverte = new JLabel(Integer.toString(manJeu.getJoueurCourrant().getDecouverte()));
-        nbMonopole = new JLabel(Integer.toString(manJeu.getJoueurCourrant().getMonopole()));
-        nbCCC = new JLabel(Integer.toString(manJeu.getJoueurCourrant().getCCC()));
-        nbPointVictoire = new JLabel(Integer.toString(manJeu.getJoueurCourrant().getPointVictoire()) + " carte(s) point de victoire");
+        tab = (manJeu.getJoueurCourrant().getAncien());
+        nbAncien = new JLabel( Integer.toString( tab[0])+"("+Integer.toString( tab[1])+") - "+Integer.toString( tab[2]) );
+        tab = (manJeu.getJoueurCourrant().getDecouverte());
+        nbDecouverte = new JLabel( Integer.toString( tab[0])+"("+Integer.toString( tab[1])+") - "+Integer.toString( tab[2]) );
+        tab = (manJeu.getJoueurCourrant().getMonopole());
+        nbMonopole = new JLabel( Integer.toString( tab[0])+"("+Integer.toString( tab[1])+") - "+Integer.toString( tab[2]) );
+        tab = (manJeu.getJoueurCourrant().getCCC());
+        nbCCC = new JLabel( Integer.toString( tab[0])+"("+Integer.toString( tab[1])+") - "+Integer.toString( tab[2]) );
+        tab = (manJeu.getJoueurCourrant().getPointVictoire());
+        nbPointVictoire = new JLabel(Integer.toString( tab[0])+"("+Integer.toString( tab[1])+") - "+Integer.toString( tab[2]) + " carte(s) point de victoire");
 
 
         /*
@@ -390,11 +396,17 @@ public class EcranGauche extends JPanel implements ActionListener{
     }
 
     public void MAJinfoNbrJouerCarte(){
-        nbAncien.setText(Integer.toString(manJeu.getJoueurCourrant().getAncien()));
-        nbDecouverte.setText(Integer.toString(manJeu.getJoueurCourrant().getDecouverte()));
-        nbMonopole.setText(Integer.toString(manJeu.getJoueurCourrant().getMonopole()));
-        nbCCC.setText(Integer.toString(manJeu.getJoueurCourrant().getCCC()));
-        nbPointVictoire.setText(Integer.toString(manJeu.getJoueurCourrant().getPointVictoire()) + " carte(s) point de victoire");
+        int tab[];
+        tab = (manJeu.getJoueurCourrant().getAncien());
+        nbAncien.setText(Integer.toString( tab[0])+"("+Integer.toString( tab[1])+") - "+Integer.toString( tab[2]) );
+        tab = (manJeu.getJoueurCourrant().getDecouverte());
+        nbDecouverte.setText( Integer.toString( tab[0])+"("+Integer.toString( tab[1])+") - "+Integer.toString( tab[2]) );
+        tab = (manJeu.getJoueurCourrant().getMonopole());
+        nbMonopole.setText( Integer.toString( tab[0])+"("+Integer.toString( tab[1])+") - "+Integer.toString( tab[2]) );
+        tab = (manJeu.getJoueurCourrant().getCCC());
+        nbCCC.setText( Integer.toString( tab[0])+"("+Integer.toString( tab[1])+") - "+Integer.toString( tab[2]) );
+        tab = (manJeu.getJoueurCourrant().getPointVictoire());
+        nbPointVictoire.setText( Integer.toString( tab[0])+"("+Integer.toString( tab[1])+") - "+Integer.toString( tab[2]) + " carte(s) point de victoire");
     }
 
 
