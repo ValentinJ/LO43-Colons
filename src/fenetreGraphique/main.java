@@ -13,8 +13,9 @@ import java.util.ArrayList;
 public class main {
     public static void main(String []arg) {
         // TODO decommenter ce paragraphe fait fonctionner prog
-/*
         System.setProperty("org.graphstream.ui.renderer","org.graphstream.ui.j2dviewer.J2DGraphRenderer");
+
+/*
 
         FenetrePrincipale frame;
         FenetreFlash f = new FenetreFlash();
