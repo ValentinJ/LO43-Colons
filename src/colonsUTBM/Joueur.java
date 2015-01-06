@@ -172,14 +172,20 @@ public class Joueur {
 
         //todo ajout la carte au joueur
         if(verifierAchatCarteDev()){
+            if(cd.size()!=0) {
+
             getMainRessource().get(TypeRessource.COURS).retirer();
             h.get(TypeRessource.COURS).ajouter();
             getMainRessource().get(TypeRessource.CAFE).retirer();
             h.get(TypeRessource.CAFE).ajouter();
             getMainRessource().get(TypeRessource.SOMMEIL).retirer();
             h.get(TypeRessource.SOMMEIL).ajouter();
-            mainDeveloppement.add(cd.get(0));
-            cd.remove(0);
+
+                mainDeveloppement.add(cd.get(0));
+                cd.remove(0);
+            }
+            else
+                System.out.println("Il n'y a plus de cartes disponnibles !");
         }
         /**
          * verifierAchatCarteDev

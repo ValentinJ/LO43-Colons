@@ -148,6 +148,12 @@ public class EcranGauche extends JPanel implements ActionListener{
         else
             finDeTour.setEnabled(false);
 
+        if(jCourant.verifierAchatCarteDev()){
+            achatCarteDev.setEnabled(true);
+        }
+        else
+            achatCarteDev.setEnabled(false);
+
 
     }
 
@@ -218,6 +224,7 @@ public class EcranGauche extends JPanel implements ActionListener{
         }
         if (e.getSource() == achatCarteDev) {
             manJeu.getJoueurCourrant().achatCarteDev(manJeu.getPilesDeveloppement(), manJeu.getPilesRessources());
+            manJeu.getF().miseAJour();
             // TODO pb ici carte dev du manager vide !
             eB.setMessage("Vous avez obtenu une carte " + manJeu.getJoueurCourrant().getMainDeveloppement().get(manJeu.getJoueurCourrant().getMainDeveloppement().size() - 1).getNom());
         }

@@ -77,7 +77,7 @@ public class ManagerJeu {
                 productionRessource(des.getTotalDes());
                 f.miseAJour();
                 tourCourant=tour;
-
+/*
                 if(des.getTotalDes()==7) {
                     actionEnCours=true;
                     f.miseAJour();
@@ -88,7 +88,7 @@ public class ManagerJeu {
                     actionEnCours=false;
                     f.miseAJour();
                 }
-
+*/
 
                 while(tour==tourCourant){
                     try {
