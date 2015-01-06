@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class main {
     public static void main(String []arg) {
         // TODO decommenter ce paragraphe fait fonctionner prog
-
+/*
         System.setProperty("org.graphstream.ui.renderer","org.graphstream.ui.j2dviewer.J2DGraphRenderer");
 
         FenetrePrincipale frame;
@@ -41,7 +41,7 @@ public class main {
             j = fId.getJoueurs();
             ManagerJeu jeu = new ManagerJeu(j);
             System.out.println("Affichage du jeu...");
-            frame = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, jeu);
+            //frame = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, jeu);
 
             jeu.jouer();
         }
@@ -49,7 +49,8 @@ public class main {
             System.out.println("L'application a été fermé :" + fId.getValider());
             System.exit(0);
         }
-/*
+*/
+
         //TODO supprimer ce qui suit uen fois le projet terminé
         FenetrePrincipale frame;
         Joueur jtest = new Joueur("Mick",TypeCouleur.BLEU);
@@ -66,10 +67,9 @@ public class main {
         jlist.add(new Joueur("David ", TypeCouleur.VERT));
         jlist.add(new Joueur("Théoline ", TypeCouleur.JAUNE));
 
-
         ManagerJeu jeu = new ManagerJeu(jlist);
         jeu.jouer();
-*/
+
 
     }
 }

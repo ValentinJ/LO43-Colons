@@ -231,7 +231,7 @@ public class FenetreIdentification extends JFrame implements ActionListener{
             validate();
         }
 
-
+        int limiteCar = 10;
         // si c est le bouton de confirmation du formulaire
         if (e.getSource() == confirmer){
             // verifier champs nom vide avant de faire une modif
@@ -240,10 +240,24 @@ public class FenetreIdentification extends JFrame implements ActionListener{
                     valider = 1;
 
                     //creation des joueurs
-                    Joueurs.add(new Joueur(t1.getText(), TypeCouleur.BLEU));
-                    Joueurs.add(new Joueur(t2.getText(), TypeCouleur.VERT));
-                    Joueurs.add(new Joueur(t3.getText(), TypeCouleur.ROUGE));
-                    Joueurs.add(new Joueur(t4.getText(), TypeCouleur.JAUNE));
+                    if(t1.getText().length()>limiteCar)
+                        Joueurs.add(new Joueur(t1.getText().substring(0, limiteCar), TypeCouleur.BLEU));
+                    else
+                        Joueurs.add(new Joueur(t1.getText(), TypeCouleur.BLEU));
+                    if(t2.getText().length()>limiteCar)
+                        Joueurs.add(new Joueur(t2.getText().substring(0, limiteCar), TypeCouleur.VERT));
+                    else
+                        Joueurs.add(new Joueur(t2.getText(), TypeCouleur.VERT));
+                    if(t3.getText().length()>limiteCar)
+                        Joueurs.add(new Joueur(t3.getText().substring(0, limiteCar), TypeCouleur.ROUGE));
+                    else
+                        Joueurs.add(new Joueur(t3.getText(), TypeCouleur.ROUGE));
+                    if(t4.getText().length()>limiteCar)
+                        Joueurs.add(new Joueur(t4.getText().substring(0, limiteCar), TypeCouleur.JAUNE));
+                    else
+                        Joueurs.add(new Joueur(t4.getText(), TypeCouleur.JAUNE));
+
+
 
                 } else {
                     msg_error.setVisible(true);
@@ -255,9 +269,21 @@ public class FenetreIdentification extends JFrame implements ActionListener{
                     valider = 1;
 
                     //creation des joueurs
-                    Joueurs.add(new Joueur(t1.getText(), TypeCouleur.BLEU));
-                    Joueurs.add(new Joueur(t2.getText(), TypeCouleur.VERT));
-                    Joueurs.add(new Joueur(t3.getText(), TypeCouleur.ROUGE));
+                    String tmp = t1.getText();
+
+                    if(t1.getText().length()>limiteCar)
+                        Joueurs.add(new Joueur(t1.getText().substring(0, limiteCar), TypeCouleur.BLEU));
+                    else
+                        Joueurs.add(new Joueur(t1.getText(), TypeCouleur.BLEU));
+                    if(t2.getText().length()>limiteCar)
+                        Joueurs.add(new Joueur(t2.getText().substring(0, limiteCar), TypeCouleur.VERT));
+                    else
+                        Joueurs.add(new Joueur(t2.getText(), TypeCouleur.VERT));
+                    if(t3.getText().length()>limiteCar)
+                        Joueurs.add(new Joueur(t3.getText().substring(0, limiteCar), TypeCouleur.ROUGE));
+                    else
+                        Joueurs.add(new Joueur(t3.getText(), TypeCouleur.ROUGE));
+
 
                 }
                 else {
