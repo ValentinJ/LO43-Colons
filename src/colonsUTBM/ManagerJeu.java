@@ -42,25 +42,6 @@ public class ManagerJeu {
         actionEnCours=false;
     }
 
-    public ManagerJeu(ArrayList<Joueur> j, GraphMap t, Point p){
-        joueurs = j;
-        melangerOrdreJoueur();
-        terrain = t;
-        terrain.initMap();
-        des = new Des();
-
-        /*
-        System.setProperty("org.graphstream.ui.renderer","org.graphstream.ui.j2dviewer.J2DGraphRenderer");
-        GraphMap g = new GraphMap(true);
-        g.initMap();
-        g.chargerCSS();
-        g.afficherMap();
-        g.majCSS();
-        */
-        tour = 0;
-
-    }
-
     public void melangerOrdreJoueur(){
         Collections.shuffle(joueurs);
         Collections.shuffle(joueurs);
@@ -172,6 +153,7 @@ public class ManagerJeu {
         }
     }
 
+    //todo calcul des score à finir !!!!
     public void calculerScore(){
         ArrayList<Integer> t;
         for(Joueur jou : joueurs){
