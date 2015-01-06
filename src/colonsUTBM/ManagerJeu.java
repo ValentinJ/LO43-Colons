@@ -61,7 +61,7 @@ public class ManagerJeu {
         System.out.println("Ajout des ressources adjacentes à la 2ième UV");
         for(Joueur j : joueurs){
             for(TypeRessource r : terrain.getVoisinsRessources(j.getUvs().get(1)) ){
-                j.ajoutRessource(r,1,pilesRessources,r,1);
+                j.ajoutRessourceProd(r, 1, pilesRessources, r, 1);
             }
         }
         System.out.println("FIN : PHASES FONDATION DES UV et CC");
@@ -77,7 +77,7 @@ public class ManagerJeu {
                 productionRessource(des.getTotalDes());
                 f.miseAJour();
                 tourCourant=tour;
-/*
+
                 if(des.getTotalDes()==7) {
                     actionEnCours=true;
                     f.miseAJour();
@@ -88,7 +88,7 @@ public class ManagerJeu {
                     actionEnCours=false;
                     f.miseAJour();
                 }
-*/
+
 
                 while(tour==tourCourant){
                     try {
@@ -143,11 +143,11 @@ public class ManagerJeu {
                 // pour chaque noeud adjacent occuper, gain ressource du type de la case <-AjoutRessource
                 if (noeudOccuper.get(j) instanceof UV2) {
                     System.out.println("Ajout de 2 ressources");
-                    ((UV2) noeudOccuper.get(j)).getJ().ajoutRessource(caseProd.get(i).getTr(), 2,pilesRessources,caseProd.get(i).getTr(),2);
+                    ((UV2) noeudOccuper.get(j)).getJ().ajoutRessourceProd(caseProd.get(i).getTr(), 2, pilesRessources, caseProd.get(i).getTr(), 2);
                 }
                 else {
                     System.out.println("Ajout de 1 ressource");
-                    ((UV1) noeudOccuper.get(j)).getJ().ajoutRessource(caseProd.get(i).getTr(), 1,pilesRessources,caseProd.get(i).getTr(),1);
+                    ((UV1) noeudOccuper.get(j)).getJ().ajoutRessourceProd(caseProd.get(i).getTr(), 1, pilesRessources, caseProd.get(i).getTr(), 1);
                 }
             }
         }

@@ -368,7 +368,7 @@ public class Joueur {
                     break;
             }
             //todo à voir car j'ai commenté parceque j'ai changé la fonction (VAL)
-            //ajoutRessource(ajout, 1);
+            //ajoutRessourceProd(ajout, 1);
         }
     }
 
@@ -496,6 +496,11 @@ public class Joueur {
 
 
     public ArrayList<CarteDeveloppement> getMainDeveloppement(){return (ArrayList) mainDeveloppement;}
+
+    public void ajoutRessourceProd(TypeRessource rAAjouter, int nombreRessourceAAjouter, Hashtable<TypeRessource, Pile> h, TypeRessource rAEnlever, int nombreRessourceAEnelever){
+        mainRessource.get(rAAjouter).ajouter(h.get(rAEnlever).retirer(nombreRessourceAEnelever));
+
+    }
 
     public void ajoutRessource(TypeRessource rAAjouter, int nombreRessourceAAjouter, Hashtable<TypeRessource,Pile> h, TypeRessource rAEnlever, int nombreRessourceAEnelever ){
         mainRessource.get(rAAjouter).ajouter(nombreRessourceAAjouter);

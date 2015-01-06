@@ -19,12 +19,26 @@ public class Pile {
     }
 
     public void ajouter() { nombre++; }
-    public void retirer() { nombre--; }
+    public int retirer() {
+        if(nombre>0) {
+            nombre--;
+            return 1;
+        }
+        else
+            return 0;
+    }
     public void ajouter(int nbr){ nombre+=nbr;}
-    public void retirer(int nbr){
-        if(nbr>nombre)
+    public int retirer(int nbr){
+        int tmp=0;
+        if(nombre>nbr){
+            nombre-=nbr;
+            return nbr;
+        }
+        else{
+            tmp=nombre;
             nombre=0;
-        nombre-=nbr;
+            return tmp;
+        }
     }
     public int getNombre() { return nombre; }
     public CarteRessource getRessource() { return ressource; }
