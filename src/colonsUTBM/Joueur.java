@@ -373,22 +373,27 @@ public class Joueur {
     }
 
     public boolean valCC(){
-        int constrCC=0;
-        for (int i = 0; i<mainDeveloppement.size() ; i++) {
-            if ((mainDeveloppement.get(i)).getTypeDeveloppement() == TypeDeveloppement.CCC) {
-                constrCC = constrCC + 1;
-            }
-        }
-        if (constrCC >=1  && nbCc >=2 )
+        int nbCCC []=getCCC();
+        if (nbCCC[0] > nbCCC[1]  && nbCc >=2 )
         return true;
     return false;
     }
 
-    public void joueurCarteCC(GraphMap g){
+    public void jouerCarteCC(GraphMap g){
         if(valCC()){
         CC.add(g.ClickConstructionControleContinus(this));
         CC.add(g.ClickConstructionControleContinus(this));
         nbCc=nbCc-2;
+        }
+    }
+    public void jouerMonopole(ArrayList<Joueur> j, TypeRessource t, Hashtable<TypeRessource,Pile> h ){
+        int nbMon[]=getMonopole();
+        if(nbMon[0] > nbMon[1]){
+        for(int i=0; i<j.size(); i++){
+            if(j.get(i)!=this){
+                j.get(i).retirerRessource(t, 2, h, t, 2);
+                ajoutRessource(t,2,h,t,2);
+            }
         }
     }
 
