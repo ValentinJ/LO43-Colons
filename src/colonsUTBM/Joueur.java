@@ -389,6 +389,16 @@ public class Joueur {
         return false;
     }
 
+    public void jouerCarteAncien(){
+        int i=0;
+        for(CarteDeveloppement c : mainDeveloppement){
+            if(c.getTypeDeveloppement() == TypeDeveloppement.ANCIEN && c.isDansLaMain() && i==0) {
+                c.dansLaMain = false;
+                i++;
+            }
+        }
+    }
+
     public void joueurCarteCC(GraphMap g){
         int i=0;
         if(valCC()){

@@ -242,6 +242,7 @@ public class EcranGauche extends JPanel implements ActionListener{
         }
         if (e.getSource() == Ancien) {
             eB.setMessage("Selectionner une tuile où placer le binome glandeur");
+            manJeu.getJoueurCourrant().jouerCarteAncien();
         }
         //TODO ici
         if (e.getSource() == Decouverte) {

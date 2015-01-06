@@ -83,7 +83,8 @@ public class ManagerJeu {
                     f.miseAJour();
                     terrain.deplacerBinomeGlandeur();
                     for (Joueur j1 : joueurs){
-                        j1.eneleverMoitiecarte(pilesRessources);
+                        //todo à décommenter
+                        //j1.eneleverMoitiecarte(pilesRessources);
                     }
                     actionEnCours=false;
                     f.miseAJour();
@@ -154,8 +155,8 @@ public class ManagerJeu {
     }
 
     public void determinerPlusCC(){
-        Joueur tmp = null;
         int nbCC;
+        Joueur jj = null;
         for(Joueur j : joueurs){
             nbCC = j.getCCsize();
             if(nbCC>=5){
@@ -163,36 +164,45 @@ public class ManagerJeu {
             }
 
         }
-        if(tmp!=null) {
-            for (Joueur j : joueurs) {
-                j.setPlusCC(false);
-                if (tmp.equals(j))
-                    j.setPlusCC(true);
+        int tmp = 0;
+        for (Joueur j : joueurs) {
+            if(j.isPlusCC()) {
+                if(j.getCCsize()>tmp){
+                    tmp = j.getCCsize();
+                    jj=j;
+                }
             }
         }
+        for(Joueur j : joueurs){
+            if(!jj.equals(j))
+                j.setPlusCC(false);
+        }
+
     }
 
     public void determinerPlusAncien(){
-        Joueur tmp = null;
-        int tab[];
-        int tabtmp[];
+        int nbCC[];
+        Joueur jj = null;
         for(Joueur j : joueurs){
-            tab = j.getAncien();
-            if(tab[2]>=3){
-                tmp = j;
-                tabtmp = tmp.getAncien();
-                if(tab[2]>tabtmp[2]){
-                    tmp=j;
-                }
+            nbCC = j.getAncien();
+            if(nbCC[2]>=3){
+                j.setPlusAncien(true);
             }
 
         }
-        if(tmp!=null) {
-            for (Joueur j : joueurs) {
-                j.setPlusAncien(false);
-                if (tmp.equals(j))
-                    j.setPlusAncien(true);
+        int tmp = 0;
+        for (Joueur j : joueurs) {
+            nbCC = j.getAncien();
+            if(j.isPlusCC()) {
+                if(nbCC[2]>tmp){
+                    tmp = nbCC[2];
+                    jj=j;
+                }
             }
+        }
+        for(Joueur j : joueurs){
+            if(!jj.equals(j))
+                j.setPlusAncien(false);
         }
     }
 
