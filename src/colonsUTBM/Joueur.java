@@ -168,13 +168,16 @@ public class Joueur {
          */
     }
 
-    public void achatCarteDev(ArrayList<CarteDeveloppement> cd){
+    public void achatCarteDev(ArrayList<CarteDeveloppement> cd, Hashtable<TypeRessource, Pile> h){
 
         //todo ajout la carte au joueur
         if(verifierAchatCarteDev()){
             getMainRessource().get(TypeRessource.COURS).retirer();
+            h.get(TypeRessource.COURS).ajouter();
             getMainRessource().get(TypeRessource.CAFE).retirer();
+            h.get(TypeRessource.CAFE).ajouter();
             getMainRessource().get(TypeRessource.SOMMEIL).retirer();
+            h.get(TypeRessource.SOMMEIL).ajouter();
             mainDeveloppement.add(cd.get(0));
             cd.remove(0);
         }
@@ -185,14 +188,18 @@ public class Joueur {
          */
     }
 
-    public void construireUV1(GraphMap g){
+    public void construireUV1(GraphMap g, Hashtable<TypeRessource,Pile> h){
         if(verifierAchatUV1()) {
             uvs.add(g.ClickConstructionUV1(this));
             g.majCSS();
             mainRessource.get(TypeRessource.COURS).retirer();
+            h.get(TypeRessource.COURS).ajouter();
             mainRessource.get(TypeRessource.BIERE).retirer();
-            mainRessource.get(TypeRessource.CAFE).retirer();;
+            h.get(TypeRessource.BIERE).ajouter();
+            mainRessource.get(TypeRessource.CAFE).retirer();
+            h.get(TypeRessource.CAFE).ajouter();
             mainRessource.get(TypeRessource.NOURRITURE).retirer();
+            h.get(TypeRessource.NOURRITURE).ajouter();
             nbUv1--;
         }
     }
@@ -204,7 +211,7 @@ public class Joueur {
         return i;
     }
 
-    public void eneleverMoitiecarte(){
+    public void eneleverMoitiecarte(Hashtable<TypeRessource, Pile> h){
         Random r = new Random();
         int valeur;
         int nbcarteajeter = 0;
@@ -232,18 +239,29 @@ public class Joueur {
                         if(mainRessource.get(p).getNombre()!=0) {
                             System.out.println("On retire une carte de type " + p.toString());
                             mainRessource.get(p).retirer();
+                            h.get(p).ajouter();
                         }
                         else{
-                            if(mainRessource.get(TypeRessource.BIERE).getNombre()!=0)
+                            if(mainRessource.get(TypeRessource.BIERE).getNombre()!=0) {
                                 mainRessource.get(TypeRessource.BIERE).retirer();
-                            else if(mainRessource.get(TypeRessource.SOMMEIL).getNombre()!=0)
+                                h.get(TypeRessource.BIERE).ajouter();
+                            }
+                            else if(mainRessource.get(TypeRessource.SOMMEIL).getNombre()!=0) {
                                 mainRessource.get(TypeRessource.SOMMEIL).retirer();
-                            else if(mainRessource.get(TypeRessource.CAFE).getNombre()!=0)
+                                h.get(TypeRessource.SOMMEIL).ajouter();
+                            }
+                            else if(mainRessource.get(TypeRessource.CAFE).getNombre()!=0) {
                                 mainRessource.get(TypeRessource.CAFE).retirer();
-                            else if(mainRessource.get(TypeRessource.COURS).getNombre()!=0)
+                                h.get(TypeRessource.CAFE).ajouter();
+                            }
+                            else if(mainRessource.get(TypeRessource.COURS).getNombre()!=0) {
                                 mainRessource.get(TypeRessource.COURS).retirer();
-                            else
+                                h.get(TypeRessource.COURS).ajouter();
+                            }
+                            else {
                                 mainRessource.get(TypeRessource.NOURRITURE).retirer();
+                                h.get(TypeRessource.NOURRITURE).ajouter();
+                            }
                         }
                     }
                     cmptr++;
@@ -252,7 +270,7 @@ public class Joueur {
         }
     }
 
-    public void transformerUV2(GraphMap g){
+    public void transformerUV2(GraphMap g, Hashtable<TypeRessource,Pile> h){
         if(verifierAchatUV2()) {
             UV2 uvtmp= new UV2();
             uvtmp = g.ClickConstructionUV2(this);
@@ -270,7 +288,9 @@ public class Joueur {
             }
             */
             mainRessource.get(TypeRessource.COURS).retirer(2);
+            h.get(TypeRessource.COURS).ajouter(2);
             mainRessource.get(TypeRessource.SOMMEIL).retirer(3);
+            h.get(TypeRessource.SOMMEIL).ajouter(3);
             nbUv1++;
             nbUv2--;
             g.majCSS();

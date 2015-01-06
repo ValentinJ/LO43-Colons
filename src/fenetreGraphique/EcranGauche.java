@@ -160,7 +160,7 @@ public class EcranGauche extends JPanel implements ActionListener{
                 t = new Thread("exemple") {
                     @Override
                     public void run() {
-                        manJeu.getJoueurCourrant().construireUV1(manJeu.getTerrain());
+                        manJeu.getJoueurCourrant().construireUV1(manJeu.getTerrain(),manJeu.getPilesRessources());
                         manJeu.getF().miseAJour();
                         eB.setMessage("L'UV1 a été placée avec succès !");
                     }
@@ -176,7 +176,7 @@ public class EcranGauche extends JPanel implements ActionListener{
                     t = new Thread("exemple") {
                         @Override
                         public void run() {
-                            manJeu.getJoueurCourrant().transformerUV2(manJeu.getTerrain());
+                            manJeu.getJoueurCourrant().transformerUV2(manJeu.getTerrain(),manJeu.getPilesRessources());
                             manJeu.getF().miseAJour();
                             eB.setMessage("L'UV1 a été modifiée en UV2 avec succès !");
                         }
@@ -216,7 +216,7 @@ public class EcranGauche extends JPanel implements ActionListener{
             System.out.println("EcranGauche.java : Monopole");
         }
         if (e.getSource() == achatCarteDev) {
-            manJeu.getJoueurCourrant().achatCarteDev(manJeu.getPilesDeveloppement());
+            manJeu.getJoueurCourrant().achatCarteDev(manJeu.getPilesDeveloppement(), manJeu.getPilesRessources());
             // TODO pb ici carte dev du manager vide !
             eB.setMessage("Vous avez obtenu une carte " + manJeu.getJoueurCourrant().getMainDeveloppement().get(manJeu.getJoueurCourrant().getMainDeveloppement().size() - 1).getNom());
         }

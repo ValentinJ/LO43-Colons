@@ -22,7 +22,7 @@ public class Pile {
     public void retirer() { nombre--; }
     public void ajouter(int nbr){ nombre+=nbr;}
     public void retirer(int nbr){
-        if(nbr<nombre)
+        if(nbr>nombre)
             nombre=0;
         nombre-=nbr;
     }

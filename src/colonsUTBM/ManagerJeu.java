@@ -102,7 +102,7 @@ public class ManagerJeu {
                     f.miseAJour();
                     terrain.deplacerBinomeGlandeur();
                     for (Joueur j1 : joueurs){
-                        j1.eneleverMoitiecarte();
+                        j1.eneleverMoitiecarte(pilesRessources);
                     }
                     actionEnCours=false;
                     f.miseAJour();
@@ -162,12 +162,10 @@ public class ManagerJeu {
                 if (noeudOccuper.get(j) instanceof UV2) {
                     System.out.println("Ajout de 2 ressources");
                     ((UV2) noeudOccuper.get(j)).getJ().ajoutRessource(caseProd.get(i).getTr(), 2,pilesRessources,caseProd.get(i).getTr(),2);
-                    pilesRessources.get(caseProd.get(i).getTr()).retirer(2);
                 }
                 else {
                     System.out.println("Ajout de 1 ressource");
                     ((UV1) noeudOccuper.get(j)).getJ().ajoutRessource(caseProd.get(i).getTr(), 1,pilesRessources,caseProd.get(i).getTr(),1);
-                    pilesRessources.get(caseProd.get(i).getTr()).retirer(1);
                 }
             }
         }
@@ -290,6 +288,9 @@ public class ManagerJeu {
             joueurs.get(i).nbUv1--;
             joueurs.get(i).nbCc--;
 
+            System.out.println(this.toString());
+
+
             actionEnCours=false;
             f.miseAJour();
 
@@ -317,6 +318,9 @@ public class ManagerJeu {
             terrain.majCSS();
             joueurs.get(i).nbUv1--;
             joueurs.get(i).nbCc--;
+
+            System.out.println(this.toString());
+
 
             actionEnCours=false;
             f.miseAJour();
