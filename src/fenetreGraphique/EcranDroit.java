@@ -116,19 +116,24 @@ public class EcranDroit extends JPanel{
         recapInfos = new JPanel(new GridLayout(1,2));
 
         try {
-            imgBierre     = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteBiere.png"));
+            imgBierre = ImageIO.read(getClass().getResource("img/CarteBiere.png"));
+            //imgBierre     = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteBiere.png"));
         } catch (IOException e) {e.printStackTrace();}
         try {
-            imgSommeil    = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteSommeil.png"));
+            //imgSommeil    = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteSommeil.png"));
+            imgSommeil = ImageIO.read(getClass().getResource("img/CarteSommeil.png"));
         } catch (IOException e) {e.printStackTrace();}
         try {
-            imgCafe       = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteCafe.png"));
+            imgCafe = ImageIO.read(getClass().getResource("img/CarteCafe.png"));
+            //imgCafe       = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteCafe.png"));
         } catch (IOException e) {e.printStackTrace();}
         try {
-            imgCours      = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteCours.png"));
+            imgCours = ImageIO.read(getClass().getResource("img/CarteCours.png"));
+            //imgCours      = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteCours.png"));
         } catch (IOException e) {e.printStackTrace();}
         try {
-            imgNourriture = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteNourriture.png"));
+            imgNourriture = ImageIO.read(getClass().getResource("img/CarteNourriture.png"));
+            //imgNourriture = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteNourriture.png"));
         } catch (IOException e) {e.printStackTrace();}
 
         infosJoueur = new JPanel(new GridLayout(1, Joueurs.size()+1));

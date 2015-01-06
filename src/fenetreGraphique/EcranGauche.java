@@ -78,19 +78,25 @@ public class EcranGauche extends JPanel implements ActionListener{
         finDeTour.addActionListener(this);
 
         try {
-            imgBierre     = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteBiere.png"));
+            imgBierre = ImageIO.read(getClass().getResource("img/CarteBiere.png"));
+            //imgBierre     = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteBiere.png"));
         } catch (IOException e) {e.printStackTrace();}
         try {
-            imgSommeil    = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteSommeil.png"));
+            //imgSommeil    = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteSommeil.png"));
+            imgSommeil = ImageIO.read(getClass().getResource("img/CarteSommeil.png"));
+
         } catch (IOException e) {e.printStackTrace();}
         try {
-            imgCafe       = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteCafe.png"));
+            imgCafe = ImageIO.read(getClass().getResource("img/CarteCafe.png"));
+            //imgCafe       = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteCafe.png"));
         } catch (IOException e) {e.printStackTrace();}
         try {
-            imgCours      = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteCours.png"));
+            imgCours = ImageIO.read(getClass().getResource("img/CarteCours.png"));
+            //imgCours      = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteCours.png"));
         } catch (IOException e) {e.printStackTrace();}
         try {
-            imgNourriture = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteNourriture.png"));
+            imgNourriture = ImageIO.read(getClass().getResource("img/CarteNourriture.png"));
+            //imgNourriture = ImageIO.read(new File(System.getProperty("user.dir") +"/img/CarteNourriture.png"));
         } catch (IOException e) {e.printStackTrace();}
 
         affichageConstruction();
@@ -324,10 +330,12 @@ public class EcranGauche extends JPanel implements ActionListener{
 
     public void affichageDes(){
         try {
-            imgDes1 = ImageIO.read(new File(System.getProperty("user.dir") +"/img/" + manJeu.getDes().getImgV1()));
+            //imgDes1 = ImageIO.read(new File(System.getProperty("user.dir") +"/img/" + manJeu.getDes().getImgV1()));
+            imgDes1 = ImageIO.read(getClass().getResource("img/"+manJeu.getDes().getImgV1()));
         } catch (IOException e) {e.printStackTrace();}
         try {
-            imgDes2 = ImageIO.read(new File(System.getProperty("user.dir") +"/img/" + manJeu.getDes().getImgV2()));
+            //imgDes2 = ImageIO.read(new File(System.getProperty("user.dir") +"/img/" + manJeu.getDes().getImgV2()));
+            imgDes2 = ImageIO.read(getClass().getResource("img/"+manJeu.getDes().getImgV1()));
         } catch (IOException e) {e.printStackTrace();}
 
         System.out.println("des 1 :" + manJeu.getDes().getImgV1() + " des2 : " + manJeu.getDes().getImgV2() );
