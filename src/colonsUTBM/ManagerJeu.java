@@ -216,16 +216,14 @@ public class ManagerJeu {
 
     }
 
-    public int calculerScoreFinal(){
-        for(int i=0 ; i < joueurs.size(); i++){
-            calculerScore();
-            for (int j = 0; j < ((joueurs.get(i)).getMainDeveloppement()).size(); j++) {
-                if ((((joueurs.get(i)).getMainDeveloppement()).get(j)).getTypeDeveloppement() == TypeDeveloppement.POINTVICTOIRE){
-                    (joueurs.get(i)).setScore((joueurs.get(i)).getScore() + 1);
-                }
+    public Joueur calculerScoreFinal(){
+        Joueur j = this.getJoueurs().get(0) ;
+        for(int i=1 ; i < joueurs.size(); i++){
+            if (j.getScore() < this.getJoueurs().get(i).getScore()){
+                j = this.getJoueurs().get(i);
             }
         }
-        return 0;
+        return j;
     }
 
     public void InitVariables(){

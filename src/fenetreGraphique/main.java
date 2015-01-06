@@ -5,6 +5,8 @@ import colonsUTBM.ManagerJeu;
 import colonsUTBM.TypeCouleur;
 import colonsUTBM.TypeRessource;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 
 /**
@@ -71,6 +73,11 @@ public class main {
         ManagerJeu jeu = new ManagerJeu(jlist);
         jeu.jouer();
 
-
+        FenetreDefaut fenetreVictoire = new FenetreDefaut("Victoire", 500, 500);
+        fenetreVictoire.setLayout(new GridLayout(3, 1));
+        Joueur vainqueur = new Joueur();
+        vainqueur = jeu.calculerScoreFinal();
+        fenetreVictoire.add(new JLabel("Le joueur " + vainqueur.getNom() + " a remporté la partie"));
+        fenetreVictoire.affichage();
     }
 }
