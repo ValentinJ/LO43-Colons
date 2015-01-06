@@ -71,6 +71,7 @@ public class ManagerJeu {
         while(!terminer){
             for(Joueur j : joueurs){
                 des.lancerDes();
+
                 System.out.println(this.toString());
                 System.out.println("Lancé des dés : " + des.getTotalDes());
                 System.out.println("DEBUT : TOUR n°"+tour+" pour le joueur "+j.getNom());
@@ -83,8 +84,7 @@ public class ManagerJeu {
                     f.miseAJour();
                     terrain.deplacerBinomeGlandeur();
                     for (Joueur j1 : joueurs){
-                        //todo à décommenter
-                        //j1.eneleverMoitiecarte(pilesRessources);
+                        j1.eneleverMoitiecarte(pilesRessources);
                     }
                     actionEnCours=false;
                     f.miseAJour();
@@ -107,8 +107,18 @@ public class ManagerJeu {
 
                 System.out.println("Fin de tour pour le joueur "+j.getNom());
             }
+            for(Joueur j : joueurs){
+                if(j.getScore()>9){
+                    terminer=true;
+                }
+            }
         }
+
         System.out.println("La partie se termine...");
+        for (Joueur j : joueurs){
+            j.calculerScore(this);
+        }
+
     }
 
     public void finDeTour() {
@@ -193,7 +203,7 @@ public class ManagerJeu {
         int tmp = 0;
         for (Joueur j : joueurs) {
             nbCC = j.getAncien();
-            if(j.isPlusCC()) {
+            if(j.isPlusAncien()) {
                 if(nbCC[2]>tmp){
                     tmp = nbCC[2];
                     jj=j;
@@ -209,11 +219,11 @@ public class ManagerJeu {
     //todo calcul des score à finir !!!!
     public void calculerScore(){
         ArrayList<Integer> t;
-        determinerPlusAncien();
-        determinerPlusCC();
+        //determinerPlusAncien();
+        //determinerPlusCC();
         for(Joueur jou : joueurs){
             t = jou.getNbUvs();
-            jou.setScore(t.get(0)+t.get(1));
+            jou.setScore(t.get(0)+t.get(1)*2);
             if(jou.isPlusAncien())
                 jou.setScore(jou.getScore()+2);
             if(jou.isPlusCC())
