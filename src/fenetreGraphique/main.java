@@ -17,7 +17,7 @@ public class main {
         // TODO decommenter ce paragraphe fait fonctionner prog
         System.setProperty("org.graphstream.ui.renderer","org.graphstream.ui.j2dviewer.J2DGraphRenderer");
 
-/*
+
 
         FenetrePrincipale frame;
         FenetreFlash f = new FenetreFlash();
@@ -47,44 +47,17 @@ public class main {
             //frame = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, jeu);
 
             jeu.jouer();
+            FenetreDefaut fenetreVictoire = new FenetreDefaut("Victoire", 500, 500);
+            fenetreVictoire.setLayout(new GridLayout(3, 1));
+            Joueur vainqueur = new Joueur();
+            vainqueur = jeu.calculerScoreFinal();
+            fenetreVictoire.add(new JLabel("Le joueur " + vainqueur.getNom() + " a remporté la partie"));
+            fenetreVictoire.affichage();
         }
         else {
             System.out.println("L'application a été fermé :" + fId.getValider());
             System.exit(0);
         }
-*/
-
-        //TODO supprimer ce qui suit uen fois le projet terminé
-        FenetrePrincipale frame;
-        Joueur jtest = new Joueur("Mick",TypeCouleur.BLEU);
-        jtest.getMainRessource(TypeRessource.BIERE).ajouter(1000);
-        jtest.getMainRessource(TypeRessource.CAFE).ajouter(1000);
-        jtest.getMainRessource(TypeRessource.COURS).ajouter(1000);
-        jtest.getMainRessource(TypeRessource.NOURRITURE).ajouter(1000);
-        jtest.getMainRessource(TypeRessource.SOMMEIL).ajouter(1000);
-
-        Joueur jtest2 = new Joueur("Elodie",TypeCouleur.ROUGE);
-        jtest2.getMainRessource(TypeRessource.BIERE).ajouter(1000);
-        jtest2.getMainRessource(TypeRessource.CAFE).ajouter(1000);
-        jtest2.getMainRessource(TypeRessource.COURS).ajouter(1000);
-        jtest2.getMainRessource(TypeRessource.NOURRITURE).ajouter(1000);
-        jtest2.getMainRessource(TypeRessource.SOMMEIL).ajouter(1000);
-
-        ArrayList<Joueur> jlist = new ArrayList<Joueur> ();
-        //todo : TEST : Création automatique des joueurs
-        jlist.add(jtest);
-        jlist.add(jtest2);
-        jlist.add(new Joueur("David ", TypeCouleur.VERT));
-        jlist.add(new Joueur("Théoline ", TypeCouleur.JAUNE));
-
-        ManagerJeu jeu = new ManagerJeu(jlist);
-        jeu.jouer();
-
-        FenetreDefaut fenetreVictoire = new FenetreDefaut("Victoire", 500, 500);
-        fenetreVictoire.setLayout(new GridLayout(3, 1));
-        Joueur vainqueur = new Joueur();
-        vainqueur = jeu.calculerScoreFinal();
-        fenetreVictoire.add(new JLabel("Le joueur " + vainqueur.getNom() + " a remporté la partie"));
-        fenetreVictoire.affichage();
+        
     }
 }
