@@ -567,4 +567,42 @@ public class Joueur {
 
         return NbUVS;
     }
+
+    public void calculerScore(ManagerJeu manJeu){
+        int pointUV = (this.getNbUvs()).get(0) + ((this.getNbUvs()).get(1)*2);
+        int pointPTSV = this.getPointVictoire()[0];
+        boolean boolAncien = false;
+        boolean boolCC = false;
+        int carton = 0;
+
+        if (this.getAncien()[0] > 2){
+            boolAncien = true;
+            for (int i = 0 ; i < manJeu.getJoueurs().size() ; i++) {
+                if (! manJeu.getJoueurs().get(i).equals(this)){
+                    if (manJeu.getJoueurs().get(i).getAncien()[0] >= this.getAncien()[0]){
+                        boolAncien = false;
+                    }
+                }
+            }
+        }
+
+        if (this.getCCsize() > 4){
+            boolCC = true;
+            for (int i = 0 ; i < manJeu.getJoueurs().size() ; i++) {
+                if (! manJeu.getJoueurs().get(i).equals(this)){
+                    if (manJeu.getJoueurs().get(i).getCCsize() >= this.getCCsize()){
+                        boolCC = false;
+                    }
+                }
+            }
+        }
+
+        if (boolAncien == true){
+            carton = carton +2;
+        }
+        if (boolCC == true) {
+            carton = carton + 2;
+        }
+        this.setScore(pointUV + pointPTSV + carton);
+    }
 }
