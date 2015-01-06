@@ -120,7 +120,7 @@ public class Joueur {
          * 1 sommeil
          * vérifier mainRessource
          * permettra d'activer le bouton ou non
-          */
+         */
 
     }
 
@@ -174,12 +174,12 @@ public class Joueur {
         if(verifierAchatCarteDev()){
             if(cd.size()!=0) {
 
-            getMainRessource().get(TypeRessource.COURS).retirer();
-            h.get(TypeRessource.COURS).ajouter();
-            getMainRessource().get(TypeRessource.CAFE).retirer();
-            h.get(TypeRessource.CAFE).ajouter();
-            getMainRessource().get(TypeRessource.SOMMEIL).retirer();
-            h.get(TypeRessource.SOMMEIL).ajouter();
+                getMainRessource().get(TypeRessource.COURS).retirer();
+                h.get(TypeRessource.COURS).ajouter();
+                getMainRessource().get(TypeRessource.CAFE).retirer();
+                h.get(TypeRessource.CAFE).ajouter();
+                getMainRessource().get(TypeRessource.SOMMEIL).retirer();
+                h.get(TypeRessource.SOMMEIL).ajouter();
 
                 mainDeveloppement.add(cd.get(0));
                 cd.remove(0);
@@ -381,8 +381,8 @@ public class Joueur {
             }
         }
         if (constrCC >=1  && nbCc >=2 )
-        return true;
-    return false;
+            return true;
+        return false;
     }
 
     public void joueurCarteCC(GraphMap g){
@@ -390,7 +390,7 @@ public class Joueur {
         if(valCC()){
             CC.add(g.ClickConstructionControleContinus(this));
             CC.add(g.ClickConstructionControleContinus(this));
-        nbCc=nbCc-2;
+            nbCc=nbCc-2;
             for(CarteDeveloppement c : mainDeveloppement){
                 if(c.getTypeDeveloppement() == TypeDeveloppement.CCC && c.isDansLaMain() && i==0) {
                     c.dansLaMain = false;
@@ -478,9 +478,9 @@ public class Joueur {
         for (int i = 0; i<mainDeveloppement.size() ; i++){
             if ( (mainDeveloppement.get(i)).getTypeDeveloppement() == TypeDeveloppement.CCC ){
                 if(mainDeveloppement.get(i).isDansLaMain())
-                nb[0] = nb[0] + 1;
+                    nb[0] = nb[0] + 1;
                 else
-                nb[2] +=1;
+                    nb[2] +=1;
                 if(!mainDeveloppement.get(i).isAttenteValide())
                     nb[1]+=1;
             }
