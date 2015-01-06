@@ -391,11 +391,20 @@ public class Joueur {
         if(nbMon[0] > nbMon[1]){
         for(int i=0; i<j.size(); i++){
             if(j.get(i)!=this){
-                j.get(i).retirerRessource(t, 2, h, t, 2);
-                ajoutRessource(t,2,h,t,2);
+                j.get(i).retirerRessource(t, 1, h, t, 1);
+                ajoutRessource(t,1,h,t,1);
             }
         }
     }
+
+    public void jouerDecouverte (TypeRessource t, Hashtable<TypeRessource,Pile> h) {
+        int nbDec[] = getDecouverte();
+        if (nbDec[0] > nbDec[1]) {
+            ajoutRessource(t, 2, h, t, 2);
+        }
+    }
+
+
 
     public void jouerCarteDeveloppement(CarteDeveloppement c){
     }
