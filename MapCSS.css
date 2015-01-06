@@ -1,0 +1,159 @@
+graph {
+    fill-color: white;
+}
+node{
+
+}
+/* NoeudConstructible UV vide */
+node{
+    z-index: 10;
+}
+
+node.noeud {
+    size: 20px;
+    fill-color: #646464;
+}
+node.uv1{
+    size: 25px;
+    shape: triangle;
+    stroke-mode: plain;
+    stroke-color: #646464;
+}
+node.uv2{
+    size: 25px;
+    shape: rounded-box;
+    stroke-width: 2px;
+    stroke-mode: plain;
+    stroke-color: #646464;
+}
+node.blue{
+    fill-color: #0000ff;
+}
+node.red{
+    fill-color: #ff0000;
+}
+node.green{
+    fill-color: #00ff00;
+}
+node.yellow{
+    fill-color: #ffff00;
+}
+
+node.case{
+    size: 80px;
+    z-index:0;
+    shape: box;
+    text-size:17px;
+    text-padding: 3px, 2px;
+    text-background-mode: rounded-box;
+    text-background-color: #828282;
+    text-color: white;
+    text-style: bold;
+    /*text-offset: 5px, 0px;*/
+}
+node.caseBiere {
+    fill-mode: image-scaled; fill-image: url('img/caseBiere.png');
+}
+node.caseBiereGlandeur {
+    fill-mode: image-scaled; fill-image: url('img/caseBiereGlandeur.png');
+}
+
+node.caseCafe {
+    fill-mode: image-scaled; fill-image: url('img/caseCafe.png');
+}
+node.caseCafeGlandeur {
+    fill-mode: image-scaled; fill-image: url('img/caseCafeGlandeur.png');
+}
+
+node.caseCours{
+    fill-mode: image-scaled; fill-image: url('img/caseCours.png');
+}
+node.caseCoursGlandeur{
+    fill-mode: image-scaled; fill-image: url('img/caseCoursGlandeur.png');
+}
+
+node.caseDesert{
+    fill-mode: image-scaled; fill-image: url('img/caseDesert.png');
+}
+node.caseDesertGlandeur{
+    fill-mode: image-scaled; fill-image: url('img/caseDesertGlandeur.png');
+}
+
+node.caseNourriture {
+    fill-mode: image-scaled; fill-image: url('img/caseNourriture.png');
+}
+node.caseNourritureGlandeur {
+    fill-mode: image-scaled; fill-image: url('img/caseNourritureGlandeur.png');
+}
+
+node.caseSommeil {
+    fill-mode: image-scaled; fill-image: url('img/caseSommeil.png');
+}
+
+node.caseSommeilGlandeur {
+    fill-mode: image-scaled; fill-image: url('img/caseSommeilGlandeur.png');
+}
+
+node.caseOcean{
+    fill-mode: image-scaled; fill-image: url('img/caseOcean.png');
+}
+
+node.caseCommerceTout {
+    fill-mode: image-scaled; fill-image: url('img/caseCommerceTout.png');
+}
+node.caseCommerceBiere {
+    fill-mode: image-scaled; fill-image: url('img/caseCommerceBiere.png');
+}
+node.caseCommerceCafe {
+    fill-mode: image-scaled; fill-image: url('img/caseCommerceCafe.png');
+}
+node.caseCommerceCours {
+    fill-mode: image-scaled; fill-image: url('img/caseCommerceCours.png');
+}
+node.caseCommerceNourriture {
+    fill-mode: image-scaled; fill-image: url('img/caseCommerceNourriture.png');
+}
+node.caseCommerceSommeil {
+    fill-mode: image-scaled; fill-image: url('img/caseCommerceSommeil.png');
+}
+
+
+node:clicked {
+    fill-color: #00fff5;
+}
+
+node .edgeConstruction {
+    size: 25px;
+    shape: diamond;
+    stroke-mode: plain;
+    stroke-color: black;
+    fill-color: white;
+}
+
+/* arête pour contrôle continus */
+edge{
+    fill-color: black;
+}
+edge.edgeCase {
+    fill-color: white;
+    z-index:-1;
+}
+edge.edgeCommerce {
+    fill-color: black;
+    z-index:9;
+}
+edge.controleContinu{
+    shadow-mode: plain; shadow-width: 5px; shadow-offset: 0px;
+}
+edge.blue{
+    shadow-color: #6464ff;
+}
+edge.red{
+    shadow-color: #ff7878;
+}
+edge.green{
+    shadow-color: #78ff78;
+}
+edge.yellow{
+    shadow-color: #ffff78;
+}
