@@ -446,9 +446,7 @@ public class EcranDroit extends JPanel{
         interfaceEchange.add((Joueurs.get((0))).getNom(), EJ1);
         interfaceEchange.add((Joueurs.get((1))).getNom(), EJ2);
         interfaceEchange.add((Joueurs.get((2))).getNom(), EJ3);
-        if (Tour%Joueurs.size() == 3) {
-            interfaceEchange.add((Joueurs.get((3))).getNom(), EJ4);
-        }
+        interfaceEchange.add((Joueurs.get((3))).getNom(), EJ4);
         interfaceEchange.add("Banque", Banque);
         interfaceEchange.setOpaque(true);
 
