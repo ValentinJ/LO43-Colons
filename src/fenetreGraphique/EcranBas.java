@@ -29,10 +29,10 @@ public class EcranBas extends JPanel {
     }
 
     public void setMessage(String n){
-        message = n;
-        information = new JLabel(message);
-        add(information, new GridBagConstraints(0, this.getComponentCount(), 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
-        frame.validate();
+        message = "<html>" + n + "<br>" + information.getText() + "</html>";
+        information.setText(message);
+        //add(information, new GridBagConstraints(0, this.getComponentCount(), 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
+        //frame.validate();
     }
 
     public void delete(){

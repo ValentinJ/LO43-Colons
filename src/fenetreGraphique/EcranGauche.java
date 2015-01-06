@@ -359,16 +359,18 @@ public class EcranGauche extends JPanel implements ActionListener{
         jouerCarte.setBorder(new EmptyBorder(5, 0, 0, 5));
         jouerCarte.setBorder(BorderFactory.createTitledBorder("Jouer carte"));
         jouerCarte.add(Decouverte,   new GridBagConstraints(0, 0, 1, 1, 1, 1, GridBagConstraints.WEST, GridBagConstraints.WEST, new Insets(0, 0, 0, 0), 0, 0));
-        jouerCarte.add(nbDecouverte, new GridBagConstraints(1, 0, 1, 1, 1, 1, GridBagConstraints.WEST, GridBagConstraints.WEST, new Insets(0, 0, 0, 0), 0, 0));
-        jouerCarte.add(Monopole,     new GridBagConstraints(0, 1, 1, 1, 1, 1, GridBagConstraints.WEST, GridBagConstraints.WEST, new Insets(0, 0, 0, 0), 0, 0));
+        jouerCarte.add(nbDecouverte, new GridBagConstraints(0, 1, 1, 1, 1, 1, GridBagConstraints.WEST, GridBagConstraints.WEST, new Insets(0, 0, 0, 0), 0, 0));
+        jouerCarte.add(Monopole,     new GridBagConstraints(1, 0, 1, 1, 1, 1, GridBagConstraints.WEST, GridBagConstraints.WEST, new Insets(0, 0, 0, 0), 0, 0));
         jouerCarte.add(nbMonopole,   new GridBagConstraints(1, 1, 1, 1, 1, 1, GridBagConstraints.WEST, GridBagConstraints.WEST, new Insets(0, 0, 0, 0), 0, 0));
-        jouerCarte.add(Ancien,       new GridBagConstraints(0, 2, 1, 1, 1, 1, GridBagConstraints.WEST, GridBagConstraints.WEST, new Insets(0, 0, 0, 0), 0, 0));
-        jouerCarte.add(nbAncien,     new GridBagConstraints(1, 2, 1, 1, 1, 1, GridBagConstraints.WEST, GridBagConstraints.WEST, new Insets(0, 0, 0, 0), 0, 0));
-        jouerCarte.add(CCC,          new GridBagConstraints(0, 3, 1, 1, 1, 1, GridBagConstraints.WEST, GridBagConstraints.WEST, new Insets(0, 0, 0, 0), 0, 0));
-        jouerCarte.add(nbCCC,        new GridBagConstraints(1, 3, 1, 1, 1, 1, GridBagConstraints.WEST, GridBagConstraints.WEST, new Insets(0, 0, 0, 0), 0, 0));
+        jouerCarte.add(Ancien,       new GridBagConstraints(2, 0, 1, 1, 1, 1, GridBagConstraints.WEST, GridBagConstraints.WEST, new Insets(0, 0, 0, 0), 0, 0));
+        jouerCarte.add(nbAncien,     new GridBagConstraints(0, 3, 1, 1, 1, 1, GridBagConstraints.WEST, GridBagConstraints.WEST, new Insets(0, 0, 0, 0), 0, 0));
+        jouerCarte.add(CCC,          new GridBagConstraints(2, 1, 1, 1, 1, 1, GridBagConstraints.WEST, GridBagConstraints.WEST, new Insets(0, 0, 0, 0), 0, 0));
+        jouerCarte.add(nbCCC,        new GridBagConstraints(2, 3, 1, 1, 1, 1, GridBagConstraints.WEST, GridBagConstraints.WEST, new Insets(0, 0, 0, 0), 0, 0));
         jouerCarte.add(nbPointVictoire, new GridBagConstraints(0, 4, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 */
         jouerCarte = new JPanel(new GridLayout(5,2));
+        jouerCarte.setBorder(new EmptyBorder(5, 0, 0, 5));
+        jouerCarte.setBorder(BorderFactory.createTitledBorder("Jouer carte"));
         jouerCarte.add(Decouverte);
         jouerCarte.add(nbDecouverte);
         jouerCarte.add(Monopole);
