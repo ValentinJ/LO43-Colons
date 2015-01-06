@@ -251,6 +251,7 @@ public class EcranGauche extends JPanel implements ActionListener{
             e.printStackTrace();
         }
         affichageDes();
+        MAJinfoNbrJouerCarte();
         majBouton();
         /*
         setBorder(new EmptyBorder(5, 5, 0, 5));
@@ -365,6 +366,14 @@ public class EcranGauche extends JPanel implements ActionListener{
         jouerCarte.add(CCC,          new GridBagConstraints(0, 3, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
         jouerCarte.add(nbCCC,        new GridBagConstraints(1, 3, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.RELATIVE, new Insets(0, 0, 0, 0), 0, 0));
         jouerCarte.add(nbPointVictoire, new GridBagConstraints(0, 4, 1, 1, 1, 1, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+    }
+
+    public void MAJinfoNbrJouerCarte(){
+        nbAncien.setText(Integer.toString(manJeu.getJoueurCourrant().getAncien()));
+        nbDecouverte.setText(Integer.toString(manJeu.getJoueurCourrant().getDecouverte()));
+        nbMonopole.setText(Integer.toString(manJeu.getJoueurCourrant().getMonopole()));
+        nbCCC.setText(Integer.toString(manJeu.getJoueurCourrant().getCCC()));
+        nbPointVictoire.setText(Integer.toString(manJeu.getJoueurCourrant().getPointVictoire()) + " carte(s) point de victoire");
     }
 
 
