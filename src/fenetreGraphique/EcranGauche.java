@@ -154,7 +154,34 @@ public class EcranGauche extends JPanel implements ActionListener{
         else
             achatCarteDev.setEnabled(false);
 
+        int tab[];
+        tab = jCourant.getMonopole();
+        if(tab[0]-tab[1]>0){
+            Monopole.setEnabled(true);
+        }
+        else
+            Monopole.setEnabled(false);
 
+        tab = jCourant.getCCC();
+        if(tab[0]-tab[1]>0){
+            CCC.setEnabled(true);
+        }
+        else
+            CCC.setEnabled(false);
+
+        tab = jCourant.getDecouverte();
+        if(tab[0]-tab[1]>0){
+            Decouverte.setEnabled(true);
+        }
+        else
+            Decouverte.setEnabled(false);
+
+        tab = jCourant.getAncien();
+        if(tab[0]-tab[1]>0){
+            Ancien.setEnabled(true);
+        }
+        else
+            Ancien.setEnabled(false);
     }
 
     //TODO fonctionnalité des boutons
