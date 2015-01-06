@@ -347,7 +347,6 @@ public class EcranGauche extends JPanel implements ActionListener{
         Ancien.addActionListener(this);
         CCC.addActionListener(this);
 
-        // TODO faire mise a jour de ça aussi
         nbAncien = new JLabel(Integer.toString(manJeu.getJoueurCourrant().getAncien()));
         nbDecouverte = new JLabel(Integer.toString(manJeu.getJoueurCourrant().getDecouverte()));
         nbMonopole = new JLabel(Integer.toString(manJeu.getJoueurCourrant().getMonopole()));
