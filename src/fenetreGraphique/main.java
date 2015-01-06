@@ -66,11 +66,8 @@ public class main {
         jlist.add(new Joueur("David ", TypeCouleur.VERT));
         jlist.add(new Joueur("Théoline ", TypeCouleur.JAUNE));
 
+
         ManagerJeu jeu = new ManagerJeu(jlist);
-        //frame = new FenetrePrincipale("Colons de l'UTBohèMe - Projet LO43", 720, 1280, jeu);
-        //System.out.println(jeu.toString());
-
-
         jeu.jouer();
 
 

@@ -332,7 +332,8 @@ public class Joueur {
                     ajout = TypeRessource.NOURRITURE;
                     break;
             }
-            ajoutRessource(ajout, 1);
+            //todo à voir car j'ai commenté parceque j'ai changé la fonction (VAL)
+            //ajoutRessource(ajout, 1);
         }
     }
 
@@ -421,8 +422,14 @@ public class Joueur {
 
     public ArrayList<CarteDeveloppement> getMainDeveloppement(){return (ArrayList) mainDeveloppement;}
 
-    public void ajoutRessource(TypeRessource r, int nombreRessourceAAjouter){
-        mainRessource.get(r).ajouter(nombreRessourceAAjouter);
+    public void ajoutRessource(TypeRessource rAAjouter, int nombreRessourceAAjouter, Hashtable<TypeRessource,Pile> h, TypeRessource rAEnlever, int nombreRessourceAEnelever ){
+        mainRessource.get(rAAjouter).ajouter(nombreRessourceAAjouter);
+        h.get(rAEnlever).retirer(nombreRessourceAEnelever);
+    }
+
+    public void retirerRessource(TypeRessource rARetirer, int nombreRessouceARetirer, Hashtable<TypeRessource,Pile> h, TypeRessource rAAjouter, int nombreRessourceAAjouter){
+        mainRessource.get(rARetirer).retirer(nombreRessouceARetirer);
+        h.get(rAAjouter).retirer(nombreRessourceAAjouter);
     }
 
     public ArrayList<Integer> getNbUvs(){
