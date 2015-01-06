@@ -448,6 +448,46 @@ public class Joueur {
         return nb_ancien;
     }
 
+    public int getCCC() {
+        int nb = 0;
+        for (int i = 0; i<mainDeveloppement.size() ; i++){
+            if ( (mainDeveloppement.get(i)).getTypeDeveloppement() == TypeDeveloppement.CCC ){
+                nb = nb + 1;
+            }
+        }
+        return nb;
+    }
+
+    public int getDecouverte() {
+        int nb = 0;
+        for (int i = 0; i<mainDeveloppement.size() ; i++){
+            if ( (mainDeveloppement.get(i)).getTypeDeveloppement() == TypeDeveloppement.DECOUVERTE ){
+                nb = nb + 1;
+            }
+        }
+        return nb;
+    }
+
+    public int getMonopole() {
+        int nb = 0;
+        for (int i = 0; i<mainDeveloppement.size() ; i++){
+            if ( (mainDeveloppement.get(i)).getTypeDeveloppement() == TypeDeveloppement.MONOPOLE ){
+                nb = nb + 1;
+            }
+        }
+        return nb;
+    }
+
+    public int getPointVictoire() {
+        int nb = 0;
+        for (int i = 0; i<mainDeveloppement.size() ; i++){
+            if ( (mainDeveloppement.get(i)).getTypeDeveloppement() == TypeDeveloppement.POINTVICTOIRE ){
+                nb = nb + 1;
+            }
+        }
+        return nb;
+    }
+
 
     public ArrayList<CarteDeveloppement> getMainDeveloppement(){return (ArrayList) mainDeveloppement;}
 
