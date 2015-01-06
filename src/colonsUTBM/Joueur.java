@@ -375,7 +375,8 @@ public class Joueur {
     public boolean valCC(){
         int constrCC=0;
         for (int i = 0; i<mainDeveloppement.size() ; i++) {
-            if ((mainDeveloppement.get(i)).getTypeDeveloppement() == TypeDeveloppement.CCC) {
+            if ((mainDeveloppement.get(i)).getTypeDeveloppement() == TypeDeveloppement.CCC && mainDeveloppement.get(i).isDansLaMain() &&
+                    mainDeveloppement.get(i).isAttenteValide()) {
                 constrCC = constrCC + 1;
             }
         }
@@ -385,10 +386,17 @@ public class Joueur {
     }
 
     public void joueurCarteCC(GraphMap g){
+        int i=0;
         if(valCC()){
-        CC.add(g.ClickConstructionControleContinus(this));
-        CC.add(g.ClickConstructionControleContinus(this));
+            CC.add(g.ClickConstructionControleContinus(this));
+            CC.add(g.ClickConstructionControleContinus(this));
         nbCc=nbCc-2;
+            for(CarteDeveloppement c : mainDeveloppement){
+                if(c.getTypeDeveloppement() == TypeDeveloppement.CCC && c.isDansLaMain() && i==0) {
+                    c.dansLaMain = false;
+                    i++;
+                }
+            }
         }
     }
 

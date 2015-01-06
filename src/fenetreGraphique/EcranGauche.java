@@ -244,6 +244,17 @@ public class EcranGauche extends JPanel implements ActionListener{
         if (e.getSource() == CCC) {
             eB.setMessage("Selectionner un noeud vous appartenant puis un second noeud voisin de celui.");
             eB.setMessage("Repetez l'opération une seconde fois.");
+            if (t == null || t.getState() == Thread.State.TERMINATED) {
+                t = new Thread("exemple") {
+                    @Override
+                    public void run() {
+                        manJeu.getJoueurCourrant().joueurCarteCC(manJeu.getTerrain());
+                        manJeu.getF().miseAJour();
+                        eB.setMessage("Controle continus placé avec succès !");
+                    }
+                };
+                t.start();
+            }
         }
         //TODO ici aussi
         if (e.getSource() == Monopole) {
